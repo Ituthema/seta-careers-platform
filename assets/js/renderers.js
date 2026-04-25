@@ -146,7 +146,7 @@ window.CP_RENDER = {
         <div class="hero-grid wrap">
           <div>
             <span class="kicker">South Africa-only career opportunity platform</span>
-            <h1>Find, filter, and track learnerships, bursaries, internships, and apprenticeships.</h1>
+            <h1>Deadline Calendar — Live Update Test.</h1>
             <p class="lead">A content-rich authority site with structured opportunity pages, deadline tracking, and practical career guidance.</p>
             <div style="margin:18px 0">${window.CP_RENDER.searchBar()}</div>
             <div class="inline-stats">
@@ -192,7 +192,7 @@ window.CP_RENDER = {
     const provinces = window.CP_DATA.provinces || [];
     return `
       <div class="filter-panel">
-        <select id="categoryFilter">
+       <select id="categoryFilter">
           <option value="">All categories</option>
           <option value="learnership">Learnerships</option>
           <option value="internship">Internships</option>
