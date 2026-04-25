@@ -1,0 +1,62 @@
+[
+  {
+    "tool_name": "eligibility-checker",
+    "slug": "eligibility-checker",
+    "title": "Eligibility Checker",
+    "description": "Quickly compare your profile against opportunity requirements.",
+    "inputs": [
+      "qualification",
+      "province",
+      "status",
+      "field"
+    ],
+    "outputs": [
+      "matching opportunities",
+      "fit notes"
+    ],
+    "instructions": [
+      "Choose your profile details",
+      "View likely matches",
+      "Open recommended opportunities"
+    ]
+  },
+  {
+    "tool_name": "deadline-calendar",
+    "slug": "deadline-calendar",
+    "title": "Deadline Calendar",
+    "description": "Track closing dates by month and urgency.",
+    "inputs": [
+      "month",
+      "category",
+      "province"
+    ],
+    "outputs": [
+      "deadlines list"
+    ],
+    "instructions": [
+      "Select a month",
+      "Filter by category",
+      "Review opportunities closing soon"
+    ]
+  },
+  {
+    "tool_name": "scam-checker",
+    "slug": "scam-checker",
+    "title": "Scam Checker",
+    "description": "A trust checklist for spotting suspicious opportunity posts.",
+    "inputs": [
+      "source",
+      "link",
+      "requirements",
+      "payment request"
+    ],
+    "outputs": [
+      "risk notes"
+    ],
+    "instructions": [
+      "Inspect the source",
+      "Check red flags",
+      "Use the disclaimer and verification rules"
+    ]
+  }
+]

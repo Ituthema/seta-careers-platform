@@ -1,0 +1,296 @@
+[
+  {
+    "id": "opp-001",
+    "slug": "transnet-learnership-2026",
+    "title": "Transnet Learnership 2026",
+    "category": "learnership",
+    "sector": "Transport and Logistics",
+    "province": "Gauteng",
+    "location": "Gauteng",
+    "qualification_level": "Matric",
+    "eligibility": [
+      "South African citizen",
+      "Matric or equivalent",
+      "Unemployed youth"
+    ],
+    "documents_needed": [
+      "ID copy",
+      "Matric certificate",
+      "CV",
+      "Proof of residence"
+    ],
+    "description": "A learnership pathway for South African applicants seeking practical workplace training in the transport sector.",
+    "benefits": "Structured training and workplace exposure",
+    "stipend": "Demonstration value only",
+    "closing_date": "2026-07-15",
+    "application_url": "https://example.com/apply/transnet-learnership",
+    "source_name": "Official opportunity page",
+    "source_url": "https://example.com/source/transnet",
+    "verified": true,
+    "featured": true,
+    "posted_date": "2026-04-10",
+    "updated_date": "2026-04-18",
+    "tags": [
+      "transport",
+      "workplace training",
+      "graduate pathway",
+      "matric"
+    ]
+  },
+  {
+    "id": "opp-002",
+    "slug": "sasol-bursary-2026",
+    "title": "Sasol Bursary 2026",
+    "category": "bursary",
+    "sector": "Energy and Chemicals",
+    "province": "National",
+    "location": "South Africa",
+    "qualification_level": "Matric / University",
+    "eligibility": [
+      "High academic performance",
+      "South African citizen",
+      "Field of study alignment"
+    ],
+    "documents_needed": [
+      "ID copy",
+      "Academic transcript",
+      "Motivation letter",
+      "Proof of income"
+    ],
+    "description": "Funding support for eligible students pursuing scarce and relevant fields.",
+    "benefits": "Tuition support and related funding",
+    "stipend": "Demonstration value only",
+    "closing_date": "2026-08-01",
+    "application_url": "https://example.com/apply/sasol-bursary",
+    "source_name": "Official bursary page",
+    "source_url": "https://example.com/source/sasol",
+    "verified": true,
+    "featured": true,
+    "posted_date": "2026-04-09",
+    "updated_date": "2026-04-19",
+    "tags": [
+      "bursary",
+      "funding",
+      "engineering",
+      "science"
+    ]
+  },
+  {
+    "id": "opp-003",
+    "slug": "department-of-health-internship-2026",
+    "title": "Department of Health Internship 2026",
+    "category": "internship",
+    "sector": "Public Sector",
+    "province": "National",
+    "location": "Various provinces",
+    "qualification_level": "Diploma / Degree",
+    "eligibility": [
+      "Graduate or final-year student",
+      "South African citizen"
+    ],
+    "documents_needed": [
+      "ID copy",
+      "CV",
+      "Academic record",
+      "Motivation letter"
+    ],
+    "description": "An internship opportunity offering workplace experience in a public-sector environment.",
+    "benefits": "Workplace experience",
+    "stipend": "Demonstration value only",
+    "closing_date": "2026-06-20",
+    "application_url": "https://example.com/apply/health-internship",
+    "source_name": "Official government notice",
+    "source_url": "https://example.com/source/health",
+    "verified": true,
+    "featured": false,
+    "posted_date": "2026-04-08",
+    "updated_date": "2026-04-18",
+    "tags": [
+      "public sector",
+      "internship",
+      "graduate",
+      "experience"
+    ]
+  },
+  {
+    "id": "opp-004",
+    "slug": "artisan-apprenticeship-2026",
+    "title": "Electrical Artisan Apprenticeship 2026",
+    "category": "apprenticeship",
+    "sector": "Engineering",
+    "province": "Mpumalanga",
+    "location": "Mpumalanga",
+    "qualification_level": "Matric",
+    "eligibility": [
+      "Matric with Maths/Science preferred",
+      "South African citizen"
+    ],
+    "documents_needed": [
+      "ID copy",
+      "CV",
+      "Matric certificate"
+    ],
+    "description": "A structured apprenticeship route for future artisans in the engineering field.",
+    "benefits": "Trade training and workplace learning",
+    "stipend": "Demonstration value only",
+    "closing_date": "2026-07-30",
+    "application_url": "https://example.com/apply/apprenticeship",
+    "source_name": "Official company notice",
+    "source_url": "https://example.com/source/apprenticeship",
+    "verified": false,
+    "featured": false,
+    "posted_date": "2026-04-05",
+    "updated_date": "2026-04-17",
+    "tags": [
+      "artisan",
+      "engineering",
+      "trade",
+      "apprenticeship"
+    ]
+  },
+  {
+    "id": "opp-005",
+    "slug": "gauteng-tvet-support-bursary-2026",
+    "title": "Gauteng TVET Support Bursary 2026",
+    "category": "bursary",
+    "sector": "Education",
+    "province": "Gauteng",
+    "location": "Gauteng",
+    "qualification_level": "TVET",
+    "eligibility": [
+      "Registered TVET student",
+      "South African citizen"
+    ],
+    "documents_needed": [
+      "ID copy",
+      "Proof of registration",
+      "Academic record"
+    ],
+    "description": "Support for TVET learners pursuing approved qualifications.",
+    "benefits": "Study support",
+    "stipend": "Demonstration value only",
+    "closing_date": "2026-06-28",
+    "application_url": "https://example.com/apply/tvet-bursary",
+    "source_name": "Official bursary notice",
+    "source_url": "https://example.com/source/tvet-bursary",
+    "verified": true,
+    "featured": false,
+    "posted_date": "2026-04-12",
+    "updated_date": "2026-04-18",
+    "tags": [
+      "tvet",
+      "bursary",
+      "gauteng",
+      "education"
+    ]
+  },
+  {
+    "id": "opp-006",
+    "slug": "municipal-finance-internship-2026",
+    "title": "Municipal Finance Internship 2026",
+    "category": "internship",
+    "sector": "Local Government",
+    "province": "KwaZulu-Natal",
+    "location": "KwaZulu-Natal",
+    "qualification_level": "Diploma / Degree",
+    "eligibility": [
+      "Unemployed graduate",
+      "South African citizen"
+    ],
+    "documents_needed": [
+      "CV",
+      "ID copy",
+      "Academic transcript"
+    ],
+    "description": "A municipal internship for candidates seeking public finance experience.",
+    "benefits": "Practical experience in local government",
+    "stipend": "Demonstration value only",
+    "closing_date": "2026-07-02",
+    "application_url": "https://example.com/apply/municipal-internship",
+    "source_name": "Official municipal notice",
+    "source_url": "https://example.com/source/municipal",
+    "verified": true,
+    "featured": false,
+    "posted_date": "2026-04-15",
+    "updated_date": "2026-04-19",
+    "tags": [
+      "municipal",
+      "finance",
+      "internship",
+      "government"
+    ]
+  },
+  {
+    "id": "opp-007",
+    "slug": "retail-learnership-2026",
+    "title": "Retail Learnership 2026",
+    "category": "learnership",
+    "sector": "Retail and Wholesale",
+    "province": "Western Cape",
+    "location": "Western Cape",
+    "qualification_level": "Matric",
+    "eligibility": [
+      "South African citizen",
+      "Matric pass",
+      "Available immediately"
+    ],
+    "documents_needed": [
+      "ID copy",
+      "CV",
+      "Matric certificate"
+    ],
+    "description": "A retail-based learnership with workplace learning and customer service exposure.",
+    "benefits": "Retail exposure and structured learning",
+    "stipend": "Demonstration value only",
+    "closing_date": "2026-06-10",
+    "application_url": "https://example.com/apply/retail-learnership",
+    "source_name": "Official company careers page",
+    "source_url": "https://example.com/source/retail",
+    "verified": true,
+    "featured": false,
+    "posted_date": "2026-04-14",
+    "updated_date": "2026-04-19",
+    "tags": [
+      "retail",
+      "learnership",
+      "customer service",
+      "western cape"
+    ]
+  },
+  {
+    "id": "opp-008",
+    "slug": "safety-apprenticeship-2026",
+    "title": "Safety and Risk Apprenticeship 2026",
+    "category": "apprenticeship",
+    "sector": "Mining",
+    "province": "Northern Cape",
+    "location": "Northern Cape",
+    "qualification_level": "Matric",
+    "eligibility": [
+      "Matric",
+      "Strong numeracy and literacy"
+    ],
+    "documents_needed": [
+      "ID copy",
+      "CV",
+      "Matric certificate"
+    ],
+    "description": "Apprenticeship pathway for technical safety and operational support roles.",
+    "benefits": "Trade development",
+    "stipend": "Demonstration value only",
+    "closing_date": "2026-07-22",
+    "application_url": "https://example.com/apply/safety-apprenticeship",
+    "source_name": "Official company notice",
+    "source_url": "https://example.com/source/safety",
+    "verified": false,
+    "featured": false,
+    "posted_date": "2026-04-11",
+    "updated_date": "2026-04-18",
+    "tags": [
+      "mining",
+      "apprenticeship",
+      "safety",
+      "technical"
+    ]
+  }
+]

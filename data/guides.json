@@ -1,0 +1,146 @@
+[
+  {
+    "id": "guide-001",
+    "slug": "what-is-a-seta",
+    "title": "What Is a SETA in South Africa?",
+    "category": "seta-guides",
+    "intro": "A practical explanation of what SETAs do, how they fit into the skills system, and why they matter to job seekers.",
+    "body_sections": [
+      {
+        "heading": "Why SETAs exist",
+        "content": "SETAs help align training with labour market needs."
+      },
+      {
+        "heading": "How learners benefit",
+        "content": "They support learnerships, skills programmes, and workplace learning."
+      }
+    ],
+    "faq": [
+      {
+        "question": "What does SETA stand for?",
+        "answer": "Sector Education and Training Authority."
+      },
+      {
+        "question": "Who can apply for SETA opportunities?",
+        "answer": "It depends on the specific programme and eligibility rules."
+      }
+    ],
+    "related_links": [
+      "/learnerships/",
+      "/bursaries/"
+    ],
+    "author": "Editorial Team",
+    "published_date": "2026-04-01",
+    "updated_date": "2026-04-18",
+    "meta_title": "What Is a SETA? South Africa Explained Simply",
+    "meta_description": "Learn what a SETA is in South Africa, how it works, and how it connects to learnerships, bursaries, and skills development."
+  },
+  {
+    "id": "guide-002",
+    "slug": "how-to-apply-for-learnerships",
+    "title": "How to Apply for Learnerships in South Africa",
+    "category": "career-advice",
+    "intro": "A step-by-step guide for applicants who want to apply correctly and avoid common mistakes.",
+    "body_sections": [
+      {
+        "heading": "Check the requirements first",
+        "content": "Always confirm age, qualification level, and documents needed."
+      },
+      {
+        "heading": "Prepare your documents",
+        "content": "Keep certified copies ready and use a clean CV."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Do I need experience?",
+        "answer": "Not always. Many learnerships are designed for entry-level applicants."
+      },
+      {
+        "question": "Should I apply to multiple opportunities?",
+        "answer": "Yes, where eligible and relevant."
+      }
+    ],
+    "related_links": [
+      "/learnerships/",
+      "/tools/eligibility-checker"
+    ],
+    "author": "Editorial Team",
+    "published_date": "2026-04-03",
+    "updated_date": "2026-04-18",
+    "meta_title": "How to Apply for Learnerships in South Africa",
+    "meta_description": "Follow this practical guide to apply for learnerships in South Africa with the right documents, process, and preparation."
+  },
+  {
+    "id": "guide-003",
+    "slug": "what-documents-are-needed-for-bursaries",
+    "title": "What Documents Are Needed for Bursaries?",
+    "category": "career-advice",
+    "intro": "A checklist guide for bursary applications and what to prepare before deadlines close.",
+    "body_sections": [
+      {
+        "heading": "Core documents",
+        "content": "Most bursaries require an ID, academic record, proof of income, and a motivation letter."
+      },
+      {
+        "heading": "Extra documents",
+        "content": "Some providers also ask for proof of residence or registration."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Should documents be certified?",
+        "answer": "Many bursaries require certified copies."
+      },
+      {
+        "question": "Can I submit late?",
+        "answer": "Usually no. Always submit before the deadline."
+      }
+    ],
+    "related_links": [
+      "/bursaries/",
+      "/calendar/"
+    ],
+    "author": "Editorial Team",
+    "published_date": "2026-04-04",
+    "updated_date": "2026-04-18",
+    "meta_title": "What Documents Are Needed for Bursaries?",
+    "meta_description": "See the essential documents needed for bursary applications in South Africa and avoid missing deadlines."
+  },
+  {
+    "id": "guide-004",
+    "slug": "what-is-tvet",
+    "title": "What Is TVET and How Does It Help Career Growth?",
+    "category": "tvet-pathways",
+    "intro": "A plain-language guide to TVET colleges, qualifications, and practical career routes.",
+    "body_sections": [
+      {
+        "heading": "TVET in the career pathway",
+        "content": "TVET offers practical and vocational learning for many careers."
+      },
+      {
+        "heading": "Why it matters",
+        "content": "It can be a faster route into employment and technical work."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Is TVET only for trades?",
+        "answer": "No, it covers many occupational areas."
+      },
+      {
+        "question": "Can I continue studying after TVET?",
+        "answer": "Yes, depending on the qualification and pathway."
+      }
+    ],
+    "related_links": [
+      "/tvet-pathways/",
+      "/learnerships/"
+    ],
+    "author": "Editorial Team",
+    "published_date": "2026-04-05",
+    "updated_date": "2026-04-19",
+    "meta_title": "What Is TVET? South Africa Career Guide",
+    "meta_description": "Understand TVET in South Africa, how it works, and where it fits in your career pathway."
+  }
+]

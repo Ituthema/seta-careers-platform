@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Learnerships",
+    "slug": "learnerships",
+    "description": "Workplace learning opportunities for entry-level candidates."
+  },
+  {
+    "name": "Internships",
+    "slug": "internships",
+    "description": "Practical work experience for students and graduates."
+  },
+  {
+    "name": "Bursaries",
+    "slug": "bursaries",
+    "description": "Education funding and study support opportunities."
+  },
+  {
+    "name": "Apprenticeships",
+    "slug": "apprenticeships",
+    "description": "Trade and artisan development pathways."
+  },
+  {
+    "name": "SETA Guides",
+    "slug": "seta-guides",
+    "description": "Explainers on the SETA and skills system."
+  },
+  {
+    "name": "Career Advice",
+    "slug": "career-advice",
+    "description": "Practical application and career preparation advice."
+  },
+  {
+    "name": "TVET Pathways",
+    "slug": "tvet-pathways",
+    "description": "TVET college and vocational route guidance."
+  },
+  {
+    "name": "Tools",
+    "slug": "tools",
+    "description": "Decision-support tools for opportunity seekers."
+  }
+]
