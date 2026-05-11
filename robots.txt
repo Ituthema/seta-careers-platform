@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and raw data folders
+Disallow: /admin/
+Disallow: /data/
+Disallow: /assets/js/
+
+# Sitemap location — update with your real domain
+Sitemap: https://opportunitiesza.co.za/sitemap.xml

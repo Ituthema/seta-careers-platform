@@ -1,0 +1,92 @@
+[
+  {
+    "id": "gauteng",
+    "label": "Gauteng",
+    "icon": "🏙️",
+    "major_cities": ["Johannesburg", "Pretoria", "Ekurhuleni", "Soweto"],
+    "description": "South Africa's economic heartland. The highest volume of learnerships, internships, and bursaries of any province. Home to the big banks, Eskom, Transnet, and most major corporate headquarters.",
+    "top_employers": ["Eskom", "Transnet", "ABSA", "Standard Bank", "Nedbank", "FNB", "Old Mutual", "Vodacom", "MTN", "Telkom", "Sasol"],
+    "seo_title": "Learnerships & Internships in Gauteng 2026 | Johannesburg & Pretoria",
+    "seo_desc": "Find verified learnerships, bursaries, and internships in Gauteng for 2026. Johannesburg, Pretoria, and Ekurhuleni. Filter by category and closing date."
+  },
+  {
+    "id": "western-cape",
+    "label": "Western Cape",
+    "icon": "🌊",
+    "major_cities": ["Cape Town", "Stellenbosch", "Paarl", "George"],
+    "description": "South Africa's second-largest opportunity market. Cape Town hosts major retail headquarters (Shoprite, Pick n Pay, Woolworths), Capitec Bank HQ, and a growing technology sector.",
+    "top_employers": ["Woolworths", "Pick n Pay", "Shoprite HQ", "Capitec Bank", "TFG", "Clicks Group", "Old Mutual", "Sanlam", "Remgro"],
+    "seo_title": "Learnerships & Internships in Western Cape 2026 | Cape Town",
+    "seo_desc": "Find verified learnerships, bursaries, and internships in the Western Cape for 2026. Cape Town and surrounding areas. Verified, free to apply."
+  },
+  {
+    "id": "kwazulu-natal",
+    "label": "KwaZulu-Natal",
+    "icon": "🌊",
+    "major_cities": ["Durban", "Pietermaritzburg", "Richards Bay", "Newcastle"],
+    "description": "Home to Africa's busiest port, driving consistent Transnet and logistics opportunities. Strong automotive (Toyota SA), sugar, and petrochemicals sectors.",
+    "top_employers": ["Transnet Port", "Toyota SA", "Illovo Sugar", "Tongaat Hulett", "Unilever SA", "eThekwini Metro", "UKZN"],
+    "seo_title": "Learnerships & Internships in KwaZulu-Natal 2026 | Durban",
+    "seo_desc": "Find learnerships, bursaries, and internships in KwaZulu-Natal for 2026. Durban, Pietermaritzburg and more. Verified opportunities."
+  },
+  {
+    "id": "eastern-cape",
+    "label": "Eastern Cape",
+    "icon": "🏔️",
+    "major_cities": ["Port Elizabeth (Gqeberha)", "East London", "Mthatha"],
+    "description": "South Africa's automotive manufacturing hub. Volkswagen SA (Uitenhage), Isuzu (East London), and Mercedes-Benz SA are major learnership and apprenticeship providers.",
+    "top_employers": ["Volkswagen SA", "Isuzu SA", "Mercedes-Benz SA", "Nelson Mandela Bay Metro", "Buffalo City Metro", "Walter Sisulu University"],
+    "seo_title": "Learnerships & Internships in Eastern Cape 2026 | Gqeberha & East London",
+    "seo_desc": "Find learnerships, bursaries, and internships in the Eastern Cape for 2026. Automotive, government, and manufacturing opportunities. Verified."
+  },
+  {
+    "id": "limpopo",
+    "label": "Limpopo",
+    "icon": "🌿",
+    "major_cities": ["Polokwane", "Tzaneen", "Lephalale", "Mokopane"],
+    "description": "Mining (platinum, chrome, coal) and agriculture drive the economy. Anglo American Platinum, Implats, and Northam Platinum run consistent learnership and apprenticeship programmes.",
+    "top_employers": ["Anglo American Platinum", "Implats", "Northam Platinum", "Limpopo Provincial Government", "University of Limpopo"],
+    "seo_title": "Learnerships & Bursaries in Limpopo 2026 | Polokwane",
+    "seo_desc": "Find verified learnerships, bursaries, and internships in Limpopo for 2026. Mining, agriculture, and government opportunities."
+  },
+  {
+    "id": "mpumalanga",
+    "label": "Mpumalanga",
+    "icon": "⚡",
+    "major_cities": ["Nelspruit (Mbombela)", "Witbank (eMalahleni)", "Secunda"],
+    "description": "South Africa's energy heartland — home to most of Eskom's power stations and Sasol's Secunda operations. Consistent source of engineering and instrumentation learnership opportunities.",
+    "top_employers": ["Eskom", "Sasol Secunda", "Nkangala District Municipality", "ACWA Power", "Mpumalanga Provincial Government"],
+    "seo_title": "Learnerships & Bursaries in Mpumalanga 2026 | Nelspruit & Secunda",
+    "seo_desc": "Find verified learnerships and internships in Mpumalanga for 2026. Energy, mining, and government opportunities."
+  },
+  {
+    "id": "north-west",
+    "label": "North West",
+    "icon": "🌾",
+    "major_cities": ["Rustenburg", "Mahikeng", "Klerksdorp"],
+    "description": "Centre of South Africa's platinum mining industry. Sibanye-Stillwater, Lonmin, and Anglo American run major learnership and apprenticeship programmes in the Rustenburg area.",
+    "top_employers": ["Sibanye-Stillwater", "Anglo American Platinum", "Lonmin", "Mahikeng Municipality", "North West University"],
+    "seo_title": "Learnerships & Bursaries in North West 2026 | Rustenburg",
+    "seo_desc": "Find verified learnerships and internships in North West province for 2026. Mining, government, and engineering opportunities."
+  },
+  {
+    "id": "free-state",
+    "label": "Free State",
+    "icon": "🌻",
+    "major_cities": ["Bloemfontein", "Welkom", "Sasolburg"],
+    "description": "Agriculture, gold mining near Welkom, and public sector employment in Bloemfontein (judicial capital) drive opportunities. Mangaung Metro is the largest public sector employer.",
+    "top_employers": ["Mangaung Metro", "Central University of Technology", "Free State Provincial Government", "Sibanye (Welkom)", "Free State Department of Health"],
+    "seo_title": "Learnerships & Bursaries in Free State 2026 | Bloemfontein",
+    "seo_desc": "Find verified learnerships and internships in the Free State for 2026. Government, agriculture, and mining opportunities. Verified listings."
+  },
+  {
+    "id": "northern-cape",
+    "label": "Northern Cape",
+    "icon": "🏜️",
+    "major_cities": ["Kimberley", "Upington", "Springbok"],
+    "description": "South Africa's largest but least populated province. Diamond mining (De Beers) and iron ore (Kumba Iron Ore) are primary opportunity sources. Less competition per listing than any other province.",
+    "top_employers": ["De Beers", "Kumba Iron Ore", "Assmang Manganese", "Sol Plaatje Municipality", "Northern Cape Provincial Government"],
+    "seo_title": "Learnerships & Bursaries in Northern Cape 2026 | Kimberley",
+    "seo_desc": "Find verified learnerships and internships in the Northern Cape for 2026. Mining, government, and artisan opportunities. Less competition."
+  }
+]

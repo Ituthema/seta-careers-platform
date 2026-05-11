@@ -1,0 +1,72 @@
+# ═══════════════════════════════════════════════════════════
+# OpportunitiesZA — .gitignore
+# Files that should NEVER be pushed to the public GitHub repo
+# ═══════════════════════════════════════════════════════════
+
+# ── ADMIN TOOLS (local only — keep private) ──────────────────
+admin-uploader.html
+social-media-generator.html
+seo-dashboard.html
+content-planner.html
+PROJECT_INDEX.html
+
+# ── DEPLOY SCRIPT (optional — has no secrets but local-use) ──
+# deploy.sh          # Uncomment this line to also exclude the deploy script
+
+# ── ENVIRONMENT / SECRETS ────────────────────────────────────
+.env
+.env.local
+.env.production
+*.secret
+
+# ── DOCUMENTATION PARTS (large — keep locally) ───────────────
+# Uncomment to exclude docs from repo (recommended for size):
+# CareerOpportunitySA_ProjectDocs*.html
+
+# ── SYSTEM FILES ─────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+# ── EDITOR / IDE ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── NODE (if you use sitemap generator) ──────────────────────
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# ── TEMPORARY FILES ──────────────────────────────────────────
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ── PRIVATE NOTES ────────────────────────────────────────────
+PRIVATE.md
+NOTES.md
+TODO_PRIVATE.md
+passwords.txt
+credentials.txt
+
+# ═══════════════════════════════════════════════════════════
+# FILES THAT SHOULD BE IN THE REPO (do not add these):
+# ✅ index.html (or OpportunitiesZA_Website.html renamed)
+# ✅ 404.html
+# ✅ robots.txt
+# ✅ sitemap.xml (generated)
+# ✅ CNAME (custom domain)
+# ✅ README.md
+# ✅ sitemap-generator.js
+# ✅ deploy.sh (optional)
+# ✅ /data/*.json
+# ✅ /assets/* (images, css, js)
+# ═══════════════════════════════════════════════════════════

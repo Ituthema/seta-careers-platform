@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Page Not Found — OpportunitiesZA</title>
+<script>
+  // GitHub Pages SPA routing fix:
+  // 404.html captures the path and redirects to index.html
+  // which reads the stored path and navigates to the right page.
+  const path = window.location.pathname;
+  // Only redirect if this is a SPA route (not a file with extension)
+  if (!path.match(/\.\w{2,4}$/)) {
+    sessionStorage.setItem('__redirect_path', path);
+    // Redirect to the root — adjust if your repo is in a subdirectory
+    window.location.replace('/');
+  }
+</script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',system-ui,sans-serif;background:#f8fafc;color:#1a1a1a;
+    display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px;text-align:center}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:48px 40px;max-width:480px;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+  .icon{font-size:64px;margin-bottom:20px;display:block}
+  h1{font-size:72px;font-weight:900;color:#0d4a26;line-height:1;margin-bottom:8px}
+  h2{font-size:22px;font-weight:700;color:#111;margin-bottom:12px}
+  p{font-size:15px;color:#6b7280;line-height:1.7;margin-bottom:28px}
+  a{display:inline-block;padding:13px 28px;background:#0d4a26;color:#fff;border-radius:9px;font-weight:700;font-size:15px;text-decoration:none}
+  a:hover{background:#083318}
+  .sub{font-size:12px;color:#9ca3af;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="card">
+  <span class="icon">🧭</span>
+  <h1>404</h1>
+  <h2>Page not found</h2>
+  <p>This page doesn't exist — but thousands of verified learnerships, bursaries, and internships do. Let's get you back on track.</p>
+  <a href="/">Back to Opportunities</a>
+  <p class="sub">OpportunitiesZA · South Africa's Career Opportunity Platform</p>
+</div>
+</body>
+</html>
