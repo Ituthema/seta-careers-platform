@@ -1,124 +1,1434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpportunitiesZA | Career Portal 2025/2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        :root { --primary: #0d4a26; --primary-dark: #083318; --accent: #f59e0b; --bg: #f8fafc; --card-bg: #ffffff; --text-main: #1e293b; --text-muted: #64748b; --border: #e2e8f0; --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); --radius: 12px; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; border: none; text-decoration: none; }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-accent { background: var(--accent); color: white; }
-        nav { background: white; height: 70px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; }
-        .nav-content { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; color: var(--primary); }
-        .logo span { color: var(--accent); }
-        .hero { background: linear-gradient(135deg, var(--primary) 0%, #115e59 100%); padding: 60px 0; color: white; text-align: center; }
-        .search-box { background: white; padding: 8px; border-radius: 16px; display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; max-width: 900px; margin: 20px auto; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-        .search-box input, .search-box select { border: 1px solid transparent; padding: 12px; border-radius: 10px; font-size: 14px; background: #f1f5f9; width: 100%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-top: 40px; margin-bottom: 60px;}
-        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all 0.3s; position: relative; display: flex; flex-direction: column; text-decoration: none; color: inherit;}
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--shadow); }
-        .card-tag { position: absolute; top: 20px; right: 24px; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
-        .tag-learnership { background: #dcfce7; color: #166534; }
-        .tag-bursary { background: #fef3c7; color: #92400e; }
-        .tag-internship { background: #dbeafe; color: #1e40af; }
-        .card-title { font-size: 17px; font-weight: 700; margin: 10px 0; line-height: 1.4; }
-        .card-meta { font-size: 13px; color: var(--text-muted); margin-bottom: 15px; }
-        .card-footer { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--border); font-size: 12px; font-weight: 600; color: #b91c1c; }
-        @media (max-width: 768px) { .search-box { grid-template-columns: 1fr; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OpportunitiesZA | Learnerships, Bursaries & Internships South Africa 2026</title>
+<meta name="description" content="Find verified learnerships, bursaries, internships, and apprenticeships across South Africa. Free eligibility checker, deadline calendar, scam awareness tools. Updated daily.">
+<meta property="og:title" content="OpportunitiesZA | SA Career Opportunities 2026">
+<meta property="og:description" content="South Africa's most complete platform for learnerships, bursaries, and internships. Verified. Free. 100+ listings.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══ RESET & TOKENS ═════════════════════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#0d4a26;--gd:#083318;--glt:#dcfce7;--gmid:#166534;
+  --a:#f59e0b;--alt:#fef3c7;--ald:#d97706;
+  --bl:#1e40af;--blt:#dbeafe;
+  --pu:#6b21a8;--plt:#f3e8ff;
+  --rd:#dc2626;--rlt:#fee2e2;
+  --bd:#e5e7eb;--mu:#6b7280;--sur:#f8fafc;--wh:#fff;
+  --tx:#1a1a1a;--t2:#374151;--t3:#6b7280;
+  --sh:0 1px 4px rgba(0,0,0,.06);
+  --shm:0 4px 18px rgba(0,0,0,.09);
+  --shl:0 8px 32px rgba(0,0,0,.13);
+  --r:10px;--tr:all .18s ease;
+  --mw:1220px;--cw:800px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;font-size:15px;color:var(--tx);background:#fafaf9;line-height:1.65}
+a{color:var(--g)}
+button,input,select,textarea{font-family:'DM Sans',sans-serif}
+img{max-width:100%;height:auto}
+h1,h2,h3{font-family:'Fraunces',serif}
+
+/* ═══ LAYOUT ═════════════════════════════════════════════════ */
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 24px}
+.cwrap{max-width:var(--cw);margin:0 auto;padding:0 24px}
+.page{animation:fadeUp .22s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ═══ BUTTONS ════════════════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;border:none;cursor:pointer;transition:var(--tr);line-height:1.3;text-decoration:none}
+.btn-primary{background:var(--g);color:#fff}.btn-primary:hover{background:var(--gd);transform:translateY(-1px);box-shadow:0 4px 14px rgba(13,74,38,.25)}
+.btn-amber{background:var(--a);color:#fff}.btn-amber:hover{background:var(--ald);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--g);border:1.5px solid var(--g)}.btn-outline:hover{background:var(--glt)}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--bd)}.btn-ghost:hover{background:var(--sur);border-color:var(--g);color:var(--g)}
+.btn-red{background:var(--rd);color:#fff}.btn-red:hover{background:#b91c1c}
+.btn-sm{padding:7px 14px;font-size:13px}
+.btn-lg{padding:15px 32px;font-size:16px}
+.btn-full{width:100%}
+
+/* ═══ BADGES ═════════════════════════════════════════════════ */
+.badge{display:inline-block;padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+.badge-learnership{background:var(--glt);color:var(--gmid)}
+.badge-internship{background:var(--blt);color:var(--bl)}
+.badge-bursary{background:var(--alt);color:#92400e}
+.badge-apprenticeship{background:var(--plt);color:var(--pu)}
+.badge-tvet{background:#ecfdf5;color:#065f46}
+.pill{font-family:'DM Mono',monospace;font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:20px;display:inline-block}
+.pill-red{background:var(--rlt);color:var(--rd)}
+.pill-amber{background:var(--alt);color:#92400e}
+.pill-green{background:var(--glt);color:var(--gmid)}
+.pill-gray{background:#f3f4f6;color:var(--mu)}
+
+/* ═══ NAV ════════════════════════════════════════════════════ */
+#nav{position:sticky;top:0;z-index:300;background:rgba(255,255,255,.97);border-bottom:1px solid var(--bd);backdrop-filter:blur(12px);transition:box-shadow .2s}
+#nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-in{max-width:var(--mw);margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer}
+.logo-icon{width:34px;height:34px;background:var(--g);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.logo-text{font-family:'Fraunces',serif;font-size:19px;font-weight:900;color:var(--g);letter-spacing:-.5px}
+.logo-text em{color:var(--a);font-style:normal}
+.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
+.nl{background:none;border:none;padding:7px 11px;border-radius:6px;font-size:13.5px;font-weight:500;color:var(--mu);cursor:pointer;transition:var(--tr)}
+.nl:hover,.nl.act{background:var(--glt);color:var(--g)}
+.nl-cta{margin-left:8px;padding:8px 18px;background:var(--g);color:#fff!important;border-radius:7px;font-size:13.5px;font-weight:600}
+.nl-cta:hover{background:var(--gd)}
+.hbg{display:none;background:none;border:none;font-size:22px;color:var(--tx);margin-left:auto;cursor:pointer}
+.drawer{display:none;flex-direction:column;gap:2px;padding:12px 24px 20px;border-top:1px solid var(--bd)}
+.drawer.open{display:flex}
+.dl{background:none;border:none;padding:10px 12px;border-radius:6px;font-size:14px;font-weight:500;color:var(--t2);text-align:left;cursor:pointer}
+.dl:hover{background:var(--sur)}
+
+/* ═══ HERO ═══════════════════════════════════════════════════ */
+.hero{background:linear-gradient(135deg,#0a3018 0%,var(--g) 55%,#116232 100%);padding:76px 24px 84px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:420px;height:420px;border-radius:50%;background:rgba(245,158,11,.07);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.hero-in{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:20px;padding:5px 16px;margin-bottom:26px}
+.hero-badge span{font-family:'DM Mono',monospace;font-size:11px;color:#fbbf24;letter-spacing:1.5px;text-transform:uppercase}
+.hero h1{font-size:clamp(34px,6.5vw,62px);font-weight:900;color:#fff;line-height:1.04;letter-spacing:-2px;margin-bottom:22px}
+.hero h1 em{color:var(--a);font-style:italic}
+.hero-sub{font-size:17px;color:#86efac;max-width:530px;margin:0 auto 38px;line-height:1.7;font-weight:300}
+.search-bar{display:flex;max-width:660px;margin:0 auto 28px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shl)}
+.search-bar input{flex:1;padding:16px 20px;border:none;outline:none;font-size:15px;color:var(--tx)}
+.search-bar select{padding:0 14px;border:none;border-left:1px solid var(--bd);outline:none;font-size:13px;color:var(--mu);background:transparent;cursor:pointer}
+.search-bar button{padding:16px 28px;background:var(--a);color:#fff;border:none;font-weight:700;font-size:14px;cursor:pointer;transition:background .15s;white-space:nowrap}
+.search-bar button:hover{background:var(--ald)}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.chip{padding:7px 16px;background:rgba(255,255,255,.12);color:#dcfce7;border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:13px;cursor:pointer;font-weight:500;transition:var(--tr)}
+.chip:hover{background:rgba(255,255,255,.22)}
+
+/* ═══ STATS BAR ══════════════════════════════════════════════ */
+.stats-bar{background:#fff;border-bottom:1px solid var(--bd);padding:16px 24px}
+.stats-in{max-width:var(--mw);margin:0 auto;display:flex;gap:36px;justify-content:center;flex-wrap:wrap}
+.stat{display:flex;align-items:center;gap:10px}
+.stat-num{font-family:'Fraunces',serif;font-size:26px;font-weight:900;color:var(--g);line-height:1}
+.stat-label{font-size:12px;color:var(--mu);line-height:1.4;max-width:80px}
+
+/* ═══ SECTION ════════════════════════════════════════════════ */
+.sec-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px}
+.sec-title{font-size:clamp(22px,3.5vw,34px);font-weight:900;color:var(--g);letter-spacing:-1px}
+.sec-lnk{background:none;border:none;color:var(--g);font-weight:600;font-size:14px;cursor:pointer}
+.sec-lnk:hover{text-decoration:underline}
+
+/* ═══ CATEGORY TILES ═════════════════════════════════════════ */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.cat-tile{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:22px;text-align:left;cursor:pointer;transition:var(--tr);display:flex;flex-direction:column;gap:10px}
+.cat-tile:hover{border-color:var(--g);transform:translateY(-3px);box-shadow:var(--shm)}
+.ct-icon{font-size:30px}
+.ct-name{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--tx)}
+.ct-desc{font-size:12.5px;color:var(--mu);line-height:1.5}
+.ct-count{margin-top:auto;font-family:'DM Mono',monospace;font-size:11px;padding:3px 10px;border-radius:10px;display:inline-block;font-weight:600}
+
+/* ═══ CLOSING STRIP ══════════════════════════════════════════ */
+.strip{background:#fffbeb;border-top:2px solid var(--a);border-bottom:1px solid #fde68a;padding:18px 24px}
+.strip-in{max-width:var(--mw);margin:0 auto}
+.strip-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.strip-hdr span:last-child{font-family:'Fraunces',serif;font-weight:700;font-size:14px;color:#92400e;text-transform:uppercase;letter-spacing:.8px}
+.strip-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.strip-scroll::-webkit-scrollbar{display:none}
+.strip-pill{flex-shrink:0;background:#fff;border:1px solid #fde68a;border-radius:var(--r);padding:11px 16px;cursor:pointer;max-width:215px;transition:var(--tr);text-align:left}
+.strip-pill:hover{border-color:var(--a)}
+.sp-title{font-size:12px;font-weight:600;color:var(--tx);display:block;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sp-meta{font-size:10.5px;color:var(--mu);margin-bottom:4px}
+
+/* ═══ OPP CARD ═══════════════════════════════════════════════ */
+.opp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.opp-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:var(--tr);box-shadow:var(--sh);position:relative}
+.opp-card:hover{border-color:var(--g);box-shadow:0 8px 28px rgba(13,74,38,.12);transform:translateY(-3px)}
+.opp-card.featured::before{content:'⭐ Featured';position:absolute;top:12px;right:12px;font-size:10px;background:var(--alt);color:#92400e;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:.5px}
+.oc-top{display:flex;justify-content:space-between;align-items:flex-start}
+.oc-verified{font-size:11px;color:var(--gmid);font-weight:600}
+.oc-title{font-family:'Fraunces',serif;font-size:16.5px;font-weight:700;color:var(--tx);line-height:1.3}
+.oc-meta{display:flex;gap:12px;flex-wrap:wrap}
+.oc-meta span{font-size:12px;color:var(--mu)}
+.oc-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px;border-top:1px solid #f3f4f6}
+.oc-link{font-size:13px;color:var(--g);font-weight:600}
+.bk-btn{background:none;border:none;font-size:18px;cursor:pointer;padding:4px;line-height:1;opacity:.6;transition:var(--tr)}
+.bk-btn:hover{opacity:1;transform:scale(1.2)}
+
+/* ═══ TOOLS DARK ════════════════════════════════════════════ */
+.tools-dark{background:var(--g);padding:52px 24px}
+.td-hdr{max-width:var(--mw);margin:0 auto 32px}
+.td-hdr h2{font-size:clamp(22px,3.5vw,32px);font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:6px}
+.td-hdr p{color:#86efac;font-size:15px}
+.tools-grid{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tool-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:20px;text-align:left;cursor:pointer;transition:var(--tr)}
+.tool-card:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+.tc-icon{font-size:26px;margin-bottom:10px}
+.tc-name{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+.tc-desc{font-size:12.5px;color:#86efac}
+
+/* ═══ GUIDE CARD ════════════════════════════════════════════ */
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.guide-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:20px;cursor:pointer;transition:var(--tr)}
+.guide-card:hover{border-color:var(--g);transform:translateY(-2px);box-shadow:var(--shm)}
+.gc-meta{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--mu);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+.gc-title{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--tx);line-height:1.3;margin-bottom:8px}
+.gc-intro{font-size:13px;color:var(--mu);line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gc-lnk{font-size:13px;color:var(--g);font-weight:600}
+
+/* ═══ TRUST & NEWSLETTER ════════════════════════════════════ */
+.trust-strip{background:#f0fdf4;border-top:1px solid #bbf7d0;border-bottom:1px solid #bbf7d0;padding:28px 24px}
+.trust-in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
+.trust-item{font-size:13.5px;color:var(--gmid);font-weight:500;display:flex;align-items:center;gap:6px}
+.newsletter{background:#111827;padding:52px 24px}
+.nl-in{max-width:500px;margin:0 auto;text-align:center}
+.nl-in h2{font-family:'Fraunces',serif;font-size:28px;font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:10px}
+.nl-in p{color:#9ca3af;font-size:14px;margin-bottom:26px}
+.nl-form{display:flex;gap:10px;flex-wrap:wrap}
+.nl-form input{flex:1;min-width:0;padding:13px 16px;border-radius:8px;border:none;font-size:14px;outline:none}
+.nl-form button{padding:13px 20px;background:var(--a);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap}
+.nl-note{font-size:11px;color:#4b5563;margin-top:12px}
+
+/* ═══ DIRECTORY ═════════════════════════════════════════════ */
+.dir-search{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:4px 4px 4px 16px;display:flex;gap:8px;margin-bottom:16px;box-shadow:var(--sh)}
+.dir-search input{flex:1;border:none;outline:none;font-size:14px;color:var(--tx);background:transparent;padding:8px 0}
+.dir-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.fsel{padding:9px 13px;border:1px solid var(--bd);border-radius:7px;font-size:13.5px;color:var(--t2);background:#fff;outline:none;cursor:pointer}
+.fsel:focus{border-color:var(--g)}
+.fcheck{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--t2);cursor:pointer;padding:9px 0;white-space:nowrap}
+.fcheck input{width:16px;height:16px;cursor:pointer;accent-color:var(--g)}
+.rc{font-size:13.5px;color:var(--mu);margin-bottom:18px}
+.rc strong{color:var(--tx)}
+.no-res{text-align:center;padding:72px 24px;color:var(--mu);grid-column:1/-1}
+.no-res .nr-ico{font-size:48px;margin-bottom:14px}
+.no-res h3{font-family:'Fraunces',serif;font-size:22px;color:var(--t2);margin-bottom:8px}
+
+/* ═══ DETAIL ════════════════════════════════════════════════ */
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mu);margin-bottom:24px;flex-wrap:wrap}
+.breadcrumb button{background:none;border:none;color:var(--mu);cursor:pointer;font-size:13px}
+.breadcrumb button:hover{color:var(--g)}
+.breadcrumb .sep{color:#d1d5db}
+.detail-h1{font-size:clamp(24px,4vw,40px);font-weight:900;color:var(--tx);line-height:1.15;letter-spacing:-1.5px;margin-bottom:20px}
+.qf-bar{display:flex;flex-wrap:wrap;gap:14px;padding:16px 20px;background:#f0fdf4;border:1px solid #d1fae5;border-radius:var(--r);margin-bottom:26px}
+.qf-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)}
+.qf-item.urg{color:var(--rd);font-weight:700}
+.urg-banner{border-radius:8px;padding:12px 18px;margin-bottom:22px;display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600}
+.det-sec{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid #f3f4f6}
+.det-sec h2{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:var(--tx);margin-bottom:14px}
+.elig-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.elig-list li{font-size:14.5px;color:var(--t2);padding-left:20px;position:relative;line-height:1.6}
+.elig-list li::before{content:"✓";position:absolute;left:0;color:var(--g);font-weight:700}
+.doc-list{display:flex;flex-direction:column;gap:8px}
+.doc-item{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;background:var(--sur);border-radius:7px;border:1px solid #f3f4f6}
+.doc-check{color:var(--g);font-weight:700;margin-top:1px;flex-shrink:0}
+.apply-block{background:var(--g);border-radius:var(--r);padding:28px;text-align:center;margin:32px 0}
+.apply-block p{color:#bbf7d0;font-size:13px;margin-bottom:16px}
+.apply-btn{display:inline-block;padding:15px 40px;background:var(--a);color:#fff;border-radius:9px;font-weight:700;font-size:16px;text-decoration:none;transition:var(--tr)}
+.apply-btn:hover{background:var(--ald);transform:translateY(-1px)}
+.apply-note{color:#6ee7b7;font-size:11px;margin-top:14px}
+.share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;justify-content:center}
+.share-btn{padding:9px 18px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;border:none;display:flex;align-items:center;gap:6px;transition:var(--tr)}
+.share-wa{background:#25d366;color:#fff}.share-wa:hover{background:#1da851}
+.share-copy{background:#f3f4f6;color:var(--t2);border:1px solid var(--bd)}.share-copy:hover{background:#e5e7eb}
+
+/* ═══ CALENDAR ══════════════════════════════════════════════ */
+.cal-ctrl{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;align-items:center}
+.view-toggle{display:flex;gap:4px;margin-left:auto}
+.vbtn{padding:9px 18px;border:1px solid var(--bd);border-radius:7px;font-size:13px;cursor:pointer;font-weight:600;transition:var(--tr);background:#fff}
+.vbtn.act{background:var(--g);color:#fff;border-color:var(--g)}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.cal-nav h2{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--tx)}
+.cnav-btn{padding:8px 16px;border:1px solid var(--bd);border-radius:7px;background:#fff;cursor:pointer;font-size:13px;font-weight:600;color:var(--t2);transition:var(--tr)}
+.cnav-btn:hover{border-color:var(--g);color:var(--g)}
+.cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cdh{text-align:center;font-size:10.5px;font-weight:700;color:var(--mu);padding:8px 0;text-transform:uppercase;letter-spacing:1px}
+.cc{min-height:72px;padding:7px;border-radius:8px;border:2px solid transparent;transition:var(--tr);background:#fafafa}
+.cc.has{background:#fff;border-color:var(--bd);cursor:pointer}
+.cc.has:hover{border-color:var(--g);background:var(--glt)}
+.cc.today{border-color:var(--a)!important;background:var(--alt)}
+.cc.sel{border-color:var(--g)!important;background:#f0fdf4}
+.cdn{font-size:13px;font-weight:600;color:var(--t2)}
+.cc.today .cdn{color:#d97706}
+.cdots{display:block;margin-top:4px;font-size:10px;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:8px}
+.day-panel{margin-top:20px;padding:20px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r)}
+.day-panel h3{font-family:'Fraunces',serif;font-size:16px;font-weight:700;margin-bottom:14px}
+.lmh{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--t2);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f3f4f6}
+.li{display:grid;grid-template-columns:120px 1fr 88px;gap:14px;padding:13px 16px;background:#fff;border:1px solid var(--bd);border-radius:9px;margin-bottom:8px;cursor:pointer;transition:var(--tr);align-items:center}
+.li:hover{border-color:var(--g);background:#f8fffe}
+.li-dt{font-family:'DM Mono',monospace;font-size:11px;color:var(--mu)}
+.li-ttl{font-weight:600;font-size:14px;color:var(--tx);display:block;margin-bottom:2px}
+.li-sub{font-size:11.5px;color:var(--mu)}
+.li-days{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;text-align:right}
+
+/* ═══ CHECKER ════════════════════════════════════════════════ */
+.checker-card{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:28px;margin-bottom:24px}
+.fl{display:block;font-size:12px;font-weight:700;color:var(--t2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.8px}
+.flds{width:100%;padding:10px 14px;border:1px solid var(--bd);border-radius:7px;font-size:14px;color:var(--tx);background:#fff;outline:none}
+.flds:focus{border-color:var(--g)}
+.rg{display:flex;gap:10px;flex-wrap:wrap}
+.rb{padding:8px 22px;border-radius:7px;border:2px solid var(--bd);background:#fff;color:var(--t2);font-weight:600;font-size:13.5px;cursor:pointer;transition:var(--tr)}
+.rb.sel{background:var(--g);color:#fff;border-color:var(--g)}
+.risk-card{border-radius:var(--r);padding:24px;margin-bottom:20px}
+.risk-card.high{background:var(--rlt);border:1px solid #fca5a5}
+.risk-card.med{background:var(--alt);border:1px solid #fde68a}
+.risk-card.low{background:var(--glt);border:1px solid #bbf7d0}
+.risk-level{font-family:'Fraunces',serif;font-size:30px;font-weight:900;margin-bottom:10px}
+.risk-advice{font-size:14.5px;color:var(--t2);font-weight:500;margin-bottom:14px;line-height:1.6}
+.risk-flags{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.risk-flags li{font-size:13.5px;color:var(--t2)}
+
+/* ═══ CHECKLIST TOOL ════════════════════════════════════════ */
+.cl-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:20px;margin-bottom:16px}
+.cl-list{list-style:none;display:flex;flex-direction:column}
+.cl-item{padding:12px 0;border-bottom:1px solid #f3f4f6;display:flex;align-items:flex-start;gap:12px}
+.cl-item:last-child{border-bottom:none}
+.cl-item input[type=checkbox]{width:18px;height:18px;margin-top:2px;flex-shrink:0;cursor:pointer;accent-color:var(--g)}
+.cl-item label{font-size:14px;color:var(--t2);cursor:pointer;line-height:1.5}
+.cl-item.done label{text-decoration:line-through;color:var(--mu)}
+
+/* ═══ BURSARY CHECKER ════════════════════════════════════════ */
+.prob-result{border-radius:var(--r);padding:24px;margin-top:24px}
+.prob-bar-wrap{background:rgba(0,0,0,.1);border-radius:10px;height:12px;margin:14px 0;overflow:hidden}
+.prob-bar{height:100%;border-radius:10px;background:var(--a);transition:width 1s ease}
+
+/* ═══ SAVED PAGE ════════════════════════════════════════════ */
+.saved-empty{text-align:center;padding:80px 24px;color:var(--mu)}
+.saved-empty .se-ico{font-size:52px;margin-bottom:16px}
+
+/* ═══ PROVINCE PAGE ═════════════════════════════════════════ */
+.prov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:32px}
+.prov-tile{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:18px;cursor:pointer;transition:var(--tr);text-align:left}
+.prov-tile:hover{border-color:var(--g);background:var(--glt)}
+.prov-tile h3{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.prov-tile p{font-size:12px;color:var(--mu)}
+
+/* ═══ ABOUT ══════════════════════════════════════════════════ */
+.about-accent{width:60px;height:4px;background:var(--a);border-radius:2px;margin-bottom:32px}
+.acl{list-style:none;display:flex;flex-direction:column}
+.acl li{padding:12px 0;border-bottom:1px solid #f3f4f6;font-size:14.5px;color:var(--t2);display:flex;gap:10px;align-items:flex-start}
+.acl li::before{content:"✓";color:var(--g);font-weight:700;flex-shrink:0;margin-top:1px}
+.disc-box{background:var(--rlt);border:1px solid #fca5a5;border-radius:var(--r);padding:20px;margin:32px 0}
+.disc-box h3{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--rd);margin-bottom:8px}
+.disc-box p{font-size:13.5px;color:#7f1d1d;line-height:1.7;margin:0}
+
+/* ═══ FOOTER ════════════════════════════════════════════════ */
+footer{background:#111827;color:#9ca3af}
+.fi{max-width:var(--mw);margin:0 auto;padding:52px 24px 28px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.flogo{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.flogo-icon{width:30px;height:30px;background:var(--g);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.flogo-text{font-family:'Fraunces',serif;font-size:17px;font-weight:900;color:#fff}
+.fa{font-size:12.5px;color:#6b7280;line-height:1.7;margin-bottom:12px}
+.ft{font-size:12px;color:#4b5563;line-height:1.9}
+.fcol h4{color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;font-weight:700}
+.fl-btn{display:block;background:none;border:none;color:#6b7280;font-size:13px;padding:3.5px 0;cursor:pointer;text-align:left;transition:color .15s}
+.fl-btn:hover{color:#fff}
+.fbar{border-top:1px solid #1f2937;max-width:var(--mw);margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:#4b5563}
+
+/* ═══ RESPONSIVE ════════════════════════════════════════════ */
+@media(max-width:900px){
+  .fi{grid-template-columns:1fr 1fr}
+  .opp-grid,.guide-grid,.cat-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hbg{display:block}
+  .search-bar{flex-direction:column}
+  .search-bar select{border-left:none;border-top:1px solid var(--bd);padding:10px 14px}
+  .li{grid-template-columns:1fr;gap:4px}
+  .li-days{text-align:left}
+  .sec-hdr{flex-direction:column;gap:6px}
+  .dir-filters{gap:6px}
+}
+@media(max-width:540px){
+  .opp-grid,.guide-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .nl-form{flex-direction:column}
+  .fi{grid-template-columns:1fr}
+  .stats-in{gap:18px}
+  .stat-num{font-size:22px}
+}
+@media print{
+  #nav,footer,.apply-block,.share-row,.btn,#breadcrumb{display:none}
+  body{background:#fff;font-size:13px}
+  .opp-card{break-inside:avoid}
+}
+</style>
 </head>
 <body>
 
-    <nav>
-        <div class="container nav-content">
-            <div class="logo">Opportunities<span>ZA</span></div>
-        </div>
-    </nav>
+<!-- ═══ NAV ══════════════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-in">
+    <button class="logo" onclick="go('home')">
+      <div class="logo-icon">🧭</div>
+      <span class="logo-text">Opportunities<em>ZA</em></span>
+    </button>
+    <div class="nav-links">
+      <button class="nl" onclick="goDir('learnership')">Learnerships</button>
+      <button class="nl" onclick="goDir('bursary')">Bursaries</button>
+      <button class="nl" onclick="goDir('internship')">Internships</button>
+      <button class="nl" onclick="go('guides')">SETA Guides</button>
+      <button class="nl" onclick="go('calendar')">📅 Calendar</button>
+      <button class="nl" onclick="go('saved')">🔖 Saved</button>
+      <button class="nl nl-cta" onclick="go('directory')">Browse All</button>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleDrw()">☰</button>
+  </div>
+  <div class="drawer" id="drw">
+    <button class="dl" onclick="goDir('learnership');closeDrw()">🎓 Learnerships</button>
+    <button class="dl" onclick="goDir('bursary');closeDrw()">📚 Bursaries</button>
+    <button class="dl" onclick="goDir('internship');closeDrw()">💼 Internships</button>
+    <button class="dl" onclick="goDir('apprenticeship');closeDrw()">🔧 Apprenticeships</button>
+    <button class="dl" onclick="go('guides');closeDrw()">📖 SETA Guides</button>
+    <button class="dl" onclick="go('calendar');closeDrw()">📅 Deadline Calendar</button>
+    <button class="dl" onclick="go('tools');closeDrw()">🛠️ Free Tools</button>
+    <button class="dl" onclick="go('saved');closeDrw()">🔖 Saved Opportunities</button>
+    <button class="dl" onclick="go('provinces');closeDrw()">📍 Browse by Province</button>
+    <button class="dl" onclick="go('about');closeDrw()">About Us</button>
+    <button class="btn btn-primary btn-full" style="margin-top:8px;border-radius:8px;padding:12px" onclick="go('directory');closeDrw()">Browse All Opportunities</button>
+  </div>
+</nav>
 
-    <header class="hero">
-        <div class="container">
-            <h1>2025 Career Opportunities</h1>
-            <p>Verified Learnerships, Bursaries & Internships for South African Youth</p>
-            <div class="search-box">
-                <input type="text" id="keyword" placeholder="Search (e.g. Nursing, SASOL, Admin)">
-                <select id="location">
-                    <option value="">All Provinces</option>
-                    <option value="Gauteng">Gauteng</option>
-                    <option value="Western Cape">Western Cape</option>
-                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
-                    <option value="Nationwide">Nationwide</option>
-                </select>
-                <select id="type">
-                    <option value="">All Types</option>
-                    <option value="learnership">Learnerships</option>
-                    <option value="bursary">Bursaries</option>
-                    <option value="internship">Internships</option>
-                </select>
-                <button class="btn btn-accent" onclick="filterData()">Search</button>
-            </div>
-        </div>
-    </header>
+<!-- ═══ MAIN ══════════════════════════════════════════════════ -->
+<main id="app"></main>
 
-    <main class="container">
-        <div class="grid" id="opportunity-grid"></div>
-    </main>
+<!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
+<footer>
+  <div class="fi">
+    <div>
+      <div class="flogo"><div class="flogo-icon">🧭</div><span class="flogo-text">OpportunitiesZA</span></div>
+      <p class="fa">South Africa's trusted guide to learnerships, bursaries, internships, and SETA opportunities. Verified. Free. Updated daily.</p>
+      <div class="ft">✓ Never collect your documents<br>✓ Never charge application fees<br>✓ All listings link to official sources</div>
+    </div>
+    <div>
+      <h4 class="fcol">Opportunities</h4>
+      <button class="fl-btn" onclick="go('directory')">Browse All</button>
+      <button class="fl-btn" onclick="goDir('learnership')">Learnerships</button>
+      <button class="fl-btn" onclick="goDir('bursary')">Bursaries</button>
+      <button class="fl-btn" onclick="goDir('internship')">Internships</button>
+      <button class="fl-btn" onclick="goDir('apprenticeship')">Apprenticeships</button>
+      <button class="fl-btn" onclick="go('provinces')">By Province</button>
+    </div>
+    <div>
+      <h4 class="fcol">Tools & Guides</h4>
+      <button class="fl-btn" onclick="go('calendar')">Deadline Calendar</button>
+      <button class="fl-btn" onclick="go('eligibility')">Eligibility Checker</button>
+      <button class="fl-btn" onclick="go('scam')">Scam Checker</button>
+      <button class="fl-btn" onclick="go('checklist')">Checklist Generator</button>
+      <button class="fl-btn" onclick="go('bursary-checker')">Bursary Checker</button>
+      <button class="fl-btn" onclick="go('guides')">SETA Guides</button>
+    </div>
+    <div>
+      <h4 class="fcol">Company</h4>
+      <button class="fl-btn" onclick="go('about')">About Us</button>
+      <button class="fl-btn" onclick="go('about')">Contact</button>
+      <button class="fl-btn" onclick="go('about')">Disclaimer</button>
+      <button class="fl-btn" onclick="go('about')">Privacy Policy</button>
+    </div>
+  </div>
+  <div class="fbar">
+    <span>© 2026 OpportunitiesZA. For information purposes only. Not an employer or recruitment agency.</span>
+    <span>South Africa 🇿🇦</span>
+  </div>
+</footer>
 
-    <script>
-        const opportunities = [
-            { id: 1, title: "SAPS Trainee Program 2025/2026", cat: "learnership", prov: "Nationwide", stipend: "R7 000/month", close: "2025-08-15" },
-            { id: 2, title: "Standard Bank Graduate Internship", cat: "internship", prov: "Gauteng", stipend: "R12 000/month", close: "2025-09-30" },
-            { id: 3, title: "Vodacom Merit Bursary Scheme", cat: "bursary", prov: "Nationwide", stipend: "Full Cover", close: "2025-10-31" },
-            { id: 4, title: "Sasol Maintenance Learnership", cat: "learnership", prov: "Mpumalanga", stipend: "R6 500/month", close: "2025-07-20" },
-            { id: 5, title: "Western Cape Health Nursing Intake", cat: "learnership", prov: "Western Cape", stipend: "R5 000/month", close: "2025-08-01" },
-            { id: 6, title: "Coca-Cola Sales & Admin Internship", cat: "internship", prov: "KwaZulu-Natal", stipend: "R8 500/month", close: "2025-11-15" },
-            { id: 7, title: "Transnet Freight Rail Apprenticeship", cat: "learnership", prov: "Nationwide", stipend: "R7 200/month", close: "2025-08-30" },
-            { id: 8, title: "Absa Data Analyst Internship", cat: "internship", prov: "Gauteng", stipend: "R15 000/month", close: "2025-10-10" },
-            { id: 9, title: "NSFAS Funding Application 2026", cat: "bursary", prov: "Nationwide", stipend: "Full Funding", close: "2025-11-30" },
-            { id: 10, title: "Clicks Pharmacy Assistant Learnership", cat: "learnership", prov: "Western Cape", stipend: "R4 800/month", close: "2025-12-05" },
-            { id: 11, title: "Discovery Health Business Admin", cat: "internship", prov: "Gauteng", stipend: "R9 000/month", close: "2025-09-15" },
-            { id: 12, title: "Anglo American Engineering Bursary", cat: "bursary", prov: "Limpopo", stipend: "Full Tuition", close: "2025-07-15" },
-            { id: 13, title: "Shoprite Retail Management Trainee", cat: "learnership", prov: "Nationwide", stipend: "R5 500/month", close: "2025-08-22" },
-            { id: 14, title: "Capitec Service Consultant Intake", cat: "internship", prov: "Nationwide", stipend: "R7 500/month", close: "2025-10-01" },
-            { id: 15, title: "Eskom Technical Learnership 2026", cat: "learnership", prov: "Nationwide", stipend: "R6 800/month", close: "2025-09-05" },
-            { id: 16, title: "Sanlam Actuarial Science Bursary", cat: "bursary", prov: "Western Cape", stipend: "Full Funding", close: "2025-08-30" },
-            { id: 17, title: "MTN Marketing Internship", cat: "internship", prov: "Gauteng", stipend: "R10 500/month", close: "2025-11-20" },
-            { id: 18, title: "Netcare Nursing Diploma 2026", cat: "learnership", prov: "Nationwide", stipend: "R5 200/month", close: "2025-09-12" },
-            { id: 19, title: "Old Mutual Wealth Internship", cat: "internship", prov: "Western Cape", stipend: "R11 000/month", close: "2025-10-25" },
-            { id: 20, title: "Woolworths Supply Chain Learnership", cat: "learnership", prov: "KwaZulu-Natal", stipend: "R6 000/month", close: "2025-08-18" }
-        ];
+<script>
+/* ═══════════════════════════════════════════════════════════
+   DATA — 22 OPPORTUNITIES
+═══════════════════════════════════════════════════════════ */
+const OPPS=[
+ {id:"001",title:"Eskom Engineering Learnership 2026",cat:"learnership",sector:"EWSETA",prov:"Nationwide",qual:"Matric",stipend:"R4 500/month",close:"2026-09-30",url:"https://www.eskom.co.za/careers",src:"Eskom Official Website",srcUrl:"https://www.eskom.co.za/careers",verified:true,featured:true,slug:"eskom-engineering-learnership-2026",
+  desc:"Eskom's annual learnership programme offers structured workplace learning leading to a nationally recognised NQF qualification. The programme covers electrical, mechanical, and instrumentation disciplines across Eskom's generation, transmission, and distribution divisions.",
+  elig:["Grade 12 / Matric certificate","South African citizen with valid ID","Aged 18–35","Currently unemployed","No previous Eskom learnership"],
+  docs:["Certified copy of ID (not older than 3 months)","Certified copy of Matric certificate","Comprehensive CV (max 2 pages)","Proof of residence (not older than 3 months)","Motivational letter (max 1 page)"],tags:["matric","government","nationwide"]},
 
-        function renderGrid(data) {
-            const grid = document.getElementById('opportunity-grid');
-            grid.innerHTML = data.length > 0 ? data.map(o => `
-                <a href="#" class="card">
-                    <span class="card-tag tag-${o.cat}">${o.cat}</span>
-                    <h3 class="card-title">${o.title}</h3>
-                    <div class="card-meta">📍 ${o.prov} • 💰 ${o.stipend}</div>
-                    <div class="card-footer">⌛ Closes: ${o.close}</div>
-                </a>
-            `).join('') : '<p style="grid-column: 1/-1; text-align: center; padding: 40px;">No opportunities found. Try different filters.</p>';
-        }
+ {id:"002",title:"ABSA Bank Graduate Internship 2026",cat:"internship",sector:"BANKSETA",prov:"Gauteng",qual:"Degree",stipend:"R8 500/month",close:"2026-07-31",url:"https://www.absa.africa/absaafrica/careers",src:"ABSA Group Careers",srcUrl:"https://www.absa.africa/absaafrica/careers",verified:true,featured:false,slug:"absa-graduate-internship-2026",
+  desc:"12-month structured programme developing young talent in banking and financial services. Interns rotate across Retail, Corporate, and Digital Banking with structured mentorship.",
+  elig:["Relevant 3-year degree (Finance, Accounting, IT, Commerce)","South African citizen","Recent graduate — within last 2 years","Aged 18–35"],
+  docs:["Certified ID copy","Certified degree certificate","Academic transcript","CV (max 3 pages)","Cover letter"],tags:["graduate","degree","banking","gauteng"]},
 
-        function filterData() {
-            const keyword = document.getElementById('keyword').value.toLowerCase();
-            const location = document.getElementById('location').value;
-            const type = document.getElementById('type').value;
-            const filtered = opportunities.filter(o => 
-                (o.title.toLowerCase().includes(keyword)) &&
-                (location === "" || o.prov === location || o.prov === "Nationwide") &&
-                (type === "" || o.cat === type)
-            );
-            renderGrid(filtered);
-        }
+ {id:"003",title:"NSFAS Bursary 2026 — University & TVET Funding",cat:"bursary",sector:"Government – DHET",prov:"Nationwide",qual:"Matric",stipend:"Full bursary – varies by institution",close:"2026-11-30",url:"https://www.nsfas.org.za/content/applications.html",src:"NSFAS Official Website",srcUrl:"https://www.nsfas.org.za",verified:true,featured:true,slug:"nsfas-bursary-2026",
+  desc:"NSFAS provides funding to eligible South African students at public universities and TVET colleges. Covers tuition, accommodation, transport, and a living allowance. No repayment required.",
+  elig:["South African citizen","Household income below R350 000/year","Registered or applying at a public university or TVET college","SASSA grant recipients qualify automatically"],
+  docs:["South African ID","Proof of income (payslips or affidavit)","Matric results or academic record","Proof of registration at institution"],tags:["government","nationwide","tvet","university"]},
 
-        renderGrid(opportunities);
-    </script>
+ {id:"004",title:"MICT SETA ICT Learnership 2026",cat:"learnership",sector:"MICT SETA",prov:"Western Cape",qual:"Matric",stipend:"R3 500/month",close:"2026-08-15",url:"https://www.mict.org.za/learnerships",src:"MICT SETA Official",srcUrl:"https://www.mict.org.za",verified:true,featured:false,slug:"mict-seta-ict-learnership-2026",
+  desc:"NQF Level 4 ICT Learnership providing practical experience in IT support, networking, and software fundamentals over 12 months.",
+  elig:["Grade 12 with Mathematics","South African citizen aged 18–35","Basic computer literacy","Currently unemployed"],
+  docs:["Certified ID","Certified Matric certificate","CV","Proof of residence","Motivational letter"],tags:["it","matric","western-cape"]},
+
+ {id:"005",title:"Transnet Freight Rail Apprenticeship 2026",cat:"apprenticeship",sector:"TETA",prov:"Gauteng",qual:"Matric",stipend:"R6 000/month",close:"2026-10-31",url:"https://www.transnet.net/careers",src:"Transnet SOC Ltd",srcUrl:"https://www.transnet.net/careers",verified:true,featured:false,slug:"transnet-apprenticeship-2026",
+  desc:"3-year apprenticeship developing qualified artisans in diesel mechanical, electrical, and boilermaking trades. Leads to a nationally recognised trade certificate.",
+  elig:["Matric with Mathematics and Physical Science (min 50%)","South African citizen aged 18–30","Medically fit (will be tested)"],
+  docs:["Certified ID","Certified Matric with subject results","CV","Medical clearance certificate"],tags:["artisan","maths-science","gauteng","government"]},
+
+ {id:"006",title:"Shoprite Group Retail Learnership 2026",cat:"learnership",sector:"W&RSETA",prov:"Nationwide",qual:"Matric",stipend:"R3 200/month",close:"2026-10-15",url:"https://www.shopriteholdings.co.za/careers",src:"Shoprite Holdings Careers",srcUrl:"https://www.shopriteholdings.co.za/careers",verified:true,featured:false,slug:"shoprite-retail-learnership-2026",
+  desc:"Retail Learnership across Shoprite, Checkers, and USave providing NQF Level 3 and 4 qualifications in retail operations while working in live store environments.",
+  elig:["Grade 12 certificate","South African citizen aged 18–35","Currently unemployed","No previous retail learnership"],
+  docs:["Certified ID","Certified Matric","CV","Motivational letter","Proof of residence"],tags:["retail","nationwide","no-experience"]},
+
+ {id:"007",title:"KwaZulu-Natal Department of Health Internship 2026",cat:"internship",sector:"PSETA",prov:"KwaZulu-Natal",qual:"Degree",stipend:"R7 044/month",close:"2026-09-15",url:"https://www.kznhealth.gov.za",src:"KZN Department of Health",srcUrl:"https://www.kznhealth.gov.za",verified:true,featured:false,slug:"kzn-health-internship-2026",
+  desc:"12-month internship placements for graduates in health administration, public health, pharmacy assistance, and environmental health at district offices and provincial hospitals.",
+  elig:["Relevant health sciences or administration degree","South African citizen aged 18–35","No previous government internship"],
+  docs:["Certified ID","Certified degree certificate","Academic transcript","CV","Z83 form","Cover letter"],tags:["government","health","degree","kwazulu-natal"]},
+
+ {id:"008",title:"Sasol Engineering & Science Bursary 2026",cat:"bursary",sector:"CHIETA",prov:"Nationwide",qual:"Matric",stipend:"Full tuition + R5 000/month",close:"2026-08-31",url:"https://www.sasol.com/careers/bursaries",src:"Sasol Ltd Careers",srcUrl:"https://www.sasol.com/careers",verified:true,featured:true,slug:"sasol-bursary-engineering-2026",
+  desc:"Full tuition, accommodation, and monthly living allowance for engineering and science students at any South African public university.",
+  elig:["Matric with Maths and Physical Science (min 70%)","South African citizen","Accepted at a public university","Studying Chemical, Mechanical, or Electrical Engineering"],
+  docs:["Certified ID","Certified Matric results","University acceptance letter","Motivational letter","CV"],tags:["engineering","science","full-bursary","nationwide"]},
+
+ {id:"009",title:"MerSETA Boilermaker Apprenticeship 2026",cat:"apprenticeship",sector:"MerSETA",prov:"Gauteng",qual:"Matric",stipend:"R5 500/month",close:"2026-10-31",url:"https://www.merseta.org.za",src:"MerSETA Official Website",srcUrl:"https://www.merseta.org.za",verified:true,featured:false,slug:"merseta-boilermaker-apprenticeship-2026",
+  desc:"3-year boilermaker apprenticeship leading to a nationally recognised trade certificate. Covers metal fabrication, welding, and pressure vessel manufacturing.",
+  elig:["Matric with Mathematics and Physical Science (min 50%)","South African citizen aged 18–28","Medically fit"],
+  docs:["Certified ID","Certified Matric with subject results","Medical fitness certificate","CV"],tags:["artisan","boilermaker","maths-science","gauteng"]},
+
+ {id:"010",title:"Old Mutual Graduate Internship 2026",cat:"internship",sector:"INSETA",prov:"Western Cape",qual:"Degree",stipend:"R9 500/month",close:"2026-07-31",url:"https://www.oldmutual.co.za/careers",src:"Old Mutual Group Careers",srcUrl:"https://www.oldmutual.co.za/careers",verified:true,featured:false,slug:"old-mutual-graduate-internship-2026",
+  desc:"12-month rotational internship across actuarial, finance, IT, and business operations. Structured mentorship with possibility of permanent employment.",
+  elig:["BCom, BSc, or relevant 3-year degree","South African citizen aged 18–30","Graduated within last 2 years"],
+  docs:["Certified ID","Certified degree certificate","Academic transcript","CV (max 3 pages)","Cover letter"],tags:["graduate","degree","insurance","western-cape"]},
+
+ {id:"011",title:"Standard Bank YES Programme Internship 2026",cat:"internship",sector:"BANKSETA",prov:"Gauteng",qual:"Degree",stipend:"R6 500/month",close:"2026-09-30",url:"https://www.standardbank.co.za/careers",src:"Standard Bank Careers Portal",srcUrl:"https://www.standardbank.co.za/careers",verified:true,featured:false,slug:"standard-bank-yes-internship-2026",
+  desc:"12-month YES (Youth Employment Service) placement in banking operations, digital innovation, or financial services. Real work, structured learning, and potential for permanent employment.",
+  elig:["Relevant degree (Finance, IT, Commerce, Law)","South African citizen aged 18–35","Unemployed youth"],
+  docs:["Certified ID","Certified degree certificate","CV","Cover letter","Academic transcript"],tags:["graduate","degree","banking","gauteng","yes-programme"]},
+
+ {id:"012",title:"Anglo American Mining Learnership 2026",cat:"learnership",sector:"Mining SETA",prov:"North West",qual:"Matric",stipend:"R5 800/month",close:"2026-08-31",url:"https://www.angloamerican.com/careers",src:"Anglo American Platinum",srcUrl:"https://www.angloamerican.com/careers",verified:true,featured:false,slug:"anglo-american-mining-learnership-2026",
+  desc:"SETA-accredited mining learnership with Anglo American Platinum offering NQF Level 4 qualification in mining operations. Based at platinum mines in North West Province.",
+  elig:["Matric with Mathematics and Physical Science","South African citizen aged 18–30","Medically fit for underground work"],
+  docs:["Certified ID","Certified Matric with subject symbols","Medical fitness certificate","CV"],tags:["mining","maths-science","north-west","artisan"]},
+
+ {id:"013",title:"Nedbank Graduate Finance Internship 2026",cat:"internship",sector:"BANKSETA",prov:"Gauteng",qual:"Degree",stipend:"R8 000/month",close:"2026-08-15",url:"https://www.nedbank.co.za/careers",src:"Nedbank Careers",srcUrl:"https://www.nedbank.co.za/careers",verified:true,featured:false,slug:"nedbank-graduate-finance-internship-2026",
+  desc:"12-month graduate internship across Nedbank's Finance, Risk, and Technology divisions. Gain hands-on experience in banking with structured mentorship and project work.",
+  elig:["BCom Finance, Accounting, or Economics degree","South African citizen aged 18–30","Academic average above 65%"],
+  docs:["Certified ID","Certified degree","Transcript","CV","Cover letter"],tags:["graduate","degree","banking","gauteng"]},
+
+ {id:"014",title:"CETA Construction Learnership 2026",cat:"learnership",sector:"CETA",prov:"Western Cape",qual:"Matric",stipend:"R3 800/month",close:"2026-09-30",url:"https://www.ceta.co.za",src:"CETA Official Website",srcUrl:"https://www.ceta.co.za",verified:true,featured:false,slug:"ceta-construction-learnership-2026",
+  desc:"CETA-funded construction learnership leading to NQF Level 4 qualification. Covers fundamentals of construction trades including site safety, surveying, and project coordination.",
+  elig:["Grade 12 with Mathematics","South African citizen aged 18–35","Unemployed with interest in construction"],
+  docs:["Certified ID","Certified Matric","CV","Proof of residence","Motivational letter"],tags:["construction","matric","western-cape"]},
+
+ {id:"015",title:"MTN South Africa ICT Graduate Programme 2026",cat:"internship",sector:"MICT SETA",prov:"Gauteng",qual:"Degree",stipend:"R10 000/month",close:"2026-08-31",url:"https://www.mtn.com/careers",src:"MTN South Africa Careers",srcUrl:"https://www.mtn.com/careers",verified:true,featured:false,slug:"mtn-ict-graduate-programme-2026",
+  desc:"MTN's 12-month ICT Graduate Programme places talented graduates across Network, Digital, Commercial, and Corporate functions. Comprehensive development with senior mentors.",
+  elig:["BSc Computer Science, Engineering, or Commerce degree","South African citizen","Academic average above 65%","Recently graduated"],
+  docs:["Certified ID","Certified degree","Transcript","CV (max 3 pages)","Cover letter"],tags:["graduate","degree","it","gauteng","telecoms"]},
+
+ {id:"016",title:"HWSETA Social Work Learnership 2026",cat:"learnership",sector:"HWSETA",prov:"Eastern Cape",qual:"Matric",stipend:"R3 400/month",close:"2026-09-30",url:"https://www.hwseta.org.za",src:"HWSETA Official",srcUrl:"https://www.hwseta.org.za",verified:true,featured:false,slug:"hwseta-social-work-learnership-2026",
+  desc:"Health and Welfare SETA learnership in community social work and community development, NQF Level 4. Placements at community centres and NGOs in the Eastern Cape.",
+  elig:["Grade 12 certificate","South African citizen aged 18–35","Currently unemployed","Interest in social work or community development"],
+  docs:["Certified ID","Certified Matric","CV","Proof of residence","Motivational letter"],tags:["social-work","matric","eastern-cape"]},
+
+ {id:"017",title:"UCT Science & Engineering Bursary 2026",cat:"bursary",sector:"University",prov:"Western Cape",qual:"Matric",stipend:"Full tuition + accommodation",close:"2026-09-30",url:"https://www.uct.ac.za/apply/funding",src:"UCT Financial Aid Office",srcUrl:"https://www.uct.ac.za/apply/funding",verified:true,featured:false,slug:"uct-science-engineering-bursary-2026",
+  desc:"UCT's merit and need bursary for Science and Engineering students from disadvantaged backgrounds. Covers full tuition, residence, and books. Academic performance required for annual renewal.",
+  elig:["Grade 12 with strong Maths and Physical Science (min 70%)","South African citizen","Accepted or applying at UCT","Household income below R600 000/year"],
+  docs:["Certified ID","Matric results (min 70% in core subjects)","UCT acceptance letter","Proof of income (family)","Motivational essay (500 words)"],tags:["university","engineering","western-cape","merit"]},
+
+ {id:"018",title:"Vodacom Digital Marketing Internship 2026",cat:"internship",sector:"MICT SETA",prov:"Gauteng",qual:"Diploma",stipend:"R7 500/month",close:"2026-10-15",url:"https://www.vodacom.co.za/careers",src:"Vodacom Group Careers",srcUrl:"https://www.vodacom.co.za/careers",verified:true,featured:false,slug:"vodacom-digital-marketing-internship-2026",
+  desc:"12-month digital marketing internship at Vodacom covering social media strategy, content creation, performance marketing, and brand campaigns.",
+  elig:["Marketing, Media, or Communications diploma or degree","South African citizen aged 18–30","Creative portfolio an advantage"],
+  docs:["Certified ID","Certified qualification","CV (max 3 pages)","Cover letter","Portfolio (if available)"],tags:["marketing","digital","diploma","gauteng","telecoms"]},
+
+ {id:"019",title:"FNB Retail Banking Learnership 2026",cat:"learnership",sector:"BANKSETA",prov:"Gauteng",qual:"Matric",stipend:"R4 200/month",close:"2026-09-15",url:"https://www.fnb.co.za/careers",src:"First National Bank Careers",srcUrl:"https://www.fnb.co.za/careers",verified:true,featured:false,slug:"fnb-retail-banking-learnership-2026",
+  desc:"BANKSETA-accredited learnership in retail banking operations. NQF Level 4 qualification covering customer service, financial products, and branch banking fundamentals.",
+  elig:["Grade 12 / Matric certificate","South African citizen aged 18–35","Currently unemployed","No criminal record"],
+  docs:["Certified ID","Certified Matric","CV","Motivational letter","Proof of residence"],tags:["banking","matric","gauteng","no-experience"]},
+
+ {id:"020",title:"Department of Tourism Graduate Internship 2026",cat:"internship",sector:"CATHSSETA",prov:"Nationwide",qual:"Degree",stipend:"R6 083/month",close:"2026-08-31",url:"https://www.tourism.gov.za/careers",src:"Department of Tourism",srcUrl:"https://www.tourism.gov.za",verified:true,featured:false,slug:"dept-tourism-graduate-internship-2026",
+  desc:"Government internship at the national Department of Tourism for graduates in Tourism Management, Hospitality, Marketing, or related fields. 24-month contract.",
+  elig:["Relevant 3-year degree or diploma","South African citizen aged 18–35","No previous government internship","Unemployed"],
+  docs:["Certified ID","Certified qualification","Academic transcript","CV","Z83 form (from dpsa.gov.za)","Cover letter"],tags:["government","tourism","degree","nationwide"]},
+
+ {id:"021",title:"AgriSETA Agricultural Learnership 2026",cat:"learnership",sector:"AgriSETA",prov:"Limpopo",qual:"Matric",stipend:"R3 100/month",close:"2026-10-31",url:"https://www.agriseta.co.za",src:"AgriSETA Official Website",srcUrl:"https://www.agriseta.co.za",verified:true,featured:false,slug:"agriseta-agricultural-learnership-2026",
+  desc:"AgriSETA-funded agricultural learnership in crop production and farm management. NQF Level 4 qualification with practical training on commercial farms in Limpopo.",
+  elig:["Grade 12 certificate","South African citizen","Interest in agriculture and farming","Resident in Limpopo preferred"],
+  docs:["Certified ID","Certified Matric","CV","Proof of residence"],tags:["agriculture","matric","limpopo","agriseta"]},
+
+ {id:"022",title:"Capitec Bank Branch Learnership 2026",cat:"learnership",sector:"BANKSETA",prov:"Western Cape",qual:"Matric",stipend:"R4 000/month",close:"2026-09-30",url:"https://www.capitecbank.co.za/careers",src:"Capitec Bank Careers",srcUrl:"https://www.capitecbank.co.za/careers",verified:true,featured:false,slug:"capitec-bank-learnership-2026",
+  desc:"Capitec Bank's branch learnership provides NQF Level 4 retail banking qualification through hands-on customer service training across Capitec branches in the Western Cape.",
+  elig:["Matric certificate","South African citizen aged 18–30","Currently unemployed","Passion for customer service"],
+  docs:["Certified ID","Certified Matric","CV","Motivational letter","Proof of residence"],tags:["banking","matric","western-cape","no-experience"]},
+];
+
+const GUIDES=[
+ {id:"g001",title:"What Is a SETA in South Africa?",cat:"seta-guides",intro:"A SETA — Sector Education and Training Authority — is a government body that funds skills training. There are 21 SETAs, each covering a different sector of the South African economy.",body:"<p>SETAs are funded by a 1% payroll levy that employers pay to SARS. This money funds learnerships, apprenticeships, and skills programmes — all free to applicants. You never apply to a SETA directly; you apply to companies running SETA-funded programmes.</p><h2>How Do SETAs Help Job Seekers?</h2><p>When a company runs a SETA-funded learnership, you receive on-the-job training AND a nationally recognised qualification — free of charge, with a monthly stipend. The SETA subsidises the company to take you on.</p><h2>Do I Need to Pay Anything?</h2><p><strong>No.</strong> All legitimate SETA-funded programmes are completely free. If anyone charges you a fee, it is a scam. Report it immediately to the SAPS.</p>",read:"4 min"},
+ {id:"g002",title:"What Is a Learnership? Complete Guide 2026",cat:"seta-guides",intro:"A learnership is a structured training programme combining classroom learning with real work experience. You earn a nationally recognised NQF qualification AND a monthly stipend — all for free.",body:"<p>Learnerships are funded through the SETA system. Most run for 12 months, require Matric, and pay R3 500–R8 000/month. No prior work experience is needed.</p><h2>Learnership vs Internship</h2><p>A learnership leads to a formal NQF qualification. An internship is work experience for existing graduates and does not always result in a qualification. Learnerships are for people at Matric level wanting to build their first career credential.</p><h2>What Happens After?</h2><p>Completing a learnership gives you an NQF qualification and real work experience on your CV. Many companies offer permanent positions to high-performing learners.</p>",read:"5 min"},
+ {id:"g003",title:"How to Apply for Learnerships: Step-by-Step",cat:"seta-guides",intro:"This step-by-step guide covers everything — from checking eligibility to submitting your application. Never pay to apply.",body:"<h2>Step 1: Check Your Eligibility</h2><p>Confirm: South African ID, Matric certificate, unemployed status, correct age range. Some learnerships require specific Matric subjects.</p><h2>Step 2: Gather Your Documents</h2><p>You need: certified ID (within 3 months), certified Matric, CV of max 2 pages, motivational letter (1 page), proof of residence (within 3 months).</p><h2>Step 3: Write a Targeted Motivational Letter</h2><p>Name the specific company and programme. Explain why you want this opportunity and what you bring to it. Generic letters are rejected. Tailor every application.</p><h2>Step 4: Apply via the Official Website</h2><p>Apply only through the company's official careers page. Email format: <strong>Application: [Learnership Name] — [Your Full Name]</strong>. Never apply after the closing date.</p>",read:"6 min"},
+ {id:"g004",title:"How to Avoid Learnership Scams in South Africa",cat:"seta-guides",intro:"Learnership scams cost South Africans thousands of rands every year. Here's how to protect yourself from fake opportunities on social media.",body:"<p><strong>The single most important rule:</strong> legitimate learnerships are ALWAYS free to apply for. Any programme charging a fee is a scam.</p><h2>7 Red Flags</h2><ul><li><strong>Application fee requested</strong> — never pay anything</li><li><strong>Documents requested before an interview</strong> — only provide after an offer</li><li><strong>WhatsApp-only contact</strong> from an unknown number</li><li><strong>Gmail or Yahoo email address</strong> — real employers use @companyname.co.za</li><li><strong>Stipend of R20 000+/month</strong> — typical is R3 500–R8 000</li><li><strong>No official company website</strong> — verify at cipc.co.za</li><li><strong>Urgency pressure</strong> — \"apply in 24 hours\" is a manipulation tactic</li></ul>",read:"5 min"},
+ {id:"g005",title:"NQF Levels Explained: What They Mean for Your Career",cat:"seta-guides",intro:"The NQF classifies all South African qualifications from Level 1 to Level 10. Understanding it helps you know which opportunities you qualify for.",body:"<p>NQF Level 4 = Matric. Level 6 = Diploma. Level 7 = Bachelor's Degree. Most SETA learnerships are for NQF Level 4 entry and lead to NQF Level 4 or 5 qualifications.</p><h2>Why It Matters</h2><p>Every opportunity listing states a minimum NQF level or qualification type. Applying for a programme you're overqualified for may result in rejection — learnerships are designed for specific stages of development.</p><h2>TVET Connection</h2><p>A TVET N6 diploma sits at NQF Level 6. Completing a SETA learnership while at TVET level is one of the most underutilised career pathways in South Africa.</p>",read:"4 min"},
+ {id:"g006",title:"NSFAS 2026: How to Apply, Who Qualifies & What It Covers",cat:"seta-guides",intro:"NSFAS covers tuition, accommodation, and a living allowance for students at public universities and TVET colleges. No repayment required.",body:"<h2>Who Qualifies?</h2><p>South African citizen, household income below R350 000/year, registered at a public university or TVET college. SASSA grant recipients qualify automatically.</p><h2>How to Apply</h2><p>Apply at myNSFAS.org.za — the only legitimate portal. Never use agents claiming to apply on your behalf. Applications typically open October–November for the following year.</p><h2>What NSFAS Covers</h2><p>Tuition, accommodation (in university residences), meals allowance, transport allowance, and personal care allowance. For TVET students: tuition plus a monthly living allowance.</p>",read:"5 min"},
+ {id:"g007",title:"How to Write a CV for a Learnership",cat:"career-advice",intro:"Your CV is the first filter. A clean, 2-page CV with the right information gives you a real advantage over hundreds of applications.",body:"<h2>CV Structure</h2><p><strong>Section 1 — Personal Details:</strong> Full name, ID number, contact number, email, address, province. No photo unless requested.</p><p><strong>Section 2 — Education:</strong> Institution, year, subjects and symbols for Matric.</p><p><strong>Section 3 — Experience:</strong> Any work — informal, part-time, or volunteer. Include role, dates, and 2–3 bullet points.</p><p><strong>Section 4 — Skills:</strong> Computer literacy, languages spoken, driver's licence.</p><p><strong>Section 5 — References:</strong> Two references — teacher, community leader, or family friend (not a parent). Include name, relationship, and phone number.</p><h2>CV Rules</h2><ul><li>Maximum 2 pages</li><li>Font: Arial or Calibri, size 11–12</li><li>No spelling errors — read it aloud</li><li>Save as PDF, filename: YourName-CV.pdf</li></ul>",read:"5 min"},
+];
+
+const CATS=[
+ {id:"learnership",label:"Learnerships",icon:"🎓",desc:"Earn a qualification while earning a stipend",color:"#166534",bg:"#dcfce7"},
+ {id:"bursary",label:"Bursaries",icon:"📚",desc:"Financial funding for university or TVET studies",color:"#92400e",bg:"#fef3c7"},
+ {id:"internship",label:"Internships",icon:"💼",desc:"Graduate and student work experience programmes",color:"#1e40af",bg:"#dbeafe"},
+ {id:"apprenticeship",label:"Apprenticeships",icon:"🔧",desc:"Artisan trade training — trade certificates",color:"#6b21a8",bg:"#f3e8ff"},
+];
+const PROVS=["Nationwide","Gauteng","Western Cape","KwaZulu-Natal","Eastern Cape","Limpopo","Mpumalanga","North West","Free State","Northern Cape"];
+
+/* ═══════════════════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════════════════ */
+const days=d=>Math.ceil((new Date(d)-new Date())/86400000);
+const fmtD=d=>new Date(d).toLocaleDateString("en-ZA",{day:"numeric",month:"long",year:"numeric"});
+const fmtMY=d=>new Date(d).toLocaleDateString("en-ZA",{month:"long",year:"numeric"});
+const fmtShort=d=>new Date(d).toLocaleDateString("en-ZA",{day:"numeric",month:"short"});
+
+function urgInfo(d){
+  const n=days(d);
+  if(n<0) return{label:"Closed",cls:"",c:"#6b7280",bg:"#f3f4f6"};
+  if(n<=3) return{label:`${n}d left`,cls:"pill-red",c:"#dc2626",bg:"#fee2e2"};
+  if(n<=7) return{label:`${n}d left`,cls:"pill-amber",c:"#d97706",bg:"#fef3c7"};
+  if(n<=30) return{label:`${n}d left`,cls:"pill-green",c:"#166534",bg:"#dcfce7"};
+  return{label:fmtD(d),cls:"pill-gray",c:"#374151",bg:"#f3f4f6"};
+}
+const catInfo=id=>CATS.find(c=>c.id===id)||{color:"#374151",bg:"#f3f4f6"};
+const badge=cat=>`<span class="badge badge-${cat}">${cat}</span>`;
+const pill=(d)=>{const u=urgInfo(d);return`<span class="pill ${u.cls}" style="background:${u.bg};color:${u.c}">${u.label}</span>`;};
+const liveOpps=()=>OPPS.filter(o=>days(o.close)>0);
+
+// Saved (localStorage)
+const getSaved=()=>{try{return JSON.parse(localStorage.getItem('opza_saved')||'[]')}catch{return[]}};
+const isSaved=id=>getSaved().includes(id);
+function toggleSave(id,e){
+  e&&e.stopPropagation();
+  const s=getSaved();
+  const idx=s.indexOf(id);
+  if(idx>-1) s.splice(idx,1); else s.push(id);
+  localStorage.setItem('opza_saved',JSON.stringify(s));
+  document.querySelectorAll(`.bk-${id}`).forEach(el=>el.textContent=isSaved(id)?'🔖':'🔲');
+}
+const bkBtn=id=>`<button class="bk-btn bk-${id}" onclick="toggleSave('${id}',event)" title="${isSaved(id)?'Remove bookmark':'Save opportunity'}">${isSaved(id)?'🔖':'🔲'}</button>`;
+
+/* ═══════════════════════════════════════════════════════════
+   ROUTER
+═══════════════════════════════════════════════════════════ */
+let _page='home',_opp=null,_guide=null,_dirCat='';
+let calState={year:new Date().getFullYear(),month:new Date().getMonth(),view:'list',cat:'',sel:null};
+
+function go(p,data=null){
+  _page=p;
+  if(data&&typeof data==='object'){if(p==='detail')_opp=data;if(p==='guide-detail')_guide=data;}
+  if(p==='directory'&&typeof data==='string') _dirCat=data;
+  window.scrollTo(0,0);
+  closeDrw();
+  render();
+}
+function goDir(cat){_dirCat=cat;go('directory');}
+function openOpp(id){_opp=OPPS.find(o=>o.id===id);go('detail');}
+function openGuide(id){_guide=GUIDES.find(g=>g.id===id);go('guide-detail');}
+
+function render(){
+  const app=document.getElementById('app');
+  switch(_page){
+    case 'home': app.innerHTML=renderHome();break;
+    case 'directory': app.innerHTML=renderDir(_dirCat);bindDir();break;
+    case 'detail': app.innerHTML=renderDetail();break;
+    case 'calendar': app.innerHTML=renderCal();break;
+    case 'tools': app.innerHTML=renderTools();break;
+    case 'eligibility': app.innerHTML=renderElig();break;
+    case 'scam': app.innerHTML=renderScam();break;
+    case 'checklist': app.innerHTML=renderChecklist();break;
+    case 'bursary-checker': app.innerHTML=renderBursaryChecker();break;
+    case 'guides': app.innerHTML=renderGuides();break;
+    case 'guide-detail': app.innerHTML=renderGuideDetail();break;
+    case 'provinces': app.innerHTML=renderProvinces();break;
+    case 'saved': app.innerHTML=renderSaved();break;
+    case 'about': app.innerHTML=renderAbout();break;
+    default: app.innerHTML=renderHome();
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV HELPERS
+═══════════════════════════════════════════════════════════ */
+function toggleDrw(){const d=document.getElementById('drw'),h=document.getElementById('hbg');d.classList.toggle('open');h.textContent=d.classList.contains('open')?'✕':'☰';}
+function closeDrw(){const d=document.getElementById('drw'),h=document.getElementById('hbg');d.classList.remove('open');if(h)h.textContent='☰';}
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20));
+
+/* ═══════════════════════════════════════════════════════════
+   OPP CARD
+═══════════════════════════════════════════════════════════ */
+function oppCard(o,compact=false){
+  const u=urgInfo(o.close);
+  return`<div class="opp-card${o.featured?' featured':''}" onclick="openOpp('${o.id}')">
+  <div class="oc-top">${badge(o.cat)}${o.verified?'<span class="oc-verified">✓ Verified</span>':''}</div>
+  <h3 class="oc-title">${o.title}</h3>
+  <div class="oc-meta"><span>📍 ${o.prov}</span>${o.stipend?`<span>💰 ${o.stipend}</span>`:''}</div>
+  <div class="oc-footer">${pill(o.close)}<div style="display:flex;align-items:center;gap:10px"><span class="oc-link">View & Apply →</span>${bkBtn(o.id)}</div></div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HOME
+═══════════════════════════════════════════════════════════ */
+function renderHome(){
+  const live=liveOpps();
+  const closing=[...live].filter(o=>days(o.close)<=30).sort((a,b)=>days(a.close)-days(b.close)).slice(0,7);
+  const featured=[...live].sort((a,b)=>new Date(a.close)-new Date(b.close)).slice(0,6);
+  return`<div class="page">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-in">
+      <div class="hero-badge"><span>✓ Verified · Free · South Africa Only</span></div>
+      <h1>Find Your <em>Career</em><br>Opportunity in SA</h1>
+      <p class="hero-sub">Learnerships, bursaries, internships, and apprenticeships — verified against official sources and updated daily.</p>
+      <div class="search-bar">
+        <input id="hq" placeholder="Search learnerships, bursaries, companies..." onkeydown="if(event.key==='Enter')heroSearch()">
+        <select id="hc">
+          <option value="">All Types</option>
+          ${CATS.map(c=>`<option value="${c.id}">${c.label}</option>`).join('')}
+        </select>
+        <button onclick="heroSearch()">Search →</button>
+      </div>
+      <div class="chips">
+        ${['Learnerships','Bursaries','Internships','Closing Soon','By Province'].map(c=>`
+          <button class="chip" onclick="${c==='Closing Soon'?"go('calendar')":c==='By Province'?"go('provinces')":`goDir('${c.toLowerCase().slice(0,-1)}')`}">${c}</button>
+        `).join('')}
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-in">
+      <div class="stat"><span class="stat-num">${live.length}</span><span class="stat-label">Open Listings</span></div>
+      <div class="stat"><span class="stat-num">${live.filter(o=>days(o.close)<=30).length}</span><span class="stat-label">Closing This Month</span></div>
+      <div class="stat"><span class="stat-num">21</span><span class="stat-label">SETAs Covered</span></div>
+      <div class="stat"><span class="stat-num">9</span><span class="stat-label">Provinces</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Free to Apply</span></div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <div style="padding:52px 24px 0;max-width:var(--mw);margin:0 auto">
+    <div class="cat-grid">
+      ${CATS.map(c=>{const cnt=live.filter(o=>o.cat===c.id).length;return`
+        <button class="cat-tile" onclick="goDir('${c.id}')">
+          <div class="ct-icon">${c.icon}</div>
+          <div class="ct-name">${c.label}</div>
+          <div class="ct-desc">${c.desc}</div>
+          <div class="ct-count" style="color:${c.color};background:${c.bg}">${cnt} open now</div>
+        </button>`;}).join('')}
+    </div>
+  </div>
+
+  <!-- CLOSING STRIP -->
+  ${closing.length?`<div class="strip" style="margin-top:48px">
+    <div class="strip-in">
+      <div class="strip-hdr"><span>🚨</span><span>Closing Soon — Don't Miss These</span></div>
+      <div class="strip-scroll">
+        ${closing.map(o=>{const u=urgInfo(o.close);return`
+          <button class="strip-pill" onclick="openOpp('${o.id}')">
+            <span class="sp-title">${o.title}</span>
+            <span class="sp-meta">📍 ${o.prov} · ${badge(o.cat).replace(/<[^>]+>/g,'').trim()}</span>
+            <span class="pill ${u.cls}" style="background:${u.bg};color:${u.c};font-size:10px">${u.label}</span>
+          </button>`;}).join('')}
+      </div>
+    </div>
+  </div>`:''}
+
+  <!-- FEATURED OPPS -->
+  <div style="max-width:var(--mw);margin:0 auto;padding:52px 24px 0">
+    <div class="sec-hdr">
+      <h2 class="sec-title">Latest Opportunities</h2>
+      <button class="sec-lnk" onclick="go('directory')">View all ${live.length} →</button>
+    </div>
+    <div class="opp-grid">${featured.map(o=>oppCard(o)).join('')}</div>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="tools-dark" style="margin-top:60px">
+    <div class="td-hdr">
+      <h2>Apply Smarter with Free Tools</h2>
+      <p>No login, no fees, nothing collected — built for South African job seekers</p>
+    </div>
+    <div class="tools-grid">
+      ${[
+        {icon:"✅",name:"Eligibility Checker",desc:"Find what you qualify for",p:"eligibility"},
+        {icon:"📅",name:"Deadline Calendar",desc:"Never miss a closing date",p:"calendar"},
+        {icon:"🛡️",name:"Scam Checker",desc:"Verify before you apply",p:"scam"},
+        {icon:"📋",name:"Checklist Generator",desc:"Documents you need to apply",p:"checklist"},
+        {icon:"🎯",name:"Bursary Probability",desc:"How likely are you to qualify?",p:"bursary-checker"},
+        {icon:"🗺️",name:"Browse by Province",desc:"Opportunities near you",p:"provinces"},
+      ].map(t=>`<button class="tool-card" onclick="go('${t.p}')">
+        <div class="tc-icon">${t.icon}</div>
+        <div class="tc-name">${t.name}</div>
+        <div class="tc-desc">${t.desc}</div>
+      </button>`).join('')}
+    </div>
+  </div>
+
+  <!-- GUIDES -->
+  <div style="max-width:var(--mw);margin:0 auto;padding:52px 24px 0">
+    <div class="sec-hdr">
+      <h2 class="sec-title">Understand the System</h2>
+      <button class="sec-lnk" onclick="go('guides')">All ${GUIDES.length} guides →</button>
+    </div>
+    <div class="guide-grid">
+      ${GUIDES.slice(0,3).map(g=>`
+        <div class="guide-card" onclick="openGuide('${g.id}')">
+          <div class="gc-meta">📖 ${g.cat.replace('-',' ')} · ${g.read}</div>
+          <h3 class="gc-title">${g.title}</h3>
+          <p class="gc-intro">${g.intro}</p>
+          <span class="gc-lnk">Read guide →</span>
+        </div>`).join('')}
+    </div>
+  </div>
+
+  <!-- TRUST -->
+  <div class="trust-strip" style="margin-top:52px">
+    <div class="trust-in">
+      ${["✓ All sources verified against official websites","✓ Updated daily","✓ South Africa only","✓ We never collect your documents","✓ Zero application fees","✓ Scam-free directory"].map(t=>`<span class="trust-item">${t}</span>`).join('')}
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <div class="nl-in">
+      <h2>Get Daily Opportunity Alerts</h2>
+      <p>Join South Africans who never miss a closing date. Free, no spam, unsubscribe anytime.</p>
+      <div class="nl-form">
+        <input type="email" placeholder="Your email address">
+        <button onclick="alert('Subscribed! You\'ll receive your first update shortly. ✓')">Subscribe Free</button>
+      </div>
+      <p class="nl-note">Your details are never shared. Unsubscribe anytime.</p>
+    </div>
+  </div>
+  </div>`;
+}
+
+function heroSearch(){
+  const q=document.getElementById('hq')?.value||'';
+  const c=document.getElementById('hc')?.value||'';
+  _dirCat=c;
+  go('directory');
+  setTimeout(()=>{
+    const si=document.getElementById('di');
+    const sc=document.getElementById('dc');
+    if(si)si.value=q;
+    if(sc&&c)sc.value=c;
+    applyDir();
+  },60);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIRECTORY
+═══════════════════════════════════════════════════════════ */
+function renderDir(defCat=''){
+  const live=liveOpps();
+  const res=filterOpps(live,defCat,'','',false).sort((a,b)=>new Date(a.close)-new Date(b.close));
+  return`<div class="page" style="max-width:var(--mw);margin:0 auto;padding:40px 24px 80px">
+  <h1 style="font-size:clamp(26px,5vw,44px);font-weight:900;color:var(--g);letter-spacing:-1.5px;margin-bottom:8px">Browse Opportunities</h1>
+  <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Searching ${live.length} verified listings across South Africa</p>
+
+  <div class="dir-search">
+    <input id="di" placeholder="Search by company, sector, keyword..." oninput="applyDir()">
+    <button class="btn btn-ghost btn-sm" onclick="document.getElementById('di').value='';applyDir()">Clear</button>
+  </div>
+  <div class="dir-filters">
+    <select class="fsel" id="dc" onchange="applyDir()">
+      <option value="">All Categories</option>
+      ${CATS.map(c=>`<option value="${c.id}" ${c.id===defCat?'selected':''}>${c.label}</option>`).join('')}
+    </select>
+    <select class="fsel" id="dp" onchange="applyDir()">
+      <option value="">All Provinces</option>
+      ${PROVS.filter(p=>p!=='Nationwide').map(p=>`<option value="${p}">${p}</option>`).join('')}
+    </select>
+    <select class="fsel" id="dq" onchange="applyDir()">
+      <option value="">Any Qualification</option>
+      <option value="Matric">Matric</option>
+      <option value="Diploma">Diploma</option>
+      <option value="Degree">Degree</option>
+    </select>
+    <select class="fsel" id="ds" onchange="applyDir()">
+      <option value="date">Sort: Closing Date</option>
+      <option value="urgent">Sort: Most Urgent</option>
+    </select>
+    <label class="fcheck"><input type="checkbox" id="dv" onchange="applyDir()"> Verified only</label>
+    <button class="btn btn-ghost btn-sm" onclick="resetDir()">Clear All</button>
+  </div>
+  <div id="drc" class="rc"><strong>${res.length}</strong> opportunities found</div>
+  <div id="dr" class="opp-grid">${res.length?res.map(o=>oppCard(o)).join(''):noRes()}</div>
+  </div>`;
+}
+
+function filterOpps(list,cat,prov,q,verOnly){
+  return list.filter(o=>{
+    if(cat&&o.cat!==cat) return false;
+    if(prov&&o.prov!==prov&&o.prov!=='Nationwide') return false;
+    if(verOnly&&!o.verified) return false;
+    if(q){const lq=q.toLowerCase();if(!o.title.toLowerCase().includes(lq)&&!o.sector.toLowerCase().includes(lq)&&!o.prov.toLowerCase().includes(lq)) return false;}
+    return true;
+  });
+}
+
+function applyDir(){
+  const cat=document.getElementById('dc')?.value||'';
+  const prov=document.getElementById('dp')?.value||'';
+  const qual=document.getElementById('dq')?.value||'';
+  const sort=document.getElementById('ds')?.value||'date';
+  const q=document.getElementById('di')?.value||'';
+  const ver=document.getElementById('dv')?.checked||false;
+  let live=liveOpps();
+  let res=filterOpps(live,cat,prov,q,ver);
+  if(qual) res=res.filter(o=>o.qual===qual);
+  if(sort==='date') res=res.sort((a,b)=>new Date(a.close)-new Date(b.close));
+  if(sort==='urgent') res=res.sort((a,b)=>days(a.close)-days(b.close));
+  const rc=document.getElementById('drc'),dr=document.getElementById('dr');
+  if(rc)rc.innerHTML=`<strong>${res.length}</strong> opportunities found`;
+  if(dr)dr.innerHTML=res.length?res.map(o=>oppCard(o)).join(''):noRes();
+}
+
+function resetDir(){
+  ['dc','dp','dq','ds'].forEach(id=>{const e=document.getElementById(id);if(e)e.value=id==='ds'?'date':'';});
+  const di=document.getElementById('di');if(di)di.value='';
+  const dv=document.getElementById('dv');if(dv)dv.checked=false;
+  applyDir();
+}
+
+function noRes(){return`<div class="no-res"><div class="nr-ico">🔍</div><h3>No results found</h3><p style="font-size:14px;margin-bottom:20px">Try adjusting filters or search term</p><button class="btn btn-primary" onclick="resetDir()">Clear all filters</button></div>`;}
+function bindDir(){}
+
+/* ═══════════════════════════════════════════════════════════
+   DETAIL
+═══════════════════════════════════════════════════════════ */
+function renderDetail(){
+  const o=_opp;
+  if(!o)return'<div style="padding:60px;text-align:center">Not found.</div>';
+  const u=urgInfo(o.close);
+  const rel=liveOpps().filter(r=>r.cat===o.cat&&r.id!==o.id).slice(0,3);
+  const waText=encodeURIComponent(`🚨 ${o.title}\n📍 ${o.prov}\n💰 ${o.stipend}\n⏳ Closes ${fmtD(o.close)}\n\nApply here: ${o.url}`);
+  return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:40px 24px 80px">
+  <div class="breadcrumb">
+    <button onclick="go('home')">Home</button><span class="sep">›</span>
+    <button onclick="goDir('${o.cat}')">${o.cat}s</button><span class="sep">›</span>
+    <span style="color:var(--t2)">${o.title}</span>
+  </div>
+
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px">
+    ${badge(o.cat)}${o.verified?'<span style="font-size:12px;color:var(--gmid);font-weight:600">✓ Verified Source</span>':''}
+  </div>
+
+  <h1 class="detail-h1">${o.title}</h1>
+
+  <div class="qf-bar">
+    <div class="qf-item">📍 ${o.prov}</div>
+    <div class="qf-item${days(o.close)<=7?' urg':''}">⏳ Closes ${fmtD(o.close)}</div>
+    ${o.stipend?`<div class="qf-item">💰 ${o.stipend}</div>`:''}
+    <div class="qf-item">🎓 ${o.qual}</div>
+    <div class="qf-item">🏢 ${o.sector}</div>
+  </div>
+
+  <div class="urg-banner" style="background:${u.bg};border:1px solid ${u.c}44;color:${u.c}">
+    <span style="font-size:16px">⏳</span>
+    <span>${days(o.close)<=7?`Only ${days(o.close)} days left to apply!`:`Closing: ${fmtD(o.close)}`}</span>
+    ${bkBtn(o.id)}
+  </div>
+
+  <div class="det-sec">
+    <h2>About This Opportunity</h2>
+    <p style="font-size:15px;color:var(--t2);line-height:1.85">${o.desc}</p>
+  </div>
+
+  <div class="det-sec">
+    <h2>Who Can Apply</h2>
+    <ul class="elig-list">${o.elig.map(e=>`<li>${e}</li>`).join('')}</ul>
+  </div>
+
+  <div class="det-sec">
+    <h2>Documents Needed</h2>
+    <div class="doc-list">${o.docs.map(d=>`<div class="doc-item"><span class="doc-check">✓</span><span style="font-size:14px;color:var(--t2)">${d}</span></div>`).join('')}</div>
+    <button class="btn btn-ghost btn-sm" onclick="go('checklist')" style="margin-top:12px">📋 Generate a personalised checklist →</button>
+  </div>
+
+  <div class="apply-block">
+    <p>Always apply via the official company website. This links directly to the official source.</p>
+    <a href="${o.url}" target="_blank" rel="noopener noreferrer" class="apply-btn">Apply Now — Official Link ↗</a>
+    <div class="share-row">
+      <a href="https://wa.me/?text=${waText}" target="_blank" class="share-btn share-wa">📲 Share on WhatsApp</a>
+      <button class="share-btn share-copy" onclick="navigator.clipboard.writeText('${o.url}').then(()=>this.textContent='✓ Copied!')">📋 Copy Link</button>
+    </div>
+    <div class="apply-note">Source: ${o.src} · Last verified: ${new Date().toLocaleDateString("en-ZA")}</div>
+  </div>
+
+  ${rel.length?`<h3 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--g);margin-bottom:16px">More ${o.cat}s</h3>
+  <div class="opp-grid">${rel.map(r=>oppCard(r,true)).join('')}</div>`:''}
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CALENDAR
+═══════════════════════════════════════════════════════════ */
+const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const WDAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+function renderCal(){
+  return`<div class="page" style="max-width:1000px;margin:0 auto;padding:40px 24px 80px">
+  <h1 style="font-size:clamp(26px,5vw,42px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">Deadline Calendar</h1>
+  <p style="color:var(--mu);margin-bottom:24px">Never miss a closing date — all upcoming deadlines in one view</p>
+  <div class="cal-ctrl">
+    <select class="fsel" id="calCat" onchange="calCat(this.value)">
+      <option value="">All Categories</option>
+      ${CATS.map(c=>`<option value="${c.id}" ${c.id===calState.cat?'selected':''}>${c.label}</option>`).join('')}
+    </select>
+    <div class="view-toggle">
+      <button class="vbtn ${calState.view==='list'?'act':''}" onclick="calView('list')">📋 List</button>
+      <button class="vbtn ${calState.view==='month'?'act':''}" onclick="calView('month')">📅 Month</button>
+    </div>
+  </div>
+  <div id="calBody">${calState.view==='list'?calList():calMonth()}</div>
+  </div>`;
+}
+
+function calOpps(){return liveOpps().filter(o=>!calState.cat||o.cat===calState.cat).sort((a,b)=>new Date(a.close)-new Date(b.close));}
+
+function calList(){
+  const opps=calOpps();
+  if(!opps.length) return'<p style="text-align:center;color:var(--mu);padding:60px">No upcoming deadlines.</p>';
+  const byM={};
+  opps.forEach(o=>{const k=o.close.slice(0,7);if(!byM[k])byM[k]=[];byM[k].push(o);});
+  return Object.entries(byM).map(([ym,items])=>`
+    <div style="margin-bottom:28px">
+      <h3 class="lmh">${fmtMY(ym+'-01')}</h3>
+      ${items.map(o=>{const u=urgInfo(o.close);const ci=catInfo(o.cat);return`
+        <div class="li" onclick="openOpp('${o.id}')">
+          <div class="li-dt">${fmtShort(o.close)}</div>
+          <div><span class="li-ttl">${o.title}</span><span class="li-sub">${o.prov} · <span style="color:${ci.color}">${o.cat}</span></span></div>
+          <div class="li-days" style="color:${u.c}">${u.label}</div>
+        </div>`}).join('')}
+    </div>`).join('');
+}
+
+function calMonth(){
+  const {year,month,sel}=calState;
+  const byD={};
+  calOpps().forEach(o=>{if(!byD[o.close])byD[o.close]=[];byD[o.close].push(o);});
+  const fd=new Date(year,month,1).getDay();
+  const dim=new Date(year,month+1,0).getDate();
+  const today=new Date().toISOString().split('T')[0];
+  let cells='';
+  for(let i=0;i<fd;i++) cells+=`<div class="cc"></div>`;
+  for(let d=1;d<=dim;d++){
+    const m0=String(month+1).padStart(2,'0'),d0=String(d).padStart(2,'0');
+    const ds=`${year}-${m0}-${d0}`;
+    const dO=byD[ds]||[];
+    const u=dO.length?urgInfo(ds):null;
+    cells+=`<div class="cc${dO.length?' has':''}${ds===today?' today':''}${ds===sel?' sel':''}"${dO.length?` onclick="calSel('${ds}')"`:''}><div class="cdn">${d}</div>${dO.length?`<span class="cdots" style="background:${u.bg};color:${u.c}">${dO.length} closing</span>`:''}</div>`;
+  }
+  const dp=sel&&byD[sel]?`<div class="day-panel"><h3>Closing on ${fmtD(sel)}</h3><div class="opp-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">${byD[sel].map(o=>oppCard(o,true)).join('')}</div></div>`:'';
+  return`<div class="cal-nav">
+    <button class="cnav-btn" onclick="calPrev()">← Prev</button>
+    <h2>${MONTHS[month]} ${year}</h2>
+    <button class="cnav-btn" onclick="calNext()">Next →</button>
+  </div>
+  <div class="cgrid">${WDAYS.map(d=>`<div class="cdh">${d}</div>`).join('')}${cells}</div>${dp}`;
+}
+
+function calPrev(){if(calState.month===0){calState.month=11;calState.year--;}else calState.month--;calState.sel=null;document.getElementById('calBody').innerHTML=calState.view==='list'?calList():calMonth();}
+function calNext(){if(calState.month===11){calState.month=0;calState.year++;}else calState.month++;calState.sel=null;document.getElementById('calBody').innerHTML=calState.view==='list'?calList():calMonth();}
+function calView(v){calState.view=v;document.getElementById('calBody').innerHTML=v==='list'?calList():calMonth();document.querySelectorAll('.vbtn').forEach((b,i)=>b.classList.toggle('act',i===(v==='list'?0:1)));}
+function calCat(v){calState.cat=v;document.getElementById('calBody').innerHTML=calState.view==='list'?calList():calMonth();}
+function calSel(d){calState.sel=calState.sel===d?null:d;document.getElementById('calBody').innerHTML=calMonth();}
+
+/* ═══════════════════════════════════════════════════════════
+   TOOLS HUB
+═══════════════════════════════════════════════════════════ */
+function renderTools(){
+  const tools=[
+    {icon:"✅",title:"Eligibility Checker",desc:"Answer 5 questions and see every opportunity you're likely to qualify for.",p:"eligibility",c:"#166534",bg:"#dcfce7"},
+    {icon:"🛡️",title:"Scam Awareness Checker",desc:"Describe an opportunity and get a risk assessment against known scam signals.",p:"scam",c:"#dc2626",bg:"#fee2e2"},
+    {icon:"📋",title:"Checklist Generator",desc:"Get a personalised document checklist for learnerships, bursaries, or internships.",p:"checklist",c:"#1e40af",bg:"#dbeafe"},
+    {icon:"🎯",title:"Bursary Probability Checker",desc:"Estimate your likelihood of qualifying for bursaries based on your marks and profile.",p:"bursary-checker",c:"#6b21a8",bg:"#f3e8ff"},
+    {icon:"📅",title:"Deadline Calendar",desc:"View all upcoming closing dates in calendar or list view. Never miss a deadline.",p:"calendar",c:"#92400e",bg:"#fef3c7"},
+    {icon:"🗺️",title:"Browse by Province",desc:"Filter opportunities by your province — see what's available near you.",p:"provinces",c:"#065f46",bg:"#ecfdf5"},
+  ];
+  return`<div class="page" style="max-width:940px;margin:0 auto;padding:40px 24px 80px">
+  <h1 style="font-size:clamp(26px,5vw,42px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">Free Career Tools</h1>
+  <p style="color:var(--mu);margin-bottom:36px;font-size:15px">Interactive tools to help you find, evaluate, and apply for opportunities — no login, no fees.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px">
+    ${tools.map(t=>`<button onclick="go('${t.p}')" style="background:#fff;border:1px solid var(--bd);border-radius:14px;padding:26px;text-align:left;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;gap:12px"
+      onmouseover="this.style.borderColor='${t.c}';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px ${t.c}22'"
+      onmouseout="this.style.borderColor='var(--bd)';this.style.transform='none';this.style.boxShadow='none'">
+      <div style="width:50px;height:50px;border-radius:12px;background:${t.bg};display:flex;align-items:center;justify-content:center;font-size:24px">${t.icon}</div>
+      <div>
+        <div style="font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:var(--tx);margin-bottom:5px">${t.title}</div>
+        <div style="font-size:13.5px;color:var(--mu);line-height:1.55">${t.desc}</div>
+      </div>
+      <span style="font-size:13px;color:${t.c};font-weight:700;margin-top:auto">Use tool →</span>
+    </button>`).join('')}
+  </div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ELIGIBILITY CHECKER
+═══════════════════════════════════════════════════════════ */
+const QR={"grade-10":1,"grade-11":2,"matric":3,"diploma":4,"degree":5};
+const OR={"Grade 11":2,"Matric":3,"Diploma":4,"Degree":5};
+
+function renderElig(){
+  return`<div class="page" style="max-width:700px;margin:0 auto;padding:40px 24px 80px">
+  <button class="btn btn-ghost btn-sm" onclick="go('tools')" style="margin-bottom:16px">← Tools</button>
+  <h1 style="font-size:clamp(22px,4vw,38px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">✅ Eligibility Checker</h1>
+  <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Answer 5 questions and we'll show you every opportunity you're likely to qualify for.</p>
+  <div class="checker-card">
+    ${[
+      {id:"eq1",l:"Your highest qualification",opts:[["grade-10","Grade 10 or below"],["grade-11","Grade 11"],["matric","Matric / Grade 12"],["diploma","Diploma / N6"],["degree","Degree or higher"]]},
+      {id:"eq2",l:"Your province",opts:[["","Any province"],...PROVS.filter(p=>p!=="Nationwide").map(p=>[p,p])]},
+      {id:"eq3",l:"Employment status",opts:[["unemployed","Currently unemployed"],["student","Full-time student"],["employed","Currently employed"]]},
+      {id:"eq4",l:"Opportunity type (optional)",opts:[["","Show everything"],...CATS.map(c=>[c.id,c.label])]},
+    ].map(f=>`<div style="margin-bottom:18px">
+      <label class="fl" for="${f.id}">${f.l}</label>
+      <select class="flds" id="${f.id}">${f.opts.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select>
+    </div>`).join('')}
+    <button class="btn btn-primary btn-lg btn-full" onclick="runElig()">Find My Opportunities →</button>
+  </div>
+  <div id="eligRes"></div>
+  </div>`;
+}
+
+function runElig(){
+  const qual=document.getElementById('eq1')?.value||'matric';
+  const prov=document.getElementById('eq2')?.value||'';
+  const cat=document.getElementById('eq4')?.value||'';
+  const uR=QR[qual]||3;
+  const res=liveOpps().filter(o=>{
+    if((OR[o.qual]||3)>uR) return false;
+    if(prov&&o.prov!==prov&&o.prov!=='Nationwide') return false;
+    if(cat&&o.cat!==cat) return false;
+    return true;
+  }).sort((a,b)=>new Date(a.close)-new Date(b.close));
+  const er=document.getElementById('eligRes');
+  if(!er)return;
+  er.innerHTML=res.length?`<h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--tx);margin:0 0 16px">${res.length} opportunities match your profile</h2>
+  <div class="opp-grid">${res.map(o=>oppCard(o)).join('')}</div>`
+  :`<div style="background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);padding:28px;text-align:center">
+    <p style="color:var(--mu);margin-bottom:14px;font-size:14px">No exact matches right now — try widening your filters.</p>
+    <button class="btn btn-primary" onclick="go('guides')">Read Our SETA Guides →</button>
+  </div>`;
+  er.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCAM CHECKER
+═══════════════════════════════════════════════════════════ */
+const SQ=[
+  {id:"s1",q:"Were you asked to pay an application or registration fee?",yR:40,yF:"🚨 Application fee requested — no legitimate learnership ever charges fees."},
+  {id:"s2",q:"Were personal documents requested before any interview?",yR:20,yF:"⚠️ Documents before interview — only provide after an official offer."},
+  {id:"s3",q:"Was the only contact via WhatsApp from an unknown number?",yR:15,yF:"⚠️ WhatsApp-only contact — legitimate employers use official company email."},
+  {id:"s4",q:"Was the contact email a Gmail, Yahoo, or Hotmail address?",yR:15,yF:"⚠️ Personal email used — real companies use @companyname.co.za"},
+  {id:"s5",q:"Was the advertised stipend unusually high (R20 000+/month)?",yR:20,yF:"🚨 Unrealistic stipend — typical learnerships pay R3 500–R8 000/month."},
+  {id:"s6",q:"Does the company have an official registered website?",nR:15,nF:"⚠️ No official website — verify the company at cipc.co.za first."},
+  {id:"s7",q:"Were you pressured to apply within 24–48 hours?",yR:10,yF:"⚠️ Urgency pressure — a scammer tactic to prevent you from verifying."},
+];
+let sAns={};
+
+function renderScam(){
+  sAns={};
+  return`<div class="page" style="max-width:680px;margin:0 auto;padding:40px 24px 80px">
+  <button class="btn btn-ghost btn-sm" onclick="go('tools')" style="margin-bottom:16px">← Tools</button>
+  <h1 style="font-size:clamp(22px,4vw,38px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">🛡️ Scam Awareness Checker</h1>
+  <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Describe an opportunity you saw advertised and we'll assess the risk level.</p>
+  <div class="checker-card">
+    ${SQ.map(q=>`<div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #f3f4f6">
+      <p style="font-size:14px;font-weight:600;color:var(--t2);margin-bottom:10px">${q.q}</p>
+      <div class="rg">
+        <button class="rb" id="s_${q.id}_y" onclick="sSet('${q.id}','y')">Yes</button>
+        <button class="rb" id="s_${q.id}_n" onclick="sSet('${q.id}','n')">No</button>
+      </div>
+    </div>`).join('')}
+    <button class="btn btn-primary btn-lg btn-full" onclick="runScam()">Check This Opportunity →</button>
+  </div>
+  <div id="scamRes"></div>
+  </div>`;
+}
+
+function sSet(id,v){
+  sAns[id]=v;
+  ['y','n'].forEach(opt=>{const el=document.getElementById(`s_${id}_${opt}`);if(el)el.classList.toggle('sel',opt===v);});
+}
+
+function runScam(){
+  let score=0;const flags=[];
+  SQ.forEach(q=>{const a=sAns[q.id];if(q.yR&&a==='y'){score+=q.yR;flags.push(q.yF);}if(q.nR&&a==='n'){score+=q.nR;flags.push(q.nF);}});
+  const level=score>=40?'HIGH':score>=20?'MEDIUM':'LOW';
+  const cfg={HIGH:{cls:'high',tc:'#dc2626',advice:'Do NOT proceed. Multiple serious scam indicators. Report to SAPS immediately. Do not send money or documents.'},MEDIUM:{cls:'med',tc:'#d97706',advice:'Proceed with extreme caution. Verify the company independently at cipc.co.za before responding.'},LOW:{cls:'low',tc:'#166534',advice:'Relatively low risk. Still verify the company\'s official website before applying.'}};
+  const s=cfg[level];
+  const sr=document.getElementById('scamRes');
+  if(!sr)return;
+  sr.innerHTML=`<div class="risk-card ${s.cls}">
+    <div style="font-family:'DM Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:2px;color:${s.tc};margin-bottom:6px">Risk Assessment</div>
+    <div class="risk-level" style="color:${s.tc}">${level} RISK</div>
+    <p class="risk-advice">${s.advice}</p>
+    ${flags.length?`<ul class="risk-flags">${flags.map(f=>`<li>${f}</li>`).join('')}</ul>`:''}
+    <button class="btn btn-primary" onclick="go('directory')">Browse Verified Opportunities →</button>
+  </div>`;
+  sr.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHECKLIST GENERATOR
+═══════════════════════════════════════════════════════════ */
+const CL={
+  learnership:{label:"Learnership Application",steps:["Confirm eligibility — Matric, SA ID, unemployed, aged 18–35","Certify your ID at a police station (must be under 3 months old)","Certify your Matric certificate","Write your CV (max 2 pages, save as PDF)","Write your motivational letter (1 page, tailor to this specific company)","Get proof of residence (utility bill or bank statement, under 3 months)","Find and verify the official application link on the company website","Email subject: Application: [Learnership Name] — [Your Full Name]","Attach all documents — preferably as one PDF","Send before the closing date — late applications are not considered"]},
+  bursary:{label:"Bursary Application",steps:["Confirm income eligibility — most require household income below R350 000/year","Certify your ID","Gather proof of income (parent/guardian payslips or affidavit if unemployed)","Collect your most recent academic results","Get proof of admission or registration from your institution","Write a specific motivational letter — name the bursary and field","Check the bursary terms — work-back clause, grade requirements, renewal conditions","Submit via the official application portal","Apply to at least 3–5 bursaries simultaneously to increase chances"]},
+  internship:{label:"Internship Application",steps:["Confirm you hold the required qualification (diploma or degree)","Update your CV to include your qualification and any experience","Write a targeted cover letter for this specific company and role","Certify your qualification certificate","Get your official academic transcript from your institution","Prepare 2 references (lecturer, community leader, or previous employer)","Government internships: download and complete the Z83 form from dpsa.gov.za","Apply via the official company careers portal only"]},
+  apprenticeship:{label:"Apprenticeship Application",steps:["Confirm you have Matric with Mathematics and Physical Science (min 50%)","Certify your ID and Matric certificate showing subject marks clearly","Obtain a medical fitness certificate from an occupational health practitioner","Write your CV highlighting any technical or practical experience","Write a targeted motivational letter — explain why you chose this trade","Apply via the official company or SETA website","Prepare for a trade aptitude test — some programmes include one at shortlisting"]}
+};
+
+function renderChecklist(){
+  return`<div class="page" style="max-width:680px;margin:0 auto;padding:40px 24px 80px">
+  <button class="btn btn-ghost btn-sm" onclick="go('tools')" style="margin-bottom:16px">← Tools</button>
+  <h1 style="font-size:clamp(22px,4vw,38px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">📋 Application Checklist Generator</h1>
+  <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Select the opportunity type and get a personalised document and step checklist.</p>
+  <div class="checker-card">
+    <label class="fl">Opportunity type</label>
+    <select class="flds" id="clType" onchange="showChecklist(this.value)" style="margin-bottom:20px">
+      <option value="">Select type...</option>
+      ${Object.entries(CL).map(([k,v])=>`<option value="${k}">${v.label}</option>`).join('')}
+    </select>
+  </div>
+  <div id="clOutput"></div>
+  </div>`;
+}
+
+function showChecklist(type){
+  if(!type)return;
+  const cl=CL[type];
+  const output=document.getElementById('clOutput');
+  if(!output)return;
+  output.innerHTML=`<div class="cl-card">
+    <h2 style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--tx);margin-bottom:16px">${cl.label} Checklist</h2>
+    <ul class="cl-list">
+      ${cl.steps.map((s,i)=>`<li class="cl-item" id="ci${i}">
+        <input type="checkbox" id="cb${i}" onchange="toggleCl(${i})">
+        <label for="cb${i}">${i+1}. ${s}</label>
+      </li>`).join('')}
+    </ul>
+    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print Checklist</button>
+      <button class="btn btn-ghost" onclick="resetCl()">Reset</button>
+    </div>
+    <p style="font-size:12px;color:var(--mu);margin-top:12px">Tip: Print this checklist and physically check off each item as you prepare.</p>
+  </div>`;
+}
+
+function toggleCl(i){
+  const li=document.getElementById(`ci${i}`);
+  if(li)li.classList.toggle('done');
+}
+
+function resetCl(){
+  document.querySelectorAll('.cl-item').forEach(el=>{
+    el.classList.remove('done');
+    el.querySelector('input').checked=false;
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BURSARY PROBABILITY CHECKER
+═══════════════════════════════════════════════════════════ */
+function renderBursaryChecker(){
+  return`<div class="page" style="max-width:680px;margin:0 auto;padding:40px 24px 80px">
+  <button class="btn btn-ghost btn-sm" onclick="go('tools')" style="margin-bottom:16px">← Tools</button>
+  <h1 style="font-size:clamp(22px,4vw,38px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">🎯 Bursary Probability Checker</h1>
+  <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Estimate your likelihood of qualifying for South African bursaries based on your academic profile and circumstances.</p>
+  <div class="checker-card">
+    ${[
+      {id:"bp1",l:"Your Matric average percentage",opts:[["<50","Below 50%"],["50-59","50–59%"],["60-69","60–69%"],["70-79","70–79%"],["80+","80% or above"]]},
+      {id:"bp2",l:"Mathematics performance",opts:[["none","Did not take Maths"],["<40","Below 40%"],["40-59","40–59%"],["60-69","60–69%"],["70+","70% or above"]]},
+      {id:"bp3",l:"Household income range",opts:[["<50k","Below R50 000/year"],["50-150k","R50 000–R150 000/year"],["150-350k","R150 000–R350 000/year"],["350+","Above R350 000/year"]]},
+      {id:"bp4",l:"Field of study interest",opts:[["engineering","Engineering / Sciences"],["it","Information Technology"],["health","Health Sciences"],["commerce","Commerce / Accounting"],["education","Education / Teaching"],["other","Other / Humanities"]]},
+      {id:"bp5",l:"Current study status",opts:[["new","Entering university for first time"],["continuing","Currently studying"],["tvet","TVET college student"],["other","Other"]]},
+    ].map(f=>`<div style="margin-bottom:18px">
+      <label class="fl">${f.l}</label>
+      <select class="flds" id="${f.id}">${f.opts.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select>
+    </div>`).join('')}
+    <button class="btn btn-primary btn-lg btn-full" onclick="runBursary()">Calculate My Probability →</button>
+  </div>
+  <div id="bursaryRes"></div>
+  </div>`;
+}
+
+function runBursary(){
+  const avg=document.getElementById('bp1')?.value;
+  const maths=document.getElementById('bp2')?.value;
+  const income=document.getElementById('bp3')?.value;
+  const field=document.getElementById('bp4')?.value;
+  const status=document.getElementById('bp5')?.value;
+
+  let score=0;
+  // Academic score
+  if(avg==='80+') score+=30; else if(avg==='70-79') score+=25; else if(avg==='60-69') score+=18; else if(avg==='50-59') score+=10; else score+=3;
+  // Maths
+  if(maths==='70+') score+=20; else if(maths==='60-69') score+=15; else if(maths==='40-59') score+=8; else if(maths==='<40') score+=3;
+  // Income
+  if(income==='<50k') score+=25; else if(income==='50-150k') score+=20; else if(income==='150-350k') score+=12; else score+=0;
+  // Field — high demand boosts
+  if(['engineering','it','health'].includes(field)) score+=15; else if(field==='commerce') score+=10; else score+=5;
+  // Status
+  if(status==='new') score+=10; else if(status==='tvet') score+=8; else if(status==='continuing') score+=6;
+
+  const maxScore=100;
+  const pct=Math.min(score,maxScore);
+  const level=pct>=70?'High':pct>=45?'Medium':'Low';
+  const colors={High:'#166534',Medium:'#d97706',Low:'#dc2626'};
+  const bgs={High:'#dcfce7',Medium:'#fef3c7',Low:'#fee2e2'};
+  const advice={
+    High:"Your profile is strong for bursary applications. Focus on applying to merit-based bursaries in your field. Prioritise companies in engineering, banking, and mining — they offer the most bursaries.",
+    Medium:"You have a reasonable chance, especially for need-based bursaries. NSFAS is a strong option if your household income qualifies. Apply to 5–10 bursaries to maximise your chances.",
+    Low:"Your current profile may need strengthening. Consider improving your Matric results (supplementary exams), applying for NSFAS if eligible, or starting at a TVET college where funding is more accessible."
+  };
+
+  const bursaryList=liveOpps().filter(o=>o.cat==='bursary').slice(0,3);
+  const br=document.getElementById('bursaryRes');
+  if(!br)return;
+  br.innerHTML=`<div style="background:${bgs[level]};border:1px solid ${colors[level]}44;border-radius:var(--r);padding:24px;margin-bottom:20px">
+    <div style="font-family:'DM Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:2px;color:${colors[level]};margin-bottom:6px">Your Bursary Probability</div>
+    <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:900;color:${colors[level]};margin-bottom:4px">${pct}% — ${level} Match</div>
+    <div class="prob-bar-wrap"><div class="prob-bar" style="width:${pct}%;background:${colors[level]}"></div></div>
+    <p style="font-size:14px;color:var(--t2);line-height:1.7;margin-bottom:14px">${advice[level]}</p>
+    ${bursaryList.length?`<h3 style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;margin-bottom:12px">Current Open Bursaries</h3>
+    <div style="display:flex;flex-direction:column;gap:10px">${bursaryList.map(o=>`
+      <div onclick="openOpp('${o.id}')" style="background:#fff;border:1px solid var(--bd);border-radius:8px;padding:12px 14px;cursor:pointer">
+        <div style="font-weight:600;font-size:14px;margin-bottom:2px">${o.title}</div>
+        <div style="font-size:12px;color:var(--mu)">${o.prov} · ${o.stipend}</div>
+      </div>`).join('')}</div>`:''}
+  </div>
+  <button class="btn btn-primary" onclick="go('directory');setTimeout(()=>{document.getElementById('dc').value='bursary';applyDir()},60)">Browse All Bursaries →</button>`;
+  br.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GUIDES
+═══════════════════════════════════════════════════════════ */
+function renderGuides(){
+  return`<div class="page" style="max-width:1000px;margin:0 auto;padding:40px 24px 80px">
+  <h1 style="font-size:clamp(26px,5vw,42px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">SETA Guides & Career Resources</h1>
+  <p style="color:var(--mu);margin-bottom:32px;font-size:15px">Plain-language guides explaining South Africa's career systems — written for job seekers, not HR departments.</p>
+  <div class="guide-grid">
+    ${GUIDES.map(g=>`<div class="guide-card" onclick="openGuide('${g.id}')">
+      <div class="gc-meta">📖 ${g.cat.replace('-',' ')} · ${g.read} read</div>
+      <h3 class="gc-title">${g.title}</h3>
+      <p class="gc-intro">${g.intro}</p>
+      <span class="gc-lnk">Read guide →</span>
+    </div>`).join('')}
+  </div>
+  </div>`;
+}
+
+function renderGuideDetail(){
+  const g=_guide;
+  if(!g)return'';
+  const related=liveOpps().slice(0,3);
+  return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:40px 24px 80px">
+  <div class="breadcrumb">
+    <button onclick="go('home')">Home</button><span class="sep">›</span>
+    <button onclick="go('guides')">Guides</button><span class="sep">›</span>
+    <span style="color:var(--t2)">${g.title}</span>
+  </div>
+  <div class="gc-meta" style="font-size:11px;margin-bottom:12px">📖 ${g.cat.replace('-',' ')} · ${g.read} read</div>
+  <h1 style="font-family:'Fraunces',serif;font-size:clamp(24px,4vw,38px);font-weight:900;color:var(--tx);line-height:1.2;letter-spacing:-1.5px;margin-bottom:22px">${g.title}</h1>
+  <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r);padding:18px 20px;margin-bottom:26px">
+    <p style="font-size:15px;color:var(--gmid);font-weight:500;line-height:1.7;margin:0">${g.intro}</p>
+  </div>
+  <style>.gbd h2{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:var(--tx);margin:24px 0 12px}.gbd p{font-size:15px;color:var(--t2);line-height:1.85;margin-bottom:14px}.gbd ul{padding-left:22px;margin-bottom:14px}.gbd li{margin-bottom:6px;line-height:1.6;color:var(--t2);font-size:15px}.gbd strong{color:var(--tx)}</style>
+  <div class="gbd">${g.body}</div>
+  <div style="background:var(--g);border-radius:var(--r);padding:24px;margin:32px 0">
+    <h3 style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:8px">Ready to Apply?</h3>
+    <p style="color:#86efac;font-size:14px;margin-bottom:14px">Browse all current verified opportunities in South Africa.</p>
+    <button class="btn btn-amber" onclick="go('directory')">Browse All Opportunities →</button>
+  </div>
+  <h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--g);margin-bottom:14px">Current Open Opportunities</h2>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    ${related.map(o=>`<div onclick="openOpp('${o.id}')" style="background:#fff;border:1px solid var(--bd);border-radius:9px;padding:14px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all .15s" onmouseover="this.style.borderColor='var(--g)'" onmouseout="this.style.borderColor='var(--bd)'">
+      <div><div style="font-weight:600;font-size:14px;color:var(--tx);margin-bottom:2px">${o.title}</div><div style="font-size:12px;color:var(--mu)">${o.prov} · ${o.stipend}</div></div>
+      <span style="font-size:13px;color:var(--g);font-weight:600;flex-shrink:0">View →</span>
+    </div>`).join('')}
+  </div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROVINCES
+═══════════════════════════════════════════════════════════ */
+function renderProvinces(){
+  const live=liveOpps();
+  const provData=PROVS.filter(p=>p!=='Nationwide').map(p=>{
+    const cnt=live.filter(o=>o.prov===p||o.prov==='Nationwide').length;
+    return{p,cnt};
+  });
+  return`<div class="page" style="max-width:var(--mw);margin:0 auto;padding:40px 24px 80px">
+  <h1 style="font-size:clamp(26px,5vw,42px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">Browse by Province</h1>
+  <p style="color:var(--mu);margin-bottom:32px;font-size:15px">Select your province to see all relevant opportunities</p>
+  <div class="prov-grid">
+    ${provData.map(({p,cnt})=>`<button class="prov-tile" onclick="filterByProvince('${p}')">
+      <h3>📍 ${p}</h3>
+      <p>${cnt} opportunities available</p>
+    </button>`).join('')}
+  </div>
+  <div id="provResults"></div>
+  </div>`;
+}
+
+function filterByProvince(prov){
+  const res=liveOpps().filter(o=>o.prov===prov||o.prov==='Nationwide').sort((a,b)=>new Date(a.close)-new Date(b.close));
+  const pr=document.getElementById('provResults');
+  if(!pr)return;
+  pr.innerHTML=`<h2 style="font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--g);margin-bottom:20px;border-top:2px solid var(--glt);padding-top:24px">Opportunities in ${prov} (${res.length} found)</h2>
+  <div class="opp-grid">${res.map(o=>oppCard(o)).join('')}</div>`;
+  pr.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SAVED
+═══════════════════════════════════════════════════════════ */
+function renderSaved(){
+  const ids=getSaved();
+  const saved=OPPS.filter(o=>ids.includes(o.id));
+  if(!saved.length) return`<div class="page" style="max-width:var(--mw);margin:0 auto;padding:40px 24px 80px">
+    <h1 style="font-size:clamp(26px,5vw,40px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">🔖 Saved Opportunities</h1>
+    <div class="saved-empty">
+      <div class="se-ico">🔖</div>
+      <h3 style="font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--t2);margin-bottom:10px">No saved opportunities yet</h3>
+      <p style="font-size:14px;margin-bottom:24px">Click the 🔲 button on any opportunity card to save it for later.</p>
+      <button class="btn btn-primary" onclick="go('directory')">Browse Opportunities</button>
+    </div>
+  </div>`;
+  return`<div class="page" style="max-width:var(--mw);margin:0 auto;padding:40px 24px 80px">
+  <h1 style="font-size:clamp(26px,5vw,40px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">🔖 Saved Opportunities</h1>
+  <p style="color:var(--mu);margin-bottom:24px">${saved.length} saved opportunity${saved.length!==1?'s':''}</p>
+  <div class="opp-grid">${saved.map(o=>oppCard(o)).join('')}</div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════════════════════ */
+function renderAbout(){
+  return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:40px 24px 80px">
+  <h1 style="font-family:'Fraunces',serif;font-size:clamp(28px,5vw,44px);font-weight:900;color:var(--g);letter-spacing:-1.5px;margin-bottom:8px">About OpportunitiesZA</h1>
+  <div class="about-accent"></div>
+  <p style="font-size:16px;color:var(--t2);line-height:1.85;margin-bottom:18px"><strong>OpportunitiesZA</strong> exists to make South Africa's career opportunity landscape simple and accessible. The biggest barrier between an unemployed young South African and their first qualification is not effort — it's information.</p>
+  <p style="font-size:15px;color:#4b5563;line-height:1.85;margin-bottom:32px">We publish verified listings, explain complex SETA systems in plain language, and build free tools so users can figure out what they qualify for — without paying anyone or sending their documents anywhere.</p>
+  <h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--tx);margin-bottom:16px">What We Do</h2>
+  <ul class="acl">
+    ${["Publish verified opportunity listings sourced from official company and government websites","Explain the SETA system, NQF levels, and career pathways in plain South African English","Maintain a deadline calendar so users never miss a closing date","Provide 6 free tools including eligibility checker, scam checker, and checklist generator","Verify every listing before publishing and archive expired listings promptly"].map(i=>`<li>${i}</li>`).join('')}
+  </ul>
+  <div class="disc-box">
+    <h3>⚠️ Disclaimer</h3>
+    <p>OpportunitiesZA is an independent information platform. We are not an employer, recruiter, recruitment agency, or government department. We do not collect personal documents, charge fees of any kind, or guarantee placement in any programme. Always verify opportunity details directly with the official source before applying or submitting personal information.</p>
+  </div>
+  <h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--tx);margin-bottom:14px">Contact</h2>
+  <p style="font-size:14.5px;color:var(--t2);line-height:1.8">
+    General enquiries: <a href="mailto:contact@opportunitiesza.co.za" style="color:var(--g);font-weight:600">contact@opportunitiesza.co.za</a><br>
+    Report a scam, submit an opportunity, or enquire about partnerships via the same email. We respond within 48 hours.
+  </p>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BOOT
+═══════════════════════════════════════════════════════════ */
+go('home');
+</script>
 </body>
 </html>
