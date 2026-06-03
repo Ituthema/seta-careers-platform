@@ -6,98 +6,105 @@
 
   <url>
     <loc>https://opportunitiesza.co.za/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/bursaries/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/internships/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/apprenticeships/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/opportunities/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/calendar/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/tools/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/tools/eligibility/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/tools/scam/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/tools/checklist/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://opportunitiesza.co.za/tools/bursary-checker/</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/seta-guides/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/career-advice/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/provinces/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -105,56 +112,69 @@
   <url>
     <loc>https://opportunitiesza.co.za/about/</loc>
     <lastmod>2026-05-01</lastmod>
-    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/gauteng/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/western-cape/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/kwazulu-natal/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://opportunitiesza.co.za/learnerships/eastern-cape/</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/bursaries/gauteng/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/bursaries/western-cape/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/internships/gauteng/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://opportunitiesza.co.za/internships/western-cape/</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/eskom-engineering-learnership-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -168,7 +188,7 @@
 
   <url>
     <loc>https://opportunitiesza.co.za/bursaries/nsfas-bursary-2026</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -203,7 +223,7 @@
 
   <url>
     <loc>https://opportunitiesza.co.za/bursaries/sasol-bursary-engineering-2026</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -231,7 +251,7 @@
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/capitec-bank-learnership-2026</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -259,7 +279,7 @@
 
   <url>
     <loc>https://opportunitiesza.co.za/seta-guides/learnership-scams</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

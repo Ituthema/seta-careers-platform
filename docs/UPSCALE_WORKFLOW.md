@@ -26,9 +26,10 @@ Grow OpportunitiesZA by increasing **verified active listings**, **useful career
 2. **Edit the smallest responsible file:** opportunities in `data/opportunities.json`, guides in `data/guides.json`, metadata in `data/categories.json` or `data/provinces.json`.
 3. **Validate locally:** run `npm run validate` before committing.
 4. **Regenerate the sitemap:** run `npm run sitemap` after content changes.
-5. **Run the full check:** run `npm run check` and confirm `git diff` only includes intentional changes.
-6. **Open a pull request** using the checklist below.
-7. **Merge only after quality gates pass** in GitHub Actions.
+5. **Run link checks:** run `npm run links` when source or application URLs change; review warnings from portals that block bots.
+6. **Run the full check:** run `npm run check` and confirm `git diff` only includes intentional changes.
+7. **Open a pull request** using the checklist below.
+8. **Merge only after quality gates pass** in GitHub Actions.
 
 ## Pull request checklist
 
@@ -36,6 +37,7 @@ Grow OpportunitiesZA by increasing **verified active listings**, **useful career
 - [ ] `closing_date`, `posted_date`, and `updated_date` use `YYYY-MM-DD`.
 - [ ] Scam-sensitive copy states that legitimate applications are free where relevant.
 - [ ] Expired listings are marked `expired: true` instead of deleted, unless removal is intentional.
+- [ ] `npm run links` has no hard-broken source or application URLs.
 - [ ] `npm run check` passes locally.
 - [ ] `sitemap.xml` is regenerated and committed when content changes affect public pages.
 
@@ -45,17 +47,18 @@ The repository now includes a zero-dependency Node workflow for repeatable quali
 
 ```bash
 npm run validate
+npm run links
 npm run sitemap
 npm run check
 ```
 
-GitHub Actions runs the same checks on pushes and pull requests. The workflow validates data quality, regenerates the sitemap, and fails if generated sitemap changes were not committed.
+GitHub Actions runs the same checks on pushes and pull requests. The workflow validates data quality, checks opportunity URLs, regenerates the sitemap, and fails if generated sitemap changes were not committed.
 
 ## Scalable backlog
 
 ### Phase 1 — Trust foundation
 
-- Add link-checking for `application_url` and `source_url` with retry and timeout handling.
+- Maintain link-checking coverage for `application_url` and `source_url`, including retry/timeout tuning and strict scheduled checks.
 - Add duplicate detection for similar opportunity titles across employers and provinces.
 - Add an expiry dashboard that groups listings by expired, closing this week, and closing this month.
 - Add source verification notes for high-risk listings.
