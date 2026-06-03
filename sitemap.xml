@@ -4,9 +4,6 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- ── STATIC PAGES ─────────────────────────────────────── -->
-  <!-- Update BASE URL to your real domain before publishing -->
-
   <url>
     <loc>https://opportunitiesza.co.za/</loc>
     <lastmod>2026-05-01</lastmod>
@@ -112,7 +109,12 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- ── PROVINCE SUB-PAGES ────────────────────────────────── -->
+  <url>
+    <loc>https://opportunitiesza.co.za/about/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/gauteng/</loc>
@@ -170,61 +172,6 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- ── GUIDE PAGES ───────────────────────────────────────── -->
-
-  <url>
-    <loc>https://opportunitiesza.co.za/seta-guides/what-is-a-seta</loc>
-    <lastmod>2026-04-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://opportunitiesza.co.za/seta-guides/what-is-a-learnership</loc>
-    <lastmod>2026-04-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://opportunitiesza.co.za/seta-guides/how-to-apply-for-learnerships</loc>
-    <lastmod>2026-04-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://opportunitiesza.co.za/seta-guides/learnership-scams</loc>
-    <lastmod>2026-04-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://opportunitiesza.co.za/seta-guides/nqf-levels-explained</loc>
-    <lastmod>2026-04-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://opportunitiesza.co.za/seta-guides/nsfas-2026</loc>
-    <lastmod>2026-04-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://opportunitiesza.co.za/career-advice/cv-for-learnership</loc>
-    <lastmod>2026-04-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- ── OPPORTUNITY PAGES ─────────────────────────────────── -->
-  <!-- Add one <url> block per opportunity as you publish them -->
-  <!-- Run sitemap-generator.js to auto-generate these from JSON -->
-
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/eskom-engineering-learnership-2026</loc>
     <lastmod>2026-04-20</lastmod>
@@ -234,63 +181,63 @@
 
   <url>
     <loc>https://opportunitiesza.co.za/internships/absa-graduate-internship-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/bursaries/nsfas-bursary-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/mict-seta-ict-learnership-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/apprenticeships/transnet-apprenticeship-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/shoprite-retail-learnership-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/internships/kzn-health-internship-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/bursaries/sasol-bursary-engineering-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/apprenticeships/merseta-boilermaker-apprenticeship-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://opportunitiesza.co.za/internships/old-mutual-graduate-internship-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -304,18 +251,58 @@
 
   <url>
     <loc>https://opportunitiesza.co.za/learnerships/capitec-bank-learnership-2026</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- ── TRUST PAGES ───────────────────────────────────────── -->
+  <url>
+    <loc>https://opportunitiesza.co.za/seta-guides/what-is-a-seta</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <url>
-    <loc>https://opportunitiesza.co.za/about/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <loc>https://opportunitiesza.co.za/seta-guides/what-is-a-learnership</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://opportunitiesza.co.za/seta-guides/how-to-apply-for-learnerships</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://opportunitiesza.co.za/seta-guides/learnership-scams</loc>
+    <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://opportunitiesza.co.za/seta-guides/nqf-levels-explained</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://opportunitiesza.co.za/seta-guides/nsfas-2026</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://opportunitiesza.co.za/career-advice/cv-for-learnership</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

@@ -203,6 +203,20 @@ git commit -m "Update sitemap"
 git push
 ```
 
+### Scaled Quality Workflow
+```bash
+# Validate content records, dates, slugs, URLs, and required fields
+npm run validate
+
+# Regenerate sitemap.xml from active opportunities and guides
+npm run sitemap
+
+# Run the full release check before opening a pull request
+npm run check
+```
+
+For the full operating cadence, contributor checklist, and scale-up backlog, see [`docs/UPSCALE_WORKFLOW.md`](docs/UPSCALE_WORKFLOW.md).
+
 ### Nano Quick Reference (Termux Editor)
 | Keys | Action |
 |------|--------|
