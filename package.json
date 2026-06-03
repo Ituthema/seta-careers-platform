@@ -6,7 +6,8 @@
   "scripts": {
     "validate": "node scripts/validate-content.js",
     "sitemap": "node sitemap-generator.js",
-    "check": "npm run validate && npm run sitemap"
+    "check": "npm run validate && npm run links && npm run sitemap",
+    "links": "node scripts/check-links.js"
   },
   "engines": {
     "node": ">=18"

@@ -215,6 +215,9 @@ git push
 # Validate content records, dates, slugs, URLs, and required fields
 npm run validate
 
+# Check official source and application URLs
+npm run links
+
 # Regenerate sitemap.xml from active opportunities and guides
 npm run sitemap
 
@@ -379,7 +382,7 @@ The website automatically filters out expired opportunities from all listings, b
 
 ### Technical
 - [ ] Validate opportunities.json after every edit
-- [ ] Run `node sitemap-generator.js` and `node validate-content.js` before publishing content changes
+- [ ] Run `npm run links`, `node sitemap-generator.js`, and `node validate-content.js` before publishing content changes
 - [ ] Test site on mobile after any HTML changes
 - [ ] Check that apply links are not broken
 - [ ] Review Core Web Vitals in GSC

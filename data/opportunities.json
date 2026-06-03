@@ -15,7 +15,7 @@
     "verified": true,
     "featured": true,
     "expired": false,
-    "description": "Eskom's annual learnership programme offers structured workplace learning leading to a nationally recognised NQF qualification. The programme covers electrical, mechanical, and instrumentation disciplines across Eskom's generation, transmission, and distribution divisions.",
+    "description": "Refreshed official-source listing for Eskom engineering learnership pathways. Applicants should monitor Eskom's official careers portal for advertised learner roles in electrical, mechanical, and instrumentation disciplines across generation, transmission, and distribution teams.",
     "eligibility": [
       "Grade 12 / Matric certificate",
       "South African citizen with valid ID",
@@ -30,9 +30,9 @@
       "Proof of residence (not older than 3 months)",
       "Motivational letter (max 1 page)"
     ],
-    "tags": ["matric", "government", "nationwide", "no-experience"],
+    "tags": ["matric", "government", "nationwide", "no-experience", "official-source-refreshed"],
     "posted_date": "2026-04-01",
-    "updated_date": "2026-04-20"
+    "updated_date": "2026-06-03"
   },
   {
     "id": "002",
@@ -78,13 +78,13 @@
     "qualification_level": "Matric",
     "stipend": "Full bursary – varies by institution",
     "closing_date": "2026-11-30",
-    "application_url": "https://www.nsfas.org.za/content/applications.html",
+    "application_url": "https://my.nsfas.org.za",
     "source_name": "NSFAS Official Website",
     "source_url": "https://www.nsfas.org.za",
     "verified": true,
     "featured": true,
     "expired": false,
-    "description": "NSFAS provides funding to eligible South African students at public universities and TVET colleges. Covers tuition, accommodation, transport, and a living allowance. No repayment required.",
+    "description": "Refreshed official-source NSFAS funding listing for South African students planning to study at public universities or TVET colleges. Funding support can include tuition, accommodation, transport, meals, and living allowances according to NSFAS rules.",
     "eligibility": [
       "South African citizen",
       "Household income below R350 000/year",
@@ -97,9 +97,9 @@
       "Matric results or academic record",
       "Proof of registration at institution"
     ],
-    "tags": ["government", "nationwide", "tvet", "university", "matric"],
+    "tags": ["government", "nationwide", "tvet", "university", "matric", "official-source-refreshed"],
     "posted_date": "2026-04-01",
-    "updated_date": "2026-04-15"
+    "updated_date": "2026-06-03"
   },
   {
     "id": "004",
@@ -245,13 +245,13 @@
     "qualification_level": "Matric",
     "stipend": "Full tuition + R5 000/month",
     "closing_date": "2026-08-31",
-    "application_url": "https://www.sasol.com/careers/bursaries",
-    "source_name": "Sasol Ltd Careers",
-    "source_url": "https://www.sasol.com/careers",
+    "application_url": "https://www.sasolbursaries.com/welcome/how-to-apply/",
+    "source_name": "Sasol Bursaries",
+    "source_url": "https://www.sasolbursaries.com/welcome/",
     "verified": true,
     "featured": true,
     "expired": false,
-    "description": "Full tuition, accommodation, and monthly living allowance for engineering and science students at any South African public university.",
+    "description": "Refreshed official-source Sasol bursary listing for South African students pursuing engineering, science, and technology-related studies. Applicants should use the Sasol Bursaries portal for current eligibility rules, application steps, and programme updates.",
     "eligibility": [
       "Matric with Maths and Physical Science (min 70%)",
       "South African citizen",
@@ -265,9 +265,9 @@
       "Motivational letter",
       "CV"
     ],
-    "tags": ["engineering", "science", "full-bursary", "nationwide"],
+    "tags": ["engineering", "science", "full-bursary", "stem", "nationwide", "official-source-refreshed"],
     "posted_date": "2026-04-15",
-    "updated_date": "2026-04-15"
+    "updated_date": "2026-06-03"
   },
   {
     "id": "009",
@@ -383,7 +383,7 @@
     "verified": true,
     "featured": false,
     "expired": false,
-    "description": "Capitec Bank's branch learnership provides NQF Level 4 retail banking qualification through hands-on customer service training across Capitec branches in the Western Cape.",
+    "description": "Refreshed official-source listing for Capitec entry-level branch and banking learning pathways. Applicants should monitor Capitec's official careers portal for branch consultant, service, and learnership-style opportunities that build retail banking and customer-service skills.",
     "eligibility": [
       "Matric certificate",
       "South African citizen aged 18–30",
@@ -397,8 +397,8 @@
       "Motivational letter",
       "Proof of residence"
     ],
-    "tags": ["banking", "matric", "western-cape", "no-experience"],
+    "tags": ["banking", "matric", "western-cape", "no-experience", "official-source-refreshed"],
     "posted_date": "2026-04-22",
-    "updated_date": "2026-04-22"
+    "updated_date": "2026-06-03"
   }
 ]

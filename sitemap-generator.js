@@ -15,6 +15,7 @@ const path = require('path');
 // ── CONFIG — update BASE to your real domain ──────────────────
 const BASE = 'https://opportunitiesza.co.za';
 const DEFAULT_LASTMOD = '2026-05-01';
+const TODAY = new Date().toISOString().slice(0, 10);
 
 function isLiveOpportunity(o) {
   return !o.expired && (!o.closing_date || o.closing_date >= TODAY);
