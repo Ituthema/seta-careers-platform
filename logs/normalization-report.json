@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-06-03T11:42:11.900Z",
+  "safety": {
+    "originalDataOverwritten": false,
+    "backupDirectoryEnsured": "./data/backup",
+    "outputDirectory": "./data/clean/",
+    "logDirectory": "./logs/"
+  },
+  "totals": {
+    "filesProcessed": 4,
+    "recordsProcessed": 32,
+    "modifiedRecords": 0,
+    "totalChanges": 0,
+    "invalidDates": 0
+  },
+  "files": [
+    {
+      "file": "opportunities",
+      "input": "./Data/opportunities.json",
+      "output": "./data/clean/opportunities.json",
+      "recordsProcessed": 12,
+      "modifiedRecords": 0,
+      "totalChanges": 0,
+      "invalidDates": 0,
+      "outputWritten": true
+    },
+    {
+      "file": "guides",
+      "input": "./Data/guides.json",
+      "output": "./data/clean/guides.json",
+      "recordsProcessed": 7,
+      "modifiedRecords": 0,
+      "totalChanges": 0,
+      "invalidDates": 0,
+      "outputWritten": true
+    },
+    {
+      "file": "categories",
+      "input": "./Data/categories.json",
+      "output": "./data/clean/categories.json",
+      "recordsProcessed": 4,
+      "modifiedRecords": 0,
+      "totalChanges": 0,
+      "invalidDates": 0,
+      "outputWritten": true
+    },
+    {
+      "file": "provinces",
+      "input": "./Data/provinces.json",
+      "output": "./data/clean/provinces.json",
+      "recordsProcessed": 9,
+      "modifiedRecords": 0,
+      "totalChanges": 0,
+      "invalidDates": 0,
+      "outputWritten": true
+    }
+  ]
+}
