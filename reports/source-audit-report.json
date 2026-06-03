@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-06-03T20:22:19.494Z",
+  "registry_path": "data/sources.json",
+  "status": "PASS",
+  "summary": {
+    "total": 58,
+    "active": 58,
+    "inactive": 0,
+    "by_type": {
+      "government": 12,
+      "seta": 10,
+      "university": 10,
+      "soe": 6,
+      "private": 10,
+      "municipality": 10
+    },
+    "issue_counts": {
+      "PASS": 0,
+      "WARN": 0,
+      "FAIL": 0
+    }
+  },
+  "issues": []
+}
