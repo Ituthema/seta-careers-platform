@@ -7,7 +7,9 @@
     "validate": "node scripts/validate-content.js",
     "sitemap": "node sitemap-generator.js",
     "check": "npm run validate && npm run links && npm run sitemap",
-    "links": "node scripts/check-links.js"
+    "links": "node scripts/check-links.js",
+    "source:audit": "node scripts/source-audit.js",
+    "source:health": "node scripts/source-health-check.js"
   },
   "engines": {
     "node": ">=18"
