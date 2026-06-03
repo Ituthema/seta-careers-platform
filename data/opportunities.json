@@ -30,7 +30,12 @@
       "Proof of residence (not older than 3 months)",
       "Motivational letter (max 1 page)"
     ],
-    "tags": ["matric", "government", "nationwide", "no-experience"],
+    "tags": [
+      "matric",
+      "government",
+      "nationwide",
+      "no-experience"
+    ],
     "posted_date": "2026-04-01",
     "updated_date": "2026-04-20"
   },
@@ -64,7 +69,12 @@
       "CV (max 3 pages)",
       "Cover letter"
     ],
-    "tags": ["graduate", "degree", "banking", "gauteng"],
+    "tags": [
+      "graduate",
+      "degree",
+      "banking",
+      "gauteng"
+    ],
     "posted_date": "2026-04-05",
     "updated_date": "2026-04-05"
   },
@@ -97,7 +107,13 @@
       "Matric results or academic record",
       "Proof of registration at institution"
     ],
-    "tags": ["government", "nationwide", "tvet", "university", "matric"],
+    "tags": [
+      "government",
+      "nationwide",
+      "tvet",
+      "university",
+      "matric"
+    ],
     "posted_date": "2026-04-01",
     "updated_date": "2026-04-15"
   },
@@ -131,7 +147,11 @@
       "Proof of residence",
       "Motivational letter"
     ],
-    "tags": ["it", "matric", "western-cape"],
+    "tags": [
+      "it",
+      "matric",
+      "western-cape"
+    ],
     "posted_date": "2026-04-08",
     "updated_date": "2026-04-08"
   },
@@ -163,7 +183,12 @@
       "CV",
       "Medical clearance certificate"
     ],
-    "tags": ["artisan", "maths-science", "gauteng", "government"],
+    "tags": [
+      "artisan",
+      "maths-science",
+      "gauteng",
+      "government"
+    ],
     "posted_date": "2026-04-10",
     "updated_date": "2026-04-10"
   },
@@ -197,7 +222,12 @@
       "Motivational letter",
       "Proof of residence"
     ],
-    "tags": ["retail", "nationwide", "no-experience", "matric"],
+    "tags": [
+      "retail",
+      "nationwide",
+      "no-experience",
+      "matric"
+    ],
     "posted_date": "2026-04-12",
     "updated_date": "2026-04-12"
   },
@@ -231,7 +261,12 @@
       "Z83 form (from dpsa.gov.za)",
       "Cover letter"
     ],
-    "tags": ["government", "health", "degree", "kwazulu-natal"],
+    "tags": [
+      "government",
+      "health",
+      "degree",
+      "kwazulu-natal"
+    ],
     "posted_date": "2026-04-14",
     "updated_date": "2026-04-14"
   },
@@ -265,7 +300,12 @@
       "Motivational letter",
       "CV"
     ],
-    "tags": ["engineering", "science", "full-bursary", "nationwide"],
+    "tags": [
+      "engineering",
+      "science",
+      "full-bursary",
+      "nationwide"
+    ],
     "posted_date": "2026-04-15",
     "updated_date": "2026-04-15"
   },
@@ -297,7 +337,12 @@
       "Medical fitness certificate",
       "CV"
     ],
-    "tags": ["artisan", "boilermaker", "maths-science", "gauteng"],
+    "tags": [
+      "artisan",
+      "boilermaker",
+      "maths-science",
+      "gauteng"
+    ],
     "posted_date": "2026-04-16",
     "updated_date": "2026-04-16"
   },
@@ -330,7 +375,12 @@
       "CV (max 3 pages)",
       "Cover letter"
     ],
-    "tags": ["graduate", "degree", "insurance", "western-cape"],
+    "tags": [
+      "graduate",
+      "degree",
+      "insurance",
+      "western-cape"
+    ],
     "posted_date": "2026-04-18",
     "updated_date": "2026-04-18"
   },
@@ -363,12 +413,403 @@
       "Cover letter",
       "Academic transcript"
     ],
-    "tags": ["graduate", "degree", "banking", "gauteng", "yes-programme"],
+    "tags": [
+      "graduate",
+      "degree",
+      "banking",
+      "gauteng",
+      "yes-programme"
+    ],
     "posted_date": "2026-04-20",
     "updated_date": "2026-04-20"
   },
   {
     "id": "012",
+    "slug": "anglo-american-mining-learnership-2026",
+    "title": "Anglo American Mining Learnership 2026",
+    "category": "learnership",
+    "sector": "Mining SETA",
+    "province": "North West",
+    "qualification_level": "Matric",
+    "stipend": "R5 800/month",
+    "closing_date": "2026-08-31",
+    "application_url": "https://www.angloamerican.com/careers",
+    "source_name": "Anglo American Platinum",
+    "source_url": "https://www.angloamerican.com/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "SETA-accredited mining learnership with Anglo American Platinum offering NQF Level 4 qualification in mining operations. Based at platinum mines in North West Province.",
+    "eligibility": [
+      "Matric with Mathematics and Physical Science",
+      "South African citizen aged 18–30",
+      "Medically fit for underground work"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric with subject symbols",
+      "Medical fitness certificate",
+      "CV"
+    ],
+    "tags": [
+      "mining",
+      "maths-science",
+      "north-west",
+      "artisan"
+    ],
+    "posted_date": "2026-04-21",
+    "updated_date": "2026-04-21"
+  },
+  {
+    "id": "013",
+    "slug": "nedbank-graduate-finance-internship-2026",
+    "title": "Nedbank Graduate Finance Internship 2026",
+    "category": "internship",
+    "sector": "BANKSETA",
+    "province": "Gauteng",
+    "qualification_level": "Degree",
+    "stipend": "R8 000/month",
+    "closing_date": "2026-08-15",
+    "application_url": "https://www.nedbank.co.za/careers",
+    "source_name": "Nedbank Careers",
+    "source_url": "https://www.nedbank.co.za/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "12-month graduate internship across Nedbank's Finance, Risk, and Technology divisions. Gain hands-on experience in banking with structured mentorship and project work.",
+    "eligibility": [
+      "BCom Finance, Accounting, or Economics degree",
+      "South African citizen aged 18–30",
+      "Academic average above 65%"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified degree",
+      "Transcript",
+      "CV",
+      "Cover letter"
+    ],
+    "tags": [
+      "graduate",
+      "degree",
+      "banking",
+      "gauteng"
+    ],
+    "posted_date": "2026-04-22",
+    "updated_date": "2026-04-22"
+  },
+  {
+    "id": "014",
+    "slug": "ceta-construction-learnership-2026",
+    "title": "CETA Construction Learnership 2026",
+    "category": "learnership",
+    "sector": "CETA",
+    "province": "Western Cape",
+    "qualification_level": "Matric",
+    "stipend": "R3 800/month",
+    "closing_date": "2026-09-30",
+    "application_url": "https://www.ceta.co.za",
+    "source_name": "CETA Official Website",
+    "source_url": "https://www.ceta.co.za",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "CETA-funded construction learnership leading to NQF Level 4 qualification. Covers fundamentals of construction trades including site safety, surveying, and project coordination.",
+    "eligibility": [
+      "Grade 12 with Mathematics",
+      "South African citizen aged 18–35",
+      "Unemployed with interest in construction"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric",
+      "CV",
+      "Proof of residence",
+      "Motivational letter"
+    ],
+    "tags": [
+      "construction",
+      "matric",
+      "western-cape"
+    ],
+    "posted_date": "2026-04-23",
+    "updated_date": "2026-04-23"
+  },
+  {
+    "id": "015",
+    "slug": "mtn-ict-graduate-programme-2026",
+    "title": "MTN South Africa ICT Graduate Programme 2026",
+    "category": "internship",
+    "sector": "MICT SETA",
+    "province": "Gauteng",
+    "qualification_level": "Degree",
+    "stipend": "R10 000/month",
+    "closing_date": "2026-08-31",
+    "application_url": "https://www.mtn.com/careers",
+    "source_name": "MTN South Africa Careers",
+    "source_url": "https://www.mtn.com/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "MTN's 12-month ICT Graduate Programme places talented graduates across Network, Digital, Commercial, and Corporate functions. Comprehensive development with senior mentors.",
+    "eligibility": [
+      "BSc Computer Science, Engineering, or Commerce degree",
+      "South African citizen",
+      "Academic average above 65%",
+      "Recently graduated"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified degree",
+      "Transcript",
+      "CV (max 3 pages)",
+      "Cover letter"
+    ],
+    "tags": [
+      "graduate",
+      "degree",
+      "it",
+      "gauteng",
+      "telecoms"
+    ],
+    "posted_date": "2026-04-24",
+    "updated_date": "2026-04-24"
+  },
+  {
+    "id": "016",
+    "slug": "hwseta-social-work-learnership-2026",
+    "title": "HWSETA Social Work Learnership 2026",
+    "category": "learnership",
+    "sector": "HWSETA",
+    "province": "Eastern Cape",
+    "qualification_level": "Matric",
+    "stipend": "R3 400/month",
+    "closing_date": "2026-09-30",
+    "application_url": "https://www.hwseta.org.za",
+    "source_name": "HWSETA Official",
+    "source_url": "https://www.hwseta.org.za",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "Health and Welfare SETA learnership in community social work and community development, NQF Level 4. Placements at community centres and NGOs in the Eastern Cape.",
+    "eligibility": [
+      "Grade 12 certificate",
+      "South African citizen aged 18–35",
+      "Currently unemployed",
+      "Interest in social work or community development"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric",
+      "CV",
+      "Proof of residence",
+      "Motivational letter"
+    ],
+    "tags": [
+      "social-work",
+      "matric",
+      "eastern-cape"
+    ],
+    "posted_date": "2026-04-25",
+    "updated_date": "2026-04-25"
+  },
+  {
+    "id": "017",
+    "slug": "uct-science-engineering-bursary-2026",
+    "title": "UCT Science & Engineering Bursary 2026",
+    "category": "bursary",
+    "sector": "University",
+    "province": "Western Cape",
+    "qualification_level": "Matric",
+    "stipend": "Full tuition + accommodation",
+    "closing_date": "2026-09-30",
+    "application_url": "https://www.uct.ac.za/apply/funding",
+    "source_name": "UCT Financial Aid Office",
+    "source_url": "https://www.uct.ac.za/apply/funding",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "UCT's merit and need bursary for Science and Engineering students from disadvantaged backgrounds. Covers full tuition, residence, and books. Academic performance required for annual renewal.",
+    "eligibility": [
+      "Grade 12 with strong Maths and Physical Science (min 70%)",
+      "South African citizen",
+      "Accepted or applying at UCT",
+      "Household income below R600 000/year"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Matric results (min 70% in core subjects)",
+      "UCT acceptance letter",
+      "Proof of income (family)",
+      "Motivational essay (500 words)"
+    ],
+    "tags": [
+      "university",
+      "engineering",
+      "western-cape",
+      "merit"
+    ],
+    "posted_date": "2026-04-26",
+    "updated_date": "2026-04-26"
+  },
+  {
+    "id": "018",
+    "slug": "vodacom-digital-marketing-internship-2026",
+    "title": "Vodacom Digital Marketing Internship 2026",
+    "category": "internship",
+    "sector": "MICT SETA",
+    "province": "Gauteng",
+    "qualification_level": "Diploma",
+    "stipend": "R7 500/month",
+    "closing_date": "2026-10-15",
+    "application_url": "https://www.vodacom.co.za/careers",
+    "source_name": "Vodacom Group Careers",
+    "source_url": "https://www.vodacom.co.za/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "12-month digital marketing internship at Vodacom covering social media strategy, content creation, performance marketing, and brand campaigns.",
+    "eligibility": [
+      "Marketing, Media, or Communications diploma or degree",
+      "South African citizen aged 18–30",
+      "Creative portfolio an advantage"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified qualification",
+      "CV (max 3 pages)",
+      "Cover letter",
+      "Portfolio (if available)"
+    ],
+    "tags": [
+      "marketing",
+      "digital",
+      "diploma",
+      "gauteng",
+      "telecoms"
+    ],
+    "posted_date": "2026-04-27",
+    "updated_date": "2026-04-27"
+  },
+  {
+    "id": "019",
+    "slug": "fnb-retail-banking-learnership-2026",
+    "title": "FNB Retail Banking Learnership 2026",
+    "category": "learnership",
+    "sector": "BANKSETA",
+    "province": "Gauteng",
+    "qualification_level": "Matric",
+    "stipend": "R4 200/month",
+    "closing_date": "2026-09-15",
+    "application_url": "https://www.fnb.co.za/careers",
+    "source_name": "First National Bank Careers",
+    "source_url": "https://www.fnb.co.za/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "BANKSETA-accredited learnership in retail banking operations. NQF Level 4 qualification covering customer service, financial products, and branch banking fundamentals.",
+    "eligibility": [
+      "Grade 12 / Matric certificate",
+      "South African citizen aged 18–35",
+      "Currently unemployed",
+      "No criminal record"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric",
+      "CV",
+      "Motivational letter",
+      "Proof of residence"
+    ],
+    "tags": [
+      "banking",
+      "matric",
+      "gauteng",
+      "no-experience"
+    ],
+    "posted_date": "2026-04-28",
+    "updated_date": "2026-04-28"
+  },
+  {
+    "id": "020",
+    "slug": "dept-tourism-graduate-internship-2026",
+    "title": "Department of Tourism Graduate Internship 2026",
+    "category": "internship",
+    "sector": "CATHSSETA",
+    "province": "Nationwide",
+    "qualification_level": "Degree",
+    "stipend": "R6 083/month",
+    "closing_date": "2026-08-31",
+    "application_url": "https://www.tourism.gov.za/careers",
+    "source_name": "Department of Tourism",
+    "source_url": "https://www.tourism.gov.za",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "Government internship at the national Department of Tourism for graduates in Tourism Management, Hospitality, Marketing, or related fields. 24-month contract.",
+    "eligibility": [
+      "Relevant 3-year degree or diploma",
+      "South African citizen aged 18–35",
+      "No previous government internship",
+      "Unemployed"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified qualification",
+      "Academic transcript",
+      "CV",
+      "Z83 form (from dpsa.gov.za)",
+      "Cover letter"
+    ],
+    "tags": [
+      "government",
+      "tourism",
+      "degree",
+      "nationwide"
+    ],
+    "posted_date": "2026-04-29",
+    "updated_date": "2026-04-29"
+  },
+  {
+    "id": "021",
+    "slug": "agriseta-agricultural-learnership-2026",
+    "title": "AgriSETA Agricultural Learnership 2026",
+    "category": "learnership",
+    "sector": "AgriSETA",
+    "province": "Limpopo",
+    "qualification_level": "Matric",
+    "stipend": "R3 100/month",
+    "closing_date": "2026-10-31",
+    "application_url": "https://www.agriseta.co.za",
+    "source_name": "AgriSETA Official Website",
+    "source_url": "https://www.agriseta.co.za",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "AgriSETA-funded agricultural learnership in crop production and farm management. NQF Level 4 qualification with practical training on commercial farms in Limpopo.",
+    "eligibility": [
+      "Grade 12 certificate",
+      "South African citizen",
+      "Interest in agriculture and farming",
+      "Resident in Limpopo preferred"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric",
+      "CV",
+      "Proof of residence"
+    ],
+    "tags": [
+      "agriculture",
+      "matric",
+      "limpopo",
+      "agriseta"
+    ],
+    "posted_date": "2026-04-30",
+    "updated_date": "2026-04-30"
+  },
+  {
+    "id": "022",
     "slug": "capitec-bank-learnership-2026",
     "title": "Capitec Bank Branch Learnership 2026",
     "category": "learnership",
@@ -397,8 +838,13 @@
       "Motivational letter",
       "Proof of residence"
     ],
-    "tags": ["banking", "matric", "western-cape", "no-experience"],
-    "posted_date": "2026-04-22",
-    "updated_date": "2026-04-22"
+    "tags": [
+      "banking",
+      "matric",
+      "western-cape",
+      "no-experience"
+    ],
+    "posted_date": "2026-05-01",
+    "updated_date": "2026-05-01"
   }
 ]
