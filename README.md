@@ -18,6 +18,7 @@ South Africa's career opportunity intelligence platform for learnerships, bursar
 ├── robots.txt              ← SEO crawl directives
 ├── sitemap.xml             ← Auto-generated (run sitemap-generator.js)
 ├── sitemap-generator.js    ← Node script to regenerate sitemap
+├── validate-content.js      ← Checks data, index loader, and sitemap slugs
 ├── CNAME                   ← Custom domain (create after buying domain)
 ├── README.md               ← This file
 │
@@ -189,6 +190,9 @@ nano data/opportunities.json
 # Validate JSON before pushing
 python3 -m json.tool data/opportunities.json > /dev/null && echo "✅ Valid JSON" || echo "❌ JSON Error — fix before pushing"
 
+# Validate that index.html loads /data/ and live opportunity slugs match sitemap.xml
+node validate-content.js
+
 # Push live
 git add data/opportunities.json
 git commit -m "Add [Company] [type] - closing [date]"
@@ -196,8 +200,11 @@ git push
 ```
 
 ### Regenerate Sitemap After Publishing
+`data/` is the canonical content source. After editing opportunities or guides, regenerate the sitemap from the JSON files and run the slug agreement check before publishing.
+
 ```bash
 node sitemap-generator.js
+node validate-content.js
 git add sitemap.xml
 git commit -m "Update sitemap"
 git push
@@ -358,6 +365,7 @@ The website automatically filters out expired opportunities from all listings, b
 
 ### Technical
 - [ ] Validate opportunities.json after every edit
+- [ ] Run `node sitemap-generator.js` and `node validate-content.js` before publishing content changes
 - [ ] Test site on mobile after any HTML changes
 - [ ] Check that apply links are not broken
 - [ ] Review Core Web Vitals in GSC
@@ -374,6 +382,13 @@ GitHub Pages can take 1–5 minutes. Check status at:
 ```bash
 python3 -m json.tool data/opportunities.json
 # Shows exactly which line has the error
+```
+
+### Sitemap or slug validation error
+```bash
+node sitemap-generator.js
+node validate-content.js
+# Confirms live opportunity slugs in data/opportunities.json match sitemap.xml and that index.html loads /data/opportunities.json
 ```
 
 Common mistakes:

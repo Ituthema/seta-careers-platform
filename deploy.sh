@@ -232,6 +232,16 @@ print('✅ Record added successfully.')
   echo ""
   if [ $errors -eq 0 ]; then
     echo -e "${GREEN}✅ All JSON files are valid!${RESET}"
+    if command -v node &>/dev/null && [ -f validate-content.js ]; then
+      echo ""
+      echo -e "${CYAN}Checking content/sitemap slug agreement...${RESET}"
+      if node validate-content.js; then
+        echo -e "${GREEN}✅ Content validation passed!${RESET}"
+      else
+        echo -e "${RED}❌ Content validation failed. Run node sitemap-generator.js and re-check.${RESET}"
+        exit 1
+      fi
+    fi
   else
     echo -e "${RED}❌ $errors file(s) have errors. Fix them before pushing.${RESET}"
   fi
@@ -296,6 +306,9 @@ else:
   echo -e "${CYAN}🗺️  Regenerating sitemap.xml...${RESET}"
   if command -v node &>/dev/null; then
     node sitemap-generator.js
+    if [ -f validate-content.js ]; then
+      node validate-content.js || exit 1
+    fi
     read -r -p "Push sitemap to GitHub? (y/n): " dopush
     if [ "$dopush" = "y" ]; then
       git add sitemap.xml
