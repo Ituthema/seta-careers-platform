@@ -16,6 +16,10 @@ const path = require('path');
 const BASE = 'https://opportunitiesza.co.za';
 const DEFAULT_LASTMOD = '2026-05-01';
 
+function isLiveOpportunity(o) {
+  return !o.expired && (!o.closing_date || o.closing_date >= TODAY);
+}
+
 // ── STATIC PAGES ──────────────────────────────────────────────
 const STATIC = [
   { loc: '/',                  priority: '1.0', freq: 'daily'   },
@@ -92,7 +96,7 @@ const catPluralMap = {
 };
 
 opps
-  .filter(o => !o.expired)
+  .filter(isLiveOpportunity)
   .forEach(o => {
     const catPlural = catPluralMap[o.category] || (o.category + 's');
     urls.push(urlEntry({
@@ -135,7 +139,7 @@ fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), xml, 'utf8');
 
 console.log(`\n✅ sitemap.xml generated successfully`);
 console.log(`   Static pages:     ${STATIC.length}`);
-console.log(`   Opportunity pages: ${opps.filter(o => !o.expired).length}`);
+console.log(`   Opportunity pages: ${opps.filter(isLiveOpportunity).length}`);
 console.log(`   Guide pages:       ${guides.length}`);
 console.log(`   Total URLs:        ${urls.length}`);
 console.log(`\n📋 Next steps:`);
