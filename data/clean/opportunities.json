@@ -1,0 +1,465 @@
+[
+  {
+    "id": "001",
+    "slug": "eskom-engineering-learnership-2026",
+    "title": "Eskom Engineering Learnership 2026",
+    "category": "learnership",
+    "sector": "EWSETA",
+    "province": "Nationwide",
+    "qualification_level": "Matric",
+    "stipend": "R4 500/month",
+    "closing_date": "2026-09-30",
+    "application_url": "https://www.eskom.co.za/careers",
+    "source_name": "Eskom Official Website",
+    "source_url": "https://www.eskom.co.za/careers",
+    "verified": true,
+    "featured": true,
+    "expired": false,
+    "description": "Eskom's annual learnership programme offers structured workplace learning leading to a nationally recognised NQF qualification. The programme covers electrical, mechanical, and instrumentation disciplines across Eskom's generation, transmission, and distribution divisions.",
+    "eligibility": [
+      "Grade 12 / Matric certificate",
+      "South African citizen with valid ID",
+      "Aged 18–35",
+      "Currently unemployed",
+      "No previous Eskom learnership"
+    ],
+    "documents_needed": [
+      "Certified copy of ID (not older than 3 months)",
+      "Certified copy of Matric certificate",
+      "Comprehensive CV (max 2 pages)",
+      "Proof of residence (not older than 3 months)",
+      "Motivational letter (max 1 page)"
+    ],
+    "tags": [
+      "matric",
+      "government",
+      "nationwide",
+      "no-experience"
+    ],
+    "posted_date": "2026-04-01",
+    "updated_date": "2026-04-20"
+  },
+  {
+    "id": "002",
+    "slug": "absa-graduate-internship-2026",
+    "title": "ABSA Bank Graduate Internship 2026",
+    "category": "internship",
+    "sector": "BANKSETA",
+    "province": "Gauteng",
+    "qualification_level": "Degree",
+    "stipend": "R8 500/month",
+    "closing_date": "2026-07-31",
+    "application_url": "https://www.absa.africa/absaafrica/careers",
+    "source_name": "ABSA Group Careers",
+    "source_url": "https://www.absa.africa/absaafrica/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "12-month structured programme developing young talent in banking and financial services. Interns rotate across Retail, Corporate, and Digital Banking with structured mentorship.",
+    "eligibility": [
+      "Relevant 3-year degree (Finance, Accounting, IT, Commerce)",
+      "South African citizen",
+      "Recent graduate — within last 2 years",
+      "Aged 18–35"
+    ],
+    "documents_needed": [
+      "Certified ID copy",
+      "Certified degree certificate",
+      "Academic transcript",
+      "CV (max 3 pages)",
+      "Cover letter"
+    ],
+    "tags": [
+      "graduate",
+      "degree",
+      "banking",
+      "gauteng"
+    ],
+    "posted_date": "2026-04-05",
+    "updated_date": "2026-04-05"
+  },
+  {
+    "id": "003",
+    "slug": "nsfas-bursary-2026",
+    "title": "NSFAS Bursary 2026 — University & TVET Funding",
+    "category": "bursary",
+    "sector": "Government – DHET",
+    "province": "Nationwide",
+    "qualification_level": "Matric",
+    "stipend": "Full bursary – varies by institution",
+    "closing_date": "2026-11-30",
+    "application_url": "https://www.nsfas.org.za/content/applications.html",
+    "source_name": "NSFAS Official Website",
+    "source_url": "https://www.nsfas.org.za",
+    "verified": true,
+    "featured": true,
+    "expired": false,
+    "description": "NSFAS provides funding to eligible South African students at public universities and TVET colleges. Covers tuition, accommodation, transport, and a living allowance. No repayment required.",
+    "eligibility": [
+      "South African citizen",
+      "Household income below R350 000/year",
+      "Registered or applying at a public university or TVET college",
+      "SASSA grant recipients qualify automatically"
+    ],
+    "documents_needed": [
+      "South African ID",
+      "Proof of income (payslips or affidavit)",
+      "Matric results or academic record",
+      "Proof of registration at institution"
+    ],
+    "tags": [
+      "government",
+      "nationwide",
+      "tvet",
+      "university",
+      "matric"
+    ],
+    "posted_date": "2026-04-01",
+    "updated_date": "2026-04-15"
+  },
+  {
+    "id": "004",
+    "slug": "mict-seta-ict-learnership-2026",
+    "title": "MICT SETA ICT Learnership 2026",
+    "category": "learnership",
+    "sector": "MICT SETA",
+    "province": "Western Cape",
+    "qualification_level": "Matric",
+    "stipend": "R3 500/month",
+    "closing_date": "2026-08-15",
+    "application_url": "https://www.mict.org.za/learnerships",
+    "source_name": "MICT SETA Official",
+    "source_url": "https://www.mict.org.za",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "NQF Level 4 ICT Learnership providing practical experience in IT support, networking, and software fundamentals over 12 months.",
+    "eligibility": [
+      "Grade 12 with Mathematics",
+      "South African citizen aged 18–35",
+      "Basic computer literacy",
+      "Currently unemployed"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric certificate",
+      "CV",
+      "Proof of residence",
+      "Motivational letter"
+    ],
+    "tags": [
+      "it",
+      "matric",
+      "western-cape"
+    ],
+    "posted_date": "2026-04-08",
+    "updated_date": "2026-04-08"
+  },
+  {
+    "id": "005",
+    "slug": "transnet-apprenticeship-2026",
+    "title": "Transnet Freight Rail Apprenticeship 2026",
+    "category": "apprenticeship",
+    "sector": "TETA",
+    "province": "Gauteng",
+    "qualification_level": "Matric",
+    "stipend": "R6 000/month",
+    "closing_date": "2026-10-31",
+    "application_url": "https://www.transnet.net/careers",
+    "source_name": "Transnet SOC Ltd",
+    "source_url": "https://www.transnet.net/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "3-year apprenticeship developing qualified artisans in diesel mechanical, electrical, and boilermaking trades. Leads to a nationally recognised trade certificate.",
+    "eligibility": [
+      "Matric with Mathematics and Physical Science (min 50%)",
+      "South African citizen aged 18–30",
+      "Medically fit (will be tested)"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric with subject results",
+      "CV",
+      "Medical clearance certificate"
+    ],
+    "tags": [
+      "artisan",
+      "maths-science",
+      "gauteng",
+      "government"
+    ],
+    "posted_date": "2026-04-10",
+    "updated_date": "2026-04-10"
+  },
+  {
+    "id": "006",
+    "slug": "shoprite-retail-learnership-2026",
+    "title": "Shoprite Group Retail Learnership 2026",
+    "category": "learnership",
+    "sector": "W&RSETA",
+    "province": "Nationwide",
+    "qualification_level": "Matric",
+    "stipend": "R3 200/month",
+    "closing_date": "2026-10-15",
+    "application_url": "https://www.shopriteholdings.co.za/careers",
+    "source_name": "Shoprite Holdings Careers",
+    "source_url": "https://www.shopriteholdings.co.za/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "Retail Learnership across Shoprite, Checkers, and USave providing NQF Level 3 and 4 qualifications in retail operations while working in live store environments.",
+    "eligibility": [
+      "Grade 12 certificate",
+      "South African citizen aged 18–35",
+      "Currently unemployed",
+      "No previous retail learnership"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric",
+      "CV",
+      "Motivational letter",
+      "Proof of residence"
+    ],
+    "tags": [
+      "retail",
+      "nationwide",
+      "no-experience",
+      "matric"
+    ],
+    "posted_date": "2026-04-12",
+    "updated_date": "2026-04-12"
+  },
+  {
+    "id": "007",
+    "slug": "kzn-health-internship-2026",
+    "title": "KwaZulu-Natal Department of Health Internship 2026",
+    "category": "internship",
+    "sector": "PSETA",
+    "province": "KwaZulu-Natal",
+    "qualification_level": "Degree",
+    "stipend": "R7 044/month",
+    "closing_date": "2026-09-15",
+    "application_url": "https://www.kznhealth.gov.za",
+    "source_name": "KZN Department of Health",
+    "source_url": "https://www.kznhealth.gov.za",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "12-month internship placements for graduates in health administration, public health, pharmacy assistance, and environmental health at district offices and provincial hospitals.",
+    "eligibility": [
+      "Relevant health sciences or administration degree",
+      "South African citizen aged 18–35",
+      "No previous government internship"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified degree certificate",
+      "Academic transcript",
+      "CV",
+      "Z83 form (from dpsa.gov.za)",
+      "Cover letter"
+    ],
+    "tags": [
+      "government",
+      "health",
+      "degree",
+      "kwazulu-natal"
+    ],
+    "posted_date": "2026-04-14",
+    "updated_date": "2026-04-14"
+  },
+  {
+    "id": "008",
+    "slug": "sasol-bursary-engineering-2026",
+    "title": "Sasol Engineering & Science Bursary 2026",
+    "category": "bursary",
+    "sector": "CHIETA",
+    "province": "Nationwide",
+    "qualification_level": "Matric",
+    "stipend": "Full tuition + R5 000/month",
+    "closing_date": "2026-08-31",
+    "application_url": "https://www.sasol.com/careers/bursaries",
+    "source_name": "Sasol Ltd Careers",
+    "source_url": "https://www.sasol.com/careers",
+    "verified": true,
+    "featured": true,
+    "expired": false,
+    "description": "Full tuition, accommodation, and monthly living allowance for engineering and science students at any South African public university.",
+    "eligibility": [
+      "Matric with Maths and Physical Science (min 70%)",
+      "South African citizen",
+      "Accepted at a South African public university",
+      "Studying Chemical, Mechanical, or Electrical Engineering"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric results",
+      "University acceptance letter",
+      "Motivational letter",
+      "CV"
+    ],
+    "tags": [
+      "engineering",
+      "science",
+      "full-bursary",
+      "nationwide"
+    ],
+    "posted_date": "2026-04-15",
+    "updated_date": "2026-04-15"
+  },
+  {
+    "id": "009",
+    "slug": "merseta-boilermaker-apprenticeship-2026",
+    "title": "MerSETA Boilermaker Apprenticeship 2026",
+    "category": "apprenticeship",
+    "sector": "MerSETA",
+    "province": "Gauteng",
+    "qualification_level": "Matric",
+    "stipend": "R5 500/month",
+    "closing_date": "2026-10-31",
+    "application_url": "https://www.merseta.org.za",
+    "source_name": "MerSETA Official Website",
+    "source_url": "https://www.merseta.org.za",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "3-year boilermaker apprenticeship leading to a nationally recognised trade certificate. Covers metal fabrication, welding, and pressure vessel manufacturing.",
+    "eligibility": [
+      "Matric with Mathematics and Physical Science (min 50%)",
+      "South African citizen aged 18–28",
+      "Medically fit"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric with subject results",
+      "Medical fitness certificate",
+      "CV"
+    ],
+    "tags": [
+      "artisan",
+      "boilermaker",
+      "maths-science",
+      "gauteng"
+    ],
+    "posted_date": "2026-04-16",
+    "updated_date": "2026-04-16"
+  },
+  {
+    "id": "010",
+    "slug": "old-mutual-graduate-internship-2026",
+    "title": "Old Mutual Graduate Internship 2026",
+    "category": "internship",
+    "sector": "INSETA",
+    "province": "Western Cape",
+    "qualification_level": "Degree",
+    "stipend": "R9 500/month",
+    "closing_date": "2026-07-31",
+    "application_url": "https://www.oldmutual.co.za/careers",
+    "source_name": "Old Mutual Group Careers",
+    "source_url": "https://www.oldmutual.co.za/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "12-month rotational internship across actuarial, finance, IT, and business operations. Structured mentorship with possibility of permanent employment.",
+    "eligibility": [
+      "BCom, BSc, or relevant 3-year degree",
+      "South African citizen aged 18–30",
+      "Graduated within last 2 years"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified degree certificate",
+      "Academic transcript",
+      "CV (max 3 pages)",
+      "Cover letter"
+    ],
+    "tags": [
+      "graduate",
+      "degree",
+      "insurance",
+      "western-cape"
+    ],
+    "posted_date": "2026-04-18",
+    "updated_date": "2026-04-18"
+  },
+  {
+    "id": "011",
+    "slug": "standard-bank-yes-internship-2026",
+    "title": "Standard Bank YES Programme Internship 2026",
+    "category": "internship",
+    "sector": "BANKSETA",
+    "province": "Gauteng",
+    "qualification_level": "Degree",
+    "stipend": "R6 500/month",
+    "closing_date": "2026-09-30",
+    "application_url": "https://www.standardbank.co.za/careers",
+    "source_name": "Standard Bank Careers Portal",
+    "source_url": "https://www.standardbank.co.za/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "12-month YES (Youth Employment Service) placement in banking operations, digital innovation, or financial services. Real work, structured learning, and potential for permanent employment.",
+    "eligibility": [
+      "Relevant degree (Finance, IT, Commerce, Law)",
+      "South African citizen aged 18–35",
+      "Unemployed youth"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified degree certificate",
+      "CV",
+      "Cover letter",
+      "Academic transcript"
+    ],
+    "tags": [
+      "graduate",
+      "degree",
+      "banking",
+      "gauteng",
+      "yes-programme"
+    ],
+    "posted_date": "2026-04-20",
+    "updated_date": "2026-04-20"
+  },
+  {
+    "id": "012",
+    "slug": "capitec-bank-learnership-2026",
+    "title": "Capitec Bank Branch Learnership 2026",
+    "category": "learnership",
+    "sector": "BANKSETA",
+    "province": "Western Cape",
+    "qualification_level": "Matric",
+    "stipend": "R4 000/month",
+    "closing_date": "2026-09-30",
+    "application_url": "https://www.capitecbank.co.za/careers",
+    "source_name": "Capitec Bank Careers",
+    "source_url": "https://www.capitecbank.co.za/careers",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "Capitec Bank's branch learnership provides NQF Level 4 retail banking qualification through hands-on customer service training across Capitec branches in the Western Cape.",
+    "eligibility": [
+      "Matric certificate",
+      "South African citizen aged 18–30",
+      "Currently unemployed",
+      "Passion for customer service"
+    ],
+    "documents_needed": [
+      "Certified ID",
+      "Certified Matric",
+      "CV",
+      "Motivational letter",
+      "Proof of residence"
+    ],
+    "tags": [
+      "banking",
+      "matric",
+      "western-cape",
+      "no-experience"
+    ],
+    "posted_date": "2026-04-22",
+    "updated_date": "2026-04-22"
+  }
+]

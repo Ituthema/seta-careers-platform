@@ -1,0 +1,46 @@
+[
+  {
+    "id": "learnership",
+    "label": "Learnerships",
+    "plural": "learnerships",
+    "icon": "🎓",
+    "description": "Earn a nationally recognised qualification while earning a monthly stipend. Free to apply.",
+    "color": "#166534",
+    "bg": "#dcfce7",
+    "seo_title": "Learnerships in South Africa 2026 — Find & Apply",
+    "seo_desc": "Find verified learnerships across South Africa for 2026. Filter by province, qualification, and closing date. All free to apply. Updated daily."
+  },
+  {
+    "id": "bursary",
+    "label": "Bursaries",
+    "plural": "bursaries",
+    "icon": "📚",
+    "description": "Financial funding for studies at a public university or TVET college. Covers tuition and living costs.",
+    "color": "#92400e",
+    "bg": "#fef3c7",
+    "seo_title": "Bursaries South Africa 2026 — Find Funding for Your Studies",
+    "seo_desc": "Find government and corporate bursaries for South African students in 2026. NSFAS, merit bursaries, and need-based funding. Updated daily."
+  },
+  {
+    "id": "internship",
+    "label": "Internships",
+    "plural": "internships",
+    "icon": "💼",
+    "description": "Structured work experience for graduates and students. Government and private sector programmes.",
+    "color": "#1e40af",
+    "bg": "#dbeafe",
+    "seo_title": "Internships in South Africa 2026 — Graduate Opportunities",
+    "seo_desc": "Graduate internships and work experience programmes across South Africa for 2026. Filter by province, sector, and qualification. Verified listings."
+  },
+  {
+    "id": "apprenticeship",
+    "label": "Apprenticeships",
+    "plural": "apprenticeships",
+    "icon": "🔧",
+    "description": "Artisan trade training leading to a nationally recognised trade certificate. 2–3 year programmes.",
+    "color": "#6b21a8",
+    "bg": "#f3e8ff",
+    "seo_title": "Apprenticeships in South Africa 2026 — Become a Qualified Artisan",
+    "seo_desc": "Find apprenticeship programmes in South Africa for 2026. Electrical, mechanical, boilermaking, plumbing and more. Verified SETA-funded opportunities."
+  }
+]
