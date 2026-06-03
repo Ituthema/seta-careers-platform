@@ -1,0 +1,170 @@
+{
+  "opportunities": {
+    "required_fields": [
+      "application_url",
+      "category",
+      "closing_date",
+      "description",
+      "documents_needed",
+      "eligibility",
+      "expired",
+      "featured",
+      "id",
+      "posted_date",
+      "province",
+      "qualification_level",
+      "sector",
+      "slug",
+      "source_name",
+      "source_url",
+      "stipend",
+      "tags",
+      "title",
+      "updated_date",
+      "verified"
+    ],
+    "optional_fields": [],
+    "field_types": {
+      "application_url": "string",
+      "category": "string",
+      "closing_date": "string",
+      "description": "string",
+      "documents_needed": "array",
+      "eligibility": "array",
+      "expired": "boolean",
+      "featured": "boolean",
+      "id": "string",
+      "posted_date": "string",
+      "province": "string",
+      "qualification_level": "string",
+      "sector": "string",
+      "slug": "string",
+      "source_name": "string",
+      "source_url": "string",
+      "stipend": "string",
+      "tags": "array",
+      "title": "string",
+      "updated_date": "string",
+      "verified": "boolean"
+    },
+    "allowed_values": {
+      "province": [
+        "Gauteng",
+        "KwaZulu-Natal",
+        "Nationwide",
+        "Western Cape"
+      ],
+      "category": [
+        "apprenticeship",
+        "bursary",
+        "internship",
+        "learnership"
+      ]
+    },
+    "format_rules": {
+      "dates": "YYYY-MM-DD",
+      "urls": "https only"
+    }
+  },
+  "guides": {
+    "required_fields": [
+      "body",
+      "category",
+      "faq",
+      "id",
+      "intro",
+      "meta_description",
+      "meta_title",
+      "published_date",
+      "read_time",
+      "related_slugs",
+      "slug",
+      "title",
+      "updated_date"
+    ],
+    "optional_fields": [],
+    "field_types": {
+      "body": "string",
+      "category": "string",
+      "faq": "array",
+      "id": "string",
+      "intro": "string",
+      "meta_description": "string",
+      "meta_title": "string",
+      "published_date": "string",
+      "read_time": "string",
+      "related_slugs": "array",
+      "slug": "string",
+      "title": "string",
+      "updated_date": "string"
+    },
+    "allowed_values": {
+      "category": [
+        "career-advice",
+        "seta-guides"
+      ]
+    },
+    "format_rules": {
+      "dates": "YYYY-MM-DD",
+      "urls": "https only"
+    }
+  },
+  "categories": {
+    "required_fields": [
+      "bg",
+      "color",
+      "description",
+      "icon",
+      "id",
+      "label",
+      "plural",
+      "seo_desc",
+      "seo_title"
+    ],
+    "optional_fields": [],
+    "field_types": {
+      "bg": "string",
+      "color": "string",
+      "description": "string",
+      "icon": "string",
+      "id": "string",
+      "label": "string",
+      "plural": "string",
+      "seo_desc": "string",
+      "seo_title": "string"
+    },
+    "allowed_values": {},
+    "format_rules": {
+      "dates": "YYYY-MM-DD",
+      "urls": "https only"
+    }
+  },
+  "provinces": {
+    "required_fields": [
+      "description",
+      "icon",
+      "id",
+      "label",
+      "major_cities",
+      "seo_desc",
+      "seo_title",
+      "top_employers"
+    ],
+    "optional_fields": [],
+    "field_types": {
+      "description": "string",
+      "icon": "string",
+      "id": "string",
+      "label": "string",
+      "major_cities": "array",
+      "seo_desc": "string",
+      "seo_title": "string",
+      "top_employers": "array"
+    },
+    "allowed_values": {},
+    "format_rules": {
+      "dates": "YYYY-MM-DD",
+      "urls": "https only"
+    }
+  }
+}
