@@ -1,0 +1,14 @@
+{
+  "name": "opportunitiesza",
+  "version": "1.0.0",
+  "private": true,
+  "description": "South Africa career opportunity intelligence platform for learnerships, bursaries, internships, and apprenticeships.",
+  "scripts": {
+    "validate": "node scripts/validate-content.js",
+    "sitemap": "node sitemap-generator.js",
+    "check": "npm run validate && npm run sitemap"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

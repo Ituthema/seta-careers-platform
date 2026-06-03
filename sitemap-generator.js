@@ -14,7 +14,7 @@ const path = require('path');
 
 // ── CONFIG — update BASE to your real domain ──────────────────
 const BASE = 'https://opportunitiesza.co.za';
-const TODAY = new Date().toISOString().split('T')[0];
+const DEFAULT_LASTMOD = '2026-05-01';
 
 function isLiveOpportunity(o) {
   return !o.expired && (!o.closing_date || o.closing_date >= TODAY);
@@ -33,6 +33,7 @@ const STATIC = [
   { loc: '/tools/eligibility/',priority: '0.7', freq: 'monthly' },
   { loc: '/tools/scam/',       priority: '0.7', freq: 'monthly' },
   { loc: '/tools/checklist/',  priority: '0.7', freq: 'monthly' },
+  { loc: '/tools/bursary-checker/', priority: '0.7', freq: 'monthly' },
   { loc: '/seta-guides/',      priority: '0.8', freq: 'weekly'  },
   { loc: '/career-advice/',    priority: '0.7', freq: 'weekly'  },
   { loc: '/provinces/',        priority: '0.7', freq: 'weekly'  },
@@ -41,9 +42,11 @@ const STATIC = [
   { loc: '/learnerships/gauteng/',       priority: '0.7', freq: 'weekly' },
   { loc: '/learnerships/western-cape/',  priority: '0.7', freq: 'weekly' },
   { loc: '/learnerships/kwazulu-natal/', priority: '0.7', freq: 'weekly' },
+  { loc: '/learnerships/eastern-cape/',  priority: '0.7', freq: 'weekly' },
   { loc: '/bursaries/gauteng/',          priority: '0.7', freq: 'weekly' },
   { loc: '/bursaries/western-cape/',     priority: '0.7', freq: 'weekly' },
   { loc: '/internships/gauteng/',        priority: '0.7', freq: 'weekly' },
+  { loc: '/internships/western-cape/',   priority: '0.7', freq: 'weekly' },
 ];
 
 // ── LOAD DATA FILES ───────────────────────────────────────────
@@ -60,10 +63,19 @@ const opps   = loadJSON('data/opportunities.json');
 const guides = loadJSON('data/guides.json');
 
 // ── BUILD XML ─────────────────────────────────────────────────
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 function urlEntry({ loc, priority, freq, lastmod }) {
   return `  <url>
-    <loc>${BASE}${loc}</loc>
-    <lastmod>${lastmod || TODAY}</lastmod>
+    <loc>${escapeXml(BASE + loc)}</loc>
+    <lastmod>${lastmod || DEFAULT_LASTMOD}</lastmod>
     <changefreq>${freq || 'weekly'}</changefreq>
     <priority>${priority || '0.6'}</priority>
   </url>`;
@@ -91,7 +103,7 @@ opps
       loc:     `/${catPlural}/${o.slug}`,
       priority: o.featured ? '0.8' : '0.7',
       freq:    'weekly',
-      lastmod:  o.updated_date || TODAY,
+      lastmod:  o.updated_date || DEFAULT_LASTMOD,
     }));
   });
 
@@ -107,7 +119,7 @@ guides.forEach(g => {
     loc:     `/${cat}/${g.slug}`,
     priority: '0.8',
     freq:    'monthly',
-    lastmod:  g.updated_date || TODAY,
+    lastmod:  g.updated_date || DEFAULT_LASTMOD,
   }));
 });
 
@@ -120,7 +132,8 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 
 ${urls.join('\n\n')}
 
-</urlset>`;
+</urlset>
+`;
 
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), xml, 'utf8');
 
@@ -131,5 +144,5 @@ console.log(`   Guide pages:       ${guides.length}`);
 console.log(`   Total URLs:        ${urls.length}`);
 console.log(`\n📋 Next steps:`);
 console.log(`   git add sitemap.xml`);
-console.log(`   git commit -m "Update sitemap — ${TODAY}"`);
+console.log(`   git commit -m "Update sitemap"`);
 console.log(`   git push\n`);
