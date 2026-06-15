@@ -1,0 +1,22 @@
+# Data Context
+
+- Scope: JSON data files only.
+- Purpose:
+  - Store structured records used by the application.
+  - Preserve stable IDs and record shape.
+  - Support focused record-level edits.
+- Default context:
+  - Load only the target JSON file when required.
+  - Load only the target record by ID when possible.
+  - Do not load full datasets by default.
+- Editing principle:
+  - Prefer one-record changes.
+  - Preserve unrelated records and ordering unless instructed.
+  - Keep schema-compatible fields unchanged unless targeted.
+- Cross-file updates:
+  - Require explicit instruction.
+  - Name every affected file and ID.
+  - Apply only the requested linked changes.
+- Related rules:
+  - `docs/rules/data-access-rules.md`
+  - `docs/rules/context-budget-rules.md`
