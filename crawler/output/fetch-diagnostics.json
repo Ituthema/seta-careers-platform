@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-06-16T19:08:57.076Z",
+  "input_file": "crawler/output/rejected.json",
+  "total_rejected_records": 58,
+  "total_fetch_failed_records": 58,
+  "categories": {
+    "HTTP_403": {
+      "count": 58,
+      "percentage": 100
+    },
+    "HTTP_404": {
+      "count": 0,
+      "percentage": 0
+    },
+    "HTTP_429": {
+      "count": 0,
+      "percentage": 0
+    },
+    "HTTP_5XX": {
+      "count": 0,
+      "percentage": 0
+    },
+    "TIMEOUT": {
+      "count": 0,
+      "percentage": 0
+    },
+    "DNS_FAILURE": {
+      "count": 0,
+      "percentage": 0
+    },
+    "TLS_FAILURE": {
+      "count": 0,
+      "percentage": 0
+    },
+    "REDIRECT_FAILURE": {
+      "count": 0,
+      "percentage": 0
+    },
+    "UNKNOWN": {
+      "count": 0,
+      "percentage": 0
+    }
+  },
+  "dominant_failure_category": "HTTP_403"
+}
