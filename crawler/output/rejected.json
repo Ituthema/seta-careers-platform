@@ -1,1 +1,408 @@
-[]
+[
+  {
+    "timestamp": "2026-06-16T18:24:30.716Z",
+    "source_id": "dpsa",
+    "url": "https://www.dpsa.gov.za/newsroom/psvc/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:30.718Z",
+    "source_id": "sars",
+    "url": "https://www.sars.gov.za/careers/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:30.720Z",
+    "source_id": "department-employment-labour",
+    "url": "https://www.labour.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:30.722Z",
+    "source_id": "national-treasury",
+    "url": "https://www.treasury.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:30.723Z",
+    "source_id": "department-health",
+    "url": "https://www.health.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:31.505Z",
+    "source_id": "etdp-seta",
+    "url": "https://www.etdpseta.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:31.507Z",
+    "source_id": "department-basic-education",
+    "url": "https://www.education.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:31.509Z",
+    "source_id": "bankseta",
+    "url": "https://www.bankseta.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:31.511Z",
+    "source_id": "mict-seta",
+    "url": "https://www.mict.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:31.512Z",
+    "source_id": "services-seta",
+    "url": "https://www.serviceseta.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:32.301Z",
+    "source_id": "ceta",
+    "url": "https://www.ceta.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:32.304Z",
+    "source_id": "teta",
+    "url": "https://www.teta.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:32.307Z",
+    "source_id": "lgseta",
+    "url": "https://lgseta.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:32.310Z",
+    "source_id": "agriseta",
+    "url": "https://www.agriseta.co.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:32.313Z",
+    "source_id": "merseta",
+    "url": "https://www.merseta.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.095Z",
+    "source_id": "hwseta",
+    "url": "https://www.hwseta.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.097Z",
+    "source_id": "uj",
+    "url": "https://www.uj.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.098Z",
+    "source_id": "wits",
+    "url": "https://www.wits.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.100Z",
+    "source_id": "unisa",
+    "url": "https://www.unisa.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.102Z",
+    "source_id": "up",
+    "url": "https://www.up.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.915Z",
+    "source_id": "dut",
+    "url": "https://www.dut.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.918Z",
+    "source_id": "cut",
+    "url": "https://www.cut.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.921Z",
+    "source_id": "nmu",
+    "url": "https://www.mandela.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.924Z",
+    "source_id": "ukzn",
+    "url": "https://ukzn.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:33.927Z",
+    "source_id": "uct",
+    "url": "https://www.uct.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:34.716Z",
+    "source_id": "tut",
+    "url": "https://www.tut.ac.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:34.720Z",
+    "source_id": "transnet",
+    "url": "https://www.transnet.net/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:34.723Z",
+    "source_id": "eskom",
+    "url": "https://www.eskom.co.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:34.726Z",
+    "source_id": "sanral",
+    "url": "https://www.sanral.co.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:34.729Z",
+    "source_id": "prasa",
+    "url": "https://www.prasa.com/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:35.508Z",
+    "source_id": "fnb",
+    "url": "https://www.fnb.co.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:35.510Z",
+    "source_id": "absa",
+    "url": "https://www.absa.africa/absaafrica/careers/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:35.512Z",
+    "source_id": "standard-bank",
+    "url": "https://www.standardbank.com/sbg/standard-bank-group/careers",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:35.514Z",
+    "source_id": "saa",
+    "url": "https://www.flysaa.com/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:35.522Z",
+    "source_id": "denel",
+    "url": "https://www.denel.co.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:36.304Z",
+    "source_id": "vodacom",
+    "url": "https://www.vodacom.com/careers.php",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:36.306Z",
+    "source_id": "mtn",
+    "url": "https://group.mtn.com/careers/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:36.308Z",
+    "source_id": "nedbank",
+    "url": "https://www.nedbank.co.za/content/nedbank/desktop/gt/en/careers.html",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:36.310Z",
+    "source_id": "sasol",
+    "url": "https://www.sasol.com/careers",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:36.312Z",
+    "source_id": "shoprite",
+    "url": "https://www.shopriteholdings.co.za/careers.html",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.089Z",
+    "source_id": "city-of-johannesburg",
+    "url": "https://www.joburg.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.092Z",
+    "source_id": "pick-n-pay",
+    "url": "https://www.pnp.co.za/careers",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.094Z",
+    "source_id": "city-of-cape-town",
+    "url": "https://www.capetown.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.096Z",
+    "source_id": "woolworths",
+    "url": "https://www.woolworths.co.za/corporate/careers",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.098Z",
+    "source_id": "ethekwini",
+    "url": "https://www.durban.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.901Z",
+    "source_id": "nelson-mandela-bay",
+    "url": "https://www.nelsonmandelabay.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.903Z",
+    "source_id": "mangaung",
+    "url": "https://www.mangaung.co.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.905Z",
+    "source_id": "tshwane",
+    "url": "https://www.tshwane.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.906Z",
+    "source_id": "ekurhuleni",
+    "url": "https://www.ekurhuleni.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:37.908Z",
+    "source_id": "buffalo-city",
+    "url": "https://www.buffalocity.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:38.686Z",
+    "source_id": "stellenbosch-municipality",
+    "url": "https://stellenbosch.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:38.689Z",
+    "source_id": "msunduzi",
+    "url": "https://www.msunduzi.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:38.691Z",
+    "source_id": "gauteng-government",
+    "url": "https://www.gauteng.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:38.693Z",
+    "source_id": "western-cape-government",
+    "url": "https://www.westerncape.gov.za/jobs",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:38.694Z",
+    "source_id": "kzn-government",
+    "url": "https://www.kznonline.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:39.473Z",
+    "source_id": "dhet",
+    "url": "https://www.dhet.gov.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:39.474Z",
+    "source_id": "nsfas",
+    "url": "https://www.nsfas.org.za/",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  },
+  {
+    "timestamp": "2026-06-16T18:24:39.475Z",
+    "source_id": "csir",
+    "url": "https://www.csir.co.za/careers",
+    "reason": "FETCH_FAILED",
+    "details": "HTTP 403"
+  }
+]

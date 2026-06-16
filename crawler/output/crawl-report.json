@@ -1,9 +1,9 @@
 {
-  "started_at": "",
-  "completed_at": "",
-  "sources_processed": 0,
+  "started_at": "2026-06-16T18:24:29.871Z",
+  "completed_at": "2026-06-16T18:24:39.475Z",
+  "sources_processed": 58,
   "successful_fetches": 0,
-  "failed_fetches": 0,
+  "failed_fetches": 58,
   "staged_records": 0,
-  "rejected_records": 0
+  "rejected_records": 58
 }
