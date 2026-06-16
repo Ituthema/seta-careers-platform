@@ -24,7 +24,7 @@ async function fetchOnce(source, config) {
   };
 }
 
-async function fetchSource(source, config, log = () => {}) {
+async function fetchSource(source, config, log = () => {}, events = {}) {
   let lastError = null;
 
   for (let attempt = 1; attempt <= config.retries; attempt += 1) {
@@ -32,15 +32,15 @@ async function fetchSource(source, config, log = () => {}) {
       const response = await fetchOnce(source, config);
 
       if (response.status >= 200 && response.status < 300) {
-        log('FETCH_SUCCESS', { source_id: source.source_id, url: response.url, status: response.status, attempt });
+        log(events.FETCH_SUCCESS || 'FETCH_SUCCESS', { source_id: source.source_id, url: response.url, status: response.status, attempt });
         return { ok: true, ...response };
       }
 
       lastError = new Error(`HTTP ${response.status}`);
-      log('FETCH_FAILURE', { source_id: source.source_id, url: source.url, status: response.status, attempt, error: lastError.message });
+      log(events.FETCH_FAILURE || 'FETCH_FAILURE', { source_id: source.source_id, url: source.url, status: response.status, attempt, error: lastError.message });
     } catch (error) {
       lastError = error;
-      log('FETCH_FAILURE', { source_id: source.source_id, url: source.url, attempt, error: error.message });
+      log(events.FETCH_FAILURE || 'FETCH_FAILURE', { source_id: source.source_id, url: source.url, attempt, error: error.message });
     }
 
     if (attempt < config.retries) {
