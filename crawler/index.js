@@ -38,6 +38,14 @@ function reject(rejectedRecords, source, reason, details = null) {
   });
 }
 
+function summarizeRejectionsByReason(rejectedRecords) {
+  return rejectedRecords.reduce((summary, record) => {
+    const reason = record.reason || 'UNKNOWN';
+    summary[reason] = (summary[reason] || 0) + 1;
+    return summary;
+  }, {});
+}
+
 async function parseContent(contentType, body) {
   if (contentType === 'html') return parseHtml(body);
   if (contentType === 'pdf') return parsePdf(body);
@@ -106,6 +114,7 @@ async function main() {
     failed_fetches: 0,
     staged_records: 0,
     rejected_records: 0,
+    rejected_by_reason: {},
   };
   const stagedRecords = [];
   const rejectedRecords = [];
@@ -129,6 +138,7 @@ async function main() {
     report.completed_at = new Date().toISOString();
     report.staged_records = stagedRecords.length;
     report.rejected_records = rejectedRecords.length;
+    report.rejected_by_reason = summarizeRejectionsByReason(rejectedRecords);
     writeReport(report);
     appendLog('END', report);
   }
@@ -141,4 +151,5 @@ if (require.main === module) {
 module.exports = {
   main,
   processSource,
+  summarizeRejectionsByReason,
 };

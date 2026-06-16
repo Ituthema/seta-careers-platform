@@ -145,3 +145,42 @@ The health command exits successfully for warnings unless strict mode is enabled
 ```bash
 SOURCE_HEALTH_STRICT=1 npm run source:health
 ```
+
+## Crawler rejection reasons
+
+The crawler preserves the existing rejected-record shape: each rejection still includes `source_id`, `url`, `reason`, optional `details`, and the timestamp added by the staging pipeline. Source registry validation failures now use a specific reason so operators can distinguish bad registry metadata from fetched content validation failures.
+
+| Reason | Stage | Meaning |
+| --- | --- | --- |
+| `INVALID_SOURCE_REGISTRY` | Source loader | An active source failed `scripts/validators/source-validator.js` checks before crawl processing. |
+| `FETCH_FAILED` | Fetcher | The source could not be fetched after configured retries. |
+| `UNSUPPORTED_CONTENT_TYPE` | Router | The fetched response could not be routed to a supported parser. |
+| `PARSER_ERROR` | Parser | Supported content was fetched, but parsing threw an error. |
+| `VALIDATION_FAILED` | Rejection pipeline | Parsed and normalized content failed downstream content validation. |
+
+Example source registry rejection:
+
+```json
+{
+  "timestamp": "2026-06-16T00:00:00.000Z",
+  "source_id": "sources[4]",
+  "url": "",
+  "reason": "INVALID_SOURCE_REGISTRY",
+  "details": [
+    "sources[4].source_id must be a non-empty kebab-case identifier.",
+    "sources[4].url must be a non-empty string."
+  ]
+}
+```
+
+Example crawl report rejection summary:
+
+```json
+{
+  "rejected_records": 2,
+  "rejected_by_reason": {
+    "INVALID_SOURCE_REGISTRY": 1,
+    "FETCH_FAILED": 1
+  }
+}
+```

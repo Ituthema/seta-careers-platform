@@ -36,6 +36,7 @@ function initializeRunFiles() {
     failed_fetches: 0,
     staged_records: 0,
     rejected_records: 0,
+    rejected_by_reason: {},
   });
   fs.writeFileSync(LOG_PATH, '', 'utf8');
 }
