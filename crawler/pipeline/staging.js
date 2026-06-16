@@ -8,6 +8,19 @@ const REJECTED_PATH = path.join(OUTPUT_DIR, 'rejected.json');
 const REPORT_PATH = path.join(OUTPUT_DIR, 'crawl-report.json');
 const LOG_PATH = path.join(LOG_DIR, 'crawl.log');
 
+const LOG_EVENTS = Object.freeze({
+  START: 'START',
+  END: 'END',
+  SOURCE_LOADED: 'SOURCE_LOADED',
+  FETCH_SUCCESS: 'FETCH_SUCCESS',
+  FETCH_FAILURE: 'FETCH_FAILURE',
+  UNSUPPORTED_CONTENT: 'UNSUPPORTED_CONTENT',
+  PARSE_SUCCESS: 'PARSE_SUCCESS',
+  PARSE_FAILURE: 'PARSE_FAILURE',
+  VALIDATION_FAILURE: 'VALIDATION_FAILURE',
+  STAGED: 'STAGED',
+});
+
 function ensureCrawlerStorage() {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   fs.mkdirSync(LOG_DIR, { recursive: true });
@@ -43,7 +56,7 @@ function initializeRunFiles() {
 function stageRecord(records, record) {
   records.push({ ...record, status: 'staged' });
   writeJson(STAGING_PATH, records);
-  appendLog('STAGED', { source_id: record.source_id, url: record.url, crawl_id: record.crawl_id });
+  appendLog(LOG_EVENTS.STAGED, { source_id: record.source_id, url: record.url, crawl_id: record.crawl_id });
 }
 
 function rejectRecord(records, rejection) {
@@ -56,6 +69,7 @@ function writeReport(report) {
 }
 
 module.exports = {
+  LOG_EVENTS,
   LOG_PATH,
   REJECTED_PATH,
   REPORT_PATH,

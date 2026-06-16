@@ -16,6 +16,7 @@ function toCrawlerSource(source) {
 function loadActiveSources(options = {}) {
   const sourcePath = options.sourcePath || DEFAULT_SOURCE_PATH;
   const log = typeof options.log === 'function' ? options.log : () => {};
+  const events = options.events || {};
   const reject = typeof options.reject === 'function' ? options.reject : () => {};
   const sources = loadSources(sourcePath);
 
@@ -36,7 +37,7 @@ function loadActiveSources(options = {}) {
         reason: 'INVALID_CONTENT',
         details: failures.map((issue) => issue.message),
       });
-      log('VALIDATION_FAILURE', {
+      log(events.VALIDATION_FAILURE || 'VALIDATION_FAILURE', {
         source_id: source && source.source_id ? source.source_id : null,
         failures: failures.map((issue) => issue.code),
       });
@@ -44,7 +45,7 @@ function loadActiveSources(options = {}) {
     }
 
     activeSources.push(toCrawlerSource(source));
-    log('SOURCE_LOADED', { source_id: source.source_id, url: source.url });
+    log(events.SOURCE_LOADED || 'SOURCE_LOADED', { source_id: source.source_id, url: source.url });
   });
 
   return activeSources;
