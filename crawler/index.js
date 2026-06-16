@@ -15,38 +15,9 @@ const {
   writeReport,
 } = require('./pipeline/staging');
 
-async function getLimit(concurrency) {
-  try {
-    const imported = await import('p-limit');
-    return imported.default(concurrency);
-  } catch {
-    let activeCount = 0;
-    const queue = [];
-
-    const next = () => {
-      activeCount -= 1;
-      if (queue.length > 0) {
-        const run = queue.shift();
-        run();
-      }
-    };
-
-    return (task) => new Promise((resolve, reject) => {
-      const run = () => {
-        activeCount += 1;
-        Promise.resolve()
-          .then(task)
-          .then(resolve, reject)
-          .finally(next);
-      };
-
-      if (activeCount < concurrency) {
-        run();
-      } else {
-        queue.push(run);
-      }
-    });
-  }
+async function createLimit(concurrency) {
+  const { default: pLimit } = await import('p-limit');
+  return pLimit(concurrency);
 }
 
 function createCrawlId() {
@@ -146,7 +117,7 @@ async function main() {
       log: appendLog,
       reject: (rejection) => rejectRecord(rejectedRecords, rejection),
     });
-    const limit = await getLimit(config.concurrency);
+    const limit = await createLimit(config.concurrency);
 
     await Promise.all(
       sources.map((source) => limit(() => processSource(source, { report, stagedRecords, rejectedRecords }))),
