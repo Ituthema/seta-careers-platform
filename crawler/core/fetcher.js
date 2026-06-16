@@ -1,86 +1,27 @@
-const http = require('http');
-const https = require('https');
-
-let axios = null;
-try {
-  axios = require('axios');
-} catch {
-  axios = null;
-}
+const axios = require('axios');
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function fetchWithNode(url, config, redirectCount = 0) {
-  return new Promise((resolve, reject) => {
-    const parsedUrl = new URL(url);
-    const client = parsedUrl.protocol === 'https:' ? https : http;
-    const request = client.get(
-      parsedUrl,
-      {
-        timeout: config.timeout,
-        headers: {
-          'User-Agent': 'SETA-Careers-Platform-Crawler/1.0',
-          Accept: 'text/html,application/pdf;q=0.9,*/*;q=0.8',
-        },
-      },
-      (response) => {
-        const status = response.statusCode || 0;
-        const location = response.headers.location;
-
-        if ([301, 302, 303, 307, 308].includes(status) && location) {
-          response.resume();
-          if (redirectCount >= config.maxRedirects) {
-            reject(new Error(`Maximum redirects exceeded for ${url}`));
-            return;
-          }
-          const nextUrl = new URL(location, url).toString();
-          resolve(fetchWithNode(nextUrl, config, redirectCount + 1));
-          return;
-        }
-
-        const chunks = [];
-        response.on('data', (chunk) => chunks.push(chunk));
-        response.on('end', () => {
-          const body = Buffer.concat(chunks);
-          resolve({
-            status,
-            contentType: response.headers['content-type'] || '',
-            body,
-            url,
-          });
-        });
-      },
-    );
-
-    request.on('timeout', () => request.destroy(new Error(`Request timed out after ${config.timeout}ms`)));
-    request.on('error', reject);
-  });
-}
-
 async function fetchOnce(source, config) {
-  if (axios) {
-    const response = await axios.get(source.url, {
-      timeout: config.timeout,
-      maxRedirects: config.maxRedirects,
-      responseType: 'arraybuffer',
-      validateStatus: () => true,
-      headers: {
-        'User-Agent': 'SETA-Careers-Platform-Crawler/1.0',
-        Accept: 'text/html,application/pdf;q=0.9,*/*;q=0.8',
-      },
-    });
+  const response = await axios.get(source.url, {
+    timeout: config.timeout,
+    maxRedirects: config.maxRedirects,
+    responseType: 'arraybuffer',
+    validateStatus: () => true,
+    headers: {
+      'User-Agent': 'SETA-Careers-Platform-Crawler/1.0',
+      Accept: 'text/html,application/pdf;q=0.9,*/*;q=0.8',
+    },
+  });
 
-    return {
-      status: response.status,
-      contentType: response.headers['content-type'] || '',
-      body: Buffer.from(response.data),
-      url: response.request && response.request.res && response.request.res.responseUrl ? response.request.res.responseUrl : source.url,
-    };
-  }
-
-  return fetchWithNode(source.url, config);
+  return {
+    status: response.status,
+    contentType: response.headers['content-type'] || '',
+    body: Buffer.from(response.data),
+    url: response.request && response.request.res && response.request.res.responseUrl ? response.request.res.responseUrl : source.url,
+  };
 }
 
 async function fetchSource(source, config, log = () => {}) {
