@@ -610,7 +610,10 @@ Why this strategy fits your project
 This aligns directly with the optimization framework we've already been developing for the CareerHub SA repository. Instead of relying on increasingly complex prompts as the platform grows to include authentication, search, SETA directories, province pages, crawler pipelines, AI parsing, review queues, publishing workflows, an admin dashboard, SEO, and deployment, the repository itself becomes the primary source of context.
 
 The result is a scalable workflow where Codex receives a single, well-scoped ticket, reads only the required documentation and code, completes one implementation, validates it, commits the change, and stops. As the repository expands, token usage remains predictable because architecture, rules, and workflow knowledge are stored once in the repository rather than being repeated in every prompt. This is the long-term strategy that will allow your project to scale efficiently while maintaining high-quality AI-assisted development.
-###############
+
+
+part 2 recently add 
+############### ############### ############################################################
 Repository Workflow Optimization Framework
 Codex Context / Token Usage Reduction Framework
 Based on the conversations in this project, there are two major themes that were developed in depth:
