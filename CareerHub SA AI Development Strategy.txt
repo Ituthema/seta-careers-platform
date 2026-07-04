@@ -1,0 +1,612 @@
+SETA Careers Platform, you can go much further than simply using smaller prompts. Based on the optimization work we've already developed for this project, the goal is to create a repository that is intentionally designed for AI-assisted development. That means Codex should never need to rediscover the architecture, coding standards, workflow, or project rules on every task.
+
+The strategy below adapts the general workflow specifically to your repository and incorporates the context optimization framework we've been building.
+
+
+---
+
+CareerHub SA AI Development Strategy
+
+Objective
+
+Transform the repository into an AI-optimized project where Codex:
+
+reads only the files required
+
+never scans the whole repository
+
+understands project architecture from documentation instead of source code
+
+performs exactly one task
+
+validates its work
+
+commits
+
+stops
+
+
+The objective is to reduce:
+
+context usage
+
+prompt size
+
+execution time
+
+hallucinations
+
+unintended edits
+
+
+while improving consistency.
+
+
+---
+
+Phase 1 — Create an AI-Friendly Repository
+
+This is the foundation.
+
+Instead of relying on long prompts, move permanent knowledge into the repository.
+
+Example structure:
+
+docs/
+
+    architecture/
+
+    context/
+
+    rules/
+
+    workflows/
+
+    templates/
+
+    phases/
+
+    modules/
+
+    prompts/
+
+These folders become Codex's knowledge base.
+
+
+---
+
+Step 1.1 — Architecture Documentation
+
+Create documentation describing the project instead of forcing Codex to infer it.
+
+Example:
+
+docs/architecture/
+
+    overview.md
+
+    frontend.md
+
+    backend.md
+
+    crawler.md
+
+    parser.md
+
+    ai.md
+
+    publishing.md
+
+Each document should explain:
+
+purpose
+
+responsibilities
+
+dependencies
+
+public interfaces
+
+prohibited modifications
+
+
+Instead of scanning 300 files, Codex reads one document.
+
+
+---
+
+Step 1.2 — Module Documentation
+
+Every major module should have its own context.
+
+Example
+
+docs/modules/
+
+    authentication.md
+
+    search.md
+
+    crawler.md
+
+    parser.md
+
+    staging.md
+
+    review.md
+
+    admin.md
+
+    seo.md
+
+Each document includes
+
+Purpose
+
+Entry files
+
+Imports
+
+Outputs
+
+Dependencies
+
+Known limitations
+
+Future tasks
+
+This replaces repository discovery.
+
+
+---
+
+Step 1.3 — Repository Rules
+
+Create permanent project rules.
+
+Example
+
+docs/rules/
+
+    coding.md
+
+    naming.md
+
+    testing.md
+
+    imports.md
+
+    commits.md
+
+    boundaries.md
+
+Instead of repeating
+
+"Do not rename files"
+
+in every prompt,
+
+Codex reads the rule once.
+
+
+---
+
+Phase 2 — Split Development into Independent Modules
+
+One of the largest sources of token usage is feature overlap.
+
+Instead of thinking about the project as one application, divide it into isolated systems.
+
+For CareerHub SA, an example breakdown is:
+
+Module 01
+
+Authentication
+
+Module 02
+
+Homepage
+
+Module 03
+
+Navigation
+
+Module 04
+
+Search
+
+Module 05
+
+Opportunity Details
+
+Module 06
+
+Bookmarks
+
+Module 07
+
+SETA Directory
+
+Module 08
+
+Province Pages
+
+Module 09
+
+Crawler
+
+Module 10
+
+Parser
+
+Module 11
+
+Review Queue
+
+Module 12
+
+Publishing
+
+Module 13
+
+Admin Dashboard
+
+Module 14
+
+SEO
+
+Module 15
+
+Deployment
+
+Each module should expose clear entry points and dependencies so Codex doesn't need to inspect unrelated areas.
+
+
+---
+
+Phase 3 — Build a Development Backlog
+
+Instead of asking Codex to "improve the project", create a backlog of small, independent tickets.
+
+Each ticket should implement a single capability.
+
+For example:
+
+Task 001
+
+Create navigation bar
+
+Task 002
+
+Responsive mobile menu
+
+Task 003
+
+Homepage hero
+
+Task 004
+
+Homepage search bar
+
+Task 005
+
+Keyword search
+
+Task 006
+
+Province filter
+
+Task 007
+
+SETA filter
+
+Task 008
+
+Pagination
+
+Task 009
+
+Opportunity detail page
+
+Task 010
+
+Bookmark button
+
+As the platform grows, expand this into tasks for the crawler, parser, AI review, publishing, admin, analytics, and deployment.
+
+
+---
+
+Phase 4 — Define Repository Boundaries
+
+Every task must explicitly state what Codex is allowed to inspect.
+
+For each task specify:
+
+Allowed directories
+
+src/features/search/
+
+src/components/search/
+
+src/hooks/
+
+src/lib/search/
+
+Forbidden directories
+
+admin/
+
+scripts/
+
+docs/
+
+.github/
+
+crawler/
+
+parser/
+
+tests/
+
+package.json
+
+Codex should only follow imports recursively from the allowed entry points.
+
+
+---
+
+Phase 5 — Create Context Files
+
+Rather than embedding architecture in prompts, maintain lightweight context documents.
+
+Suggested structure:
+
+docs/context/
+
+    repository-summary.md
+
+    frontend-context.md
+
+    backend-context.md
+
+    search-context.md
+
+    crawler-context.md
+
+    parser-context.md
+
+    admin-context.md
+
+Each file should answer:
+
+What is this module?
+
+Where does it begin?
+
+Which files are entry points?
+
+What depends on it?
+
+What must never be changed?
+
+
+Codex reads these instead of exploring the codebase.
+
+
+---
+
+Phase 6 — Standardize Task Prompts
+
+Create reusable prompt templates under:
+
+docs/templates/
+
+Include templates for:
+
+Feature implementation
+
+Bug fix
+
+Refactoring
+
+Testing
+
+Documentation
+
+Performance optimization
+
+Dependency updates
+
+
+Each template should already contain:
+
+role
+
+objective
+
+repository scope
+
+entry files
+
+success criteria
+
+validation steps
+
+stop condition
+
+
+This minimizes prompt repetition and token usage.
+
+
+---
+
+Phase 7 — Enforce Single-Feature Tasks
+
+Each task should implement exactly one feature.
+
+For example:
+
+Good
+
+Province filter
+
+Search pagination
+
+Opportunity card
+
+Saved opportunities
+
+Login form
+
+
+Avoid
+
+Improve search
+
+Refactor homepage
+
+Enhance UI
+
+Optimize application
+
+
+Specificity reduces unnecessary code exploration.
+
+
+---
+
+Phase 8 — Use Dependency Maps
+
+Document feature dependencies so Codex understands what is required before implementing a module.
+
+For example:
+
+Search
+
+depends on
+
+↓
+
+Opportunity model
+
+↓
+
+API client
+
+↓
+
+Search hook
+
+↓
+
+Search filters
+
+↓
+
+Pagination
+
+Codex only reads the documented dependencies instead of tracing them across the repository.
+
+
+---
+
+Phase 9 — Define Validation Workflows
+
+Every task should end with the same sequence:
+
+1. Run lint.
+
+
+2. Run tests relevant to the modified files.
+
+
+3. Fix failures introduced by the task.
+
+
+4. Ensure no unrelated files changed.
+
+
+5. Commit using the project's commit convention.
+
+
+6. Stop and wait for the next task.
+
+
+
+This creates predictable completion criteria and prevents Codex from drifting into additional work.
+
+
+---
+
+Phase 10 — Use Android as a Task Manager
+
+When away from your development machine, your phone becomes a lightweight orchestration tool rather than a coding environment.
+
+Typical workflow:
+
+1. Open the Codex task interface.
+
+
+2. Select the next backlog item.
+
+
+3. Supply only the relevant template and repository boundaries.
+
+
+4. Let Codex complete the work.
+
+
+5. Review the changed files.
+
+
+6. Approve or request revisions.
+
+
+7. Queue the next task.
+
+
+
+Because the repository already contains architecture, rules, context, and templates, prompts remain short while still giving Codex everything it needs.
+
+
+---
+
+Phase 11 — Evolve the Repository into an AI-Native Codebase
+
+The optimization framework you've been building should become a permanent part of the project. Your repository should contain:
+
+docs/
+├── architecture/
+├── context/
+├── modules/
+├── phases/
+├── prompts/
+├── rules/
+├── templates/
+└── workflows/
+
+Each directory has a specific purpose:
+
+architecture/ — Explains the overall system design and how components interact.
+
+context/ — Provides concise AI-readable summaries of each subsystem to avoid source-code discovery.
+
+modules/ — Documents responsibilities, entry points, dependencies, and interfaces for each feature area.
+
+phases/ — Breaks development into sequential implementation stages with defined prerequisites.
+
+prompts/ — Stores reusable master prompts and task-specific prompt patterns.
+
+rules/ — Defines coding standards, repository boundaries, commit conventions, testing expectations, and AI operating constraints.
+
+templates/ — Contains standardized task templates for feature work, bug fixes, refactoring, testing, documentation, and reviews.
+
+workflows/ — Documents end-to-end development processes, validation pipelines, release procedures, and AI-assisted development workflows.
+
+
+Why this strategy fits your project
+
+This aligns directly with the optimization framework we've already been developing for the CareerHub SA repository. Instead of relying on increasingly complex prompts as the platform grows to include authentication, search, SETA directories, province pages, crawler pipelines, AI parsing, review queues, publishing workflows, an admin dashboard, SEO, and deployment, the repository itself becomes the primary source of context.
+
+The result is a scalable workflow where Codex receives a single, well-scoped ticket, reads only the required documentation and code, completes one implementation, validates it, commits the change, and stops. As the repository expands, token usage remains predictable because architecture, rules, and workflow knowledge are stored once in the repository rather than being repeated in every prompt. This is the long-term strategy that will allow your project to scale efficiently while maintaining high-quality AI-assisted development.
