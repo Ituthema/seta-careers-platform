@@ -430,6 +430,138 @@ footer{background:#111827;color:#9ca3af}
 </footer>
 
 <script>
+// ============================================
+// CONFIGURATION & ABSTRACTION LAYER
+// TEMPORARY: All features use static/scaffolding implementations
+// TARGET: Swap CONFIG.features values to migrate to backend
+// MIGRATION: Change CONFIG.features values, implementations auto-switch
+// ============================================
+
+const CONFIG = {
+  mode: 'static',        // 'static' → 'api' → 'ssr'
+  features: {
+    hosting: 'github',   // 'github' → 'vercel' → 'aws'
+    data: 'json',        // 'json' → 'database' → 'cms'
+    bookmarks: 'local',  // 'local' → 'api' → 'sync'
+    search: 'client',    // 'client' → 'server' → 'engine'
+    routing: 'hash',     // 'hash' → 'history' → 'ssg'
+    auth: 'none',        // 'none' → 'jwt' → 'oauth'
+    crawler: 'manual',   // 'manual' → 'scheduled' → 'ai'
+    publishing: 'git'    // 'git' → 'api' → 'auto'
+  }
+};
+
+// Storage Abstraction
+// TEMPORARY: localStorage implementation
+// TARGET: Cloud-synced via API
+const Storage = {
+  async getBookmarks() {
+    if (CONFIG.features.bookmarks === 'local') {
+      return JSON.parse(localStorage.getItem('careerhub_bookmarks') || '[]');
+    }
+    const res = await fetch('/api/bookmarks');
+    return res.json();
+  },
+  async setBookmarks(bookmarks) {
+    if (CONFIG.features.bookmarks === 'local') {
+      localStorage.setItem('careerhub_bookmarks', JSON.stringify(bookmarks));
+      return;
+    }
+    await fetch('/api/bookmarks', {method: 'POST', body: JSON.stringify(bookmarks)});
+  }
+};
+
+// API Abstraction
+// TEMPORARY: Static JSON files
+// TARGET: REST API endpoints
+const API = {
+  async getOpportunities() {
+    if (CONFIG.features.data === 'json') {
+      const res = await fetch('/data/opportunities.json');
+      return res.json();
+    }
+    const res = await fetch('/api/opportunities');
+    return res.json();
+  },
+  async getGuides() {
+    if (CONFIG.features.data === 'json') {
+      const res = await fetch('/data/guides.json');
+      return res.json();
+    }
+    const res = await fetch('/api/guides');
+    return res.json();
+  },
+  async getCategories() {
+    if (CONFIG.features.data === 'json') {
+      const res = await fetch('/data/categories.json');
+      return res.json();
+    }
+    const res = await fetch('/api/categories');
+    return res.json();
+  },
+  async getProvinces() {
+    if (CONFIG.features.data === 'json') {
+      const res = await fetch('/data/provinces.json');
+      return res.json();
+    }
+    const res = await fetch('/api/provinces');
+    return res.json();
+  }
+};
+
+// Search Abstraction
+// TEMPORARY: Client-side filtering
+// TARGET: Server-side search (Algolia/Typesense)
+const Search = {
+  async search(query, filters) {
+    if (CONFIG.features.search === 'client') {
+      const data = await API.getOpportunities();
+      // client-side filtering logic
+      let results = data;
+      if (query) {
+        const q = query.toLowerCase();
+        results = results.filter(op =>
+          op.title.toLowerCase().includes(q) ||
+          op.description.toLowerCase().includes(q)
+        );
+      }
+      if (filters.province) {
+        results = results.filter(op => op.province === filters.province);
+      }
+      if (filters.category) {
+        results = results.filter(op => op.category === filters.category);
+      }
+      return results;
+    }
+    const params = new URLSearchParams({q: query, ...filters});
+    const res = await fetch(`/api/search?${params}`);
+    return res.json();
+  }
+};
+
+// Router Abstraction
+// TEMPORARY: Hash-based routing
+// TARGET: History API with SSR
+const Router = {
+  navigate(path) {
+    if (CONFIG.features.routing === 'hash') {
+      window.location.hash = path;
+    } else {
+      history.pushState({}, '', path);
+      // trigger route handler
+    }
+  },
+  getCurrentRoute() {
+    if (CONFIG.features.routing === 'hash') {
+      return window.location.hash.slice(1) || '/';
+    }
+    return window.location.pathname;
+  }
+};
+// ============================================
+// END ABSTRACTION LAYER
+// ============================================
+
 /* ═══════════════════════════════════════════════════════════
    DATA — LOADED FROM /data/*.json
 ═══════════════════════════════════════════════════════════ */
