@@ -544,11 +544,12 @@ const Search = {
 // TARGET: History API with SSR
 const Router = {
   navigate(path) {
+    const route = path.startsWith('/') ? path : `/${path}`;
     if (CONFIG.features.routing === 'hash') {
-      window.location.hash = path;
+      window.location.hash = route;
     } else {
-      history.pushState({}, '', path);
-      // trigger route handler
+      history.pushState({}, '', route);
+      window.dispatchEvent(new PopStateEvent('popstate'));
     }
   },
   getCurrentRoute() {
@@ -698,17 +699,70 @@ const bkBtn=id=>`<button class="bk-btn bk-${id}" onclick="toggleSave('${id}',eve
 let _page='home',_opp=null,_guide=null,_dirCat='';
 let calState={year:new Date().getFullYear(),month:new Date().getMonth(),view:'list',cat:'',sel:null};
 
+class RouterWrapper {
+  constructor(router){
+    this.router=router;
+  }
+  normalize(path){
+    return (path||'/').startsWith('/') ? path : `/${path}`;
+  }
+  getCurrentRoute(){
+    return this.normalize(this.router.getCurrentRoute());
+  }
+  navigate(path){
+    const route=this.normalize(path);
+    if(this.getCurrentRoute()===route){
+      this.apply(route);
+      return;
+    }
+    this.router.navigate(route);
+  }
+  pageToPath(page,data=null){
+    if(page==='home') return '/';
+    if(page==='directory'&&typeof data==='string'&&data) return `/directory/${encodeURIComponent(data)}`;
+    if(page==='detail') return `/opportunity/${encodeURIComponent((data&&data.id)||(_opp&&_opp.id)||'')}`;
+    if(page==='guide-detail') return `/guides/${encodeURIComponent((data&&data.id)||(_guide&&_guide.id)||'')}`;
+    return `/${page}`;
+  }
+  apply(route=this.getCurrentRoute()){
+    const [path]=this.normalize(route).split('?');
+    const parts=path.split('/').filter(Boolean);
+    _dirCat='';
+    if(parts.length===0){
+      _page='home';
+    }else if(parts[0]==='directory'){
+      _page='directory';
+      _dirCat=decodeURIComponent(parts[1]||'');
+    }else if(parts[0]==='opportunity'){
+      _page='detail';
+      _opp=OPPS.find(o=>o.id===decodeURIComponent(parts[1]||''))||_opp;
+    }else if(parts[0]==='guides'&&parts[1]){
+      _page='guide-detail';
+      _guide=GUIDES.find(g=>g.id===decodeURIComponent(parts[1]))||_guide;
+    }else{
+      _page=parts[0];
+    }
+    window.scrollTo(0,0);
+    closeDrw();
+    render();
+  }
+  start(){
+    this.apply(this.getCurrentRoute());
+  }
+}
+
+const AppRouter=new RouterWrapper(Router);
+window.addEventListener('hashchange',()=>AppRouter.apply(AppRouter.getCurrentRoute()));
+if(CONFIG.features.routing!=='hash') window.addEventListener('popstate',()=>AppRouter.apply(AppRouter.getCurrentRoute()));
+
 function go(p,data=null){
-  _page=p;
   if(data&&typeof data==='object'){if(p==='detail')_opp=data;if(p==='guide-detail')_guide=data;}
   if(p==='directory'&&typeof data==='string') _dirCat=data;
-  window.scrollTo(0,0);
-  closeDrw();
-  render();
+  AppRouter.navigate(AppRouter.pageToPath(p,data));
 }
-function goDir(cat){_dirCat=cat;go('directory');}
-function openOpp(id){_opp=OPPS.find(o=>o.id===id);go('detail');}
-function openGuide(id){_guide=GUIDES.find(g=>g.id===id);go('guide-detail');}
+function goDir(cat){go('directory',cat);}
+function openOpp(id){const opp=OPPS.find(o=>o.id===id);if(opp)go('detail',opp);}
+function openGuide(id){const guide=GUIDES.find(g=>g.id===id);if(guide)go('guide-detail',guide);}
 
 function render(){
   const app=document.getElementById('app');
@@ -1525,7 +1579,7 @@ function renderAbout(){
 ═══════════════════════════════════════════════════════════ */
 renderLoading();
 loadContent()
-  .then(()=>go('home'))
+  .then(()=>AppRouter.start())
   .catch(err=>{
     console.error('Content load failed',err);
     renderLoadError(err);
