@@ -8,7 +8,7 @@ South Africa's career opportunity intelligence platform for learnerships, bursar
 - **Hosting:** GitHub Pages (static site)
 - **Data:** JSON files served statically from `/data/`
 - **Build:** Zero build step — no bundler, no transpiler
-- **Domain:** opportunitiesza.co.za (custom domain via CNAME)
+- **Domain:** setacareersportal.abrdns.com (custom domain via CNAME)
 
 ## Temporary Scaffolding (Phase 1 Only)
 

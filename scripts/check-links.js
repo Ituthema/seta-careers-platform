@@ -53,7 +53,7 @@ function request(url, method) {
     '--max-time', String(timeoutSeconds),
     '--output', '/dev/null',
     '--write-out', '%{http_code}',
-    '--user-agent', 'OpportunitiesZA-LinkChecker/1.0 (+https://opportunitiesza.co.za)',
+    '--user-agent', 'OpportunitiesZA-LinkChecker/1.0 (+https://setacareersportal.abrdns.com)',
   ];
 
   if (method === 'HEAD') args.push('--head');

@@ -119,14 +119,14 @@ Recommended SA registrars (cheapest to most features):
 - **Domains.co.za** — ~R129/year
 
 Recommended names:
-- `opportunitiesza.co.za`
+- `setacareersportal.abrdns.com`
 - `setacareershub.co.za`
 - `careerssouthafrica.co.za`
 
 ### Step 2 — Create CNAME File
 ```bash
 # In your project root
-echo "opportunitiesza.co.za" > CNAME
+echo "setacareersportal.abrdns.com" > CNAME
 git add CNAME
 git commit -m "Add custom domain CNAME"
 git push
@@ -145,7 +145,7 @@ In your registrar's DNS management panel, add these records:
 
 ### Step 4 — Configure in GitHub Pages
 1. Settings → Pages → Custom domain
-2. Enter: `opportunitiesza.co.za`
+2. Enter: `setacareersportal.abrdns.com`
 3. Click Save, wait for DNS check ✓
 4. **Enable "Enforce HTTPS"** once verified
 
@@ -254,7 +254,7 @@ publish
 ### Add Property
 1. Go to [search.google.com/search-console](https://search.google.com/search-console)
 2. Add property → **URL prefix**
-3. Enter: `https://opportunitiesza.co.za` (your custom domain)
+3. Enter: `https://setacareersportal.abrdns.com` (your custom domain)
 
 ### Verify Ownership
 ```bash
@@ -415,7 +415,7 @@ Common mistakes:
 
 ### Custom domain not working
 1. Check DNS records are saved correctly at your registrar
-2. Run: `nslookup opportunitiesza.co.za` — should show GitHub IPs
+2. Run: `nslookup setacareersportal.abrdns.com` — should show GitHub IPs
 3. Wait up to 48 hours for DNS propagation
 4. Ensure CNAME file exists in repo root with just your domain
 
