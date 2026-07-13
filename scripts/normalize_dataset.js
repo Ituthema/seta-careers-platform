@@ -8,7 +8,7 @@ const INPUT_PATHS = {
   provinces: "./data/provinces.json"
 };
 
-const OUTPUT_PATH = "./data/clean/";
+const OUTPUT_PATH = "./data/normalized/";
 const LOG_PATH = "./logs/";
 
 const DATE_FIELDS = ["closing_date", "posted_date", "updated_date", "published_date"];
