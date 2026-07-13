@@ -1,0 +1,124 @@
+Code Review Bug Report — OpportunitiesZA
+Review date: 2026-07-13
+Repository: seta-careers-platform
+Reviewer notes: This report documents bugs and defects found during a static review plus the available npm checks. It does not apply code fixes.
+
+1. High severity — Unescaped JSON content is injected into innerHTML across listing, detail, and guide views.
+   Affected files/locations:
+   - index.html:581-603 maps opportunity JSON directly into render data with no escaping or sanitization.
+   - index.html:606-615 maps guide JSON directly into render data with no escaping or sanitization.
+   - index.html:812-819 inserts opportunity title, province, stipend, and category into HTML templates.
+   - index.html:1072-1121 inserts detail fields, description, eligibility items, documents, URLs, source text, and titles into HTML templates.
+   - index.html:1477-1512 inserts guide title, intro, metadata, and body into HTML templates.
+   Impact:
+   - If any value in data/opportunities.json or data/guides.json is compromised, malformed, or includes HTML/script/event-handler payloads, the app can execute injected markup in the visitor's browser.
+   - The crawler/data pipeline and JSON files are treated as trusted input, but they are still external-content boundaries for a public opportunity platform.
+   Evidence:
+   - Rendering functions build strings and assign them via app.innerHTML or element.innerHTML, while values such as o.title, o.desc, o.docs, g.title, g.intro, and g.body are interpolated directly.
+   Recommended fix:
+   - Add a small escapeHTML helper and use it for all text fields before interpolation.
+   - For rich guide body content, sanitize with an allowlist sanitizer before insertion, or render structured guide blocks instead of raw HTML.
+   - Avoid inline event handlers where possible and bind events after rendering.
+
+2. High severity — Inline JavaScript attributes can break or execute code when IDs/URLs contain quotes.
+   Affected files/locations:
+   - index.html:695 creates onclick="toggleSave('${id}',event)" and a dynamic class name from id.
+   - index.html:814 creates onclick="openOpp('${o.id}')".
+   - index.html:1119 creates onclick="navigator.clipboard.writeText('${o.url}')...".
+   - index.html:1482 and 1520 create onclick handlers using guide/opportunity IDs.
+   Impact:
+   - A single quote in an ID or URL can break the inline handler and create a JavaScript injection path.
+   - Even if current data is clean, this creates a fragile invariant that future imports/crawler output must never violate.
+   Recommended fix:
+   - Remove inline handlers and use event delegation with data-* attributes.
+   - If inline handlers remain temporarily, encode values with JSON.stringify for JavaScript string literals and escape attribute contexts separately.
+
+3. Medium severity — Current open opportunity filtering is date-time sensitive and can close listings early depending on visitor time zone and time of day.
+   Affected files/locations:
+   - index.html:666 calculates days with Math.ceil((new Date(d)-new Date())/86400000).
+   - index.html:682 treats listings as live only when days(o.close) >= 0.
+   Impact:
+   - Date-only closing dates such as 2026-07-31 are parsed as midnight UTC. Users later in the day or in some time zones can see a same-day opportunity as closed before the end of the local closing date.
+   - This affects listings, calendars, cards, and urgent labels.
+   Recommended fix:
+   - Parse date-only strings as local end-of-day or compare only YYYY-MM-DD date parts.
+   - Centralize date handling so sitemap validation, UI filtering, and urgency labels use the same business rule.
+
+4. Medium severity — Sitemap/validation uses legacy numeric opportunity URLs while the app's canonical navigation uses category/slug URLs.
+   Affected files/locations:
+   - index.html:723-730 returns /{category-path}/{slug} for detail navigation when category and slug exist.
+   - sitemap-generator.js:81-90 generates /opportunity/{id} URLs.
+   - validate-content.js:14-15 claims AppRouter.pageToPath('detail', o) maps to /opportunity/{id}, but current app code maps most opportunities to category/slug routes.
+   Impact:
+   - The generated sitemap does not reflect the URLs users actually reach from the UI.
+   - The validation script can pass while checking the wrong canonical route pattern.
+   - Search engines and link previews may index duplicate/older URLs rather than the user-facing slug URLs.
+   Recommended fix:
+   - Update sitemap-generator.js and validate-content.js to mirror RouterWrapper.pageToPath exactly.
+   - Decide whether /opportunity/{id} is a compatibility route only; if so, canonical tags should point to the slug route.
+
+5. Medium severity — The directory sort dropdown has two options that perform the same sorting.
+   Affected files/locations:
+   - index.html:1004-1007 exposes "Sort: Closing Date" and "Sort: Most Urgent".
+   - index.html:1036-1041 sorts both date and urgent identically by ascending closing date.
+   Impact:
+   - Users see two sort choices but get no behavior change.
+   - Future QA may miss regressions because the UI implies two distinct sort modes.
+   Recommended fix:
+   - Either remove one option or define distinct behavior. For example, Closing Date could sort all live opportunities by date, while Most Urgent could prioritize <=7 days, then <=30 days, then later closings.
+
+6. Medium severity — Directory qualification filter is hard-coded and not data-driven.
+   Affected files/locations:
+   - index.html:998-1003 hard-codes Matric, Diploma, and Degree.
+   - index.html:1035 applies an exact equality filter against o.qual.
+   Impact:
+   - Opportunities with qualification levels outside the hard-coded options will be undiscoverable via the qualification filter.
+   - Current data only contains Matric and Degree, so the defect is latent today, but it will surface as soon as the source data includes Grade 10, Grade 11, TVET/NQF levels, certificates, or "Any" style eligibility.
+   Recommended fix:
+   - Generate qualification options from normalized data or a controlled taxonomy shared with the data validator.
+   - Support hierarchy-aware filtering where appropriate, such as Degree applicants also matching Matric-minimum opportunities.
+
+7. Medium severity — Link health check currently returns only warnings for every application/source URL because the network path receives CONNECT 403 responses.
+   Affected files/locations:
+   - scripts/check-links.js is used by npm run links via package.json.
+   - The npm run check execution on 2026-07-13 reported 15 warning(s), 0 error(s), and no confirmed reachable links.
+   Impact:
+   - The check can pass without confirming any opportunity link is reachable from the environment.
+   - Broken external links could ship unnoticed if they appear as warnings instead of actionable failures in CI.
+   Recommended fix:
+   - Separate "environment/network unavailable" from "site returned a real HTTP failure" in reports.
+   - In CI, run link checks from a network environment that can reach public HTTPS sites, or make an all-warning result fail the job when zero links are verified.
+
+8. Low severity — "Last verified" is generated from the visitor's current date, not from source data.
+   Affected files/locations:
+   - index.html:1121 renders Last verified using new Date().toLocaleDateString("en-ZA").
+   Impact:
+   - A listing appears to have been verified on whatever day a visitor opens the page, even if data/opportunities.json has an older updated_date.
+   - This can mislead users about verification freshness.
+   Recommended fix:
+   - Map and display updated_date or a dedicated verified_at field from the JSON data.
+   - If no verification date exists, show "Verification date unavailable" rather than the current date.
+
+9. Low severity — Saved opportunity button state updates text only, not accessible metadata.
+   Affected files/locations:
+   - index.html:687-695 toggles localStorage and updates button text from 🔲 to 🔖.
+   Impact:
+   - The title/accessible label remains stale after toggling because only textContent is changed.
+   - Screen reader and tooltip users may see or hear the wrong action after saving/removing.
+   Recommended fix:
+   - Update title and aria-label at the same time as textContent.
+   - Consider using aria-pressed for bookmark toggle buttons.
+
+10. Low severity — load error display interpolates err.message into innerHTML.
+    Affected files/locations:
+    - index.html:654-660 renders ${err.message} inside a <pre> using innerHTML.
+    Impact:
+    - Browser-generated fetch errors are usually safe, but custom thrown errors or future API errors could include unsafe content.
+    Recommended fix:
+    - Render error text via textContent or escape it before insertion.
+
+Checks run during review:
+- npm run check
+  Result: Passed overall, with link-check warnings caused by CONNECT tunnel 403 responses for all 15 unique opportunity URLs.
+- npm audit --omit=dev --json
+  Result: Could not complete because the npm audit endpoint returned 403 Forbidden from https://registry.npmjs.org/-/npm/v1/security/advisories/bulk.
