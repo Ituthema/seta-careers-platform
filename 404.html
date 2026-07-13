@@ -6,14 +6,32 @@
 <title>Page Not Found — OpportunitiesZA</title>
 <script>
   // GitHub Pages SPA routing fix:
-  // 404.html captures the path and redirects to index.html
-  // which reads the stored path and navigates to the right page.
+  // Old-style path URLs (e.g. /opportunity/001, /learnerships/some-slug from
+  // the pre-hash sitemap) land here as real 404s. Convert them into the
+  // equivalent hash route and redirect there — index.html's router will
+  // then load the right content instead of silently falling back to home.
   const path = window.location.pathname;
-  // Only redirect if this is a SPA route (not a file with extension)
+
   if (!path.match(/\.\w{2,4}$/)) {
-    sessionStorage.setItem('__redirect_path', path);
-    // Redirect to the root — adjust if your repo is in a subdirectory
-    window.location.replace('/');
+    const parts = path.split('/').filter(Boolean);
+    let target = '/';
+
+    if (parts[0] === 'opportunity' && parts[1]) {
+      target = `/#/opportunity/${parts[1]}`;
+    } else if (parts[0] === 'guides' && parts[1]) {
+      target = `/#/guides/${parts[1]}`;
+    } else if (parts[0]) {
+      // Legacy category-style paths (e.g. /learnerships/, /bursaries/xyz)
+      // from the old broken sitemap — best effort: send to the matching
+      // directory filter, or the guides list for guide categories.
+      const catMap = { learnerships:'learnership', bursaries:'bursary', internships:'internship', apprenticeships:'apprenticeship' };
+      const guideCats = new Set(['seta-guides','career-advice']);
+      if (catMap[parts[0]]) target = `/#/directory/${catMap[parts[0]]}`;
+      else if (guideCats.has(parts[0])) target = '/#/guides';
+      else target = '/#/';
+    }
+
+    window.location.replace(target);
   }
 </script>
 <style>
@@ -31,6 +49,7 @@
 </style>
 </head>
 <body>
+<!-- Fallback content in case JS redirect above doesn't fire (e.g. JS disabled) -->
 <div class="card">
   <span class="icon">🧭</span>
   <h1>404</h1>

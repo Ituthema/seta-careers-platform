@@ -61,6 +61,7 @@ Add to all data files:
 - `source_url` (string, URL)
 - `verified` (boolean)
 - `expired` (boolean)
+- `employment_eligibility` (array of `"unemployed" | "student" | "employed"`) — who this opportunity is open to
 
 ## Temporary Limitations
 - No concurrent editing (merge conflicts)

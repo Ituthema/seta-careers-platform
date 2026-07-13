@@ -23,6 +23,9 @@
       "Currently unemployed",
       "No previous Eskom learnership"
     ],
+    "employment_eligibility": [
+      "unemployed"
+    ],
     "documents_needed": [
       "Certified copy of ID (not older than 3 months)",
       "Certified copy of Matric certificate",
@@ -30,7 +33,13 @@
       "Proof of residence (not older than 3 months)",
       "Motivational letter (max 1 page)"
     ],
-    "tags": ["matric", "government", "nationwide", "no-experience", "official-source-refreshed"],
+    "tags": [
+      "matric",
+      "government",
+      "nationwide",
+      "no-experience",
+      "official-source-refreshed"
+    ],
     "posted_date": "2026-04-01",
     "updated_date": "2026-06-03"
   },
@@ -57,6 +66,10 @@
       "Recent graduate — within last 2 years",
       "Aged 18–35"
     ],
+    "employment_eligibility": [
+      "unemployed",
+      "employed"
+    ],
     "documents_needed": [
       "Certified ID copy",
       "Certified degree certificate",
@@ -64,7 +77,12 @@
       "CV (max 3 pages)",
       "Cover letter"
     ],
-    "tags": ["graduate", "degree", "banking", "gauteng"],
+    "tags": [
+      "graduate",
+      "degree",
+      "banking",
+      "gauteng"
+    ],
     "posted_date": "2026-04-05",
     "updated_date": "2026-04-05"
   },
@@ -91,13 +109,23 @@
       "Registered or applying at a public university or TVET college",
       "SASSA grant recipients qualify automatically"
     ],
+    "employment_eligibility": [
+      "student"
+    ],
     "documents_needed": [
       "South African ID",
       "Proof of income (payslips or affidavit)",
       "Matric results or academic record",
       "Proof of registration at institution"
     ],
-    "tags": ["government", "nationwide", "tvet", "university", "matric", "official-source-refreshed"],
+    "tags": [
+      "government",
+      "nationwide",
+      "tvet",
+      "university",
+      "matric",
+      "official-source-refreshed"
+    ],
     "posted_date": "2026-04-01",
     "updated_date": "2026-06-03"
   },
@@ -124,6 +152,9 @@
       "Basic computer literacy",
       "Currently unemployed"
     ],
+    "employment_eligibility": [
+      "unemployed"
+    ],
     "documents_needed": [
       "Certified ID",
       "Certified Matric certificate",
@@ -131,7 +162,11 @@
       "Proof of residence",
       "Motivational letter"
     ],
-    "tags": ["it", "matric", "western-cape"],
+    "tags": [
+      "it",
+      "matric",
+      "western-cape"
+    ],
     "posted_date": "2026-04-08",
     "updated_date": "2026-04-08"
   },
@@ -157,13 +192,21 @@
       "South African citizen aged 18–30",
       "Medically fit (will be tested)"
     ],
+    "employment_eligibility": [
+      "unemployed"
+    ],
     "documents_needed": [
       "Certified ID",
       "Certified Matric with subject results",
       "CV",
       "Medical clearance certificate"
     ],
-    "tags": ["artisan", "maths-science", "gauteng", "government"],
+    "tags": [
+      "artisan",
+      "maths-science",
+      "gauteng",
+      "government"
+    ],
     "posted_date": "2026-04-10",
     "updated_date": "2026-04-10"
   },
@@ -190,6 +233,9 @@
       "Currently unemployed",
       "No previous retail learnership"
     ],
+    "employment_eligibility": [
+      "unemployed"
+    ],
     "documents_needed": [
       "Certified ID",
       "Certified Matric",
@@ -197,7 +243,12 @@
       "Motivational letter",
       "Proof of residence"
     ],
-    "tags": ["retail", "nationwide", "no-experience", "matric"],
+    "tags": [
+      "retail",
+      "nationwide",
+      "no-experience",
+      "matric"
+    ],
     "posted_date": "2026-04-12",
     "updated_date": "2026-04-12"
   },
@@ -223,6 +274,10 @@
       "South African citizen aged 18–35",
       "No previous government internship"
     ],
+    "employment_eligibility": [
+      "unemployed",
+      "employed"
+    ],
     "documents_needed": [
       "Certified ID",
       "Certified degree certificate",
@@ -231,7 +286,12 @@
       "Z83 form (from dpsa.gov.za)",
       "Cover letter"
     ],
-    "tags": ["government", "health", "degree", "kwazulu-natal"],
+    "tags": [
+      "government",
+      "health",
+      "degree",
+      "kwazulu-natal"
+    ],
     "posted_date": "2026-04-14",
     "updated_date": "2026-04-14"
   },
@@ -258,6 +318,9 @@
       "Accepted at a South African public university",
       "Studying Chemical, Mechanical, or Electrical Engineering"
     ],
+    "employment_eligibility": [
+      "student"
+    ],
     "documents_needed": [
       "Certified ID",
       "Certified Matric results",
@@ -265,7 +328,14 @@
       "Motivational letter",
       "CV"
     ],
-    "tags": ["engineering", "science", "full-bursary", "stem", "nationwide", "official-source-refreshed"],
+    "tags": [
+      "engineering",
+      "science",
+      "full-bursary",
+      "stem",
+      "nationwide",
+      "official-source-refreshed"
+    ],
     "posted_date": "2026-04-15",
     "updated_date": "2026-06-03"
   },
@@ -291,13 +361,21 @@
       "South African citizen aged 18–28",
       "Medically fit"
     ],
+    "employment_eligibility": [
+      "unemployed"
+    ],
     "documents_needed": [
       "Certified ID",
       "Certified Matric with subject results",
       "Medical fitness certificate",
       "CV"
     ],
-    "tags": ["artisan", "boilermaker", "maths-science", "gauteng"],
+    "tags": [
+      "artisan",
+      "boilermaker",
+      "maths-science",
+      "gauteng"
+    ],
     "posted_date": "2026-04-16",
     "updated_date": "2026-04-16"
   },
@@ -323,6 +401,10 @@
       "South African citizen aged 18–30",
       "Graduated within last 2 years"
     ],
+    "employment_eligibility": [
+      "unemployed",
+      "employed"
+    ],
     "documents_needed": [
       "Certified ID",
       "Certified degree certificate",
@@ -330,7 +412,12 @@
       "CV (max 3 pages)",
       "Cover letter"
     ],
-    "tags": ["graduate", "degree", "insurance", "western-cape"],
+    "tags": [
+      "graduate",
+      "degree",
+      "insurance",
+      "western-cape"
+    ],
     "posted_date": "2026-04-18",
     "updated_date": "2026-04-18"
   },
@@ -356,6 +443,9 @@
       "South African citizen aged 18–35",
       "Unemployed youth"
     ],
+    "employment_eligibility": [
+      "unemployed"
+    ],
     "documents_needed": [
       "Certified ID",
       "Certified degree certificate",
@@ -363,7 +453,13 @@
       "Cover letter",
       "Academic transcript"
     ],
-    "tags": ["graduate", "degree", "banking", "gauteng", "yes-programme"],
+    "tags": [
+      "graduate",
+      "degree",
+      "banking",
+      "gauteng",
+      "yes-programme"
+    ],
     "posted_date": "2026-04-20",
     "updated_date": "2026-04-20"
   },
@@ -390,6 +486,9 @@
       "Currently unemployed",
       "Passion for customer service"
     ],
+    "employment_eligibility": [
+      "unemployed"
+    ],
     "documents_needed": [
       "Certified ID",
       "Certified Matric",
@@ -397,7 +496,13 @@
       "Motivational letter",
       "Proof of residence"
     ],
-    "tags": ["banking", "matric", "western-cape", "no-experience", "official-source-refreshed"],
+    "tags": [
+      "banking",
+      "matric",
+      "western-cape",
+      "no-experience",
+      "official-source-refreshed"
+    ],
     "posted_date": "2026-04-22",
     "updated_date": "2026-06-03"
   }
