@@ -1019,8 +1019,13 @@ function applyDir(){
   let live=liveOpps();
   let res=filterOpps(live,cat,prov,q,ver);
   if(qual) res=res.filter(o=>o.qual===qual);
-  if(sort==='date') res=res.sort((a,b)=>new Date(a.close)-new Date(b.close));
-  if(sort==='urgent') res=res.sort((a,b)=>days(a.close)-days(b.close));
+  if(sort==='date'||sort==='urgent') {
+    res=res.sort((a,b)=>{
+      const dateA=a.close?new Date(a.close):new Date(8640000000000000);
+      const dateB=b.close?new Date(b.close):new Date(8640000000000000);
+      return dateA-dateB;
+    });
+  }
   const rc=document.getElementById('drc'),dr=document.getElementById('dr');
   if(rc)rc.innerHTML=`<strong>${res.length}</strong> opportunities found`;
   if(dr)dr.innerHTML=res.length?res.map(o=>oppCard(o)).join(''):noRes();
