@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = __dirname;
-const BASE = 'https://opportunitiesza.co.za';
+const BASE = 'https://setacareersportal.abrdns.com';
 const TODAY = new Date().toISOString().split('T')[0];
 const DATA_PATH = 'data/opportunities.json';
 

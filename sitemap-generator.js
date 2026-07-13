@@ -13,7 +13,7 @@ const fs   = require('fs');
 const path = require('path');
 
 // ── CONFIG — update BASE to your real domain ──────────────────
-const BASE = 'https://opportunitiesza.co.za';
+const BASE = 'https://setacareersportal.abrdns.com';
 const DEFAULT_LASTMOD = '2026-05-01';
 const TODAY = new Date().toISOString().slice(0, 10);
 
