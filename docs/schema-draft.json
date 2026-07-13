@@ -7,6 +7,7 @@
       "description",
       "documents_needed",
       "eligibility",
+      "employment_eligibility",
       "expired",
       "featured",
       "id",
@@ -45,7 +46,8 @@
       "tags": "array",
       "title": "string",
       "updated_date": "string",
-      "verified": "boolean"
+      "verified": "boolean",
+      "employment_eligibility": "array"
     },
     "allowed_values": {
       "province": [
@@ -59,6 +61,11 @@
         "bursary",
         "internship",
         "learnership"
+      ],
+      "employment_eligibility": [
+        "unemployed",
+        "student",
+        "employed"
       ]
     },
     "format_rules": {

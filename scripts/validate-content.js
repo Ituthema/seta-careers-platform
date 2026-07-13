@@ -33,6 +33,7 @@ const opportunityRequiredFields = [
   'description',
   'eligibility',
   'documents_needed',
+  'employment_eligibility',
   'tags',
   'posted_date',
   'updated_date',
@@ -55,6 +56,7 @@ const guideRequiredFields = [
 
 const categoryIds = new Set(['learnership', 'internship', 'bursary', 'apprenticeship', 'tvet']);
 const guideCategories = new Set(['seta-guides', 'career-advice']);
+const employmentStatuses = new Set(['unemployed', 'student', 'employed']);
 const provinceNames = new Set([
   'Eastern Cape',
   'Free State',
@@ -163,6 +165,15 @@ function validateOpportunities(opportunities) {
     for (const field of ['eligibility', 'documents_needed', 'tags']) {
       if (!Array.isArray(opportunity[field]) || opportunity[field].length === 0) {
         errors.push(`${label}: ${field} must be a non-empty array`);
+      }
+    }
+
+    if (!Array.isArray(opportunity.employment_eligibility) || opportunity.employment_eligibility.length === 0) {
+      errors.push(`${label}: employment_eligibility must be a non-empty array`);
+    } else {
+      const invalid = opportunity.employment_eligibility.filter(v => !employmentStatuses.has(v));
+      if (invalid.length) {
+        errors.push(`${label}: employment_eligibility contains invalid value(s): ${invalid.join(', ')}`);
       }
     }
 

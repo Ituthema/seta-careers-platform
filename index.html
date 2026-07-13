@@ -597,6 +597,7 @@ function mapOpportunity(o){
     slug:o.slug,
     desc:o.description||'',
     elig:o.eligibility||[],
+    employment_eligibility:o.employment_eligibility||[],
     docs:o.documents_needed||[],
     tags:o.tags||[]
   };
@@ -742,7 +743,7 @@ class RouterWrapper {
     }else if(parts[0]==='opportunity'){
       _page='detail';
       const id=decodeURIComponent(parts[1]||'');
-      _opp=OPPS.find(o=>o.id===id||o.slug===id)||null;
+      _opp=OPPS.find(o=>o.id===id)||null;
     }else if(pathCatMap[parts[0]]&&parts[1]){
       _page='detail';
       const slug=decodeURIComponent(parts[1]||'');
@@ -751,7 +752,7 @@ class RouterWrapper {
     }else if(parts[0]==='guides'&&parts[1]){
       _page='guide-detail';
       const id=decodeURIComponent(parts[1]);
-      _guide=GUIDES.find(g=>g.id===id||g.slug===id)||null;
+      _guide=GUIDES.find(g=>g.id===id)||null;
     }else{
       _page=parts[0];
     }
@@ -1059,13 +1060,10 @@ function bindDir(){}
 ═══════════════════════════════════════════════════════════ */
 function renderDetail(){
   const o=_opp;
-  if(!o)return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:60px 24px 80px">
-    <div style="max-width:560px;margin:0 auto;text-align:center;padding:48px 24px;background:#fff;border:1px solid var(--bd);border-radius:var(--r)">
-      <div style="font-size:56px;color:#d1d5db;margin-bottom:16px">⚠️</div>
-      <h1 style="font-family:'Fraunces',serif;font-size:28px;font-weight:900;color:var(--g);margin-bottom:10px">Opportunity Not Found</h1>
-      <p style="color:var(--mu);font-size:15px;line-height:1.7;margin-bottom:24px">The opportunity you are looking for might have closed, expired, or moved.</p>
-      <button class="btn btn-primary" onclick="go('directory')">Browse Opportunities</button>
-    </div>
+  if(!o)return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:70px 24px;text-align:center">
+    <h1 style="font-family:'Fraunces',serif;color:var(--g);font-size:28px;margin-bottom:10px">Opportunity not found</h1>
+    <p style="color:var(--mu);margin-bottom:24px">This listing may have expired or the link is outdated.</p>
+    <button class="btn btn-primary" onclick="go('directory')">Browse All Opportunities →</button>
   </div>`;
   const u=urgInfo(o.close);
   const rel=liveOpps().filter(r=>r.cat===o.cat&&r.id!==o.id).slice(0,3);
@@ -1262,21 +1260,14 @@ function renderElig(){
 function runElig(){
   const qual=document.getElementById('eq1')?.value||'matric';
   const prov=document.getElementById('eq2')?.value||'';
-  const status=document.getElementById('eq3')?.value||'unemployed';
+  const status=document.getElementById('eq3')?.value||'';
   const cat=document.getElementById('eq4')?.value||'';
   const uR=QR[qual]||3;
   const res=liveOpps().filter(o=>{
     if((OR[o.qual]||3)>uR) return false;
     if(prov&&o.prov!==prov&&o.prov!=='Nationwide') return false;
     if(cat&&o.cat!==cat) return false;
-    if(status==='employed'){
-      const desc=(o.desc||'').toLowerCase();
-      const title=(o.title||'').toLowerCase();
-      const elig=(o.elig||[]).map(e=>e.toLowerCase());
-      const tags=(o.tags||[]).map(t=>t.toLowerCase());
-      const requiresUnemployed=desc.includes('unemployed')||title.includes('unemployed')||elig.some(e=>e.includes('unemployed'))||tags.some(t=>t.includes('unemployed'));
-      if(requiresUnemployed) return false;
-    }
+    if(status&&!(o.employment_eligibility||[]).includes(status)) return false;
     return true;
   }).sort((a,b)=>new Date(a.close)-new Date(b.close));
   const er=document.getElementById('eligRes');
@@ -1500,13 +1491,10 @@ function renderGuides(){
 
 function renderGuideDetail(){
   const g=_guide;
-  if(!g)return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:60px 24px 80px">
-    <div style="max-width:560px;margin:0 auto;text-align:center;padding:48px 24px;background:#fff;border:1px solid var(--bd);border-radius:var(--r)">
-      <div style="font-size:56px;color:#d1d5db;margin-bottom:16px">📖</div>
-      <h1 style="font-family:'Fraunces',serif;font-size:28px;font-weight:900;color:var(--g);margin-bottom:10px">Guide Not Found</h1>
-      <p style="color:var(--mu);font-size:15px;line-height:1.7;margin-bottom:24px">We couldn't locate the guide you are searching for.</p>
-      <button class="btn btn-primary" onclick="go('guides')">Back to Guides</button>
-    </div>
+  if(!g)return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:70px 24px;text-align:center">
+    <h1 style="font-family:'Fraunces',serif;color:var(--g);font-size:28px;margin-bottom:10px">Guide not found</h1>
+    <p style="color:var(--mu);margin-bottom:24px">This guide may have been moved or the link is outdated.</p>
+    <button class="btn btn-primary" onclick="go('guides')">Browse All Guides →</button>
   </div>`;
   const related=liveOpps().slice(0,3);
   return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:40px 24px 80px">
