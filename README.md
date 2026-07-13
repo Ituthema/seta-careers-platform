@@ -2,7 +2,7 @@
 
 South Africa's career opportunity intelligence platform for learnerships, bursaries, internships, and apprenticeships.
 
-**Live site:** https://opportunitiesza.co.za  
+**Live site:** https://  setacareersportal.abrdns.com
 **Repository:** https://github.com/Ituthema/seta-careers-platform1  
 **Stack:** Vanilla HTML / CSS / JS · GitHub Pages · Zero build step  
 
