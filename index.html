@@ -677,8 +677,34 @@ function urgInfo(d){
   return{label:fmtD(d),cls:"pill-gray",c:"#374151",bg:"#f3f4f6"};
 }
 const catInfo=id=>CATS.find(c=>c.id===id)||{color:"#374151",bg:"#f3f4f6"};
-const badge=cat=>`<span class="badge badge-${cat}">${cat}</span>`;
-const pill=(d)=>{const u=urgInfo(d);return`<span class="pill ${u.cls}" style="background:${u.bg};color:${u.c}">${u.label}</span>`;};
+const SECURITY={
+  escapeText(value){return String(value??'').replace(/[&<>]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[ch]));},
+  escapeAttr(value){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[ch]));},
+  safeId(value){return String(value??'').replace(/[^a-zA-Z0-9_-]/g,'_');},
+  cssEscape(value){return window.CSS&&CSS.escape?CSS.escape(String(value??'')):String(value??'').replace(/[^a-zA-Z0-9_-]/g,'\\$&');},
+  safeDataset(el,key,value){el.dataset[key]=String(value??'');},
+  safeUrl(value){
+    try{
+      const url=new URL(String(value??''),window.location.origin);
+      return ['http:','https:','mailto:','tel:'].includes(url.protocol)?url.href:'#';
+    }catch{return '#';}
+  },
+  setText(el,value){el.textContent=String(value??'');return el;},
+  el(tag,{classes=[],attrs={},dataset={},text=null}={}){
+    const node=document.createElement(tag);
+    classes.filter(Boolean).forEach(cls=>node.classList.add(cls));
+    Object.entries(attrs).forEach(([k,v])=>node.setAttribute(k,String(v)));
+    Object.entries(dataset).forEach(([k,v])=>SECURITY.safeDataset(node,k,v));
+    if(text!==null)node.textContent=String(text);
+    return node;
+  }
+};
+const esc=value=>SECURITY.escapeText(value);
+const attr=value=>SECURITY.escapeAttr(value);
+const safeId=value=>SECURITY.safeId(value);
+const safeUrl=value=>SECURITY.safeUrl(value);
+const badge=cat=>`<span class="badge badge-${attr(safeId(cat))}">${esc(cat)}</span>`;
+const pill=(d)=>{const u=urgInfo(d);return`<span class="pill ${attr(u.cls)}" style="background:${attr(u.bg)};color:${attr(u.c)}">${esc(u.label)}</span>`;};
 const liveOpps=()=>OPPS.filter(o=>!o.expired&&days(o.close)>=0);
 
 // Saved (localStorage)
@@ -690,9 +716,9 @@ function toggleSave(id,e){
   const idx=s.indexOf(id);
   if(idx>-1) s.splice(idx,1); else s.push(id);
   localStorage.setItem('opza_saved',JSON.stringify(s));
-  document.querySelectorAll(`.bk-${id}`).forEach(el=>el.textContent=isSaved(id)?'🔖':'🔲');
+  document.querySelectorAll(`[data-bookmark-id="${SECURITY.cssEscape(id)}"]`).forEach(el=>el.textContent=isSaved(id)?'🔖':'🔲');
 }
-const bkBtn=id=>`<button class="bk-btn bk-${id}" onclick="toggleSave('${id}',event)" title="${isSaved(id)?'Remove bookmark':'Save opportunity'}">${isSaved(id)?'🔖':'🔲'}</button>`;
+const bkBtn=id=>`<button class="bk-btn bk-${attr(safeId(id))}" data-action="toggle-save" data-bookmark-id="${attr(id)}" title="${isSaved(id)?'Remove bookmark':'Save opportunity'}">${isSaved(id)?'🔖':'🔲'}</button>`;
 
 /* ═══════════════════════════════════════════════════════════
    ROUTER
@@ -774,9 +800,9 @@ function go(p,data=null){
   if(p==='directory'&&typeof data==='string') _dirCat=data;
   AppRouter.navigate(AppRouter.pageToPath(p,data));
 }
-function goDir(cat){go('directory',cat);}
-function openOpp(id){const opp=OPPS.find(o=>o.id===id);if(opp)go('detail',opp);}
-function openGuide(id){const guide=GUIDES.find(g=>g.id===id);if(guide)go('guide-detail',guide);}
+function goDir(cat){_dirCat=cat;go('directory');}
+function openOpp(id){_opp=OPPS.find(o=>String(o.id)===String(id));go('detail');}
+function openGuide(id){_guide=GUIDES.find(g=>g.id===id);go('guide-detail');}
 
 function render(){
   const app=document.getElementById('app');
@@ -805,16 +831,31 @@ function render(){
 function toggleDrw(){const d=document.getElementById('drw'),h=document.getElementById('hbg');d.classList.toggle('open');h.textContent=d.classList.contains('open')?'✕':'☰';}
 function closeDrw(){const d=document.getElementById('drw'),h=document.getElementById('hbg');d.classList.remove('open');if(h)h.textContent='☰';}
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20));
+document.addEventListener('click',e=>{
+  const save=e.target.closest('[data-action="toggle-save"]');
+  if(save){toggleSave(save.dataset.bookmarkId,e);return;}
+  const opp=e.target.closest('[data-action="open-opp"]');
+  if(opp){openOpp(opp.dataset.oppId);return;}
+  const copy=e.target.closest('[data-action="copy-url"]');
+  if(copy){navigator.clipboard.writeText(copy.dataset.url||'').then(()=>copy.textContent='✓ Copied!');return;}
+  const dir=e.target.closest('[data-action="go-dir"]');
+  if(dir){goDir(dir.dataset.category||'');return;}
+  const province=e.target.closest('[data-action="filter-province"]');
+  if(province){filterByProvince(province.dataset.province||'');}
+});
+document.addEventListener('keydown',e=>{
+  if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-action="open-opp"]')){e.preventDefault();openOpp(e.target.dataset.oppId);}
+});
 
 /* ═══════════════════════════════════════════════════════════
    OPP CARD
 ═══════════════════════════════════════════════════════════ */
 function oppCard(o,compact=false){
   const u=urgInfo(o.close);
-  return`<div class="opp-card${o.featured?' featured':''}" onclick="openOpp('${o.id}')">
+  return`<div class="opp-card${o.featured?' featured':''}" data-action="open-opp" data-opp-id="${attr(o.id)}" tabindex="0" role="button">
   <div class="oc-top">${badge(o.cat)}${o.verified?'<span class="oc-verified">✓ Verified</span>':''}</div>
-  <h3 class="oc-title">${o.title}</h3>
-  <div class="oc-meta"><span>📍 ${o.prov}</span>${o.stipend?`<span>💰 ${o.stipend}</span>`:''}</div>
+  <h3 class="oc-title">${esc(o.title)}</h3>
+  <div class="oc-meta"><span>📍 ${esc(o.prov)}</span>${o.stipend?`<span>💰 ${esc(o.stipend)}</span>`:''}</div>
   <div class="oc-footer">${pill(o.close)}<div style="display:flex;align-items:center;gap:10px"><span class="oc-link">View & Apply →</span>${bkBtn(o.id)}</div></div>
   </div>`;
 }
@@ -837,7 +878,7 @@ function renderHome(){
         <input id="hq" placeholder="Search learnerships, bursaries, companies..." onkeydown="if(event.key==='Enter')heroSearch()">
         <select id="hc">
           <option value="">All Types</option>
-          ${CATS.map(c=>`<option value="${c.id}">${c.label}</option>`).join('')}
+          ${CATS.map(c=>`<option value="${attr(c.id)}">${esc(c.label)}</option>`).join('')}
         </select>
         <button onclick="heroSearch()">Search →</button>
       </div>
@@ -864,7 +905,7 @@ function renderHome(){
   <div style="padding:52px 24px 0;max-width:var(--mw);margin:0 auto">
     <div class="cat-grid">
       ${CATS.map(c=>{const cnt=live.filter(o=>o.cat===c.id).length;return`
-        <button class="cat-tile" onclick="goDir('${c.id}')">
+        <button class="cat-tile" data-action="go-dir" data-category="${attr(c.id)}">
           <div class="ct-icon">${c.icon}</div>
           <div class="ct-name">${c.label}</div>
           <div class="ct-desc">${c.desc}</div>
@@ -879,9 +920,9 @@ function renderHome(){
       <div class="strip-hdr"><span>🚨</span><span>Closing Soon — Don't Miss These</span></div>
       <div class="strip-scroll">
         ${closing.map(o=>{const u=urgInfo(o.close);return`
-          <button class="strip-pill" onclick="openOpp('${o.id}')">
-            <span class="sp-title">${o.title}</span>
-            <span class="sp-meta">📍 ${o.prov} · ${badge(o.cat).replace(/<[^>]+>/g,'').trim()}</span>
+          <button class="strip-pill" data-action="open-opp" data-opp-id="${attr(o.id)}">
+            <span class="sp-title">${esc(o.title)}</span>
+            <span class="sp-meta">📍 ${esc(o.prov)} · ${esc(o.cat)}</span>
             <span class="pill ${u.cls}" style="background:${u.bg};color:${u.c};font-size:10px">${u.label}</span>
           </button>`;}).join('')}
       </div>
@@ -989,11 +1030,11 @@ function renderDir(defCat=''){
   <div class="dir-filters">
     <select class="fsel" id="dc" onchange="applyDir()">
       <option value="">All Categories</option>
-      ${CATS.map(c=>`<option value="${c.id}" ${c.id===defCat?'selected':''}>${c.label}</option>`).join('')}
+      ${CATS.map(c=>`<option value="${attr(c.id)}" ${c.id===defCat?'selected':''}>${esc(c.label)}</option>`).join('')}
     </select>
     <select class="fsel" id="dp" onchange="applyDir()">
       <option value="">All Provinces</option>
-      ${PROVS.filter(p=>p!=='Nationwide').map(p=>`<option value="${p}">${p}</option>`).join('')}
+      ${PROVS.filter(p=>p!=='Nationwide').map(p=>`<option value="${attr(p)}">${esc(p)}</option>`).join('')}
     </select>
     <select class="fsel" id="dq" onchange="applyDir()">
       <option value="">Any Qualification</option>
@@ -1071,57 +1112,57 @@ function renderDetail(){
   return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:40px 24px 80px">
   <div class="breadcrumb">
     <button onclick="go('home')">Home</button><span class="sep">›</span>
-    <button onclick="goDir('${o.cat}')">${o.cat}s</button><span class="sep">›</span>
-    <span style="color:var(--t2)">${o.title}</span>
+    <button data-action="go-dir" data-category="${attr(o.cat)}">${esc(o.cat)}s</button><span class="sep">›</span>
+    <span style="color:var(--t2)">${esc(o.title)}</span>
   </div>
 
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px">
     ${badge(o.cat)}${o.verified?'<span style="font-size:12px;color:var(--gmid);font-weight:600">✓ Verified Source</span>':''}
   </div>
 
-  <h1 class="detail-h1">${o.title}</h1>
+  <h1 class="detail-h1">${esc(o.title)}</h1>
 
   <div class="qf-bar">
-    <div class="qf-item">📍 ${o.prov}</div>
+    <div class="qf-item">📍 ${esc(o.prov)}</div>
     <div class="qf-item${days(o.close)<=7?' urg':''}">⏳ Closes ${fmtD(o.close)}</div>
-    ${o.stipend?`<div class="qf-item">💰 ${o.stipend}</div>`:''}
-    <div class="qf-item">🎓 ${o.qual}</div>
-    <div class="qf-item">🏢 ${o.sector}</div>
+    ${o.stipend?`<div class="qf-item">💰 ${esc(o.stipend)}</div>`:''}
+    <div class="qf-item">🎓 ${esc(o.qual)}</div>
+    <div class="qf-item">🏢 ${esc(o.sector)}</div>
   </div>
 
   <div class="urg-banner" style="background:${u.bg};border:1px solid ${u.c}44;color:${u.c}">
     <span style="font-size:16px">⏳</span>
-    <span>${days(o.close)<=7?`Only ${days(o.close)} days left to apply!`:`Closing: ${fmtD(o.close)}`}</span>
+    <span>${esc(days(o.close)<=7?`Only ${days(o.close)} days left to apply!`:`Closing: ${fmtD(o.close)}`)}</span>
     ${bkBtn(o.id)}
   </div>
 
   <div class="det-sec">
     <h2>About This Opportunity</h2>
-    <p style="font-size:15px;color:var(--t2);line-height:1.85">${o.desc}</p>
+    <p style="font-size:15px;color:var(--t2);line-height:1.85">${esc(o.desc)}</p>
   </div>
 
   <div class="det-sec">
     <h2>Who Can Apply</h2>
-    <ul class="elig-list">${o.elig.map(e=>`<li>${e}</li>`).join('')}</ul>
+    <ul class="elig-list">${o.elig.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>
   </div>
 
   <div class="det-sec">
     <h2>Documents Needed</h2>
-    <div class="doc-list">${o.docs.map(d=>`<div class="doc-item"><span class="doc-check">✓</span><span style="font-size:14px;color:var(--t2)">${d}</span></div>`).join('')}</div>
+    <div class="doc-list">${o.docs.map(d=>`<div class="doc-item"><span class="doc-check">✓</span><span style="font-size:14px;color:var(--t2)">${esc(d)}</span></div>`).join('')}</div>
     <button class="btn btn-ghost btn-sm" onclick="go('checklist')" style="margin-top:12px">📋 Generate a personalised checklist →</button>
   </div>
 
   <div class="apply-block">
     <p>Always apply via the official company website. This links directly to the official source.</p>
-    <a href="${o.url}" target="_blank" rel="noopener noreferrer" class="apply-btn">Apply Now — Official Link ↗</a>
+    <a href="${attr(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer" class="apply-btn">Apply Now — Official Link ↗</a>
     <div class="share-row">
-      <a href="https://wa.me/?text=${waText}" target="_blank" class="share-btn share-wa">📲 Share on WhatsApp</a>
-      <button class="share-btn share-copy" onclick="navigator.clipboard.writeText('${o.url}').then(()=>this.textContent='✓ Copied!')">📋 Copy Link</button>
+      <a href="${attr(safeUrl(`https://wa.me/?text=${waText}`))}" target="_blank" class="share-btn share-wa">📲 Share on WhatsApp</a>
+      <button class="share-btn share-copy" data-action="copy-url" data-url="${attr(safeUrl(o.url))}">📋 Copy Link</button>
     </div>
-    <div class="apply-note">Source: ${o.src} · Last verified: ${new Date().toLocaleDateString("en-ZA")}</div>
+    <div class="apply-note">Source: ${esc(o.src)} · Last verified: ${new Date().toLocaleDateString("en-ZA")}</div>
   </div>
 
-  ${rel.length?`<h3 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--g);margin-bottom:16px">More ${o.cat}s</h3>
+  ${rel.length?`<h3 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--g);margin-bottom:16px">More ${esc(o.cat)}s</h3>
   <div class="opp-grid">${rel.map(r=>oppCard(r,true)).join('')}</div>`:''}
   </div>`;
 }
@@ -1139,7 +1180,7 @@ function renderCal(){
   <div class="cal-ctrl">
     <select class="fsel" id="calCat" onchange="calCat(this.value)">
       <option value="">All Categories</option>
-      ${CATS.map(c=>`<option value="${c.id}" ${c.id===calState.cat?'selected':''}>${c.label}</option>`).join('')}
+      ${CATS.map(c=>`<option value="${attr(c.id)}" ${c.id===calState.cat?'selected':''}>${esc(c.label)}</option>`).join('')}
     </select>
     <div class="view-toggle">
       <button class="vbtn ${calState.view==='list'?'act':''}" onclick="calView('list')">📋 List</button>
@@ -1161,10 +1202,10 @@ function calList(){
     <div style="margin-bottom:28px">
       <h3 class="lmh">${fmtMY(ym+'-01')}</h3>
       ${items.map(o=>{const u=urgInfo(o.close);const ci=catInfo(o.cat);return`
-        <div class="li" onclick="openOpp('${o.id}')">
+        <div class="li" data-action="open-opp" data-opp-id="${attr(o.id)}">
           <div class="li-dt">${fmtShort(o.close)}</div>
-          <div><span class="li-ttl">${o.title}</span><span class="li-sub">${o.prov} · <span style="color:${ci.color}">${o.cat}</span></span></div>
-          <div class="li-days" style="color:${u.c}">${u.label}</div>
+          <div><span class="li-ttl">${esc(o.title)}</span><span class="li-sub">${esc(o.prov)} · <span style="color:${attr(ci.color)}">${esc(o.cat)}</span></span></div>
+          <div class="li-days" style="color:${attr(u.c)}">${esc(u.label)}</div>
         </div>`}).join('')}
     </div>`).join('');
 }
@@ -1183,7 +1224,7 @@ function calMonth(){
     const ds=`${year}-${m0}-${d0}`;
     const dO=byD[ds]||[];
     const u=dO.length?urgInfo(ds):null;
-    cells+=`<div class="cc${dO.length?' has':''}${ds===today?' today':''}${ds===sel?' sel':''}"${dO.length?` onclick="calSel('${ds}')"`:''}><div class="cdn">${d}</div>${dO.length?`<span class="cdots" style="background:${u.bg};color:${u.c}">${dO.length} closing</span>`:''}</div>`;
+    cells+=`<div class="cc${dO.length?' has':''}${ds===today?' today':''}${ds===sel?' sel':''}"${dO.length?` onclick="calSel('${ds}')"`:''}><div class="cdn">${d}</div>${dO.length?`<span class="cdots" style="background:${attr(u.bg)};color:${attr(u.c)}">${dO.length} closing</span>`:''}</div>`;
   }
   const dp=sel&&byD[sel]?`<div class="day-panel"><h3>Closing on ${fmtD(sel)}</h3><div class="opp-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">${byD[sel].map(o=>oppCard(o,true)).join('')}</div></div>`:'';
   return`<div class="cal-nav">
@@ -1462,9 +1503,9 @@ function runBursary(){
     <p style="font-size:14px;color:var(--t2);line-height:1.7;margin-bottom:14px">${advice[level]}</p>
     ${bursaryList.length?`<h3 style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;margin-bottom:12px">Current Open Bursaries</h3>
     <div style="display:flex;flex-direction:column;gap:10px">${bursaryList.map(o=>`
-      <div onclick="openOpp('${o.id}')" style="background:#fff;border:1px solid var(--bd);border-radius:8px;padding:12px 14px;cursor:pointer">
-        <div style="font-weight:600;font-size:14px;margin-bottom:2px">${o.title}</div>
-        <div style="font-size:12px;color:var(--mu)">${o.prov} · ${o.stipend}</div>
+      <div data-action="open-opp" data-opp-id="${attr(o.id)}" style="background:#fff;border:1px solid var(--bd);border-radius:8px;padding:12px 14px;cursor:pointer">
+        <div style="font-weight:600;font-size:14px;margin-bottom:2px">${esc(o.title)}</div>
+        <div style="font-size:12px;color:var(--mu)">${esc(o.prov)} · ${esc(o.stipend)}</div>
       </div>`).join('')}</div>`:''}
   </div>
   <button class="btn btn-primary" onclick="go('directory');setTimeout(()=>{document.getElementById('dc').value='bursary';applyDir()},60)">Browse All Bursaries →</button>`;
@@ -1517,8 +1558,8 @@ function renderGuideDetail(){
   </div>
   <h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--g);margin-bottom:14px">Current Open Opportunities</h2>
   <div style="display:flex;flex-direction:column;gap:10px">
-    ${related.map(o=>`<div onclick="openOpp('${o.id}')" style="background:#fff;border:1px solid var(--bd);border-radius:9px;padding:14px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all .15s" onmouseover="this.style.borderColor='var(--g)'" onmouseout="this.style.borderColor='var(--bd)'">
-      <div><div style="font-weight:600;font-size:14px;color:var(--tx);margin-bottom:2px">${o.title}</div><div style="font-size:12px;color:var(--mu)">${o.prov} · ${o.stipend}</div></div>
+    ${related.map(o=>`<div data-action="open-opp" data-opp-id="${attr(o.id)}" style="background:#fff;border:1px solid var(--bd);border-radius:9px;padding:14px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all .15s">
+      <div><div style="font-weight:600;font-size:14px;color:var(--tx);margin-bottom:2px">${esc(o.title)}</div><div style="font-size:12px;color:var(--mu)">${esc(o.prov)} · ${esc(o.stipend)}</div></div>
       <span style="font-size:13px;color:var(--g);font-weight:600;flex-shrink:0">View →</span>
     </div>`).join('')}
   </div>
@@ -1538,8 +1579,8 @@ function renderProvinces(){
   <h1 style="font-size:clamp(26px,5vw,42px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">Browse by Province</h1>
   <p style="color:var(--mu);margin-bottom:32px;font-size:15px">Select your province to see all relevant opportunities</p>
   <div class="prov-grid">
-    ${provData.map(({p,cnt})=>`<button class="prov-tile" onclick="filterByProvince('${p}')">
-      <h3>📍 ${p}</h3>
+    ${provData.map(({p,cnt})=>`<button class="prov-tile" data-action="filter-province" data-province="${attr(p)}">
+      <h3>📍 ${esc(p)}</h3>
       <p>${cnt} opportunities available</p>
     </button>`).join('')}
   </div>
@@ -1551,7 +1592,7 @@ function filterByProvince(prov){
   const res=liveOpps().filter(o=>o.prov===prov||o.prov==='Nationwide').sort((a,b)=>new Date(a.close)-new Date(b.close));
   const pr=document.getElementById('provResults');
   if(!pr)return;
-  pr.innerHTML=`<h2 style="font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--g);margin-bottom:20px;border-top:2px solid var(--glt);padding-top:24px">Opportunities in ${prov} (${res.length} found)</h2>
+  pr.innerHTML=`<h2 style="font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--g);margin-bottom:20px;border-top:2px solid var(--glt);padding-top:24px">Opportunities in ${esc(prov)} (${res.length} found)</h2>
   <div class="opp-grid">${res.map(o=>oppCard(o)).join('')}</div>`;
   pr.scrollIntoView({behavior:'smooth',block:'start'});
 }
