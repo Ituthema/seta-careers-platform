@@ -1,0 +1,21 @@
+# Scripts Context
+
+- Scope: repository scripts only.
+- Responsibilities:
+  - Automate data checks, transformations, imports, exports, or maintenance.
+  - Keep repeatable operations outside manual workflows.
+- Task scope:
+  - Use one script per task.
+  - Use one function per task when editing existing scripts.
+  - Avoid unrelated script review.
+- Context loading:
+  - Load the primary script only.
+  - Load at most two supporting files when required.
+  - Load only dependencies referenced by the target function.
+- Dependency principle:
+  - Reuse existing imports.
+  - Do not add dependencies unless explicitly requested.
+  - Avoid broad module loading for local function edits.
+- Related rules:
+  - `docs/rules/context-budget-rules.md`
+  - `docs/templates/rulesets.md#script_function_edit_v1`
