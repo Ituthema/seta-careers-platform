@@ -18,11 +18,15 @@ function detectContentType(fetchResult) {
   return 'unknown';
 }
 
-function routeContent(fetchResult, log = () => {}) {
+function routeContent(fetchResult, log = () => {}, events = {}) {
   const contentType = detectContentType(fetchResult);
 
   if (contentType === 'unknown') {
-    log('VALIDATION_FAILURE', { url: fetchResult.url, reason: 'UNSUPPORTED_CONTENT_TYPE', contentType: fetchResult.contentType || '' });
+    log(events.UNSUPPORTED_CONTENT || 'UNSUPPORTED_CONTENT', {
+      url: fetchResult.url,
+      reason: 'UNSUPPORTED_CONTENT_TYPE',
+      content_type: fetchResult.contentType || '',
+    });
   }
 
   return contentType;

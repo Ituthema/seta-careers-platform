@@ -3,7 +3,7 @@
   "safety": {
     "originalDataOverwritten": false,
     "backupDirectoryEnsured": "./data/backup",
-    "outputDirectory": "./data/clean/",
+    "outputDirectory": "./data/normalized/",
     "logDirectory": "./logs/"
   },
   "totals": {
@@ -17,7 +17,7 @@
     {
       "file": "opportunities",
       "input": "./Data/opportunities.json",
-      "output": "./data/clean/opportunities.json",
+      "output": "./data/normalized/opportunities.json",
       "recordsProcessed": 12,
       "modifiedRecords": 0,
       "totalChanges": 0,
@@ -27,7 +27,7 @@
     {
       "file": "guides",
       "input": "./Data/guides.json",
-      "output": "./data/clean/guides.json",
+      "output": "./data/normalized/guides.json",
       "recordsProcessed": 7,
       "modifiedRecords": 0,
       "totalChanges": 0,
@@ -37,7 +37,7 @@
     {
       "file": "categories",
       "input": "./Data/categories.json",
-      "output": "./data/clean/categories.json",
+      "output": "./data/normalized/categories.json",
       "recordsProcessed": 4,
       "modifiedRecords": 0,
       "totalChanges": 0,
@@ -47,7 +47,7 @@
     {
       "file": "provinces",
       "input": "./Data/provinces.json",
-      "output": "./data/clean/provinces.json",
+      "output": "./data/normalized/provinces.json",
       "recordsProcessed": 9,
       "modifiedRecords": 0,
       "totalChanges": 0,

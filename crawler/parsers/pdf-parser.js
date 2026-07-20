@@ -1,11 +1,5 @@
+const pdfParse = require('pdf-parse');
 const { normalizeWhitespace } = require('../pipeline/normalize');
-
-let pdfParse = null;
-try {
-  pdfParse = require('pdf-parse');
-} catch {
-  pdfParse = null;
-}
 
 async function parsePdf(body) {
   if (!Buffer.isBuffer(body) || body.length === 0) {
@@ -14,10 +8,6 @@ async function parsePdf(body) {
 
   if (body.subarray(0, 5).toString('utf8') !== '%PDF-') {
     throw new Error('PDF body is corrupt or has an invalid signature.');
-  }
-
-  if (!pdfParse) {
-    throw new Error('pdf-parse dependency is not available in this environment.');
   }
 
   try {
@@ -35,7 +25,7 @@ async function parsePdf(body) {
     };
   } catch (error) {
     const message = /password/i.test(error.message) ? 'PDF is password protected.' : error.message;
-    throw new Error(message);
+    throw new Error(`PDF parsing failed: ${message}`);
   }
 }
 

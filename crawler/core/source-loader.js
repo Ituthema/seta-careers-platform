@@ -2,6 +2,7 @@ const path = require('path');
 const { loadSources, validateSource } = require('../../scripts/validators/source-validator');
 
 const DEFAULT_SOURCE_PATH = path.resolve(__dirname, '..', '..', 'data', 'sources.json');
+const INVALID_SOURCE_REGISTRY = 'INVALID_SOURCE_REGISTRY';
 
 function toCrawlerSource(source) {
   return {
@@ -16,6 +17,7 @@ function toCrawlerSource(source) {
 function loadActiveSources(options = {}) {
   const sourcePath = options.sourcePath || DEFAULT_SOURCE_PATH;
   const log = typeof options.log === 'function' ? options.log : () => {};
+  const events = options.events || {};
   const reject = typeof options.reject === 'function' ? options.reject : () => {};
   const sources = loadSources(sourcePath);
 
@@ -33,10 +35,10 @@ function loadActiveSources(options = {}) {
       reject({
         source_id: source && source.source_id ? source.source_id : `sources[${index}]`,
         url: source && source.url ? source.url : '',
-        reason: 'INVALID_CONTENT',
+        reason: INVALID_SOURCE_REGISTRY,
         details: failures.map((issue) => issue.message),
       });
-      log('VALIDATION_FAILURE', {
+      log(events.VALIDATION_FAILURE || 'VALIDATION_FAILURE', {
         source_id: source && source.source_id ? source.source_id : null,
         failures: failures.map((issue) => issue.code),
       });
@@ -44,7 +46,7 @@ function loadActiveSources(options = {}) {
     }
 
     activeSources.push(toCrawlerSource(source));
-    log('SOURCE_LOADED', { source_id: source.source_id, url: source.url });
+    log(events.SOURCE_LOADED || 'SOURCE_LOADED', { source_id: source.source_id, url: source.url });
   });
 
   return activeSources;
@@ -52,5 +54,6 @@ function loadActiveSources(options = {}) {
 
 module.exports = {
   DEFAULT_SOURCE_PATH,
+  INVALID_SOURCE_REGISTRY,
   loadActiveSources,
 };

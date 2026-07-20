@@ -4,7 +4,7 @@
   "private": true,
   "description": "South Africa career opportunity intelligence platform for learnerships, bursaries, internships, and apprenticeships.",
   "scripts": {
-    "validate": "node scripts/validate-content.js",
+    "validate": "node validate-content.js",
     "sitemap": "node sitemap-generator.js",
     "check": "npm run validate && npm run links && npm run sitemap",
     "links": "node scripts/check-links.js",
@@ -16,10 +16,10 @@
     "node": ">=18"
   },
   "dependencies": {
-    "axios": "^1.7.9",
-    "cheerio": "^1.0.0",
-    "pdf-parse": "^1.1.1",
-    "p-limit": "^6.2.0",
-    "uuid": "^11.0.5"
+    "axios": "1.18.0",
+    "cheerio": "1.2.0",
+    "pdf-parse": "1.1.4",
+    "p-limit": "6.2.0",
+    "uuid": "11.1.1"
   }
 }

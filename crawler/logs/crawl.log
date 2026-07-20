@@ -1,0 +1,234 @@
+{"timestamp":"2026-06-16T18:24:29.872Z","event":"START","config":{"timeout":15000,"retries":3,"concurrency":5,"maxRedirects":5}}
+{"timestamp":"2026-06-16T18:24:29.874Z","event":"SOURCE_LOADED","source_id":"dpsa","url":"https://www.dpsa.gov.za/newsroom/psvc/"}
+{"timestamp":"2026-06-16T18:24:29.874Z","event":"SOURCE_LOADED","source_id":"national-treasury","url":"https://www.treasury.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.874Z","event":"SOURCE_LOADED","source_id":"sars","url":"https://www.sars.gov.za/careers/"}
+{"timestamp":"2026-06-16T18:24:29.874Z","event":"SOURCE_LOADED","source_id":"department-employment-labour","url":"https://www.labour.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.874Z","event":"SOURCE_LOADED","source_id":"department-health","url":"https://www.health.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.874Z","event":"SOURCE_LOADED","source_id":"department-basic-education","url":"https://www.education.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.874Z","event":"SOURCE_LOADED","source_id":"mict-seta","url":"https://www.mict.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.874Z","event":"SOURCE_LOADED","source_id":"services-seta","url":"https://www.serviceseta.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.874Z","event":"SOURCE_LOADED","source_id":"etdp-seta","url":"https://www.etdpseta.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"bankseta","url":"https://www.bankseta.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"agriseta","url":"https://www.agriseta.co.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"ceta","url":"https://www.ceta.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"merseta","url":"https://www.merseta.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"lgseta","url":"https://lgseta.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"teta","url":"https://www.teta.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"hwseta","url":"https://www.hwseta.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"unisa","url":"https://www.unisa.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"uj","url":"https://www.uj.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"wits","url":"https://www.wits.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"up","url":"https://www.up.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"uct","url":"https://www.uct.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"ukzn","url":"https://ukzn.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"nmu","url":"https://www.mandela.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"dut","url":"https://www.dut.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"cut","url":"https://www.cut.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"tut","url":"https://www.tut.ac.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"eskom","url":"https://www.eskom.co.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"transnet","url":"https://www.transnet.net/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"prasa","url":"https://www.prasa.com/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"sanral","url":"https://www.sanral.co.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"saa","url":"https://www.flysaa.com/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"denel","url":"https://www.denel.co.za/"}
+{"timestamp":"2026-06-16T18:24:29.875Z","event":"SOURCE_LOADED","source_id":"standard-bank","url":"https://www.standardbank.com/sbg/standard-bank-group/careers"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"fnb","url":"https://www.fnb.co.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"absa","url":"https://www.absa.africa/absaafrica/careers/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"nedbank","url":"https://www.nedbank.co.za/content/nedbank/desktop/gt/en/careers.html"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"mtn","url":"https://group.mtn.com/careers/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"vodacom","url":"https://www.vodacom.com/careers.php"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"sasol","url":"https://www.sasol.com/careers"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"shoprite","url":"https://www.shopriteholdings.co.za/careers.html"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"pick-n-pay","url":"https://www.pnp.co.za/careers"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"woolworths","url":"https://www.woolworths.co.za/corporate/careers"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"city-of-johannesburg","url":"https://www.joburg.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"city-of-cape-town","url":"https://www.capetown.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"ethekwini","url":"https://www.durban.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"tshwane","url":"https://www.tshwane.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"ekurhuleni","url":"https://www.ekurhuleni.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"nelson-mandela-bay","url":"https://www.nelsonmandelabay.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"mangaung","url":"https://www.mangaung.co.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"buffalo-city","url":"https://www.buffalocity.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"msunduzi","url":"https://www.msunduzi.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"stellenbosch-municipality","url":"https://stellenbosch.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"western-cape-government","url":"https://www.westerncape.gov.za/jobs"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"gauteng-government","url":"https://www.gauteng.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"kzn-government","url":"https://www.kznonline.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"csir","url":"https://www.csir.co.za/careers"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"nsfas","url":"https://www.nsfas.org.za/"}
+{"timestamp":"2026-06-16T18:24:29.876Z","event":"SOURCE_LOADED","source_id":"dhet","url":"https://www.dhet.gov.za/"}
+{"timestamp":"2026-06-16T18:24:29.936Z","event":"FETCH_FAILURE","source_id":"dpsa","url":"https://www.dpsa.gov.za/newsroom/psvc/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:29.937Z","event":"FETCH_FAILURE","source_id":"sars","url":"https://www.sars.gov.za/careers/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:29.938Z","event":"FETCH_FAILURE","source_id":"national-treasury","url":"https://www.treasury.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:29.940Z","event":"FETCH_FAILURE","source_id":"department-employment-labour","url":"https://www.labour.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:29.941Z","event":"FETCH_FAILURE","source_id":"department-health","url":"https://www.health.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.199Z","event":"FETCH_FAILURE","source_id":"dpsa","url":"https://www.dpsa.gov.za/newsroom/psvc/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.200Z","event":"FETCH_FAILURE","source_id":"sars","url":"https://www.sars.gov.za/careers/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.201Z","event":"FETCH_FAILURE","source_id":"department-employment-labour","url":"https://www.labour.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.202Z","event":"FETCH_FAILURE","source_id":"national-treasury","url":"https://www.treasury.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.203Z","event":"FETCH_FAILURE","source_id":"department-health","url":"https://www.health.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.715Z","event":"FETCH_FAILURE","source_id":"dpsa","url":"https://www.dpsa.gov.za/newsroom/psvc/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.718Z","event":"FETCH_FAILURE","source_id":"sars","url":"https://www.sars.gov.za/careers/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.720Z","event":"FETCH_FAILURE","source_id":"department-employment-labour","url":"https://www.labour.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.722Z","event":"FETCH_FAILURE","source_id":"national-treasury","url":"https://www.treasury.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.723Z","event":"FETCH_FAILURE","source_id":"department-health","url":"https://www.health.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.729Z","event":"FETCH_FAILURE","source_id":"mict-seta","url":"https://www.mict.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.730Z","event":"FETCH_FAILURE","source_id":"department-basic-education","url":"https://www.education.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.731Z","event":"FETCH_FAILURE","source_id":"etdp-seta","url":"https://www.etdpseta.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.731Z","event":"FETCH_FAILURE","source_id":"services-seta","url":"https://www.serviceseta.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.732Z","event":"FETCH_FAILURE","source_id":"bankseta","url":"https://www.bankseta.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.993Z","event":"FETCH_FAILURE","source_id":"department-basic-education","url":"https://www.education.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.993Z","event":"FETCH_FAILURE","source_id":"etdp-seta","url":"https://www.etdpseta.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.994Z","event":"FETCH_FAILURE","source_id":"bankseta","url":"https://www.bankseta.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.995Z","event":"FETCH_FAILURE","source_id":"mict-seta","url":"https://www.mict.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:30.996Z","event":"FETCH_FAILURE","source_id":"services-seta","url":"https://www.serviceseta.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.504Z","event":"FETCH_FAILURE","source_id":"etdp-seta","url":"https://www.etdpseta.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.507Z","event":"FETCH_FAILURE","source_id":"department-basic-education","url":"https://www.education.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.509Z","event":"FETCH_FAILURE","source_id":"bankseta","url":"https://www.bankseta.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.510Z","event":"FETCH_FAILURE","source_id":"mict-seta","url":"https://www.mict.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.512Z","event":"FETCH_FAILURE","source_id":"services-seta","url":"https://www.serviceseta.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.520Z","event":"FETCH_FAILURE","source_id":"ceta","url":"https://www.ceta.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.521Z","event":"FETCH_FAILURE","source_id":"merseta","url":"https://www.merseta.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.521Z","event":"FETCH_FAILURE","source_id":"agriseta","url":"https://www.agriseta.co.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.522Z","event":"FETCH_FAILURE","source_id":"lgseta","url":"https://lgseta.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.523Z","event":"FETCH_FAILURE","source_id":"teta","url":"https://www.teta.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.784Z","event":"FETCH_FAILURE","source_id":"ceta","url":"https://www.ceta.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.785Z","event":"FETCH_FAILURE","source_id":"merseta","url":"https://www.merseta.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.786Z","event":"FETCH_FAILURE","source_id":"teta","url":"https://www.teta.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.787Z","event":"FETCH_FAILURE","source_id":"lgseta","url":"https://lgseta.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:31.788Z","event":"FETCH_FAILURE","source_id":"agriseta","url":"https://www.agriseta.co.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.301Z","event":"FETCH_FAILURE","source_id":"ceta","url":"https://www.ceta.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.304Z","event":"FETCH_FAILURE","source_id":"teta","url":"https://www.teta.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.307Z","event":"FETCH_FAILURE","source_id":"lgseta","url":"https://lgseta.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.310Z","event":"FETCH_FAILURE","source_id":"agriseta","url":"https://www.agriseta.co.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.313Z","event":"FETCH_FAILURE","source_id":"merseta","url":"https://www.merseta.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.320Z","event":"FETCH_FAILURE","source_id":"unisa","url":"https://www.unisa.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.321Z","event":"FETCH_FAILURE","source_id":"uj","url":"https://www.uj.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.322Z","event":"FETCH_FAILURE","source_id":"wits","url":"https://www.wits.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.323Z","event":"FETCH_FAILURE","source_id":"hwseta","url":"https://www.hwseta.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.324Z","event":"FETCH_FAILURE","source_id":"up","url":"https://www.up.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.584Z","event":"FETCH_FAILURE","source_id":"unisa","url":"https://www.unisa.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.585Z","event":"FETCH_FAILURE","source_id":"hwseta","url":"https://www.hwseta.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.586Z","event":"FETCH_FAILURE","source_id":"uj","url":"https://www.uj.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.586Z","event":"FETCH_FAILURE","source_id":"wits","url":"https://www.wits.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:32.586Z","event":"FETCH_FAILURE","source_id":"up","url":"https://www.up.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.095Z","event":"FETCH_FAILURE","source_id":"hwseta","url":"https://www.hwseta.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.097Z","event":"FETCH_FAILURE","source_id":"uj","url":"https://www.uj.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.098Z","event":"FETCH_FAILURE","source_id":"wits","url":"https://www.wits.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.100Z","event":"FETCH_FAILURE","source_id":"unisa","url":"https://www.unisa.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.102Z","event":"FETCH_FAILURE","source_id":"up","url":"https://www.up.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.106Z","event":"FETCH_FAILURE","source_id":"nmu","url":"https://www.mandela.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.107Z","event":"FETCH_FAILURE","source_id":"dut","url":"https://www.dut.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.108Z","event":"FETCH_FAILURE","source_id":"ukzn","url":"https://ukzn.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.108Z","event":"FETCH_FAILURE","source_id":"uct","url":"https://www.uct.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.109Z","event":"FETCH_FAILURE","source_id":"cut","url":"https://www.cut.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.367Z","event":"FETCH_FAILURE","source_id":"nmu","url":"https://www.mandela.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.368Z","event":"FETCH_FAILURE","source_id":"dut","url":"https://www.dut.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.369Z","event":"FETCH_FAILURE","source_id":"ukzn","url":"https://ukzn.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.370Z","event":"FETCH_FAILURE","source_id":"uct","url":"https://www.uct.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.371Z","event":"FETCH_FAILURE","source_id":"cut","url":"https://www.cut.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.915Z","event":"FETCH_FAILURE","source_id":"dut","url":"https://www.dut.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.918Z","event":"FETCH_FAILURE","source_id":"cut","url":"https://www.cut.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.921Z","event":"FETCH_FAILURE","source_id":"nmu","url":"https://www.mandela.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.924Z","event":"FETCH_FAILURE","source_id":"ukzn","url":"https://ukzn.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.927Z","event":"FETCH_FAILURE","source_id":"uct","url":"https://www.uct.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.934Z","event":"FETCH_FAILURE","source_id":"eskom","url":"https://www.eskom.co.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.935Z","event":"FETCH_FAILURE","source_id":"tut","url":"https://www.tut.ac.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.936Z","event":"FETCH_FAILURE","source_id":"transnet","url":"https://www.transnet.net/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.937Z","event":"FETCH_FAILURE","source_id":"prasa","url":"https://www.prasa.com/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:33.938Z","event":"FETCH_FAILURE","source_id":"sanral","url":"https://www.sanral.co.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.199Z","event":"FETCH_FAILURE","source_id":"tut","url":"https://www.tut.ac.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.201Z","event":"FETCH_FAILURE","source_id":"transnet","url":"https://www.transnet.net/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.202Z","event":"FETCH_FAILURE","source_id":"eskom","url":"https://www.eskom.co.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.203Z","event":"FETCH_FAILURE","source_id":"prasa","url":"https://www.prasa.com/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.203Z","event":"FETCH_FAILURE","source_id":"sanral","url":"https://www.sanral.co.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.716Z","event":"FETCH_FAILURE","source_id":"tut","url":"https://www.tut.ac.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.719Z","event":"FETCH_FAILURE","source_id":"transnet","url":"https://www.transnet.net/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.723Z","event":"FETCH_FAILURE","source_id":"eskom","url":"https://www.eskom.co.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.726Z","event":"FETCH_FAILURE","source_id":"sanral","url":"https://www.sanral.co.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.729Z","event":"FETCH_FAILURE","source_id":"prasa","url":"https://www.prasa.com/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.737Z","event":"FETCH_FAILURE","source_id":"saa","url":"https://www.flysaa.com/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.738Z","event":"FETCH_FAILURE","source_id":"standard-bank","url":"https://www.standardbank.com/sbg/standard-bank-group/careers","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.739Z","event":"FETCH_FAILURE","source_id":"fnb","url":"https://www.fnb.co.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.740Z","event":"FETCH_FAILURE","source_id":"denel","url":"https://www.denel.co.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.740Z","event":"FETCH_FAILURE","source_id":"absa","url":"https://www.absa.africa/absaafrica/careers/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.998Z","event":"FETCH_FAILURE","source_id":"standard-bank","url":"https://www.standardbank.com/sbg/standard-bank-group/careers","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.998Z","event":"FETCH_FAILURE","source_id":"saa","url":"https://www.flysaa.com/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:34.999Z","event":"FETCH_FAILURE","source_id":"fnb","url":"https://www.fnb.co.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.000Z","event":"FETCH_FAILURE","source_id":"absa","url":"https://www.absa.africa/absaafrica/careers/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.012Z","event":"FETCH_FAILURE","source_id":"denel","url":"https://www.denel.co.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.508Z","event":"FETCH_FAILURE","source_id":"fnb","url":"https://www.fnb.co.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.510Z","event":"FETCH_FAILURE","source_id":"absa","url":"https://www.absa.africa/absaafrica/careers/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.512Z","event":"FETCH_FAILURE","source_id":"standard-bank","url":"https://www.standardbank.com/sbg/standard-bank-group/careers","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.513Z","event":"FETCH_FAILURE","source_id":"saa","url":"https://www.flysaa.com/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.520Z","event":"FETCH_FAILURE","source_id":"mtn","url":"https://group.mtn.com/careers/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.520Z","event":"FETCH_FAILURE","source_id":"nedbank","url":"https://www.nedbank.co.za/content/nedbank/desktop/gt/en/careers.html","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.521Z","event":"FETCH_FAILURE","source_id":"vodacom","url":"https://www.vodacom.com/careers.php","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.521Z","event":"FETCH_FAILURE","source_id":"sasol","url":"https://www.sasol.com/careers","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.522Z","event":"FETCH_FAILURE","source_id":"denel","url":"https://www.denel.co.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.528Z","event":"FETCH_FAILURE","source_id":"shoprite","url":"https://www.shopriteholdings.co.za/careers.html","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.793Z","event":"FETCH_FAILURE","source_id":"nedbank","url":"https://www.nedbank.co.za/content/nedbank/desktop/gt/en/careers.html","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.794Z","event":"FETCH_FAILURE","source_id":"mtn","url":"https://group.mtn.com/careers/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.794Z","event":"FETCH_FAILURE","source_id":"vodacom","url":"https://www.vodacom.com/careers.php","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.795Z","event":"FETCH_FAILURE","source_id":"sasol","url":"https://www.sasol.com/careers","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:35.796Z","event":"FETCH_FAILURE","source_id":"shoprite","url":"https://www.shopriteholdings.co.za/careers.html","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.304Z","event":"FETCH_FAILURE","source_id":"vodacom","url":"https://www.vodacom.com/careers.php","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.306Z","event":"FETCH_FAILURE","source_id":"mtn","url":"https://group.mtn.com/careers/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.308Z","event":"FETCH_FAILURE","source_id":"nedbank","url":"https://www.nedbank.co.za/content/nedbank/desktop/gt/en/careers.html","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.310Z","event":"FETCH_FAILURE","source_id":"sasol","url":"https://www.sasol.com/careers","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.312Z","event":"FETCH_FAILURE","source_id":"shoprite","url":"https://www.shopriteholdings.co.za/careers.html","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.318Z","event":"FETCH_FAILURE","source_id":"pick-n-pay","url":"https://www.pnp.co.za/careers","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.319Z","event":"FETCH_FAILURE","source_id":"city-of-johannesburg","url":"https://www.joburg.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.320Z","event":"FETCH_FAILURE","source_id":"city-of-cape-town","url":"https://www.capetown.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.320Z","event":"FETCH_FAILURE","source_id":"woolworths","url":"https://www.woolworths.co.za/corporate/careers","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.320Z","event":"FETCH_FAILURE","source_id":"ethekwini","url":"https://www.durban.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.579Z","event":"FETCH_FAILURE","source_id":"pick-n-pay","url":"https://www.pnp.co.za/careers","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.579Z","event":"FETCH_FAILURE","source_id":"city-of-johannesburg","url":"https://www.joburg.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.580Z","event":"FETCH_FAILURE","source_id":"city-of-cape-town","url":"https://www.capetown.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.580Z","event":"FETCH_FAILURE","source_id":"woolworths","url":"https://www.woolworths.co.za/corporate/careers","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:36.581Z","event":"FETCH_FAILURE","source_id":"ethekwini","url":"https://www.durban.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.089Z","event":"FETCH_FAILURE","source_id":"city-of-johannesburg","url":"https://www.joburg.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.092Z","event":"FETCH_FAILURE","source_id":"pick-n-pay","url":"https://www.pnp.co.za/careers","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.094Z","event":"FETCH_FAILURE","source_id":"city-of-cape-town","url":"https://www.capetown.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.096Z","event":"FETCH_FAILURE","source_id":"woolworths","url":"https://www.woolworths.co.za/corporate/careers","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.098Z","event":"FETCH_FAILURE","source_id":"ethekwini","url":"https://www.durban.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.110Z","event":"FETCH_FAILURE","source_id":"nelson-mandela-bay","url":"https://www.nelsonmandelabay.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.111Z","event":"FETCH_FAILURE","source_id":"ekurhuleni","url":"https://www.ekurhuleni.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.112Z","event":"FETCH_FAILURE","source_id":"mangaung","url":"https://www.mangaung.co.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.112Z","event":"FETCH_FAILURE","source_id":"buffalo-city","url":"https://www.buffalocity.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.114Z","event":"FETCH_FAILURE","source_id":"tshwane","url":"https://www.tshwane.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.373Z","event":"FETCH_FAILURE","source_id":"nelson-mandela-bay","url":"https://www.nelsonmandelabay.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.374Z","event":"FETCH_FAILURE","source_id":"mangaung","url":"https://www.mangaung.co.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.374Z","event":"FETCH_FAILURE","source_id":"buffalo-city","url":"https://www.buffalocity.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.375Z","event":"FETCH_FAILURE","source_id":"tshwane","url":"https://www.tshwane.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.376Z","event":"FETCH_FAILURE","source_id":"ekurhuleni","url":"https://www.ekurhuleni.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.900Z","event":"FETCH_FAILURE","source_id":"nelson-mandela-bay","url":"https://www.nelsonmandelabay.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.903Z","event":"FETCH_FAILURE","source_id":"mangaung","url":"https://www.mangaung.co.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.905Z","event":"FETCH_FAILURE","source_id":"tshwane","url":"https://www.tshwane.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.906Z","event":"FETCH_FAILURE","source_id":"ekurhuleni","url":"https://www.ekurhuleni.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.908Z","event":"FETCH_FAILURE","source_id":"buffalo-city","url":"https://www.buffalocity.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.914Z","event":"FETCH_FAILURE","source_id":"msunduzi","url":"https://www.msunduzi.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.914Z","event":"FETCH_FAILURE","source_id":"stellenbosch-municipality","url":"https://stellenbosch.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.915Z","event":"FETCH_FAILURE","source_id":"western-cape-government","url":"https://www.westerncape.gov.za/jobs","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.915Z","event":"FETCH_FAILURE","source_id":"gauteng-government","url":"https://www.gauteng.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:37.916Z","event":"FETCH_FAILURE","source_id":"kzn-government","url":"https://www.kznonline.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.175Z","event":"FETCH_FAILURE","source_id":"stellenbosch-municipality","url":"https://stellenbosch.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.176Z","event":"FETCH_FAILURE","source_id":"msunduzi","url":"https://www.msunduzi.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.177Z","event":"FETCH_FAILURE","source_id":"gauteng-government","url":"https://www.gauteng.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.178Z","event":"FETCH_FAILURE","source_id":"western-cape-government","url":"https://www.westerncape.gov.za/jobs","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.178Z","event":"FETCH_FAILURE","source_id":"kzn-government","url":"https://www.kznonline.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.686Z","event":"FETCH_FAILURE","source_id":"stellenbosch-municipality","url":"https://stellenbosch.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.689Z","event":"FETCH_FAILURE","source_id":"msunduzi","url":"https://www.msunduzi.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.691Z","event":"FETCH_FAILURE","source_id":"gauteng-government","url":"https://www.gauteng.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.693Z","event":"FETCH_FAILURE","source_id":"western-cape-government","url":"https://www.westerncape.gov.za/jobs","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.694Z","event":"FETCH_FAILURE","source_id":"kzn-government","url":"https://www.kznonline.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.699Z","event":"FETCH_FAILURE","source_id":"csir","url":"https://www.csir.co.za/careers","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.700Z","event":"FETCH_FAILURE","source_id":"nsfas","url":"https://www.nsfas.org.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.701Z","event":"FETCH_FAILURE","source_id":"dhet","url":"https://www.dhet.gov.za/","status":403,"attempt":1,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.963Z","event":"FETCH_FAILURE","source_id":"csir","url":"https://www.csir.co.za/careers","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.964Z","event":"FETCH_FAILURE","source_id":"nsfas","url":"https://www.nsfas.org.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:38.965Z","event":"FETCH_FAILURE","source_id":"dhet","url":"https://www.dhet.gov.za/","status":403,"attempt":2,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:39.473Z","event":"FETCH_FAILURE","source_id":"dhet","url":"https://www.dhet.gov.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:39.474Z","event":"FETCH_FAILURE","source_id":"nsfas","url":"https://www.nsfas.org.za/","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:39.475Z","event":"FETCH_FAILURE","source_id":"csir","url":"https://www.csir.co.za/careers","status":403,"attempt":3,"error":"HTTP 403"}
+{"timestamp":"2026-06-16T18:24:39.475Z","event":"END","started_at":"2026-06-16T18:24:29.871Z","completed_at":"2026-06-16T18:24:39.475Z","sources_processed":58,"successful_fetches":0,"failed_fetches":58,"staged_records":0,"rejected_records":58}

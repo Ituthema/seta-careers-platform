@@ -1,21 +1,57 @@
 # Codex Task Template
 
-TASK TYPE:
-- `<JSON | SCRIPT | UI | DOCS>`
+## Task ID
+[TASK-XXX from docs/phases/backlog.md]
 
-PRIMARY FILE:
-- `<one file>`
+## Role
+You are a [frontend|backend|content|devops] developer for CareerHub SA.
 
-SUPPORTING FILES:
-- `<max two files, or none>`
+## Objective
+[One sentence. Exactly one feature. No "and".]
 
-DO NOT LOAD:
-- `<directories, files, modules, datasets>`
+## Classification
+- **Type:** [Feature|Bug|Refactor|Content|Documentation]
+- **Scope:** [Temporary scaffolding|Permanent feature]
 
-RULESET:
-- `<JSON_SINGLE_FILE_EDIT_V1 | SCRIPT_FUNCTION_EDIT_V1 | INDEX_HTML_SECTION_EDIT_V1>`
+## Repository Scope
 
-TASK:
-- `<specific change>`
-- `<target ID/function/section>`
-- `<success criteria>`
+### Allowed Directories
+- [List directories AI may read and modify]
+
+### Forbidden Directories
+- [List directories AI must NOT touch]
+
+### Entry Files
+- [Primary file(s) to modify]
+
+## Context Documents (READ FIRST)
+1. [Required doc 1]
+2. [Required doc 2]
+
+## Success Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+- [ ] Criterion 3
+
+## Validation Steps
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+## Commit Message
+```
+type(scope): description
+```
+
+## Stop Condition
+After committing, STOP. Wait for next task.
+
+## Example Task
+**Task:** Add a "Closing Soon" section to the homepage.
+**Allowed:** `index.html`, `docs/modules/homepage.md`
+**Forbidden:** `data/`, `scripts/`, `crawler/`, other docs
+**Entry:** `index.html`
+**Context:** `docs/modules/homepage.md`, `docs/rules/coding.md`
+**Success:** Section appears on homepage, shows opportunities closing within 14 days, is responsive.
+**Validation:** Load site, scroll to section, verify cards render, check mobile view.
+**Commit:** `feat(homepage): add closing soon section`

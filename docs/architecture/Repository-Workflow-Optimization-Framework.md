@@ -1,0 +1,478 @@
+# Repository Workflow Optimization Framework
+## Codex Context / Token Usage Reduction Framework
+
+Based on the conversations in this project, there are two major themes that were developed in depth:
+
+1. Repository Workflow Optimization Framework
+2. Codex Context / Token Usage Reduction Framework
+
+These discussions evolved into a methodology for building large repositories with AI while minimizing unnecessary context loading, reducing prompt sizes, increasing task completion rates, and making f[...]
+
+---
+
+## PART I — Repository Workflow Optimization Framework
+
+The repository workflow was designed around a modular AI-first development process.
+
+Instead of treating the repository as one large project, it is divided into independent systems.
+
+The goal is:
+
+- minimize AI context
+- isolate failures
+- improve maintainability
+- allow parallel development
+- reduce hallucinations
+- improve debugging
+- improve testing
+
+### 1 Repository as Independent Systems
+
+Rather than:
+```
+Repository
+    ↓
+Everything connected
+```
+
+the repository becomes:
+```
+Repository
+├── Frontend
+├── Backend
+├── Data Sources
+├── Scrapers
+├── API
+├── Validation
+├── Scheduler
+├── Parser
+├── Documentation
+├── Tests
+└── Deployment
+```
+
+Each system owns its own:
+- documentation
+- architecture
+- tests
+- configuration
+- AI context
+
+Meaning Codex only loads the section being modified.
+
+### 2 Layered Architecture
+
+Development is separated into layers.
+
+Example:
+```
+UI
+  ↓
+Business Logic
+  ↓
+Services
+  ↓
+Data Layer
+  ↓
+Storage
+  ↓
+Configuration
+```
+
+Each layer communicates through interfaces rather than directly.
+
+**Benefits:**
+- fewer dependencies
+- easier debugging
+- smaller AI context
+- isolated testing
+
+### 3 Feature Isolation
+
+Every feature is treated as its own module.
+
+Instead of:
+```
+Everything imports everything
+```
+
+Use:
+```
+Feature A
+├── docs
+├── tests
+├── logic
+└── config
+
+Feature B
+├── docs
+├── tests
+├── logic
+└── config
+```
+
+AI only needs Feature B to modify Feature B.
+
+### 4 Task-Based Development
+
+Large prompts become hundreds of small tasks.
+
+Example: Instead of "Build scraping system", split into:
+- Task 1: Create source loader
+- Task 2: Validate sources
+- Task 3: Create parser interface
+- Task 4: Implement PDF parser
+- Task 5: Unit tests
+
+Each task loads dramatically fewer files.
+
+### 5 Strict Repository Boundaries
+
+Every task clearly defines:
+- Allowed folders
+- Forbidden folders
+- Files to modify
+- Files to create
+- Expected outputs
+- Success criteria
+- Rollback strategy
+
+This prevents Codex from exploring the entire repository.
+
+### 6 Documentation-Driven Development
+
+Documentation becomes the primary source of truth.
+
+Examples:
+```
+docs/
+├── architecture
+├── modules
+├── rules
+├── context
+├── workflow
+├── templates
+├── contracts
+└── interfaces
+```
+
+Instead of loading 300 source files, AI loads a few documentation files.
+
+### 7 Phase-Based Development
+
+Development progresses in phases:
+- Phase 0: Repository structure
+- Phase 1: Infrastructure
+- Phase 2: Core engine
+- Phase 3: Scrapers
+- Phase 4: API
+- Phase 5: UI
+- Phase 6: Testing
+- Phase 7: Deployment
+
+Each phase has independent documentation.
+
+---
+
+## PART II — Codex Token Usage Reduction Framework
+
+This became one of the major focuses of the project.
+
+**Goal:** Reduce context size while increasing output quality.
+
+### Core Principle
+
+Never make Codex understand the whole repository.
+
+Instead: Make Codex understand one task.
+
+### 1 Context Isolation
+
+Every task receives only:
+- Objective
+- Files
+- Dependencies
+- Expected outputs
+- Success criteria
+- Nothing else.
+
+Instead of asking to "Understand entire repository", provide "Modify: scripts/parser.js Only."
+
+Huge token reduction.
+
+### 2 Context Hierarchy
+
+The framework defines multiple context levels:
+```
+Repository Context
+  ↓
+Module Context
+  ↓
+Feature Context
+  ↓
+Task Context
+  ↓
+File Context
+  ↓
+Function Context
+```
+
+Codex should only receive the lowest necessary level.
+
+### 3 Context Files
+
+Dedicated documentation files were proposed:
+
+```
+docs/context/
+├── repository.md
+├── frontend.md
+├── backend.md
+├── parser.md
+├── api.md
+├── scraper.md
+├── scheduler.md
+└── validation.md
+```
+
+Codex reads only one context file.
+
+### 4 AI Rules
+
+Create `docs/rules/` containing:
+- Naming conventions
+- Folder rules
+- Coding standards
+- Architecture rules
+- Import rules
+- Testing rules
+- Documentation rules
+
+Instead of explaining rules every prompt.
+
+### 5 Prompt Templates
+
+Instead of rewriting prompts, store templates:
+
+```
+docs/templates/
+├── bug-fix.md
+├── feature.md
+├── refactor.md
+├── documentation.md
+├── testing.md
+├── review.md
+└── optimization.md
+```
+
+### 6 Scope Limitation
+
+Every task contains:
+- **Scope**: What can be modified
+- **Out of scope**: What cannot be touched
+- **Forbidden actions**: What is prohibited
+
+Example:
+```
+ONLY modify:
+- scripts/parser.js
+
+Do NOT modify:
+- data
+- UI
+- tests
+- package.json
+```
+
+Codex explores dramatically fewer files.
+
+### 7 Explicit Constraints
+
+Tasks define:
+- May create
+- May edit
+- Must not edit
+- Allowed dependencies
+- Forbidden dependencies
+- Expected filenames
+- Expected functions
+- Maximum files modified
+
+This prevents unnecessary exploration.
+
+### 8 Small Independent Tasks
+
+Large "Implement scraper" becomes:
+- Task A: Create interface
+- Task B: Validate URLs
+- Task C: Normalize output
+- Task D: Error handling
+- Task E: Tests
+- Task F: Documentation
+
+Each prompt becomes tiny.
+
+### 9 Task Chaining
+
+Rather than one huge prompt, use sequential tasks:
+```
+Task 1
+  ↓
+Task 2
+  ↓
+Task 3
+  ↓
+Task 4
+```
+
+Each task references outputs from previous tasks instead of repeating full context.
+
+### 10 Repository Memory
+
+Persistent documentation replaces repeated explanations:
+- architecture.md
+- coding-rules.md
+- interfaces.md
+- contracts.md
+
+Codex loads these instead of rediscovering the repository.
+
+### 11 Interface Contracts
+
+Modules communicate through documented interfaces:
+```
+Input
+  ↓
+Validation
+  ↓
+Parser
+  ↓
+Normalizer
+  ↓
+Storage
+```
+
+Each interface is documented. Codex doesn't inspect every module.
+
+### 12 Stable APIs
+
+Document:
+- Inputs
+- Outputs
+- Types
+- Errors
+- Examples
+
+No source-code exploration required.
+
+### 13 AI Context Compression
+
+Instead of loading 100 files, summarize into:
+- One architecture file
+- One interface file
+- One workflow file
+- One module file
+
+This dramatically reduces prompt size.
+
+### 14 Documentation Before Code
+
+Before implementation, create:
+- Architecture
+- Contracts
+- Interfaces
+- Workflow
+- Dependencies
+
+Then implementation. AI reads documentation instead of discovering code.
+
+### 15 Standard Task Structure
+
+Every Codex prompt follows a fixed structure:
+1. Objective
+2. Scope
+3. Files allowed
+4. Files forbidden
+5. Expected output
+6. Constraints
+7. Acceptance criteria
+
+This standardization reduces ambiguity and unnecessary context.
+
+### 16 Dependency Mapping
+
+Document module dependencies explicitly. Instead of allowing AI to infer relationships, provide a dependency graph showing which modules interact and which are isolated. This reduces exploratory code reading.
+
+### 17 Incremental Repository Indexing
+
+Maintain lightweight index files that summarize repository structure, major modules, and entry points. AI consults these indexes first before any code, avoiding repeated directory traversal.
+
+### 18 Architecture Decision Records (ADRs)
+
+Capture important architectural decisions in dedicated documents. Future tasks reference ADRs instead of rediscovering why design choices were made, preventing repeated analysis.
+
+### 19 Success Criteria-Driven Prompts
+
+Every task specifies measurable completion criteria such as:
+- Required files created or modified
+- Tests passing
+- Documentation updated
+- No unrelated files changed
+
+This limits over-implementation.
+
+### 20 Failure and Rollback Guidance
+
+Include expected failure handling and rollback instructions within task prompts so Codex can avoid cascading changes when a step cannot be completed.
+
+### 21 Documentation Directory Structure
+
+A dedicated documentation hierarchy was proposed to support context compression:
+
+```
+docs/
+├── architecture/
+├── context/
+├── rules/
+├── templates/
+├── workflow/
+├── interfaces/
+├── contracts/
+├── modules/
+├── phases/
+├── testing/
+├── deployment/
+└── decisions/
+```
+
+Each directory serves a distinct purpose, allowing AI to load only the documentation relevant to the current task.
+
+### 22 Prompt Design Principles
+
+The discussions consistently emphasized that effective prompts should:
+- Be single-objective
+- Have explicit scope boundaries
+- Define allowed and forbidden files
+- Specify expected outputs and acceptance criteria
+- Avoid repeating repository-wide context
+- Reference existing documentation instead of embedding large explanations
+- Be reusable through standardized templates
+
+### 23 Expected Benefits
+
+Implementing the combined Repository Workflow Optimization Framework and Codex Token Usage Reduction Framework is expected to provide:
+- Significant reductions in prompt and context token consumption
+- Lower AI operating costs
+- Faster task completion
+- Higher completion accuracy
+- Reduced hallucinations
+- Fewer unintended repository modifications
+- Improved maintainability and onboarding
+- Better modularity and separation of concerns
+- Easier testing and debugging
+- Greater consistency across AI-assisted development sessions
+- Reusable documentation and prompt assets that compound efficiency over time
+
+---
+
+Together, these discussions define an AI-first repository engineering methodology: structure the repository around modular components, capture architecture and rules in persistent documentation, and constrain AI tasks to minimal, focused scopes.

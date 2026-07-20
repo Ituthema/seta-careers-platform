@@ -7,4 +7,4 @@ Disallow: /data/
 Disallow: /assets/js/
 
 # Sitemap location — update with your real domain
-Sitemap: https://opportunitiesza.co.za/sitemap.xml
+Sitemap: https://setacareersportal.abrdns.com/sitemap.xml
