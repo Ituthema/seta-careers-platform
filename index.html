@@ -660,6 +660,11 @@ function renderLoadError(err){
   </div>`;
 }
 
+// Escapes text for safe interpolation into innerHTML string templates.
+function esc(value){
+  return String(value==null?'':value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
 /* ═══════════════════════════════════════════════════════════
    UTILS
 ═══════════════════════════════════════════════════════════ */
@@ -699,7 +704,6 @@ const SECURITY={
     return node;
   }
 };
-const esc=value=>SECURITY.escapeText(value);
 const attr=value=>SECURITY.escapeAttr(value);
 const safeId=value=>SECURITY.safeId(value);
 const safeUrl=value=>SECURITY.safeUrl(value);
