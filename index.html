@@ -739,6 +739,7 @@ const bkBtn=id=>`<button class="bk-btn bk-${attr(safeId(id))}" data-action="togg
    ROUTER
 ═══════════════════════════════════════════════════════════ */
 let _page='home',_opp=null,_guide=null,_dirCat='';
+let _pendingDirSearch=null; // {q, cat} — set by heroSearch(), consumed once by bindDir()
 const catPathMap={learnership:'learnerships',internship:'internships',bursary:'bursaries',apprenticeship:'apprenticeships',tvet:'tvet-pathways'};
 const pathCatMap=Object.fromEntries(Object.entries(catPathMap).map(([cat,path])=>[path,cat]));
 let calState={year:new Date().getFullYear(),month:new Date().getMonth(),view:'list',cat:'',sel:null};
@@ -1017,15 +1018,8 @@ function renderHome(){
 function heroSearch(){
   const q=document.getElementById('hq')?.value||'';
   const c=document.getElementById('hc')?.value||'';
-  _dirCat=c;
-  go('directory');
-  setTimeout(()=>{
-    const si=document.getElementById('di');
-    const sc=document.getElementById('dc');
-    if(si)si.value=q;
-    if(sc&&c)sc.value=c;
-    applyDir();
-  },60);
+  _pendingDirSearch={q,cat:c};
+  go('directory',c);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1109,7 +1103,16 @@ function resetDir(){
 }
 
 function noRes(){return`<div class="no-res"><div class="nr-ico">🔍</div><h3>No results found</h3><p style="font-size:14px;margin-bottom:20px">Try adjusting filters or search term</p><button class="btn btn-primary" onclick="resetDir()">Clear all filters</button></div>`;}
-function bindDir(){}
+function bindDir(){
+  if(!_pendingDirSearch) return;
+  const {q,cat}=_pendingDirSearch;
+  _pendingDirSearch=null;
+  const di=document.getElementById('di');
+  const dc=document.getElementById('dc');
+  if(di) di.value=q;
+  if(dc&&cat) dc.value=cat;
+  if(q||cat) applyDir();
+}
 
 /* ═══════════════════════════════════════════════════════════
    DETAIL
