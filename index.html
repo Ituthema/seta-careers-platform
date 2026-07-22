@@ -656,7 +656,7 @@ function renderLoadError(err){
   if(app) app.innerHTML=`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:70px 24px;text-align:center">
     <h1 style="font-family:'Fraunces',serif;color:var(--rd);font-size:30px;margin-bottom:10px">We could not load the listings</h1>
     <p style="color:var(--t2);margin-bottom:22px">Please refresh the page. If the problem continues, check that the content files are available in <code>/data/</code>.</p>
-    <pre style="white-space:pre-wrap;text-align:left;background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:14px;color:var(--mu);font-size:12px">${err.message}</pre>
+    <pre style="white-space:pre-wrap;text-align:left;background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:14px;color:var(--mu);font-size:12px">${esc(err.message)}</pre>
   </div>`;
 }
 
