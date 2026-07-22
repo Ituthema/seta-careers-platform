@@ -44,6 +44,9 @@ node_modules/
 npm-debug.log*
 package-lock.json
 
+# ── CRAWLER RUN HISTORY (archived diagnostics, not tracked) ──
+crawler/output/history/
+
 # ── TEMPORARY FILES ──────────────────────────────────────────
 *.tmp
 *.temp

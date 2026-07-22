@@ -7,6 +7,7 @@ const STAGING_PATH = path.join(OUTPUT_DIR, 'staging.json');
 const REJECTED_PATH = path.join(OUTPUT_DIR, 'rejected.json');
 const REPORT_PATH = path.join(OUTPUT_DIR, 'crawl-report.json');
 const LOG_PATH = path.join(LOG_DIR, 'crawl.log');
+const HISTORY_DIR = path.join(OUTPUT_DIR, 'history');
 
 const LOG_EVENTS = Object.freeze({
   START: 'START',
@@ -37,8 +38,25 @@ function appendLog(event, details = {}) {
   fs.appendFileSync(LOG_PATH, `${line}\n`, 'utf8');
 }
 
+function archivePreviousRun() {
+  const filesToArchive = [STAGING_PATH, REJECTED_PATH, REPORT_PATH, LOG_PATH];
+  const hasPreviousRun = filesToArchive.some((filePath) => fs.existsSync(filePath));
+  if (!hasPreviousRun) return;
+
+  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+  const runDir = path.join(HISTORY_DIR, stamp);
+  fs.mkdirSync(runDir, { recursive: true });
+
+  for (const filePath of filesToArchive) {
+    if (fs.existsSync(filePath)) {
+      fs.copyFileSync(filePath, path.join(runDir, path.basename(filePath)));
+    }
+  }
+}
+
 function initializeRunFiles() {
   ensureCrawlerStorage();
+  archivePreviousRun();
   writeJson(STAGING_PATH, []);
   writeJson(REJECTED_PATH, []);
   writeJson(REPORT_PATH, {
