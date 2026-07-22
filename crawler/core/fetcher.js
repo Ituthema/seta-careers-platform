@@ -8,6 +8,8 @@ async function fetchOnce(source, config) {
   const response = await axios.get(source.url, {
     timeout: config.timeout,
     maxRedirects: config.maxRedirects,
+    maxContentLength: config.maxBodyBytes,
+    maxBodyLength: config.maxBodyBytes,
     responseType: 'arraybuffer',
     validateStatus: () => true,
     headers: {
