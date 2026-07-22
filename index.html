@@ -665,6 +665,13 @@ function esc(value){
   return String(value==null?'':value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
+// Decodes a URI-encoded route segment, returning '' instead of throwing
+// URIError on malformed input (e.g. a truncated %-escape in a shared link).
+function safeDecode(segment){
+  try{ return decodeURIComponent(segment||''); }
+  catch(e){ return ''; }
+}
+
 /* ═══════════════════════════════════════════════════════════
    UTILS
 ═══════════════════════════════════════════════════════════ */
@@ -769,19 +776,19 @@ class RouterWrapper {
       _page='home';
     }else if(parts[0]==='directory'){
       _page='directory';
-      _dirCat=decodeURIComponent(parts[1]||'');
+      _dirCat=safeDecode(parts[1]);
     }else if(parts[0]==='opportunity'){
       _page='detail';
-      const id=decodeURIComponent(parts[1]||'');
+      const id=safeDecode(parts[1]);
       _opp=OPPS.find(o=>o.id===id)||null;
     }else if(pathCatMap[parts[0]]&&parts[1]){
       _page='detail';
-      const slug=decodeURIComponent(parts[1]||'');
+      const slug=safeDecode(parts[1]);
       const cat=pathCatMap[parts[0]];
       _opp=OPPS.find(o=>o.slug===slug&&o.cat===cat)||OPPS.find(o=>o.slug===slug)||null;
     }else if(parts[0]==='guides'&&parts[1]){
       _page='guide-detail';
-      const id=decodeURIComponent(parts[1]);
+      const id=safeDecode(parts[1]);
       _guide=GUIDES.find(g=>g.id===id)||null;
     }else{
       _page=parts[0];
