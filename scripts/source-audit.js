@@ -49,7 +49,16 @@ function printAudit(report) {
     }
   }
 
-  console.log(`\nReport written to ${path.relative(process.cwd(), REPORT_PATH)}`);
+  if (shouldWriteReport()) {
+    console.log(`\nReport written to ${path.relative(process.cwd(), REPORT_PATH)}`);
+  } else {
+    console.log('\nReport not written (pass --write-report or set WRITE_REPORT=1 to persist).');
+  }
+}
+
+function shouldWriteReport(options = {}) {
+  if (typeof options.writeReport === 'boolean') return options.writeReport;
+  return process.argv.includes('--write-report') || process.env.WRITE_REPORT === '1';
 }
 
 function runAudit(options = {}) {
@@ -57,7 +66,9 @@ function runAudit(options = {}) {
   const sources = loadSources(registryPath);
   const validation = validateRegistry(sources, { minimumSources: options.minimumSources ?? MINIMUM_SOURCE_COUNT });
   const report = buildReport(validation, registryPath);
-  writeReport(report, options.reportPath || REPORT_PATH);
+  if (shouldWriteReport(options)) {
+    writeReport(report, options.reportPath || REPORT_PATH);
+  }
   return report;
 }
 
@@ -74,7 +85,7 @@ function main() {
       summary: { total: 0, active: 0, inactive: 0, by_type: {}, issue_counts: { PASS: 0, WARN: 0, FAIL: 1 } },
       issues: [{ level: 'FAIL', code: 'AUDIT_EXCEPTION', message: error.message, source_id: null, field: null }],
     };
-    writeReport(failure);
+    if (shouldWriteReport()) writeReport(failure);
     printAudit(failure);
     process.exit(1);
   }
@@ -96,5 +107,6 @@ module.exports = {
   REPORTS_DIR,
   buildReport,
   runAudit,
+  shouldWriteReport,
   writeReport,
 };
