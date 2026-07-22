@@ -101,11 +101,28 @@ Known page targets include:
 ## Routing
 - Hash-based routing is used for GitHub Pages compatibility.
 - Current route patterns:
-  - `/#/`
-  - `/#/opportunity/{slug}`
-  - `/#/category/{slug}`
-  - `/#/province/{slug}`
-- `404.html` handles the GitHub Pages SPA fallback so deep links can resolve back into the client-side application.
+  - `/#/` — homepage
+  - `/#/directory` — full opportunity directory
+  - `/#/directory/{category}` — directory pre-filtered by category
+    (`learnership`, `internship`, `bursary`, `apprenticeship`)
+  - `/#/opportunity/{id}` — opportunity detail page, keyed by the
+    opportunity's `id` field (NOT its `slug`)
+  - `/#/guides/{id}` — guide detail page, keyed by the guide's `id`
+    field (e.g. `g001`; NOT its `slug`)
+  - `/#/calendar`, `/#/tools`, `/#/eligibility`, `/#/scam`,
+    `/#/checklist`, `/#/bursary-checker`, `/#/guides`,
+    `/#/provinces`, `/#/saved`, `/#/about` — top-level pages matched
+    by RouterWrapper.apply()'s catch-all `else{ _page=parts[0]; }`
+    branch
+  - There is no `/#/category/{slug}` or `/#/province/{slug}` route.
+    Category filtering happens via `/#/directory/{category}`;
+    province filtering is client-side UI state on `/#/provinces` and
+    `/#/directory`, not a distinct route per province.
+- `404.html` converts legacy path-style URLs (e.g. `/opportunity/001`
+  from before the hash-route scheme was adopted, or stray external
+  backlinks) into the equivalent `/#/...` hash route and redirects
+  there, so old links still resolve into the correct page instead of
+  falling back to the homepage. See 404.html for the conversion logic.
 
 The hash router is temporary. It should be replaced with History API routing during the component/build migration and then with SSR-compatible routing during Phase 4.
 
