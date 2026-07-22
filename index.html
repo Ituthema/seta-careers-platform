@@ -521,8 +521,8 @@ const Search = {
       if (query) {
         const q = query.toLowerCase();
         results = results.filter(op =>
-          op.title.toLowerCase().includes(q) ||
-          op.description.toLowerCase().includes(q)
+          String(op.title || '').toLowerCase().includes(q) ||
+          String(op.description || '').toLowerCase().includes(q)
         );
       }
       if (filters.province) {
