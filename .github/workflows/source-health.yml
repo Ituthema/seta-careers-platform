@@ -1,0 +1,40 @@
+name: Source Registry Health
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Mondays 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  source-health:
+    name: Refresh source audit and health reports
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run source audit (write report)
+        run: npm run source:audit -- --write-report
+
+      - name: Run source health check (write report)
+        run: npm run source:health -- --write-report
+        continue-on-error: true
+        # continue-on-error: many public SA government/SETA sites
+        # block automated probes (see reports/source-health-report.json
+        # history — 403s are common and expected, not necessarily a
+        # real outage). This job's purpose is refreshing the report
+        # file, not gating CI on third-party site availability.
+
+      - name: Fail if reports are stale relative to committed copies
+        run: |
+          git diff --exit-code -- reports/source-audit-report.json reports/source-health-report.json || \
+          (echo "::warning::Source reports changed — run 'npm run source:audit -- --write-report && npm run source:health -- --write-report' locally and commit the refreshed reports." && exit 1)
