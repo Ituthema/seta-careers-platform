@@ -1072,7 +1072,6 @@ function renderDir(defCat=''){
     </select>
     <select class="fsel" id="ds" onchange="applyDir()">
       <option value="date">Sort: Closing Date</option>
-      <option value="urgent">Sort: Most Urgent</option>
     </select>
     <label class="fcheck"><input type="checkbox" id="dv" onchange="applyDir()"> Verified only</label>
     <button class="btn btn-ghost btn-sm" onclick="resetDir()">Clear All</button>
@@ -1102,7 +1101,7 @@ function applyDir(){
   let live=liveOpps();
   let res=filterOpps(live,cat,prov,q,ver);
   if(qual) res=res.filter(o=>o.qual===qual);
-  if(sort==='date'||sort==='urgent') {
+  if(sort==='date') {
     res=res.sort((a,b)=>{
       const dateA=a.close?new Date(a.close):new Date(8640000000000000);
       const dateB=b.close?new Date(b.close):new Date(8640000000000000);
