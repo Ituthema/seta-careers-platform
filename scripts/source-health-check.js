@@ -192,7 +192,7 @@ function buildReport(results, config) {
 
   return {
     generated_at: new Date().toISOString(),
-    status: unhealthyCount > 0 ? 'WARN' : warnCount > 0 ? 'WARN' : 'PASS',
+    status: unhealthyCount > 0 ? 'FAIL' : warnCount > 0 ? 'WARN' : 'PASS',
     summary: {
       checked: results.length,
       healthy: healthyCount,
