@@ -216,7 +216,16 @@ function printHealth(report) {
     console.log(`[${level}] ${result.source_id}: status=${status}, response_time=${result.response_time}ms, redirects=${result.redirects}, ssl=${result.ssl_available}${error}`);
   }
 
-  console.log(`\nReport written to ${path.relative(process.cwd(), REPORT_PATH)}`);
+  if (shouldWriteReport()) {
+    console.log(`\nReport written to ${path.relative(process.cwd(), REPORT_PATH)}`);
+  } else {
+    console.log('\nReport not written (pass --write-report or set WRITE_REPORT=1 to persist).');
+  }
+}
+
+function shouldWriteReport(options = {}) {
+  if (typeof options.writeReport === 'boolean') return options.writeReport;
+  return process.argv.includes('--write-report') || process.env.WRITE_REPORT === '1';
 }
 
 async function runHealthCheck(options = {}) {
@@ -232,7 +241,7 @@ async function runHealthCheck(options = {}) {
       validation_issues: validation.issues,
       sources: [],
     };
-    writeReport(report, options.reportPath || REPORT_PATH);
+    if (shouldWriteReport(options)) writeReport(report, options.reportPath || REPORT_PATH);
     return report;
   }
 
@@ -240,7 +249,7 @@ async function runHealthCheck(options = {}) {
   const selectedSources = config.limit > 0 ? activeSources.slice(0, config.limit) : activeSources;
   const results = await mapWithConcurrency(selectedSources, config.concurrency, (source) => probeSource(source, config));
   const report = buildReport(results, config);
-  writeReport(report, options.reportPath || REPORT_PATH);
+  if (shouldWriteReport(options)) writeReport(report, options.reportPath || REPORT_PATH);
   return report;
 }
 
@@ -265,7 +274,7 @@ if (require.main === module) {
       error: error.message,
       sources: [],
     };
-    writeReport(report);
+    if (shouldWriteReport()) writeReport(report);
     printHealth(report);
     process.exit(1);
   });
@@ -274,6 +283,7 @@ if (require.main === module) {
 module.exports = {
   REPORT_PATH,
   REPORTS_DIR,
+  shouldWriteReport,
   buildReport,
   checkSslAvailability,
   probeSource,
