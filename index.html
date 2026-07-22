@@ -701,9 +701,10 @@ const SECURITY={
   safeDataset(el,key,value){el.dataset[key]=String(value??'');},
   safeUrl(value){
     try{
-      const url=new URL(String(value??''),window.location.origin);
-      return ['http:','https:','mailto:','tel:'].includes(url.protocol)?url.href:'#';
-    }catch{return '#';}
+      const url=String(value||'');
+      const parsed=new URL(url);
+      return (parsed.protocol==='http:'||parsed.protocol==='https:')?url:'#';
+    }catch(e){return '#';}
   },
   setText(el,value){el.textContent=String(value??'');return el;},
   el(tag,{classes=[],attrs={},dataset={},text=null}={}){
@@ -717,7 +718,19 @@ const SECURITY={
 };
 const attr=value=>SECURITY.escapeAttr(value);
 const safeId=value=>SECURITY.safeId(value);
-const safeUrl=value=>SECURITY.safeUrl(value);
+// Returns the URL unchanged if it is a safe absolute http(s) URL,
+// otherwise returns '#'. Used before interpolating any data-sourced
+// URL into an href attribute, to block javascript:/data: URL schemes.
+function safeUrl(value){return SECURITY.safeUrl(value);}
+
+// Reads a copy-target URL from a button's data-copy-url attribute and
+// copies it to the clipboard. Used instead of interpolating the URL
+// directly into an inline onclick handler, which HTML-escaping alone
+// cannot safely protect (see TASK-122 rationale).
+function copyOppUrl(btn){
+  const url=btn.getAttribute('data-copy-url')||'';
+  navigator.clipboard.writeText(url).then(()=>{btn.textContent='✓ Copied!';});
+}
 const badge=cat=>`<span class="badge badge-${attr(safeId(cat))}">${esc(cat)}</span>`;
 const pill=(d)=>{const u=urgInfo(d);return`<span class="pill ${attr(u.cls)}" style="background:${attr(u.bg)};color:${attr(u.c)}">${esc(u.label)}</span>`;};
 const liveOpps=()=>OPPS.filter(o=>!o.expired&&days(o.close)>=0);
@@ -1169,10 +1182,10 @@ function renderDetail(){
 
   <div class="apply-block">
     <p>Always apply via the official company website. This links directly to the official source.</p>
-    <a href="${attr(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer" class="apply-btn">Apply Now — Official Link ↗</a>
+    <a href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer" class="apply-btn">Apply Now — Official Link ↗</a>
     <div class="share-row">
-      <a href="${attr(safeUrl(`https://wa.me/?text=${waText}`))}" target="_blank" class="share-btn share-wa">📲 Share on WhatsApp</a>
-      <button class="share-btn share-copy" data-action="copy-url" data-url="${attr(safeUrl(o.url))}">📋 Copy Link</button>
+      <a href="https://wa.me/?text=${waText}" target="_blank" class="share-btn share-wa">📲 Share on WhatsApp</a>
+      <button class="share-btn share-copy" data-copy-url="${esc(safeUrl(o.url))}" onclick="copyOppUrl(this)">📋 Copy Link</button>
     </div>
     <div class="apply-note">Source: ${esc(o.src)} · Last verified: ${new Date().toLocaleDateString("en-ZA")}</div>
   </div>
