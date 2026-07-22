@@ -1551,9 +1551,9 @@ function renderGuides(){
   <p style="color:var(--mu);margin-bottom:32px;font-size:15px">Plain-language guides explaining South Africa's career systems — written for job seekers, not HR departments.</p>
   <div class="guide-grid">
     ${GUIDES.map(g=>`<div class="guide-card" onclick="openGuide('${g.id}')">
-      <div class="gc-meta">📖 ${g.cat.replace('-',' ')} · ${g.read} read</div>
-      <h3 class="gc-title">${g.title}</h3>
-      <p class="gc-intro">${g.intro}</p>
+      <div class="gc-meta">📖 ${esc(g.cat.replace('-',' '))} · ${esc(g.read)} read</div>
+      <h3 class="gc-title">${esc(g.title)}</h3>
+      <p class="gc-intro">${esc(g.intro)}</p>
       <span class="gc-lnk">Read guide →</span>
     </div>`).join('')}
   </div>
@@ -1572,12 +1572,12 @@ function renderGuideDetail(){
   <div class="breadcrumb">
     <button onclick="go('home')">Home</button><span class="sep">›</span>
     <button onclick="go('guides')">Guides</button><span class="sep">›</span>
-    <span style="color:var(--t2)">${g.title}</span>
+    <span style="color:var(--t2)">${esc(g.title)}</span>
   </div>
-  <div class="gc-meta" style="font-size:11px;margin-bottom:12px">📖 ${g.cat.replace('-',' ')} · ${g.read} read</div>
-  <h1 style="font-family:'Fraunces',serif;font-size:clamp(24px,4vw,38px);font-weight:900;color:var(--tx);line-height:1.2;letter-spacing:-1.5px;margin-bottom:22px">${g.title}</h1>
+  <div class="gc-meta" style="font-size:11px;margin-bottom:12px">📖 ${esc(g.cat.replace('-',' '))} · ${esc(g.read)} read</div>
+  <h1 style="font-family:'Fraunces',serif;font-size:clamp(24px,4vw,38px);font-weight:900;color:var(--tx);line-height:1.2;letter-spacing:-1.5px;margin-bottom:22px">${esc(g.title)}</h1>
   <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r);padding:18px 20px;margin-bottom:26px">
-    <p style="font-size:15px;color:var(--gmid);font-weight:500;line-height:1.7;margin:0">${g.intro}</p>
+    <p style="font-size:15px;color:var(--gmid);font-weight:500;line-height:1.7;margin:0">${esc(g.intro)}</p>
   </div>
   <style>.gbd h2{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:var(--tx);margin:24px 0 12px}.gbd p{font-size:15px;color:var(--t2);line-height:1.85;margin-bottom:14px}.gbd ul{padding-left:22px;margin-bottom:14px}.gbd li{margin-bottom:6px;line-height:1.6;color:var(--t2);font-size:15px}.gbd strong{color:var(--tx)}</style>
   <div class="gbd">${g.body}</div>
