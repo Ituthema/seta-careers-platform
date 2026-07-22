@@ -4,9 +4,10 @@
   "private": true,
   "description": "South Africa career opportunity intelligence platform for learnerships, bursaries, internships, and apprenticeships.",
   "scripts": {
-    "validate": "node validate-content.js",
+    "validate": "node scripts/validate-content.js",
     "sitemap": "node sitemap-generator.js",
-    "check": "npm run validate && npm run links && npm run sitemap",
+    "validate:routes": "node validate-content.js",
+    "check": "npm run validate && npm run links && npm run sitemap && npm run validate:routes",
     "links": "node scripts/check-links.js",
     "source:audit": "node scripts/source-audit.js",
     "source:health": "node scripts/source-health-check.js",

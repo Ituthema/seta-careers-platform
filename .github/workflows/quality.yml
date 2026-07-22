@@ -34,5 +34,8 @@ jobs:
       - name: Regenerate sitemap
         run: npm run sitemap
 
+      - name: Validate sitemap/router/data consistency
+        run: npm run validate:routes
+
       - name: Ensure generated files are committed
         run: git diff --exit-code -- sitemap.xml
