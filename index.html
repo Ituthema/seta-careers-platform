@@ -457,7 +457,11 @@ const CONFIG = {
 const Storage = {
   async getBookmarks() {
     if (CONFIG.features.bookmarks === 'local') {
-      return JSON.parse(localStorage.getItem('careerhub_bookmarks') || '[]');
+      try {
+        return JSON.parse(localStorage.getItem('careerhub_bookmarks') || '[]');
+      } catch {
+        return [];
+      }
     }
     const res = await fetch('/api/bookmarks');
     return res.json();
@@ -521,8 +525,8 @@ const Search = {
       if (query) {
         const q = query.toLowerCase();
         results = results.filter(op =>
-          op.title.toLowerCase().includes(q) ||
-          op.description.toLowerCase().includes(q)
+          String(op.title || '').toLowerCase().includes(q) ||
+          String(op.description || '').toLowerCase().includes(q)
         );
       }
       if (filters.province) {
