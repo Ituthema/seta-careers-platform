@@ -16,15 +16,25 @@
     const parts = path.split('/').filter(Boolean);
     let target = '/';
 
+    // Mirrors index.html's catPathMap/pathCatMap — keep in sync
+    // (see docs/architecture/frontend.md "Keeping These in Sync").
+    const catMap = { learnerships:'learnership', bursaries:'bursary', internships:'internship', apprenticeships:'apprenticeship', 'tvet-pathways':'tvet' };
+
     if (parts[0] === 'opportunity' && parts[1]) {
       target = `/#/opportunity/${parts[1]}`;
     } else if (parts[0] === 'guides' && parts[1]) {
       target = `/#/guides/${parts[1]}`;
+    } else if (catMap[parts[0]] && parts[1]) {
+      // The router can resolve category-plural + slug directly to the
+      // specific opportunity (RouterWrapper.apply()'s pathCatMap
+      // branch) — preserve the slug instead of degrading to the
+      // generic filtered directory.
+      target = `/#/${parts[0]}/${parts[1]}`;
     } else if (parts[0]) {
-      // Legacy category-style paths (e.g. /learnerships/, /bursaries/xyz)
-      // from the old broken sitemap — best effort: send to the matching
-      // directory filter, or the guides list for guide categories.
-      const catMap = { learnerships:'learnership', bursaries:'bursary', internships:'internship', apprenticeships:'apprenticeship' };
+      // Category-plural path with no slug segment (e.g. bare
+      // /learnerships/), or an unrecognized single-segment path —
+      // best effort: send to the matching directory filter, or the
+      // guides list for guide categories.
       const guideCats = new Set(['seta-guides','career-advice']);
       if (catMap[parts[0]]) target = `/#/directory/${catMap[parts[0]]}`;
       else if (guideCats.has(parts[0])) target = '/#/guides';

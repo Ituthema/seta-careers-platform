@@ -603,7 +603,8 @@ function mapOpportunity(o){
     elig:o.eligibility||[],
     employment_eligibility:o.employment_eligibility||[],
     docs:o.documents_needed||[],
-    tags:o.tags||[]
+    tags:o.tags||[],
+    updatedDate:o.updated_date||null
   };
 }
 
@@ -665,8 +666,11 @@ function renderLoadError(err){
 }
 
 // Escapes text for safe interpolation into innerHTML string templates.
+// Delegates to SECURITY.escapeAttr() rather than reimplementing the
+// same character-escape set, per docs/security/rendering-security.md's
+// "no duplicated escaping logic" rule.
 function esc(value){
-  return String(value==null?'':value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  return SECURITY.escapeAttr(value);
 }
 
 // Decodes a URI-encoded route segment, returning '' instead of throwing
@@ -679,7 +683,21 @@ function safeDecode(segment){
 /* ═══════════════════════════════════════════════════════════
    UTILS
 ═══════════════════════════════════════════════════════════ */
-const days=d=>Math.ceil((new Date(d)-new Date())/86400000);
+// Compares a YYYY-MM-DD closing date against the LOCAL calendar date
+// (not a UTC-midnight instant), so an opportunity stays "open" for
+// its entire local closing day regardless of the visitor's timezone
+// or time of day. Returns the number of whole calendar days remaining
+// (0 = closes today, negative = already past its closing date).
+function daysUntil(dateOnlyString){
+  if(!dateOnlyString) return -1;
+  const [y,m,d]=String(dateOnlyString).split('-').map(Number);
+  if(!y||!m||!d) return -1;
+  const closing=new Date(y,m-1,d); // local midnight of the closing date
+  const today=new Date();
+  const todayLocal=new Date(today.getFullYear(),today.getMonth(),today.getDate());
+  return Math.round((closing-todayLocal)/86400000);
+}
+const days=daysUntil;
 const fmtD=d=>new Date(d).toLocaleDateString("en-ZA",{day:"numeric",month:"long",year:"numeric"});
 const fmtMY=d=>new Date(d).toLocaleDateString("en-ZA",{month:"long",year:"numeric"});
 const fmtShort=d=>new Date(d).toLocaleDateString("en-ZA",{day:"numeric",month:"short"});
@@ -744,9 +762,14 @@ function toggleSave(id,e){
   const idx=s.indexOf(id);
   if(idx>-1) s.splice(idx,1); else s.push(id);
   localStorage.setItem('opza_saved',JSON.stringify(s));
-  document.querySelectorAll(`[data-bookmark-id="${SECURITY.cssEscape(id)}"]`).forEach(el=>el.textContent=isSaved(id)?'🔖':'🔲');
+  document.querySelectorAll(`[data-bookmark-id="${SECURITY.cssEscape(id)}"]`).forEach(el=>{
+    const saved=isSaved(id);
+    el.textContent=saved?'🔖':'🔲';
+    el.title=saved?'Remove bookmark':'Save opportunity';
+    el.setAttribute('aria-pressed',String(saved));
+  });
 }
-const bkBtn=id=>`<button class="bk-btn bk-${attr(safeId(id))}" data-action="toggle-save" data-bookmark-id="${attr(id)}" title="${isSaved(id)?'Remove bookmark':'Save opportunity'}">${isSaved(id)?'🔖':'🔲'}</button>`;
+const bkBtn=id=>`<button class="bk-btn bk-${attr(safeId(id))}" data-action="toggle-save" data-bookmark-id="${attr(id)}" title="${isSaved(id)?'Remove bookmark':'Save opportunity'}" aria-pressed="${isSaved(id)}">${isSaved(id)?'🔖':'🔲'}</button>`;
 
 /* ═══════════════════════════════════════════════════════════
    ROUTER
@@ -865,12 +888,19 @@ document.addEventListener('click',e=>{
   if(save){toggleSave(save.dataset.bookmarkId,e);return;}
   const opp=e.target.closest('[data-action="open-opp"]');
   if(opp){openOpp(opp.dataset.oppId);return;}
+  const guide=e.target.closest('[data-action="open-guide"]');
+  if(guide){openGuide(guide.dataset.guideId);return;}
   const copy=e.target.closest('[data-action="copy-url"]');
   if(copy){navigator.clipboard.writeText(copy.dataset.url||'').then(()=>copy.textContent='✓ Copied!');return;}
   const dir=e.target.closest('[data-action="go-dir"]');
   if(dir){goDir(dir.dataset.category||'');return;}
   const province=e.target.closest('[data-action="filter-province"]');
   if(province){filterByProvince(province.dataset.province||'');}
+  const browseBursaries=e.target.closest('[data-action="browse-all-bursaries"]');
+  if(browseBursaries){
+    _pendingDirSearch={q:'',cat:'bursary'};
+    go('directory','bursary');
+  }
 });
 document.addEventListener('keydown',e=>{
   if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-action="open-opp"]')){e.preventDefault();openOpp(e.target.dataset.oppId);}
@@ -997,10 +1027,10 @@ function renderHome(){
     </div>
     <div class="guide-grid">
       ${GUIDES.slice(0,3).map(g=>`
-        <div class="guide-card" onclick="openGuide('${g.id}')">
-          <div class="gc-meta">📖 ${g.cat.replace('-',' ')} · ${g.read}</div>
-          <h3 class="gc-title">${g.title}</h3>
-          <p class="gc-intro">${g.intro}</p>
+        <div class="guide-card" data-action="open-guide" data-guide-id="${attr(g.id)}">
+          <div class="gc-meta">📖 ${esc(g.cat.replace('-',' '))} · ${esc(g.read)}</div>
+          <h3 class="gc-title">${esc(g.title)}</h3>
+          <p class="gc-intro">${esc(g.intro)}</p>
           <span class="gc-lnk">Read guide →</span>
         </div>`).join('')}
     </div>
@@ -1060,6 +1090,7 @@ function renderDir(defCat=''){
     </select>
     <select class="fsel" id="dq" onchange="applyDir()">
       <option value="">Any Qualification</option>
+      <option value="Grade 11">Grade 11</option>
       <option value="Matric">Matric</option>
       <option value="Diploma">Diploma</option>
       <option value="Degree">Degree</option>
@@ -1094,7 +1125,7 @@ function applyDir(){
   const ver=document.getElementById('dv')?.checked||false;
   let live=liveOpps();
   let res=filterOpps(live,cat,prov,q,ver);
-  if(qual) res=res.filter(o=>o.qual===qual);
+  if(qual) res=res.filter(o=>(OR[o.qual]||3)<=(OR[qual]||3));
   if(sort==='date') {
     res=res.sort((a,b)=>{
       const dateA=a.close?new Date(a.close):new Date(8640000000000000);
@@ -1189,7 +1220,7 @@ function renderDetail(){
       <a href="https://wa.me/?text=${waText}" target="_blank" class="share-btn share-wa">📲 Share on WhatsApp</a>
       <button class="share-btn share-copy" data-copy-url="${esc(safeUrl(o.url))}" onclick="copyOppUrl(this)">📋 Copy Link</button>
     </div>
-    <div class="apply-note">Source: ${esc(o.src)} · Last verified: ${new Date().toLocaleDateString("en-ZA")}</div>
+    <div class="apply-note">Source: ${esc(o.src)} · Last verified: ${o.updatedDate?esc(fmtD(o.updatedDate)):'Verification date unavailable'}</div>
   </div>
 
   ${rel.length?`<h3 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--g);margin-bottom:16px">More ${esc(o.cat)}s</h3>
@@ -1538,7 +1569,7 @@ function runBursary(){
         <div style="font-size:12px;color:var(--mu)">${esc(o.prov)} · ${esc(o.stipend)}</div>
       </div>`).join('')}</div>`:''}
   </div>
-  <button class="btn btn-primary" onclick="go('directory');setTimeout(()=>{document.getElementById('dc').value='bursary';applyDir()},60)">Browse All Bursaries →</button>`;
+  <button class="btn btn-primary" data-action="browse-all-bursaries">Browse All Bursaries →</button>`;
   br.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
@@ -1550,7 +1581,7 @@ function renderGuides(){
   <h1 style="font-size:clamp(26px,5vw,42px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">SETA Guides & Career Resources</h1>
   <p style="color:var(--mu);margin-bottom:32px;font-size:15px">Plain-language guides explaining South Africa's career systems — written for job seekers, not HR departments.</p>
   <div class="guide-grid">
-    ${GUIDES.map(g=>`<div class="guide-card" onclick="openGuide('${g.id}')">
+    ${GUIDES.map(g=>`<div class="guide-card" data-action="open-guide" data-guide-id="${attr(g.id)}">
       <div class="gc-meta">📖 ${esc(g.cat.replace('-',' '))} · ${esc(g.read)} read</div>
       <h3 class="gc-title">${esc(g.title)}</h3>
       <p class="gc-intro">${esc(g.intro)}</p>
