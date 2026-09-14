@@ -37,5 +37,8 @@ jobs:
       - name: Validate sitemap/router/data consistency
         run: npm run validate:routes
 
+      - name: Validate GitHub Pages custom-domain configuration
+        run: npm run validate:pages
+
       - name: Ensure generated files are committed
         run: git diff --exit-code -- sitemap.xml
