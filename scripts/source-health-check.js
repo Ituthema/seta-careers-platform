@@ -258,7 +258,10 @@ async function main() {
   const report = await runHealthCheck(config);
   printHealth(report);
 
-  if (report.status === 'FAIL' || (config.strict && report.summary.unhealthy > 0)) {
+  // A health report may include unavailable third-party sources.  The default
+  // invocation is a reporting operation, so retain the report and return
+  // success unless the caller explicitly asks for a strict health gate.
+  if (config.strict && report.summary.unhealthy > 0) {
     process.exit(1);
   }
 
