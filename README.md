@@ -112,18 +112,13 @@ git push
 
 ## 🌐 Custom Domain Setup
 
-### Step 1 — Buy Your Domain
-Recommended SA registrars (cheapest to most features):
-- **Hetzner.co.za** — ~R99/year for .co.za
-- **Afrihost.com** — ~R150/year, good DNS management
-- **Domains.co.za** — ~R129/year
+### Step 1 — Use the ClouDNS child zone
+`setacareersportal.abrdns.com` is a ClouDNS Free DNS child zone, not a
+domain registered to this project. Manage its records in the
+`setacareersportal.abrdns.com` zone in ClouDNS; there is no registrar-side
+delegation or parent `abrdns.com` zone to configure.
 
-Recommended names:
-- `setacareersportal.abrdns.com`
-- `setacareershub.co.za`
-- `careerssouthafrica.co.za`
-
-### Step 2 — Create CNAME File
+### Step 2 — Keep the root CNAME file
 ```bash
 # In your project root
 echo "setacareersportal.abrdns.com" > CNAME
@@ -132,8 +127,8 @@ git commit -m "Add custom domain CNAME"
 git push
 ```
 
-### Step 3 — Set DNS Records at Your Registrar
-In your registrar's DNS management panel, add these records:
+### Step 3 — Set DNS records in the child zone
+In the ClouDNS `setacareersportal.abrdns.com` zone, keep these records:
 
 | Type  | Host | Value                |
 |-------|------|----------------------|
@@ -143,13 +138,36 @@ In your registrar's DNS management panel, add these records:
 | A     | @    | 185.199.111.153      |
 | CNAME | www  | ituthema.github.io   |
 
+Do **not** add a `setacareersportal` CNAME in this zone: that would create
+`setacareersportal.setacareersportal.abrdns.com`. The `@` records above are
+already the apex records for the custom domain.
+
 ### Step 4 — Configure in GitHub Pages
 1. Settings → Pages → Custom domain
 2. Enter: `setacareersportal.abrdns.com`
 3. Click Save, wait for DNS check ✓
 4. **Enable "Enforce HTTPS"** once verified
 
-DNS propagation takes 15 minutes to 48 hours.
+This repository deploys directly from the branch root, with no generated
+GitHub Pages output directory. `npm run validate:pages` (also run in the
+quality workflow) verifies that the tracked root `CNAME` file remains
+present and contains only the expected hostname on every deploy.
+
+Check public DNS and the served site after changing DNS or Pages settings:
+
+```bash
+dig NS setacareersportal.abrdns.com +short
+dig A setacareersportal.abrdns.com +short
+dig CNAME www.setacareersportal.abrdns.com +short
+curl -I https://setacareersportal.abrdns.com
+```
+
+The A lookup must return GitHub Pages' four IP addresses shown above. If
+the child zone is not publicly delegated to ClouDNS after a reasonable wait,
+contact ClouDNS support and reference the Free DNS child zone specifically;
+there is no registrar-side fix. After DNS is accepted by GitHub Pages, HTTPS
+certificate provisioning can take up to about 24 hours before **Enforce
+HTTPS** is available.
 
 ---
 
