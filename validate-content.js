@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
+const { opportunityRoutePath, CAT_PATH_MAP } = require('./route-paths');
 
 const ROOT = __dirname;
 const BASE = 'https://setacareersportal.abrdns.com';
@@ -11,8 +12,9 @@ function read(file) { return fs.readFileSync(path.join(ROOT, file), 'utf8'); }
 function loadJSON(file) { return JSON.parse(read(file)); }
 function isLiveOpportunity(o) { return !o.expired && (!o.closing_date || o.closing_date >= TODAY); }
 
-// Matches AppRouter.pageToPath('detail', o) → '/opportunity/{id}'
-function opportunityHashPath(o) { return `/#/opportunity/${o.id}`; }
+// Mirrors AppRouter.pageToPath('detail', o) in index.html via route-paths.js:
+// '/{category-plural}/{slug}' (legacy '/opportunity/{id}' only without a slug).
+function opportunityHashPath(o) { return `/#${opportunityRoutePath(o)}`; }
 
 function difference(left, right) { return [...left].filter(v => !right.has(v)).sort(); }
 function assertNoDiff(label, leftName, left, rightName, right) {
@@ -47,13 +49,35 @@ if (duplicateIds.length) {
   process.exitCode = 1;
 }
 
+// Keep route-paths.js in sync with index.html's catPathMap.
+const catPathMapSource = indexHTML.match(/const catPathMap=\{([^}]*)\}/);
+if (!catPathMapSource) {
+  console.error('❌ Could not find catPathMap in index.html to compare with route-paths.js.');
+  process.exit(1);
+}
+const htmlCatMap = Object.fromEntries(
+  [...catPathMapSource[1].matchAll(/['"]?([\w-]+)['"]?\s*:\s*'([^']+)'/g)].map(m => [m[1], m[2]])
+);
+if (JSON.stringify(Object.entries(htmlCatMap).sort()) !== JSON.stringify(Object.entries(CAT_PATH_MAP).sort())) {
+  console.error('❌ route-paths.js CAT_PATH_MAP is out of sync with catPathMap in index.html.');
+  console.error(`   index.html:     ${JSON.stringify(htmlCatMap)}`);
+  console.error(`   route-paths.js: ${JSON.stringify(CAT_PATH_MAP)}`);
+  process.exit(1);
+}
+
+// Sitemap entries that are opportunity detail pages: canonical
+// /{category-plural}/{slug} or the legacy /opportunity/{id}.
+const opportunityLocPattern = new RegExp(
+  `^/#/(?:${[...Object.values(CAT_PATH_MAP), 'opportunity'].join('|')})/[^/]+$`
+);
+
 const sitemap = read('sitemap.xml');
 const sitemapHashPaths = new Set(
   [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
     .map(m => m[1])
     .filter(loc => loc.startsWith(BASE))
     .map(loc => loc.slice(BASE.length))
-    .filter(loc => /^\/#\/opportunity\/[^/]+$/.test(loc))
+    .filter(loc => opportunityLocPattern.test(loc))
 );
 
 assertNoDiff('Opportunity sitemap sync', 'data/opportunities.json', liveHashPaths, 'sitemap.xml', sitemapHashPaths);

@@ -741,6 +741,39 @@ const safeId=value=>SECURITY.safeId(value);
 // URL into an href attribute, to block javascript:/data: URL schemes.
 function safeUrl(value){return SECURITY.safeUrl(value);}
 
+// Allowlist sanitizer for the few fields that legitimately carry HTML
+// (currently only guide bodies). Parses with DOMParser (which never runs
+// scripts or loads resources), rebuilds a fresh tree containing only
+// allowlisted elements, strips every attribute except a safe <a href>,
+// and unwraps unknown elements to their text so no content is lost.
+const GUIDE_ALLOWED_TAGS=new Set(['H2','H3','H4','P','UL','OL','LI','STRONG','B','EM','I','BR','BLOCKQUOTE','A']);
+const GUIDE_DROP_TAGS=new Set(['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','TEMPLATE','NOSCRIPT','SVG','MATH']);
+function sanitizeGuideHtml(html){
+  const doc=new DOMParser().parseFromString(String(html??''),'text/html');
+  const out=document.createElement('div');
+  (function walk(src,dst){
+    src.childNodes.forEach(node=>{
+      if(node.nodeType===3){dst.appendChild(document.createTextNode(node.nodeValue));return;}
+      if(node.nodeType!==1) return;
+      const tag=node.tagName.toUpperCase();
+      if(GUIDE_DROP_TAGS.has(tag)) return;
+      if(!GUIDE_ALLOWED_TAGS.has(tag)){walk(node,dst);return;}
+      const el=document.createElement(tag.toLowerCase());
+      if(tag==='A'){
+        const href=safeUrl(node.getAttribute('href'));
+        if(href!=='#'){
+          el.setAttribute('href',href);
+          el.setAttribute('target','_blank');
+          el.setAttribute('rel','noopener noreferrer');
+        }
+      }
+      walk(node,el);
+      dst.appendChild(el);
+    });
+  })(doc.body,out);
+  return out.innerHTML;
+}
+
 // Reads a copy-target URL from a button's data-copy-url attribute and
 // copies it to the clipboard. Used instead of interpolating the URL
 // directly into an inline onclick handler, which HTML-escaping alone
@@ -1611,7 +1644,7 @@ function renderGuideDetail(){
     <p style="font-size:15px;color:var(--gmid);font-weight:500;line-height:1.7;margin:0">${esc(g.intro)}</p>
   </div>
   <style>.gbd h2{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:var(--tx);margin:24px 0 12px}.gbd p{font-size:15px;color:var(--t2);line-height:1.85;margin-bottom:14px}.gbd ul{padding-left:22px;margin-bottom:14px}.gbd li{margin-bottom:6px;line-height:1.6;color:var(--t2);font-size:15px}.gbd strong{color:var(--tx)}</style>
-  <div class="gbd">${g.body}</div>
+  <div class="gbd">${sanitizeGuideHtml(g.body)}</div>
   <div style="background:var(--g);border-radius:var(--r);padding:24px;margin:32px 0">
     <h3 style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:8px">Ready to Apply?</h3>
     <p style="color:#86efac;font-size:14px;margin-bottom:14px">Browse all current verified opportunities in South Africa.</p>
