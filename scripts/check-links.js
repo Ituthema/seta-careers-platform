@@ -5,6 +5,10 @@
  * The checker fails on hard-broken HTTP responses such as 404/410 while
  * treating bot-blocking or transient network failures as warnings by default.
  * Set LINK_CHECK_STRICT=true to fail on warnings in scheduled maintenance runs.
+ *
+ * The run also fails if ZERO links could be verified (every request failed
+ * before any site responded), since that proves nothing about link health.
+ * Set LINK_CHECK_ALLOW_UNVERIFIED=true to bypass in no-network sandboxes.
  */
 
 const fs = require('fs');
@@ -95,7 +99,9 @@ async function checkUrl(url, refs) {
       let response = await request(url, 'HEAD');
       if ([405, 501].includes(response.status)) response = await request(url, 'GET');
       const statusResult = classifyStatus(response.status);
-      return { url, refs, ...statusResult };
+      // The target host answered, so the link was genuinely checked
+      // (even when the answer was a 401/403/429 or a 5xx warning).
+      return { url, refs, verified: true, ...statusResult };
     } catch (error) {
       lastError = error;
       if (attempt <= RETRIES) {
@@ -104,11 +110,15 @@ async function checkUrl(url, refs) {
     }
   }
 
+  // No HTTP response from the target at all (DNS failure, timeout, proxy or
+  // CONNECT tunnel refusal, TLS error). This says nothing about the link, so it
+  // is reported as UNVERIFIED rather than as a site failure.
   return {
     url,
     refs,
+    verified: false,
     level: STRICT ? 'error' : 'warning',
-    message: `Network check failed after ${RETRIES + 1} attempt(s): ${lastError.message}`,
+    message: `UNVERIFIED — no response from the site (network/environment issue) after ${RETRIES + 1} attempt(s): ${lastError.message}`,
   };
 }
 
@@ -141,9 +151,23 @@ async function main() {
 
   const warnings = results.filter(result => result.level === 'warning').length;
   const errors = results.filter(result => result.level === 'error').length;
+  const verified = results.filter(result => result.verified).length;
+  const unverified = results.length - verified;
   console.log(`\nChecked ${results.length} unique opportunity URL(s): ${errors} error(s), ${warnings} warning(s).`);
+  console.log(`Verified (site responded): ${verified}. Unverified (no response / network issue): ${unverified}.`);
 
   if (errors > 0 || (STRICT && warnings > 0)) process.exit(1);
+
+  // An all-unverified run proves nothing, so it must not pass silently.
+  // Set LINK_CHECK_ALLOW_UNVERIFIED=true for sandboxes with no outbound access.
+  if (results.length > 0 && verified === 0) {
+    if (process.env.LINK_CHECK_ALLOW_UNVERIFIED === 'true') {
+      console.warn('⚠️  No links could be verified; allowed by LINK_CHECK_ALLOW_UNVERIFIED=true.');
+    } else {
+      console.error('❌ No links could be verified (every request failed before reaching a site). Run from an environment with outbound HTTPS access, or set LINK_CHECK_ALLOW_UNVERIFIED=true to bypass.');
+      process.exit(1);
+    }
+  }
 }
 
 main();

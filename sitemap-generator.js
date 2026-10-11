@@ -6,6 +6,7 @@
 
 const fs   = require('fs');
 const path = require('path');
+const { opportunityRoutePath } = require('./route-paths');
 
 const BASE = 'https://setacareersportal.abrdns.com';
 const DEFAULT_LASTMOD = '2026-05-01';
@@ -57,8 +58,8 @@ function escapeXml(value) {
     .replace(/'/g, '&apos;');
 }
 
-// Converts a router-style path ("/opportunity/001") into the real,
-// crawlable URL the app responds to ("BASE/#/opportunity/001").
+// Converts a router-style path ("/learnerships/some-slug") into the real,
+// crawlable URL the app responds to ("BASE/#/learnerships/some-slug").
 // Hash fragments are never sent to the server, so GitHub Pages always
 // serves index.html for these — no 404/redirect dance needed.
 function hashUrl(routerPath) {
@@ -78,12 +79,14 @@ let urls = [];
 
 STATIC.forEach(p => urls.push(urlEntry(p)));
 
-// Opportunity detail pages — router keys by numeric `id`, NOT by slug/category.
+// Opportunity detail pages — canonical route is /{category-plural}/{slug},
+// exactly what RouterWrapper.pageToPath('detail', o) produces in index.html.
+// Records without a category/slug fall back to the legacy /opportunity/{id}.
 opps
   .filter(isLiveOpportunity)
   .forEach(o => {
     urls.push(urlEntry({
-      loc:      `/opportunity/${o.id}`,
+      loc:      opportunityRoutePath(o),
       priority: o.featured ? '0.8' : '0.7',
       freq:     'weekly',
       lastmod:  o.updated_date || DEFAULT_LASTMOD,
