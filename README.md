@@ -3,7 +3,7 @@
 South Africa's career opportunity intelligence platform for learnerships, bursaries, internships, and apprenticeships.
 
 **Live site:** https://  setacareersportal.abrdns.com
-**Repository:** https://github.com/Ituthema/seta-careers-platform1  
+**Repository:** https://github.com/Ituthema/seta-careers-platform
 **Stack:** Vanilla HTML / CSS / JS · GitHub Pages · Zero build step  
 
 ---
@@ -64,7 +64,7 @@ git init
 git add .
 git commit -m "Initial deployment — OpportunitiesZA"
 git branch -M main
-git remote add origin https://github.com/Ituthema/seta-careers-platform1.git
+git remote add origin https://github.com/Ituthema/seta-careers-platform.git
 git push -u origin main
 
 # When prompted:
@@ -79,7 +79,7 @@ git push -u origin main
 3. Source: **Deploy from a branch**
 4. Branch: **main**, Folder: **/ (root)**
 5. Click **Save**
-6. Site will be live at: `https://ituthema.github.io/seta-careers-platform1/`
+6. Site will be live at: `https://ituthema.github.io/seta-careers-platform/`
 
 ---
 
