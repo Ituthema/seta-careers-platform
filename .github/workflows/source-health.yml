@@ -5,13 +5,22 @@ on:
     - cron: '0 6 * * 1'  # Mondays 06:00 UTC
   workflow_dispatch: {}
 
+# Read-only on purpose. This job publishes its reports as a run artifact and a
+# job summary instead of committing them: the reports contain a generated_at
+# timestamp, so a "regenerate and diff against the committed copy" gate can
+# never pass, and a scheduled job should not push to main unreviewed.
 permissions:
   contents: read
+
+concurrency:
+  group: source-health
+  cancel-in-progress: false
 
 jobs:
   source-health:
     name: Refresh source audit and health reports
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Check out repository
@@ -22,19 +31,28 @@ jobs:
         with:
           node-version: 24
 
+      # Fails the job if the registry itself is invalid.
       - name: Run source audit (write report)
         run: npm run source:audit -- --write-report
 
+      # Exits 0 even when third-party sites are unreachable (many public SA
+      # government/SETA sites block automated probes, so 403s are expected).
+      # A crash in the checker itself exits non-zero and fails the job. Set
+      # SOURCE_HEALTH_STRICT=1 here to also fail on unhealthy sources.
       - name: Run source health check (write report)
         run: npm run source:health -- --write-report
-        continue-on-error: true
-        # continue-on-error: many public SA government/SETA sites
-        # block automated probes (see reports/source-health-report.json
-        # history — 403s are common and expected, not necessarily a
-        # real outage). This job's purpose is refreshing the report
-        # file, not gating CI on third-party site availability.
 
-      - name: Fail if reports are stale relative to committed copies
-        run: |
-          git diff --exit-code -- reports/source-audit-report.json reports/source-health-report.json || \
-          (echo "::warning::Source reports changed — run 'npm run source:audit -- --write-report && npm run source:health -- --write-report' locally and commit the refreshed reports." && exit 1)
+      - name: Summarise reports
+        if: always()
+        run: node scripts/summarize-source-reports.js >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-reports
+          path: |
+            reports/source-audit-report.json
+            reports/source-health-report.json
+          if-no-files-found: warn
+          retention-days: 90

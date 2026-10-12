@@ -79,7 +79,7 @@ The file is a JSON array of source objects. Every object must follow the same sc
 5. **Add operational notes.** Explain what the source publishes and record any known handling requirements, such as PDFs, external applicant tracking systems, or blocked automation.
 6. **Validate locally.** Run `npm run source:audit` and resolve every `FAIL` before merging. Review any `WARN` output and update notes or metadata where appropriate.
 7. **Probe health.** Run `npm run source:health` to generate a fresh health report for active sources. Non-2xx responses are warnings by default because some public websites block automated probes.
-8. **Review reports.** Confirm `reports/source-audit-report.json` and `reports/source-health-report.json` were regenerated and contain expected results.
+8. **Review reports.** Confirm `reports/source-audit-report.json` and `reports/source-health-report.json` were regenerated and contain expected results. The committed copies are snapshots from the last manual run; commit refreshed ones only if you want to update the snapshot. The weekly `Source Registry Health` workflow does not commit anything; it publishes fresh reports as the `source-reports` artifact and a summary on the run page.
 
 ## Deactivation process
 
