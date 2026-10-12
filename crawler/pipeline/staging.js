@@ -19,6 +19,7 @@ const LOG_EVENTS = Object.freeze({
   PARSE_SUCCESS: 'PARSE_SUCCESS',
   PARSE_FAILURE: 'PARSE_FAILURE',
   VALIDATION_FAILURE: 'VALIDATION_FAILURE',
+  INTERNAL_ERROR: 'INTERNAL_ERROR',
   STAGED: 'STAGED',
 });
 
@@ -65,9 +66,12 @@ function initializeRunFiles() {
     sources_processed: 0,
     successful_fetches: 0,
     failed_fetches: 0,
+    internal_errors: 0,
     staged_records: 0,
     rejected_records: 0,
     rejected_by_reason: {},
+    status: '',
+    failure_reasons: [],
   });
   fs.writeFileSync(LOG_PATH, '', 'utf8');
 }

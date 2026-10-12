@@ -12,7 +12,8 @@
     "links": "node scripts/check-links.js",
     "source:audit": "node scripts/source-audit.js",
     "source:health": "node scripts/source-health-check.js",
-    "crawl": "node crawler/index.js"
+    "crawl": "node crawler/index.js",
+    "test": "node --test crawler/core/run-status.test.js"
   },
   "engines": {
     "node": ">=18"
