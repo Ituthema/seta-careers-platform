@@ -12,7 +12,11 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'data');
-const TODAY = new Date().toISOString().slice(0, 10);
+// Today in South Africa (UTC+2), matching scripts/mark-expired.js.
+const TODAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Johannesburg' }).format(new Date());
+// Opt-in: turn lapsed-but-not-expired records into errors (e.g. for a scheduled
+// maintenance run). Off by default so CI does not go red just because a date passed.
+const STRICT_EXPIRY = process.env.CONTENT_STRICT_EXPIRY === 'true';
 
 const opportunityRequiredFields = [
   'id',
@@ -151,7 +155,8 @@ function validateOpportunities(opportunities) {
     }
 
     if (!opportunity.expired && opportunity.closing_date && opportunity.closing_date < TODAY) {
-      warnings.push(`${label}: closing_date ${opportunity.closing_date} is before ${TODAY} but expired is false`);
+      const msg = `${label}: closing_date ${opportunity.closing_date} is before ${TODAY} but expired is false (run: npm run expire)`;
+      (STRICT_EXPIRY ? errors : warnings).push(msg);
     }
 
     for (const field of ['application_url', 'source_url']) {

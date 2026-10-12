@@ -12,6 +12,8 @@
 - IDs/classes: `safeId(value)` for generated selector/class fragments.
 - Events: `data-action` + delegated `addEventListener()`.
 - Bookmark data: store IDs in `data-bookmark-id`; read through `dataset`.
+- Category and province metadata from `data/categories.json` / `data/provinces.json` (labels, descriptions, icons, colours) is untrusted too: `esc()` text, `attr()` attribute and `style` values, including `<option>` values and labels.
+- Guide bodies: `sanitizeGuideHtml()` (see Documented Exceptions).
 
 ## Prohibited Patterns
 
@@ -19,6 +21,7 @@
 - Raw opportunity fields in attributes, IDs, classes, or URLs.
 - `javascript:` or unsupported protocols in links.
 - Inline event handlers for opportunity cards, related opportunities, bookmarks, or copy-link actions.
+- Interpolating any data field into an inline handler. Some inline `onclick` handlers still exist (navigation, footer, tool pages, calendar controls, and `copyOppUrl(this)`, which reads the URL from `data-copy-url`). They contain only hard-coded constants or values built from numbers (the calendar date). Keep it that way, and prefer `data-action` when touching them.
 - Duplicated escaping logic outside the shared helpers.
 
 ## Examples
@@ -30,24 +33,17 @@
 
 ## Documented Exceptions
 
-- `guide.body` (rendered raw, unescaped, in `renderGuideDetail()`) is
-  the one deliberate exception to "Raw opportunity fields inside
-  innerHTML templates" above. `data/guides.json`'s `body` field
-  contains real authored HTML (`<h2>`, `<p>`, `<strong>`, etc.) that is
-  meant to render as formatted content — escaping it with `esc()`
-  would display literal tag text instead of formatting every guide
-  page.
-- This is safe ONLY under the current trust model: `data/guides.json`
-  is authored exclusively by the site owner directly editing the JSON
-  file. It is NOT currently open to additional contributors, an admin
-  CMS, or an API.
-- If that trust boundary ever changes (e.g. a CMS, multi-author
-  workflow, or API-driven guide authoring is introduced), `guide.body`
-  becomes a stored-XSS vector of identical severity to the ones this
-  document exists to prevent elsewhere, and must be run through a real
-  HTML sanitizer with an explicit allowed-tag/attribute list (e.g.
-  DOMPurify) before this exception can remain in place — NOT wrapped in
-  `esc()`, which would just break every guide's formatting instead of
-  safely neutralizing untrusted markup.
-- Do not extend this exception to any other field without the same
-  explicit trust-model reasoning documented here first.
+- `guide.body` is the one field that legitimately carries HTML. `data/guides.json` stores authored markup
+  (`<h2>`, `<p>`, `<strong>`, lists), and escaping it with `esc()` would print literal tags.
+- It is therefore **not** escaped, but it is no longer inserted raw either: `renderGuideDetail()` passes it through
+  `sanitizeGuideHtml()` in `index.html`.
+  - It parses with `DOMParser` (no script execution, no resource loading) and rebuilds a fresh tree.
+  - Allowed elements: `h2 h3 h4 p ul ol li strong b em i br blockquote a`.
+  - Every attribute is dropped, except `href` on `<a>`, which must pass `safeUrl()` (http/https only) and is
+    rewritten with `target="_blank" rel="noopener noreferrer"`.
+  - `script style iframe object embed template noscript svg math` are removed together with their contents.
+    Any other unknown element is unwrapped to its text.
+- This keeps `guide.body` safe even if the trust model changes (CMS, multiple authors, API-driven content),
+  but the allowlist is the contract: to support a new tag or attribute, extend `GUIDE_ALLOWED_TAGS` deliberately
+  rather than loosening the sanitizer.
+- Do not extend raw-HTML rendering to any other field without the same explicit reasoning documented here first.
