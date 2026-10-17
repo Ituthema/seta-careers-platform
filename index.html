@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>OpportunitiesZA | Learnerships, Bursaries & Internships South Africa 2026</title>
-<meta name="description" content="Find verified learnerships, bursaries, internships, and apprenticeships across South Africa. Free eligibility checker, deadline calendar, scam awareness tools. Updated daily.">
+<meta name="description" content="Find learnerships, bursaries, internships, and apprenticeships across South Africa, with links to the official application pages. Free eligibility checker, deadline calendar, and scam awareness tools.">
 <meta property="og:title" content="OpportunitiesZA | SA Career Opportunities 2026">
-<meta property="og:description" content="South Africa's most complete platform for learnerships, bursaries, and internships. Verified. Free. 100+ listings.">
+<meta property="og:description" content="Learnerships, bursaries, and internships across South Africa, linked to official sources. Free to use.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,18 +173,10 @@ h1,h2,h3{font-family:'Fraunces',serif}
 .gc-intro{font-size:13px;color:var(--mu);line-height:1.6;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .gc-lnk{font-size:13px;color:var(--g);font-weight:600}
 
-/* ═══ TRUST & NEWSLETTER ════════════════════════════════════ */
+/* ═══ TRUST ════════════════════════════════════ */
 .trust-strip{background:#f0fdf4;border-top:1px solid #bbf7d0;border-bottom:1px solid #bbf7d0;padding:28px 24px}
 .trust-in{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
 .trust-item{font-size:13.5px;color:var(--gmid);font-weight:500;display:flex;align-items:center;gap:6px}
-.newsletter{background:#111827;padding:52px 24px}
-.nl-in{max-width:500px;margin:0 auto;text-align:center}
-.nl-in h2{font-family:'Fraunces',serif;font-size:28px;font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:10px}
-.nl-in p{color:#9ca3af;font-size:14px;margin-bottom:26px}
-.nl-form{display:flex;gap:10px;flex-wrap:wrap}
-.nl-form input{flex:1;min-width:0;padding:13px 16px;border-radius:8px;border:none;font-size:14px;outline:none}
-.nl-form button{padding:13px 20px;background:var(--a);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap}
-.nl-note{font-size:11px;color:#4b5563;margin-top:12px}
 
 /* ═══ DIRECTORY ═════════════════════════════════════════════ */
 .dir-search{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:4px 4px 4px 16px;display:flex;gap:8px;margin-bottom:16px;box-shadow:var(--sh)}
@@ -339,7 +331,6 @@ footer{background:#111827;color:#9ca3af}
 @media(max-width:540px){
   .opp-grid,.guide-grid{grid-template-columns:1fr}
   .cat-grid{grid-template-columns:1fr 1fr}
-  .nl-form{flex-direction:column}
   .fi{grid-template-columns:1fr}
   .stats-in{gap:18px}
   .stat-num{font-size:22px}
@@ -394,7 +385,7 @@ footer{background:#111827;color:#9ca3af}
   <div class="fi">
     <div>
       <div class="flogo"><div class="flogo-icon">🧭</div><span class="flogo-text">OpportunitiesZA</span></div>
-      <p class="fa">South Africa's trusted guide to learnerships, bursaries, internships, and SETA opportunities. Verified. Free. Updated daily.</p>
+      <p class="fa">A free guide to learnerships, bursaries, internships, and SETA opportunities, with links to the official application pages.</p>
       <div class="ft">✓ Never collect your documents<br>✓ Never charge application fees<br>✓ All listings link to official sources</div>
     </div>
     <div>
@@ -945,7 +936,7 @@ document.addEventListener('keydown',e=>{
 function oppCard(o,compact=false){
   const u=urgInfo(o.close);
   return`<div class="opp-card${o.featured?' featured':''}" data-action="open-opp" data-opp-id="${attr(o.id)}" tabindex="0" role="button">
-  <div class="oc-top">${badge(o.cat)}${o.verified?'<span class="oc-verified">✓ Verified</span>':''}</div>
+  <div class="oc-top">${badge(o.cat)}${o.verified?'<span class="oc-verified">✓ Source checked</span>':''}</div>
   <h3 class="oc-title">${esc(o.title)}</h3>
   <div class="oc-meta"><span>📍 ${esc(o.prov)}</span>${o.stipend?`<span>💰 ${esc(o.stipend)}</span>`:''}</div>
   <div class="oc-footer">${pill(o.close)}<div style="display:flex;align-items:center;gap:10px"><span class="oc-link">View & Apply →</span>${bkBtn(o.id)}</div></div>
@@ -963,9 +954,9 @@ function renderHome(){
   <!-- HERO -->
   <div class="hero">
     <div class="hero-in">
-      <div class="hero-badge"><span>✓ Verified · Free · South Africa Only</span></div>
+      <div class="hero-badge"><span>✓ Official links · Free to use · South Africa Only</span></div>
       <h1>Find Your <em>Career</em><br>Opportunity in SA</h1>
-      <p class="hero-sub">Learnerships, bursaries, internships, and apprenticeships — verified against official sources and updated daily.</p>
+      <p class="hero-sub">Learnerships, bursaries, internships, and apprenticeships — linked to the official application pages.</p>
       <div class="search-bar">
         <input id="hq" placeholder="Search learnerships, bursaries, companies..." onkeydown="if(event.key==='Enter')heroSearch()">
         <select id="hc">
@@ -989,7 +980,7 @@ function renderHome(){
       <div class="stat"><span class="stat-num">${live.filter(o=>days(o.close)<=30).length}</span><span class="stat-label">Closing This Month</span></div>
       <div class="stat"><span class="stat-num">21</span><span class="stat-label">SETAs Covered</span></div>
       <div class="stat"><span class="stat-num">9</span><span class="stat-label">Provinces</span></div>
-      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Free to Apply</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Free to Use</span></div>
     </div>
   </div>
 
@@ -1039,7 +1030,7 @@ function renderHome(){
     <div class="tools-grid">
       ${[
         {icon:"✅",name:"Eligibility Checker",desc:"Find what you qualify for",p:"eligibility"},
-        {icon:"📅",name:"Deadline Calendar",desc:"Never miss a closing date",p:"calendar"},
+        {icon:"📅",name:"Deadline Calendar",desc:"Keep track of closing dates",p:"calendar"},
         {icon:"🛡️",name:"Scam Checker",desc:"Verify before you apply",p:"scam"},
         {icon:"📋",name:"Checklist Generator",desc:"Documents you need to apply",p:"checklist"},
         {icon:"🎯",name:"Bursary Probability",desc:"How likely are you to qualify?",p:"bursary-checker"},
@@ -1072,22 +1063,10 @@ function renderHome(){
   <!-- TRUST -->
   <div class="trust-strip" style="margin-top:52px">
     <div class="trust-in">
-      ${["✓ All sources verified against official websites","✓ Updated daily","✓ South Africa only","✓ We never collect your documents","✓ Zero application fees","✓ Scam-free directory"].map(t=>`<span class="trust-item">${t}</span>`).join('')}
+      ${["✓ Listings link to official websites","✓ South Africa only","✓ We never collect your documents","✓ We never charge application fees"].map(t=>`<span class="trust-item">${t}</span>`).join('')}
     </div>
   </div>
 
-  <!-- NEWSLETTER -->
-  <div class="newsletter">
-    <div class="nl-in">
-      <h2>Get Daily Opportunity Alerts</h2>
-      <p>Join South Africans who never miss a closing date. Free, no spam, unsubscribe anytime.</p>
-      <div class="nl-form">
-        <input type="email" placeholder="Your email address">
-        <button onclick="alert('Subscribed! You\'ll receive your first update shortly. ✓')">Subscribe Free</button>
-      </div>
-      <p class="nl-note">Your details are never shared. Unsubscribe anytime.</p>
-    </div>
-  </div>
   </div>`;
 }
 
@@ -1106,7 +1085,7 @@ function renderDir(defCat=''){
   const res=filterOpps(live,defCat,'','',false).sort((a,b)=>new Date(a.close)-new Date(b.close));
   return`<div class="page" style="max-width:var(--mw);margin:0 auto;padding:40px 24px 80px">
   <h1 style="font-size:clamp(26px,5vw,44px);font-weight:900;color:var(--g);letter-spacing:-1.5px;margin-bottom:8px">Browse Opportunities</h1>
-  <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Searching ${live.length} verified listings across South Africa</p>
+  <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Showing ${live.length} current listings across South Africa</p>
 
   <div class="dir-search">
     <input id="di" placeholder="Search by company, sector, keyword..." oninput="applyDir()">
@@ -1131,7 +1110,7 @@ function renderDir(defCat=''){
     <select class="fsel" id="ds" onchange="applyDir()">
       <option value="date">Sort: Closing Date</option>
     </select>
-    <label class="fcheck"><input type="checkbox" id="dv" onchange="applyDir()"> Verified only</label>
+    <label class="fcheck"><input type="checkbox" id="dv" onchange="applyDir()"> Source checked only</label>
     <button class="btn btn-ghost btn-sm" onclick="resetDir()">Clear All</button>
   </div>
   <div id="drc" class="rc"><strong>${res.length}</strong> opportunities found</div>
@@ -1211,7 +1190,7 @@ function renderDetail(){
   </div>
 
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px">
-    ${badge(o.cat)}${o.verified?'<span style="font-size:12px;color:var(--gmid);font-weight:600">✓ Verified Source</span>':''}
+    ${badge(o.cat)}${o.verified?'<span style="font-size:12px;color:var(--gmid);font-weight:600">✓ Source checked</span>':''}
   </div>
 
   <h1 class="detail-h1">${esc(o.title)}</h1>
@@ -1253,7 +1232,7 @@ function renderDetail(){
       <a href="https://wa.me/?text=${waText}" target="_blank" class="share-btn share-wa">📲 Share on WhatsApp</a>
       <button class="share-btn share-copy" data-copy-url="${esc(safeUrl(o.url))}" onclick="copyOppUrl(this)">📋 Copy Link</button>
     </div>
-    <div class="apply-note">Source: ${esc(o.src)} · Last verified: ${o.updatedDate?esc(fmtD(o.updatedDate)):'Verification date unavailable'}</div>
+    <div class="apply-note">Source: ${esc(o.src)} · Last checked: ${o.updatedDate?esc(fmtD(o.updatedDate)):'Check date unavailable'}</div>
   </div>
 
   ${rel.length?`<h3 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--g);margin-bottom:16px">More ${esc(o.cat)}s</h3>
@@ -1270,7 +1249,7 @@ const WDAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 function renderCal(){
   return`<div class="page" style="max-width:1000px;margin:0 auto;padding:40px 24px 80px">
   <h1 style="font-size:clamp(26px,5vw,42px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">Deadline Calendar</h1>
-  <p style="color:var(--mu);margin-bottom:24px">Never miss a closing date — all upcoming deadlines in one view</p>
+  <p style="color:var(--mu);margin-bottom:24px">Keep track of closing dates — all upcoming deadlines in one view</p>
   <div class="cal-ctrl">
     <select class="fsel" id="calCat" onchange="calCat(this.value)">
       <option value="">All Categories</option>
@@ -1344,7 +1323,7 @@ function renderTools(){
     {icon:"🛡️",title:"Scam Awareness Checker",desc:"Describe an opportunity and get a risk assessment against known scam signals.",p:"scam",c:"#dc2626",bg:"#fee2e2"},
     {icon:"📋",title:"Checklist Generator",desc:"Get a personalised document checklist for learnerships, bursaries, or internships.",p:"checklist",c:"#1e40af",bg:"#dbeafe"},
     {icon:"🎯",title:"Bursary Probability Checker",desc:"Estimate your likelihood of qualifying for bursaries based on your marks and profile.",p:"bursary-checker",c:"#6b21a8",bg:"#f3e8ff"},
-    {icon:"📅",title:"Deadline Calendar",desc:"View all upcoming closing dates in calendar or list view. Never miss a deadline.",p:"calendar",c:"#92400e",bg:"#fef3c7"},
+    {icon:"📅",title:"Deadline Calendar",desc:"View all upcoming closing dates in calendar or list view. Keep track of deadlines.",p:"calendar",c:"#92400e",bg:"#fef3c7"},
     {icon:"🗺️",title:"Browse by Province",desc:"Filter opportunities by your province — see what's available near you.",p:"provinces",c:"#065f46",bg:"#ecfdf5"},
   ];
   return`<div class="page" style="max-width:940px;margin:0 auto;padding:40px 24px 80px">
@@ -1468,7 +1447,7 @@ function runScam(){
     <div class="risk-level" style="color:${s.tc}">${level} RISK</div>
     <p class="risk-advice">${s.advice}</p>
     ${flags.length?`<ul class="risk-flags">${flags.map(f=>`<li>${f}</li>`).join('')}</ul>`:''}
-    <button class="btn btn-primary" onclick="go('directory')">Browse Verified Opportunities →</button>
+    <button class="btn btn-primary" onclick="go('directory')">Browse Opportunities →</button>
   </div>`;
   sr.scrollIntoView({behavior:'smooth',block:'start'});
 }
@@ -1647,7 +1626,7 @@ function renderGuideDetail(){
   <div class="gbd">${sanitizeGuideHtml(g.body)}</div>
   <div style="background:var(--g);border-radius:var(--r);padding:24px;margin:32px 0">
     <h3 style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:8px">Ready to Apply?</h3>
-    <p style="color:#86efac;font-size:14px;margin-bottom:14px">Browse all current verified opportunities in South Africa.</p>
+    <p style="color:#86efac;font-size:14px;margin-bottom:14px">Browse all current opportunities in South Africa.</p>
     <button class="btn btn-amber" onclick="go('directory')">Browse All Opportunities →</button>
   </div>
   <h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--g);margin-bottom:14px">Current Open Opportunities</h2>
@@ -1721,10 +1700,10 @@ function renderAbout(){
   <h1 style="font-family:'Fraunces',serif;font-size:clamp(28px,5vw,44px);font-weight:900;color:var(--g);letter-spacing:-1.5px;margin-bottom:8px">About OpportunitiesZA</h1>
   <div class="about-accent"></div>
   <p style="font-size:16px;color:var(--t2);line-height:1.85;margin-bottom:18px"><strong>OpportunitiesZA</strong> exists to make South Africa's career opportunity landscape simple and accessible. The biggest barrier between an unemployed young South African and their first qualification is not effort — it's information.</p>
-  <p style="font-size:15px;color:#4b5563;line-height:1.85;margin-bottom:32px">We publish verified listings, explain complex SETA systems in plain language, and build free tools so users can figure out what they qualify for — without paying anyone or sending their documents anywhere.</p>
+  <p style="font-size:15px;color:#4b5563;line-height:1.85;margin-bottom:32px">We publish listings that link to official sources, explain complex SETA systems in plain language, and build free tools so users can figure out what they qualify for — without paying anyone or sending their documents anywhere.</p>
   <h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--tx);margin-bottom:16px">What We Do</h2>
   <ul class="acl">
-    ${["Publish verified opportunity listings sourced from official company and government websites","Explain the SETA system, NQF levels, and career pathways in plain South African English","Maintain a deadline calendar so users never miss a closing date","Provide 6 free tools including eligibility checker, scam checker, and checklist generator","Verify every listing before publishing and archive expired listings promptly"].map(i=>`<li>${i}</li>`).join('')}
+    ${["Publish opportunity listings that link to official company and government websites","Explain the SETA system, NQF levels, and career pathways in plain South African English","Maintain a deadline calendar so users can keep track of closing dates","Provide 6 free tools including eligibility checker, scam checker, and checklist generator","Check each listing against its official source when it is added, and mark listings as expired once they close"].map(i=>`<li>${i}</li>`).join('')}
   </ul>
   <div class="disc-box">
     <h3>⚠️ Disclaimer</h3>
