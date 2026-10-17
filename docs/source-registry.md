@@ -157,6 +157,27 @@ The crawler preserves the existing rejected-record shape: each rejection still i
 | `UNSUPPORTED_CONTENT_TYPE` | Router | The fetched response could not be routed to a supported parser. |
 | `PARSER_ERROR` | Parser | Supported content was fetched, but parsing threw an error. |
 | `VALIDATION_FAILED` | Rejection pipeline | Parsed and normalized content failed downstream content validation. |
+| `INTERNAL_ERROR` | Crawler | The crawler itself threw an unexpected error while processing this source (a bug or a disk problem, not a site problem). The run continues with the other sources and then fails. |
+
+## Crawler exit code and run status
+
+`npm run crawl` prints a one-line summary and exits non-zero when the run is not a success. The same verdict is written to `crawler/output/crawl-report.json` as `status` (`OK` or `FAILED`) and `failure_reasons`. Logic lives in `crawler/core/run-status.js`; `npm test` covers it.
+
+A run **fails** when any of these hold:
+
+| Reason | Meaning |
+| --- | --- |
+| `NO_SOURCES` | No active, valid sources were loaded from `data/sources.json`. |
+| `NO_SUCCESSFUL_FETCHES` | Every source failed to fetch (for example the machine has no internet, or every site blocks the crawler). |
+| `INTERNAL_ERRORS` | At least one source hit an `INTERNAL_ERROR`. |
+| `LOW_SUCCESS_RATE` | Fewer sources fetched than `CRAWLER_MIN_SUCCESS_RATE` requires. |
+| `FATAL` | The run could not complete, for example an invalid `CRAWLER_MIN_SUCCESS_RATE`. |
+
+Individual sites blocking the crawler (403, timeouts) are expected for public South African government sites, so by default a run still **succeeds** as long as at least one source was fetched. Set `CRAWLER_MIN_SUCCESS_RATE` (a number from 0 to 1) for a stricter bar, for example:
+
+```bash
+CRAWLER_MIN_SUCCESS_RATE=0.5 npm run crawl
+```
 
 Example source registry rejection:
 
