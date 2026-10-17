@@ -171,46 +171,6 @@
     "updated_date": "2026-04-08"
   },
   {
-    "id": "005",
-    "slug": "transnet-apprenticeship-2026",
-    "title": "Transnet Freight Rail Apprenticeship 2026",
-    "category": "apprenticeship",
-    "sector": "TETA",
-    "province": "Gauteng",
-    "qualification_level": "Matric",
-    "stipend": "R6 000/month",
-    "closing_date": "2026-10-31",
-    "application_url": "https://www.transnet.net/careers",
-    "source_name": "Transnet SOC Ltd",
-    "source_url": "https://www.transnet.net/careers",
-    "verified": true,
-    "featured": false,
-    "expired": false,
-    "description": "3-year apprenticeship developing qualified artisans in diesel mechanical, electrical, and boilermaking trades. Leads to a nationally recognised trade certificate.",
-    "eligibility": [
-      "Matric with Mathematics and Physical Science (min 50%)",
-      "South African citizen aged 18–30",
-      "Medically fit (will be tested)"
-    ],
-    "employment_eligibility": [
-      "unemployed"
-    ],
-    "documents_needed": [
-      "Certified ID",
-      "Certified Matric with subject results",
-      "CV",
-      "Medical clearance certificate"
-    ],
-    "tags": [
-      "artisan",
-      "maths-science",
-      "gauteng",
-      "government"
-    ],
-    "posted_date": "2026-04-10",
-    "updated_date": "2026-04-10"
-  },
-  {
     "id": "006",
     "slug": "shoprite-retail-learnership-2026",
     "title": "Shoprite Group Retail Learnership 2026",
@@ -338,46 +298,6 @@
     ],
     "posted_date": "2026-04-15",
     "updated_date": "2026-06-03"
-  },
-  {
-    "id": "009",
-    "slug": "merseta-boilermaker-apprenticeship-2026",
-    "title": "MerSETA Boilermaker Apprenticeship 2026",
-    "category": "apprenticeship",
-    "sector": "MerSETA",
-    "province": "Gauteng",
-    "qualification_level": "Matric",
-    "stipend": "R5 500/month",
-    "closing_date": "2026-10-31",
-    "application_url": "https://www.merseta.org.za",
-    "source_name": "MerSETA Official Website",
-    "source_url": "https://www.merseta.org.za",
-    "verified": true,
-    "featured": false,
-    "expired": false,
-    "description": "3-year boilermaker apprenticeship leading to a nationally recognised trade certificate. Covers metal fabrication, welding, and pressure vessel manufacturing.",
-    "eligibility": [
-      "Matric with Mathematics and Physical Science (min 50%)",
-      "South African citizen aged 18–28",
-      "Medically fit"
-    ],
-    "employment_eligibility": [
-      "unemployed"
-    ],
-    "documents_needed": [
-      "Certified ID",
-      "Certified Matric with subject results",
-      "Medical fitness certificate",
-      "CV"
-    ],
-    "tags": [
-      "artisan",
-      "boilermaker",
-      "maths-science",
-      "gauteng"
-    ],
-    "posted_date": "2026-04-16",
-    "updated_date": "2026-04-16"
   },
   {
     "id": "010",
