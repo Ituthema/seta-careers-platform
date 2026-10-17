@@ -28,4 +28,13 @@ function opportunityRoutePath(o) {
   return `/opportunity/${encodeURIComponent((o && o.id) || '')}`;
 }
 
-module.exports = { CAT_PATH_MAP, opportunityRoutePath };
+// Whether an opportunity belongs in the sitemap. Deliberately depends ONLY
+// on the `expired` flag, never on today's date, so the generated sitemap (and
+// the CI "sitemap is committed" check) cannot change just because time passed.
+// Keeping `expired` accurate is the job of `npm run expire` plus the
+// lapsed-but-not-expired warning in scripts/validate-content.js.
+function isListedOpportunity(o) {
+  return !o.expired;
+}
+
+module.exports = { CAT_PATH_MAP, opportunityRoutePath, isListedOpportunity };

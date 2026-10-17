@@ -1,3 +1,8 @@
+> **Historical document.** This audit was produced when the data lived under `Data/` (capital D) and before
+> `employment_eligibility` and several other fields existed. The paths, values and field inventory below no longer
+> match the repository. For current rules see `docs/architecture/data.md`, `docs/schema-draft.json` and
+> `scripts/validate-content.js`; for a current audit see `docs/audits/`.
+
 # Data Audit Report
 
 ## Scope and path note

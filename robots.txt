@@ -1,10 +1,7 @@
 User-agent: *
 Allow: /
 
-# Disallow admin and raw data folders
-Disallow: /admin/
-Disallow: /data/
-Disallow: /assets/js/
+# /data/*.json is intentionally crawlable: the SPA fetches it on load, and
+# blocking it stops search engines from rendering any listing content.
 
-# Sitemap location — update with your real domain
 Sitemap: https://setacareersportal.abrdns.com/sitemap.xml

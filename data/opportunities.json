@@ -14,7 +14,7 @@
     "source_url": "https://www.eskom.co.za/careers",
     "verified": true,
     "featured": true,
-    "expired": false,
+    "expired": true,
     "description": "Refreshed official-source listing for Eskom engineering learnership pathways. Applicants should monitor Eskom's official careers portal for advertised learner roles in electrical, mechanical, and instrumentation disciplines across generation, transmission, and distribution teams.",
     "eligibility": [
       "Grade 12 / Matric certificate",
@@ -58,7 +58,7 @@
     "source_url": "https://www.absa.africa/absaafrica/careers",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "12-month structured programme developing young talent in banking and financial services. Interns rotate across Retail, Corporate, and Digital Banking with structured mentorship.",
     "eligibility": [
       "Relevant 3-year degree (Finance, Accounting, IT, Commerce)",
@@ -144,7 +144,7 @@
     "source_url": "https://www.mict.org.za",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "NQF Level 4 ICT Learnership providing practical experience in IT support, networking, and software fundamentals over 12 months.",
     "eligibility": [
       "Grade 12 with Mathematics",
@@ -267,7 +267,7 @@
     "source_url": "https://www.kznhealth.gov.za",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "12-month internship placements for graduates in health administration, public health, pharmacy assistance, and environmental health at district offices and provincial hospitals.",
     "eligibility": [
       "Relevant health sciences or administration degree",
@@ -310,7 +310,7 @@
     "source_url": "https://www.sasolbursaries.com/welcome/",
     "verified": true,
     "featured": true,
-    "expired": false,
+    "expired": true,
     "description": "Refreshed official-source Sasol bursary listing for South African students pursuing engineering, science, and technology-related studies. Applicants should use the Sasol Bursaries portal for current eligibility rules, application steps, and programme updates.",
     "eligibility": [
       "Matric with Maths and Physical Science (min 70%)",
@@ -394,7 +394,7 @@
     "source_url": "https://www.oldmutual.co.za/careers",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "12-month rotational internship across actuarial, finance, IT, and business operations. Structured mentorship with possibility of permanent employment.",
     "eligibility": [
       "BCom, BSc, or relevant 3-year degree",
@@ -436,7 +436,7 @@
     "source_url": "https://www.standardbank.co.za/careers",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "12-month YES (Youth Employment Service) placement in banking operations, digital innovation, or financial services. Real work, structured learning, and potential for permanent employment.",
     "eligibility": [
       "Relevant degree (Finance, IT, Commerce, Law)",
@@ -478,7 +478,7 @@
     "source_url": "https://www.capitecbank.co.za/careers",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "Refreshed official-source listing for Capitec entry-level branch and banking learning pathways. Applicants should monitor Capitec's official careers portal for branch consultant, service, and learnership-style opportunities that build retail banking and customer-service skills.",
     "eligibility": [
       "Matric certificate",

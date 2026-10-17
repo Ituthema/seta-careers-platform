@@ -6,6 +6,7 @@
   "scripts": {
     "validate": "node scripts/validate-content.js",
     "sitemap": "node sitemap-generator.js",
+    "expire": "node scripts/mark-expired.js",
     "validate:routes": "node validate-content.js",
     "validate:pages": "node scripts/validate-pages-config.js",
     "check": "npm run validate && npm run links && npm run sitemap && npm run validate:routes && npm run validate:pages",

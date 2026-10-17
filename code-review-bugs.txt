@@ -1,3 +1,23 @@
+STATUS UPDATE (2026-10-12) — re-checked against current main; the report below is the original 2026-07-13 text.
+Line numbers in the original no longer match index.html.
+
+  1. Unescaped JSON in innerHTML ........ FIXED. Text fields use esc()/attr(); guide bodies go through the
+                                          sanitizeGuideHtml() allowlist sanitizer; category tiles and <option>
+                                          lists were the last gaps and are now escaped.
+  2. Inline JS handlers with IDs/URLs ... FIXED. data-action event delegation; copy-link reads data-copy-url.
+  3. Closing-date time zone handling .... FIXED. daysUntil() compares local calendar dates.
+  4. Sitemap/validator legacy URLs ...... FIXED. Shared route-paths.js mirrors the router (/{category}/{slug}).
+  5. Duplicate sort options ............. FIXED. A single sort option remains.
+  6. Hard-coded qualification filter .... PARTIAL. Grade 11 added and filtering is hierarchy-aware; the option
+                                          list is still hard-coded rather than generated from data.
+  7. Link check passes on all warnings .. FIXED. Network failures are reported as UNVERIFIED and the run fails
+                                          if zero links could be verified.
+  8. "Last verified" uses visitor date .. FIXED. Uses updated_date, or "Verification date unavailable".
+  9. Save button accessibility .......... FIXED. title and aria-pressed are updated on toggle.
+ 10. err.message in innerHTML ........... FIXED. Escaped with esc().
+
+-----------------------------------------------------------------------------------------------------------
+
 Code Review Bug Report — OpportunitiesZA
 Review date: 2026-07-13
 Repository: seta-careers-platform

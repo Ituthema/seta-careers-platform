@@ -998,10 +998,10 @@ function renderHome(){
     <div class="cat-grid">
       ${CATS.map(c=>{const cnt=live.filter(o=>o.cat===c.id).length;return`
         <button class="cat-tile" data-action="go-dir" data-category="${attr(c.id)}">
-          <div class="ct-icon">${c.icon}</div>
-          <div class="ct-name">${c.label}</div>
-          <div class="ct-desc">${c.desc}</div>
-          <div class="ct-count" style="color:${c.color};background:${c.bg}">${cnt} open now</div>
+          <div class="ct-icon">${esc(c.icon)}</div>
+          <div class="ct-name">${esc(c.label)}</div>
+          <div class="ct-desc">${esc(c.desc)}</div>
+          <div class="ct-count" style="color:${attr(c.color)};background:${attr(c.bg)}">${cnt} open now</div>
         </button>`;}).join('')}
     </div>
   </div>
@@ -1384,7 +1384,7 @@ function renderElig(){
       {id:"eq4",l:"Opportunity type (optional)",opts:[["","Show everything"],...CATS.map(c=>[c.id,c.label])]},
     ].map(f=>`<div style="margin-bottom:18px">
       <label class="fl" for="${f.id}">${f.l}</label>
-      <select class="flds" id="${f.id}">${f.opts.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select>
+      <select class="flds" id="${f.id}">${f.opts.map(([v,l])=>`<option value="${attr(v)}">${esc(l)}</option>`).join('')}</select>
     </div>`).join('')}
     <button class="btn btn-primary btn-lg btn-full" onclick="runElig()">Find My Opportunities →</button>
   </div>
@@ -1549,7 +1549,7 @@ function renderBursaryChecker(){
       {id:"bp5",l:"Current study status",opts:[["new","Entering university for first time"],["continuing","Currently studying"],["tvet","TVET college student"],["other","Other"]]},
     ].map(f=>`<div style="margin-bottom:18px">
       <label class="fl">${f.l}</label>
-      <select class="flds" id="${f.id}">${f.opts.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select>
+      <select class="flds" id="${f.id}">${f.opts.map(([v,l])=>`<option value="${attr(v)}">${esc(l)}</option>`).join('')}</select>
     </div>`).join('')}
     <button class="btn btn-primary btn-lg btn-full" onclick="runBursary()">Calculate My Probability →</button>
   </div>

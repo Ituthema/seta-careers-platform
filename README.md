@@ -2,7 +2,7 @@
 
 South Africa's career opportunity intelligence platform for learnerships, bursaries, internships, and apprenticeships.
 
-**Live site:** https://  setacareersportal.abrdns.com
+**Live site:** https://setacareersportal.abrdns.com
 **Repository:** https://github.com/Ituthema/seta-careers-platform
 **Stack:** Vanilla HTML / CSS / JS · GitHub Pages · Zero build step  
 
@@ -11,26 +11,32 @@ South Africa's career opportunity intelligence platform for learnerships, bursar
 ## 📁 Project Structure
 
 ```
-/opportunitiesza/
+/seta-careers-platform/
 │
-├── index.html              ← Main SPA (the entire website)
-├── 404.html                ← GitHub Pages SPA routing fallback
+├── index.html              ← Main SPA (the entire website, hash-routed)
+├── 404.html                ← GitHub Pages fallback: maps old path URLs to hash routes
 ├── robots.txt              ← SEO crawl directives
-├── sitemap.xml             ← Auto-generated (run sitemap-generator.js)
-├── sitemap-generator.js    ← Node script to regenerate sitemap
-├── validate-content.js      ← Checks data, index loader, and sitemap slugs
-├── CNAME                   ← Custom domain (create after buying domain)
-├── README.md               ← This file
+├── sitemap.xml             ← Generated: npm run sitemap
+├── sitemap-generator.js    ← Regenerates sitemap.xml from data/
+├── route-paths.js          ← Shared route + "listed in sitemap" logic (mirrors index.html)
+├── validate-content.js     ← Route check: sitemap vs data vs index.html (npm run validate:routes)
+├── CNAME                   ← Custom domain
+├── package.json            ← npm scripts (validate, sitemap, expire, links, check, crawl, ...)
+├── deploy.sh               ← Interactive deploy helper
 │
 ├── /data/
 │   ├── opportunities.json  ← All opportunity records
-│   ├── guides.json         ← All guide articles
+│   ├── guides.json         ← Guide articles (body is sanitised HTML)
 │   ├── categories.json     ← Category metadata
-│   └── provinces.json      ← Province list
+│   ├── provinces.json      ← Province list
+│   └── sources.json        ← Source registry used by the crawler and audits
 │
-└── /assets/
-    ├── /images/            ← OG images, icons
-    └── og-default.jpg      ← 1200×630 social share image
+├── /scripts/               ← validate-content.js, check-links.js, mark-expired.js,
+│                             source-audit.js, source-health-check.js, normalize_dataset.js
+├── /crawler/               ← Node crawler that stages candidate listings (npm run crawl)
+├── /reports/ , /logs/      ← Generated audit / health / normalisation reports
+├── /docs/                  ← Architecture, security, source governance, audits
+└── /.github/workflows/     ← quality.yml (CI gates), source-health.yml (weekly)
 ```
 
 ---
@@ -58,8 +64,8 @@ git config --global --add safe.directory /storage/emulated/0/Download/opportunit
 # Navigate to project folder
 cd /storage/emulated/0/Download/opportunitiesza
 
-# Initialise and push
-rm -rf .git
+# Initialise and push (only for a brand-new folder that is not yet a git repo;
+# if `git status` already works here, skip `git init` and the remote add)
 git init
 git add .
 git commit -m "Initial deployment — OpportunitiesZA"
@@ -98,7 +104,7 @@ cat ~/.ssh/id_ed25519.pub
 # Paste the public key, save
 
 # Switch your remote to SSH
-git remote set-url origin git@github.com:Ituthema/seta-careers-platform1.git
+git remote set-url origin git@github.com:Ituthema/seta-careers-platform.git
 
 # Test connection
 ssh -T git@github.com
@@ -400,7 +406,8 @@ The website automatically filters out expired opportunities from all listings, b
 
 ### Technical
 - [ ] Validate opportunities.json after every edit
-- [ ] Run `npm run links`, `node sitemap-generator.js`, and `node validate-content.js` before publishing content changes
+- [ ] Run `npm run check` before publishing content changes (validate, links, sitemap, route check, Pages config)
+- [ ] After a closing date passes, run `npm run expire` then `npm run sitemap` and commit both `data/opportunities.json` and `sitemap.xml`
 - [ ] Test site on mobile after any HTML changes
 - [ ] Check that apply links are not broken
 - [ ] Review Core Web Vitals in GSC
@@ -432,7 +439,7 @@ Common mistakes:
 - Unescaped quotes inside strings — use `\"` instead of `"`
 
 ### Custom domain not working
-1. Check DNS records are saved correctly at your registrar
+1. Check the DNS records are saved correctly in the ClouDNS `setacareersportal.abrdns.com` zone
 2. Run: `nslookup setacareersportal.abrdns.com` — should show GitHub IPs
 3. Wait up to 48 hours for DNS propagation
 4. Ensure CNAME file exists in repo root with just your domain
@@ -468,4 +475,3 @@ All opportunity listings link to official sources — we are an information plat
 ---
 
 *OpportunitiesZA · South Africa's Career Opportunity Intelligence Platform · 2026*
-# seta-careers-platform1

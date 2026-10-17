@@ -6,15 +6,13 @@
 
 const fs   = require('fs');
 const path = require('path');
-const { opportunityRoutePath } = require('./route-paths');
+const { opportunityRoutePath, isListedOpportunity } = require('./route-paths');
 
 const BASE = 'https://setacareersportal.abrdns.com';
 const DEFAULT_LASTMOD = '2026-05-01';
-const TODAY = new Date().toISOString().slice(0, 10);
-
-function isLiveOpportunity(o) {
-  return !o.expired && (!o.closing_date || o.closing_date >= TODAY);
-}
+// Date-independent on purpose (see route-paths.js): the sitemap only changes
+// when the data changes.
+const isLiveOpportunity = isListedOpportunity;
 
 // Hash routes actually implemented by AppRouter in index.html.
 // NOTE: no per-province routes exist — province filtering is client-side

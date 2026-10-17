@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-const { opportunityRoutePath, CAT_PATH_MAP } = require('./route-paths');
+const { opportunityRoutePath, CAT_PATH_MAP, isListedOpportunity } = require('./route-paths');
 
 const ROOT = __dirname;
 const BASE = 'https://setacareersportal.abrdns.com';
-const TODAY = new Date().toISOString().split('T')[0];
 const DATA_PATH = 'data/opportunities.json';
 
 function read(file) { return fs.readFileSync(path.join(ROOT, file), 'utf8'); }
 function loadJSON(file) { return JSON.parse(read(file)); }
-function isLiveOpportunity(o) { return !o.expired && (!o.closing_date || o.closing_date >= TODAY); }
+// Same date-independent rule the sitemap generator uses (route-paths.js).
+const isLiveOpportunity = isListedOpportunity;
 
 // Mirrors AppRouter.pageToPath('detail', o) in index.html via route-paths.js:
 // '/{category-plural}/{slug}' (legacy '/opportunity/{id}' only without a slug).

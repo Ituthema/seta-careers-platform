@@ -17,16 +17,16 @@ These exist now for rapid launch but will be replaced as the project scales.
 | Feature | Current | Target | Migration Phase | Why Temporary |
 |---|---|---|---|---|
 | Hosting | GitHub Pages | Vercel/Netlify → VPS | Phase 3 | No server-side processing, rate limits |
-| Frontend | Single `index.html` (~94KB) | Vite + React/Vue/Svelte components | Phase 2 | Unmaintainable monolith, no testing isolation |
+| Frontend | Single `index.html` (~110KB) | Vite + React/Vue/Svelte components | Phase 2 | Unmaintainable monolith, no testing isolation |
 | Data | Static JSON files | PostgreSQL + REST API | Phase 3 | No concurrent editing, file size limits, no user-generated content |
 | Build | Zero build step | Vite build pipeline | Phase 2 | No component reusability, no TypeScript, no tree-shaking |
 | Search | Client-side only | Algolia/Typesense → Elasticsearch | Phase 4 | Loads entire dataset, no fuzzy matching, no analytics |
 | Bookmarks | localStorage | Cloud-synced user accounts | Phase 3 | Device-specific, no sync, cleared on browser reset |
 | Routing | Hash-based (`/#/`) | History API + SSR | Phase 4 | Bad for SEO, ugly URLs, no dynamic OG tags per page |
 | Auth | None | JWT → OAuth | Phase 3 | Can't personalize, can't sync bookmarks, no admin roles |
-| Crawler | Manual/undocumented | Scheduled AI pipeline | Phase 5 | No automation, no deduplication, no NLP parsing |
+| Crawler | Node pipeline in `crawler/` (`npm run crawl`), run manually; stages candidates to `crawler/output/` | Scheduled AI pipeline | Phase 5 | No schedule, weak deduplication, no NLP parsing |
 | Publishing | Manual git push | Auto-publish after review | Phase 5 | High error rate, no workflow (draft → review → publish) |
-| Validation | Manual script runs | CI/CD automated | Phase 3 | Easy to forget, no enforcement |
+| Validation | Scripts run in CI (`.github/workflows/quality.yml`) on pull requests and pushes; link check and releases still manual | Full CI/CD | Phase 3 | Partial enforcement only |
 | SEO | Basic OG tags | Full structured data + SSR | Phase 4 | No JSON-LD, no dynamic meta tags per opportunity |
 
 ## Permanent Contracts (Never Change)
