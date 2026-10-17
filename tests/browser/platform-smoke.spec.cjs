@@ -1,10 +1,10 @@
 const { test, expect } = require('@playwright/test');
 
-test('homepage renders live opportunity cards', async ({ page }) => {
+test('homepage renders the current opportunity card', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.hero h1')).toContainText('Find Your Career Opportunity in SA');
   await expect(page.locator('.opp-card').first()).toBeVisible();
-  await expect(page.locator('.opp-card')).toContainText('NSFAS Bursary 2027');
+  await expect(page.locator('.opp-card').filter({ hasText: 'NSFAS Bursary 2027' })).toBeVisible();
 });
 
 test('NSFAS 2027 detail route links to the official application portal', async ({ page }) => {
