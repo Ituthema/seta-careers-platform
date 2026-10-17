@@ -42,7 +42,7 @@ desktop.ini
 # ── NODE (if you use sitemap generator) ──────────────────────
 node_modules/
 npm-debug.log*
-package-lock.json
+# package-lock.json is intentionally NOT ignored: it is tracked and pins installs.
 
 # ── CRAWLER RUN HISTORY (archived diagnostics, not tracked) ──
 crawler/output/history/
