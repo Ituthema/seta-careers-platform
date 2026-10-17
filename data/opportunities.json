@@ -88,21 +88,21 @@
   },
   {
     "id": "003",
-    "slug": "nsfas-bursary-2026",
-    "title": "NSFAS Bursary 2026 — University & TVET Funding",
+    "slug": "nsfas-bursary-2027",
+    "title": "NSFAS Bursary 2027 — University & TVET Funding",
     "category": "bursary",
     "sector": "Government – DHET",
     "province": "Nationwide",
     "qualification_level": "Matric",
     "stipend": "Full bursary – varies by institution",
-    "closing_date": "2026-11-30",
+    "closing_date": "2026-10-31",
     "application_url": "https://my.nsfas.org.za",
     "source_name": "NSFAS Official Website",
     "source_url": "https://www.nsfas.org.za",
     "verified": true,
     "featured": true,
     "expired": false,
-    "description": "Refreshed official-source NSFAS funding listing for South African students planning to study at public universities or TVET colleges. Funding support can include tuition, accommodation, transport, meals, and living allowances according to NSFAS rules.",
+    "description": "NSFAS applications for the 2027 academic year are open from 18 September to 31 October 2026. Eligible students at public universities and TVET colleges can apply for funding through the official myNSFAS portal. Applications are free; applicants should confirm their personal eligibility and required documents directly with NSFAS.",
     "eligibility": [
       "South African citizen",
       "Household income below R350 000/year",
@@ -126,8 +126,8 @@
       "matric",
       "official-source-refreshed"
     ],
-    "posted_date": "2026-04-01",
-    "updated_date": "2026-06-03"
+    "posted_date": "2026-09-18",
+    "updated_date": "2026-10-17"
   },
   {
     "id": "004",
