@@ -205,3 +205,17 @@ Example crawl report rejection summary:
   }
 }
 ```
+
+
+## Source expansion findings (October 2026)
+
+See [Opportunity Source Expansion — October 2026](source-expansion-2026-10.md) for the research-to-registry mapping, prioritised source tiers, and explicit unresolved items.
+
+Apply these additional controls when onboarding sources:
+
+- Treat aggregators as discovery leads, not authoritative evidence. Confirm the exact role or funding cycle on an official department, SETA, municipality, public entity, institution, or employer portal before marking an opportunity verified.
+- For government vacancy circulars, preserve the dated circular URL, circular number/date, annexure/page reference, and direct application instructions. A homepage health check does not establish that a specific role is open.
+- Keep application URLs separate from source/discovery URLs. Deduplicate by normalised application URL plus employer/role/reference number, retaining all source URLs as provenance.
+- Do not activate a source whose canonical domain or opportunity page remains unverified. Inactive records with a documented reason are preferable to a plausible but unverified URL.
+- Confirm deadlines immediately before publication and recheck them during expiry processing. Never infer or fabricate a replacement deadline from an aggregator.
+- Source health checks only test reachability/redirects/SSL; they do not validate opportunity content, deadlines, authenticity, or freshness.
