@@ -53,7 +53,7 @@ The research did not confirm a stable RSS or API endpoint for the newly added Go
 
 ## Explicitly unresolved items
 
-- `https://www.ditoc.gov.za/` is retained inactive because the research flagged the domain as potentially mistyped; verify the canonical dtic domain before changing it.
+- RESOLVED 2026-10-20: `ditoc.gov.za` was a typo. The canonical dtic site is `https://www.thedtic.gov.za/`; the `the-dtic` source now points at its careers page and stays inactive until the external ATS it links to is checked.
 - Eastern Cape and KwaZulu-Natal departmental URLs previously recorded as unverified remain inactive until canonical domains and live vacancy pages are confirmed.
 - The MISA homepage and City of Johannesburg job portal remain inactive where automated checks were blocked; use official circulars or manually verified portals as evidence, not assumptions.
 - The research surfaced no confirmed machine-readable RSS/API for the four aggregators. Sitemap or robots discovery should be rechecked during crawler implementation, without assuming a feed exists.
