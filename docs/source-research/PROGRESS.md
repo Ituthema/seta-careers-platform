@@ -13,5 +13,5 @@ Rules: one batch = one research area, write results to its own file, then commit
 - [x] 6 soes_public_entities (done: see docs/source-research/batch-6-soes-public-entities.md; follow-ups listed there)
 - [x] 7 municipalities (done: see docs/source-research/batch-7-municipalities.md)
 - [x] 8 private finance, consulting and tech (done: see docs/source-research/batch-8-private-finance-consulting-tech.md)
-- [ ] 9 private_mining_energy_retail_other.md
+- [x] 9 private mining, energy, retail and other (done: see docs/source-research/batch-9-mining-energy-retail-other.md)
 Status: user abandoned the 9-agent parallel run on 2026-10-20 (nothing was researched). Restart small, one batch at a time.
