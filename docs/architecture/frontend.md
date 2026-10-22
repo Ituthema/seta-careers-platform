@@ -124,7 +124,9 @@ Known page targets include:
   there, so old links still resolve into the correct page instead of
   falling back to the homepage. See 404.html for the conversion logic.
 
-The hash router is temporary. It should be replaced with History API routing during the component/build migration and then with SSR-compatible routing during Phase 4.
+The SPA still uses hash routing for its non-generated utility and directory views, and the hash routes remain supported for backward compatibility. Published opportunity details and guides now have a crawlable static HTML counterpart at real paths (for example, `/bursaries/{slug}/` and `/guides/{id}/`). The `npm run sitemap` command runs `scripts/generate-seo-pages.js`, which regenerates these static pages and `sitemap.xml` from the JSON content. Generated pages include unique title/description metadata and a canonical URL; the sitemap must list only real, generated paths and must not contain hash fragments. Keep the generated HTML committed alongside the source data, and run `npm run validate:routes` after regeneration.
+
+Legacy `/#/...` links remain supported by the SPA. The existing `404.html` fallback continues to translate legacy `/opportunity/{id}` links, while the generated category/slug and guide paths are served directly by GitHub Pages. This static SEO layer is a compatibility bridge for the current single-file SPA, not a replacement for a future History API/SSR architecture.
 
 ## State Management
 - Pure JavaScript objects are used for UI and data state.
