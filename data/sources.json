@@ -848,14 +848,14 @@
     "source_id": "the-dtic",
     "name": "Department of Trade, Industry and Competition (the dtic)",
     "type": "government",
-    "url": "https://www.ditoc.gov.za/",
+    "url": "https://www.thedtic.gov.za/careers/",
     "active": false,
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
     "last_checked": null,
     "last_success": null,
-    "notes": "NOT VERIFIED on 2026-10-17; left inactive. The supplied ditoc.gov.za domain may be a typo; verify the department's canonical domain and recruitment page before activating. Do not crawl or publish opportunities from this unverified URL."
+    "notes": "UPDATED 2026-10-20: the earlier domain ditoc.gov.za was a typo; the canonical site is thedtic.gov.za. This careers page lists no posts itself; its footer links an external ATS (thedti.hua.hrsmart.com/hr/ats/JobSearch/index), which has not been checked. Left inactive until that portal is verified. Internship posts also appear in DPSA circulars."
   },
   {
     "source_id": "ec-dsrac",
@@ -973,5 +973,96 @@
     "last_checked": null,
     "last_success": null,
     "notes": "Official NSFAS application guidance and funding-cycle announcements. Pair with myNSFAS only as the application destination; verify intake year, opening/closing dates and eligibility on the official NSFAS page. Research checked 2026-10-18; 2027 cycle was reported open 2026-09-18 through 2026-10-31, so recheck dates before publication."
+  },
+  {
+    "source_id": "dws-erecruitment",
+    "name": "Department of Water and Sanitation - e-Recruitment",
+    "type": "government",
+    "url": "https://erecruitment.dws.gov.za/Browse-jobs/",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 2,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Verified 2026-10-20. Official e-recruitment job list (reference number, category, closing date, More Info link per post). About 45 posts on the check date."
+  },
+  {
+    "source_id": "dws-internship-programme",
+    "name": "Department of Water and Sanitation - Internship Programme",
+    "type": "government",
+    "url": "https://www.dws.gov.za/learninga/IP.aspx",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "monthly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Verified 2026-10-20. Non-technical internship programme for graduates and learner interns. No fixed intake dates; the page says adverts appear on the website and in print media."
+  },
+  {
+    "source_id": "dmpr",
+    "name": "Department of Mineral and Petroleum Resources (DMPR)",
+    "type": "government",
+    "url": "https://www.dmpr.gov.za/Media-Centre/Opportunities-Centre",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Verified 2026-10-20. Opportunities centre linking to Learning-Opportunities, Current-Vacancies and Archived-Vacancies. Current-Vacancies said \"No current vacancies\" on the check date. Do not use the stale dmre.gov.za mirror."
+  },
+  {
+    "source_id": "dsd",
+    "name": "Department of Social Development (national)",
+    "type": "government",
+    "url": "https://www.dsd.gov.za/index.php/2-uncategorised/38-vacancies",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Verified 2026-10-20. National vacancies page; it said \"Currently no details on Vacancies\" on the check date, so expect empty results until posts appear. The KwaZulu-Natal department is a separate source."
+  },
+  {
+    "source_id": "dcdt",
+    "name": "Department of Communications and Digital Technologies (DCDT)",
+    "type": "government",
+    "url": "https://www.dcdt.gov.za/vacancies.html",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Verified 2026-10-20. Vacancy and board-nomination circulars; no internships seen on the check date. Posts are undated, so use the linked circular PDFs for dates."
+  },
+  {
+    "source_id": "dalrrd",
+    "name": "Department of Agriculture (formerly DALRRD)",
+    "type": "government",
+    "url": "https://www.dalrrd.gov.za/index.php/vacancies",
+    "active": false,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "NOT VERIFIED 2026-10-20: the page blocks automated fetching, so left inactive. It appears in official-domain search results. The department has been renamed; confirm the canonical domain before activating."
+  },
+  {
+    "source_id": "dha-erecruitment",
+    "name": "Department of Home Affairs - e-Recruitment",
+    "type": "government",
+    "url": "https://erecruitment.dha.gov.za/no-auth/Shesha.Recruitment/public-jobs",
+    "active": false,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Right organisation but the page is rendered with JavaScript (only \"Initializing...\" was visible on 2026-10-20), so a plain HTML crawl will see nothing. HR circular PDFs are also posted under dha.gov.za/images/PDFs/jobs/. Left inactive until a crawl method is chosen."
   }
 ]
