@@ -874,9 +874,33 @@ if(CONFIG.features.routing!=='hash') window.addEventListener('popstate',()=>AppR
 function go(p,data=null){
   if(data&&typeof data==='object'){if(p==='detail')_opp=data;if(p==='guide-detail')_guide=data;}
   if(p==='directory'&&typeof data==='string') _dirCat=data;
+  // Prefer generated, crawlable static routes for published opportunity and guide details.
+  // Keep hash routing as a compatibility fallback for old links and non-generated pages.
+  const targetOpp=p==='detail'?(data&&typeof data==='object'?data:_opp):null;
+  if(targetOpp&&targetOpp.slug&&targetOpp.cat&&liveOpps().some(o=>String(o.id)===String(targetOpp.id))){
+    const categoryPath=catPathMap[targetOpp.cat]||`${targetOpp.cat}s`;
+    window.location.assign('/'+categoryPath+'/'+encodeURIComponent(targetOpp.slug)+'/');
+    return;
+  }
+  const targetGuide=p==='guide-detail'?(data&&typeof data==='object'?data:_guide):null;
+  if(targetGuide&&targetGuide.id){
+    window.location.assign('/guides/'+encodeURIComponent(targetGuide.id)+'/');
+    return;
+  }
+  if(p==='guides'){
+    window.location.assign('/guides/');
+    return;
+  }
+  if(p==='directory'&&typeof data==='string'&&data){
+    const categoryPath=catPathMap[data];
+    if(categoryPath&&liveOpps().some(o=>o.cat===data)){
+      window.location.assign('/'+categoryPath+'/');
+      return;
+    }
+  }
   AppRouter.navigate(AppRouter.pageToPath(p,data));
 }
-function goDir(cat){_dirCat=cat;go('directory');}
+function goDir(cat){_dirCat=cat;go('directory',cat);}
 function openOpp(id){_opp=OPPS.find(o=>String(o.id)===String(id));go('detail');}
 function openGuide(id){_guide=GUIDES.find(g=>g.id===id);go('guide-detail');}
 
