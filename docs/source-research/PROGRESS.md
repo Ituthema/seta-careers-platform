@@ -1,11 +1,11 @@
 # Progress log (update after EVERY batch; resume from the first unchecked item)
-Resume rule: continue from the first unchecked batch. Registry was 75 sources before batch 1; batch 1 brings it to 82. Method and schema rules: docs/source-governance.md and docs/source-registry.md. Researchers verify every URL by fetching it, never register aggregators, never get around robots blocks.
+Resume rule: continue from the first unchecked batch. Registry counts: 75 before batch 1, 82 after batch 1, 92 after batch 2, 104 after batch 3. Method and schema rules: docs/source-governance.md and docs/source-registry.md. Researchers verify every URL by fetching it, never register aggregators, never get around robots blocks. Do NOT stack PRs on another batch branch (batch 2 was lost that way once); branch each batch from main.
 Rules: one batch = one research area, write results to its own file, then commit/PR before starting the next.
 
-- [x] 1 national_departments.md (done: PR open, see docs/source-research/batch-1-national-departments.md)
-- [x] 2 youth_funders_bursaries.md (done: see docs/source-research/batch-2-youth-funders-bursaries.md)
+- [x] 1 national_departments.md (done, merged)
+- [x] 2 youth_funders_bursaries.md (done, merged)
 - [ ] 2b jobs-fund, SEFA, NEF, professional bodies (ECSA, SAIPA, HPCSA, SACAP), corporate bursary funders, NYDA ERP vacancies
-- [ ] 3 provincial_governments.md
+- [x] 3 provincial_governments.md (done: see docs/source-research/batch-3-provincial-governments.md)
 - [ ] 4 setas_qcto.md
 - [ ] 5 universities_tvet.md
 - [ ] 6 soes_public_entities.md
