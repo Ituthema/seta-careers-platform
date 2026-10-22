@@ -7,7 +7,7 @@ Rules: one batch = one research area, write results to its own file, then commit
 - [x] 2b funders and professional bodies (done: see docs/source-research/batch-2b-funders-professional-bodies.md; open: National Skills Fund, SACNASP/SAIA/SAICE, corporate bursary funders)
 - [x] 3 provincial_governments.md (done: see docs/source-research/batch-3-provincial-governments.md)
 - [x] 4 setas_qcto.md (done: see docs/source-research/batch-4-setas-qcto.md)
-- [ ] 4b better listing URLs for the 11 SETAs already registered; National Skills Fund; unresolved SETA listing pages (CATHSSETA, FASSET, FP&M, INSETA, SASSETA, W&RSETA)
+- [x] 4b SETA listing URLs (done: see docs/source-research/batch-4b-seta-listing-urls.md; open: FP&M canonical site, FASSET, CETA list page, National Skills Fund)
 - [x] 5 universities (done: see docs/source-research/batch-5-universities.md)
 - [ ] 5b TVET colleges; better listing URLs for the 10 registered universities; UFH, WSU, UMP index pages
 - [x] 6 soes_public_entities (done: see docs/source-research/batch-6-soes-public-entities.md; follow-ups listed there)
