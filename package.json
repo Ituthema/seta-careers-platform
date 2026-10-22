@@ -5,7 +5,7 @@
   "description": "South Africa career opportunity intelligence platform for learnerships, bursaries, internships, and apprenticeships.",
   "scripts": {
     "validate": "node scripts/validate-content.js",
-    "sitemap": "node sitemap-generator.js",
+    "sitemap": "node scripts/generate-seo-pages.js",
     "expire": "node scripts/mark-expired.js",
     "validate:routes": "node validate-content.js",
     "validate:pages": "node scripts/validate-pages-config.js",
