@@ -3,7 +3,8 @@ Resume rule: continue from the first unchecked batch. Registry was 75 sources be
 Rules: one batch = one research area, write results to its own file, then commit/PR before starting the next.
 
 - [x] 1 national_departments.md (done: PR open, see docs/source-research/batch-1-national-departments.md)
-- [ ] 2 youth_funders_bursaries.md
+- [x] 2 youth_funders_bursaries.md (done: see docs/source-research/batch-2-youth-funders-bursaries.md)
+- [ ] 2b jobs-fund, SEFA, NEF, professional bodies (ECSA, SAIPA, HPCSA, SACAP), corporate bursary funders, NYDA ERP vacancies
 - [ ] 3 provincial_governments.md
 - [ ] 4 setas_qcto.md
 - [ ] 5 universities_tvet.md
