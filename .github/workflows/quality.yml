@@ -34,14 +34,14 @@ jobs:
       - name: Check opportunity links
         run: npm run links
 
-      - name: Regenerate sitemap
+      - name: Generate crawlable SEO pages and sitemap
         run: npm run sitemap
 
-      - name: Validate sitemap/router/data consistency
+      - name: Validate generated routes, canonicals, and sitemap
         run: npm run validate:routes
 
       - name: Validate GitHub Pages custom-domain configuration
         run: npm run validate:pages
 
-      - name: Ensure generated files are committed
-        run: git diff --exit-code -- sitemap.xml
+      - name: Ensure generated SEO files are committed and current
+        run: test -z "$(git status --porcelain -- sitemap.xml learnerships internships bursaries apprenticeships tvet-pathways guides)"
