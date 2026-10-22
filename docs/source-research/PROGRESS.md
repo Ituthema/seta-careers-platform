@@ -4,7 +4,7 @@ Rules: one batch = one research area, write results to its own file, then commit
 
 - [x] 1 national_departments.md (done, merged)
 - [x] 2 youth_funders_bursaries.md (done, merged)
-- [ ] 2b jobs-fund, SEFA, NEF, professional bodies (ECSA, SAIPA, HPCSA, SACAP), corporate bursary funders, NYDA ERP vacancies
+- [x] 2b funders and professional bodies (done: see docs/source-research/batch-2b-funders-professional-bodies.md; open: National Skills Fund, SACNASP/SAIA/SAICE, corporate bursary funders)
 - [x] 3 provincial_governments.md (done: see docs/source-research/batch-3-provincial-governments.md)
 - [x] 4 setas_qcto.md (done: see docs/source-research/batch-4-setas-qcto.md)
 - [ ] 4b better listing URLs for the 11 SETAs already registered; National Skills Fund; unresolved SETA listing pages (CATHSSETA, FASSET, FP&M, INSETA, SASSETA, W&RSETA)
