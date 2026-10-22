@@ -1,12 +1,13 @@
 # Progress log (update after EVERY batch; resume from the first unchecked item)
-Resume rule: continue from the first unchecked batch. Registry counts: 75 before batch 1, 82 after batch 1, 92 after batch 2, 104 after batch 3. Method and schema rules: docs/source-governance.md and docs/source-registry.md. Researchers verify every URL by fetching it, never register aggregators, never get around robots blocks. Do NOT stack PRs on another batch branch (batch 2 was lost that way once); branch each batch from main.
+Resume rule: continue from the first unchecked batch. Registry counts: 75 before batch 1, 82 after batch 1, 92 after batch 2, 104 after batch 3, 116 after batch 4. Method and schema rules: docs/source-governance.md and docs/source-registry.md. Researchers verify every URL by fetching it, never register aggregators, never get around robots blocks. Do NOT stack PRs on another batch branch (batch 2 was lost that way once); branch each batch from main.
 Rules: one batch = one research area, write results to its own file, then commit/PR before starting the next.
 
 - [x] 1 national_departments.md (done, merged)
 - [x] 2 youth_funders_bursaries.md (done, merged)
 - [ ] 2b jobs-fund, SEFA, NEF, professional bodies (ECSA, SAIPA, HPCSA, SACAP), corporate bursary funders, NYDA ERP vacancies
 - [x] 3 provincial_governments.md (done: see docs/source-research/batch-3-provincial-governments.md)
-- [ ] 4 setas_qcto.md
+- [x] 4 setas_qcto.md (done: see docs/source-research/batch-4-setas-qcto.md)
+- [ ] 4b better listing URLs for the 11 SETAs already registered; National Skills Fund; unresolved SETA listing pages (CATHSSETA, FASSET, FP&M, INSETA, SASSETA, W&RSETA)
 - [ ] 5 universities_tvet.md
 - [ ] 6 soes_public_entities.md
 - [ ] 7 municipalities.md (incl. Ba-Phalaborwa canonical URL)
