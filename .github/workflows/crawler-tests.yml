@@ -1,0 +1,68 @@
+name: Crawler Tests
+
+# Quality Gates runs `npm test` without installing dependencies on purpose, so
+# the pure-logic tests stay dependency-free. This workflow installs the real
+# dependencies (axios, cheerio, ...) and runs the same suite, so tests that
+# exercise the real HTTP client run here instead of being skipped.
+
+on:
+  pull_request:
+    paths:
+      - 'crawler/**'
+      - 'scripts/validators/**'
+      - 'data/sources.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/crawler-tests.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'crawler/**'
+      - 'scripts/validators/**'
+      - 'data/sources.json'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  crawler-tests:
+    name: Crawler tests (Node ${{ matrix.node }}, dependencies installed)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Run tests
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee test-output.txt
+          if grep -E '^# skipped [1-9]' test-output.txt; then
+            echo "A test was skipped even though dependencies are installed." >&2
+            exit 1
+          fi
+
+      - name: Load the crawler entry point
+        # Catches a missing or broken require without making any network request.
+        run: node -e "require('./crawler/index.js'); console.log('crawler loads')"
+
+      - name: Validate source registry
+        run: npm run source:audit
