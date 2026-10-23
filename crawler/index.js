@@ -1,7 +1,8 @@
 const crypto = require('crypto');
 const config = require('./config/crawler-config');
 const { loadActiveSources } = require('./core/source-loader');
-const { fetchSource } = require('./core/fetcher');
+const { fetchRobotsFile, fetchSource } = require('./core/fetcher');
+const { createRobotsChecker } = require('./core/robots');
 const { routeContent } = require('./core/router');
 const { parseHtml } = require('./parsers/html-parser');
 const { parsePdf } = require('./parsers/pdf-parser');
@@ -73,10 +74,11 @@ async function processSource(source, context) {
 async function crawlSource(source, context) {
   context.report.sources_processed += 1;
 
-  const fetchResult = await fetchSource(source, config, appendLog, LOG_EVENTS);
+  const fetchResult = await fetchSource(source, config, appendLog, LOG_EVENTS, { robots: context.robots });
   if (!fetchResult.ok) {
     context.report.failed_fetches += 1;
-    reject(context.rejectedRecords, source, 'FETCH_FAILED', fetchResult.error);
+    // ROBOTS_DISALLOWED / ROBOTS_UNREACHABLE are reported as their own reasons so a site asking not to be crawled is not mistaken for an outage.
+    reject(context.rejectedRecords, source, fetchResult.rejectReason || 'FETCH_FAILED', fetchResult.error);
     return;
   }
 
@@ -164,9 +166,10 @@ async function main() {
     sourcesLoaded = sources.length;
     const limit = await createLimit(config.concurrency);
     const dedupe = createDedupe();
+    const robots = createRobotsChecker((origin) => fetchRobotsFile(origin, config));
 
     await Promise.all(
-      sources.map((source) => limit(() => processSource(source, { report, stagedRecords, rejectedRecords, dedupe }))),
+      sources.map((source) => limit(() => processSource(source, { report, stagedRecords, rejectedRecords, dedupe, robots }))),
     );
   } catch (error) {
     fatalError = error;

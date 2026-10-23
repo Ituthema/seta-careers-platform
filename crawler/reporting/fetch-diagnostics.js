@@ -15,14 +15,21 @@ const CATEGORIES = Object.freeze([
   'TLS_FAILURE',
   'REDIRECT_FAILURE',
   'BLOCKED_URL',
+  'ROBOTS_DISALLOWED',
+  'ROBOTS_UNREACHABLE',
   'UNKNOWN',
 ]);
+
+// Rejection reasons that mean "we could not get the page", as opposed to parse or validation problems.
+const FETCH_FAILURE_REASONS = new Set(['FETCH_FAILED', 'ROBOTS_DISALLOWED', 'ROBOTS_UNREACHABLE']);
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
 function classifyFetchFailure(record) {
+  if (record.reason === 'ROBOTS_DISALLOWED' || record.reason === 'ROBOTS_UNREACHABLE') return record.reason;
+
   const details = String(record.details || '').toLowerCase();
 
   const statusMatch = details.match(/(?:http|status(?: code)?|response(?: status)?)\D+(\d{3})/i);
@@ -48,7 +55,7 @@ function toPercent(count, total) {
 }
 
 function buildDiagnostics(rejectedRecords) {
-  const fetchFailures = rejectedRecords.filter((record) => record.reason === 'FETCH_FAILED');
+  const fetchFailures = rejectedRecords.filter((record) => FETCH_FAILURE_REASONS.has(record.reason));
   const categories = Object.fromEntries(CATEGORIES.map((category) => [category, { count: 0, percentage: 0 }]));
 
   for (const record of fetchFailures) {

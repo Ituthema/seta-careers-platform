@@ -92,14 +92,41 @@ async function fetchOnce(source, config) {
   };
 }
 
+function robotsFailure(source, verdict) {
+  return {
+    ok: false,
+    status: null,
+    contentType: '',
+    body: null,
+    url: source.url,
+    attempts: 0,
+    rejectReason: verdict.reason,
+    error: verdict.detail,
+  };
+}
+
+// Fetches <origin>/robots.txt with the same retry and SSRF rules as any source,
+// without robots checks of its own. Resolves { status, body }; status is null when
+// the request never got an HTTP response, which the checker treats as unreachable.
+async function fetchRobotsFile(origin, config, deps = {}) {
+  const result = await fetchSource({ source_id: 'robots.txt', url: `${origin}/robots.txt` }, config, () => {}, {}, { ...deps, robots: null });
+  return { status: result.ok ? result.status : result.status, body: result.body };
+}
+
 // deps lets tests inject a fake fetchOnce and sleep; production callers omit it.
 async function fetchSource(source, config, log = () => {}, events = {}, deps = {}) {
   const doFetch = deps.fetchOnce || fetchOnce;
   const wait = deps.sleep || sleep;
   const random = deps.random || Math.random;
+  const robots = deps.robots || null;
   let lastError = null;
   let lastStatus = null;
   let attempts = 0;
+
+  if (robots) {
+    const verdict = await robots.check(source.url);
+    if (!verdict.allowed) return robotsFailure(source, verdict);
+  }
 
   for (let attempt = 1; attempt <= config.retries; attempt += 1) {
     attempts = attempt;
@@ -110,6 +137,14 @@ async function fetchSource(source, config, log = () => {}, events = {}, deps = {
       const response = await doFetch(source, config);
 
       if (response.status >= 200 && response.status < 300) {
+        // A redirect can land on a path (or host) that robots.txt forbids even though the original URL was fine.
+        if (robots && response.url && response.url !== source.url) {
+          const verdict = await robots.check(response.url);
+          if (!verdict.allowed) {
+            log(events.FETCH_FAILURE || 'FETCH_FAILURE', { source_id: source.source_id, url: response.url, attempt, retryable: false, error: verdict.detail });
+            return robotsFailure({ ...source, url: response.url }, verdict);
+          }
+        }
         log(events.FETCH_SUCCESS || 'FETCH_SUCCESS', { source_id: source.source_id, url: response.url, status: response.status, attempt });
         return { ok: true, attempts, ...response };
       }
@@ -142,6 +177,7 @@ async function fetchSource(source, config, log = () => {}, events = {}, deps = {
 
 module.exports = {
   computeDelay,
+  fetchRobotsFile,
   fetchSource,
   isRetryableError,
   isRetryableStatus,
