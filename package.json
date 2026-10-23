@@ -14,7 +14,7 @@
     "source:audit": "node scripts/source-audit.js",
     "source:health": "node scripts/source-health-check.js",
     "crawl": "node crawler/index.js",
-    "test": "node --test crawler/core/run-status.test.js"
+    "test": "node --test crawler/core/run-status.test.js crawler/core/fetcher.test.js"
   },
   "engines": {
     "node": ">=18"
