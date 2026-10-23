@@ -14,6 +14,7 @@ const CATEGORIES = Object.freeze([
   'DNS_FAILURE',
   'TLS_FAILURE',
   'REDIRECT_FAILURE',
+  'BLOCKED_URL',
   'UNKNOWN',
 ]);
 
@@ -35,6 +36,7 @@ function classifyFetchFailure(record) {
   if (/\b(etimedout|timeout|timed out|eai_again|socket hang up|aborted)\b/.test(details)) return 'TIMEOUT';
   if (/\b(enotfound|dns|eai_nodata|getaddrinfo|name not resolved)\b/.test(details)) return 'DNS_FAILURE';
   if (/\b(tls|ssl|certificate|cert_|self[- ]signed|unable_to_verify|err_tls|ep roto|wrong version number)\b/.test(details)) return 'TLS_FAILURE';
+  if (/\bblocked (private address|url)/.test(details)) return 'BLOCKED_URL';
   if (/\b(redirect|max redirects|too many redirects|redirected|err_fr_too_many_redirects)\b/.test(details)) return 'REDIRECT_FAILURE';
 
   return 'UNKNOWN';
