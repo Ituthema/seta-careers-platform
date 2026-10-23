@@ -163,6 +163,19 @@ The crawler preserves the existing rejected-record shape: each rejection still i
 
 `npm run crawl` prints a one-line summary and exits non-zero when the run is not a success. The same verdict is written to `crawler/output/crawl-report.json` as `status` (`OK` or `FAILED`) and `failure_reasons`. Logic lives in `crawler/core/run-status.js`; `npm test` covers it.
 
+### robots.txt, retries and safety checks
+
+The crawler identifies itself as `SETA-Careers-Platform-Crawler` and follows RFC 9309 for each site's `robots.txt` (`crawler/core/robots.js`):
+
+- the group naming our agent beats the `*` group; the longest matching rule wins and `Allow` wins ties;
+- a missing `robots.txt` (404 and most other 4xx) allows everything;
+- a `robots.txt` that is unreachable (5xx, timeout, 408, 425 or 429) blocks that site for the run;
+- a redirect that lands on a disallowed path or host is rejected after the fetch.
+
+These show up in `crawler/output/rejected.json` as `ROBOTS_DISALLOWED` or `ROBOTS_UNREACHABLE` (not `FETCH_FAILED`), and as their own categories in `fetch-diagnostics.json`. They count as failed fetches in the run verdict but are expected for sites that ask not to be crawled; keep such sources `active: false` with a note, as the research batches do.
+
+Other fetch rules: only transient failures are retried (network errors, 408, 425, 429, 500, 502, 503, 504) with backoff and `Retry-After`; private, loopback and link-local addresses and non-http(s) URLs are refused (`BLOCKED_URL`; set `CRAWLER_ALLOW_PRIVATE_NETWORK=true` only for local testing); pages that resolve to the same URL or text as an earlier source are rejected as `DUPLICATE_URL` or `DUPLICATE_CONTENT`.
+
 A run **fails** when any of these hold:
 
 | Reason | Meaning |
