@@ -44,8 +44,9 @@ node_modules/
 npm-debug.log*
 # package-lock.json is intentionally NOT ignored: it is tracked and pins installs.
 
-# ── CRAWLER RUN HISTORY (archived diagnostics, not tracked) ──
-crawler/output/history/
+# ── CRAWLER RUN OUTPUT (regenerated every run, not tracked) ──
+crawler/output/
+crawler/logs/
 
 # ── TEMPORARY FILES ──────────────────────────────────────────
 *.tmp
