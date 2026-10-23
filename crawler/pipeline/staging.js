@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./atomic-write');
 
 const OUTPUT_DIR = path.resolve(__dirname, '..', 'output');
 const LOG_DIR = path.resolve(__dirname, '..', 'logs');
@@ -8,6 +9,10 @@ const REJECTED_PATH = path.join(OUTPUT_DIR, 'rejected.json');
 const REPORT_PATH = path.join(OUTPUT_DIR, 'crawl-report.json');
 const LOG_PATH = path.join(LOG_DIR, 'crawl.log');
 const HISTORY_DIR = path.join(OUTPUT_DIR, 'history');
+// staging.json and rejected.json are rewritten whole each time, so persisting on
+// every record is O(n^2) in bytes written. Checkpoint every N records instead
+// and flush once at the end of the run (see flushRecords).
+const CHECKPOINT_EVERY = 25;
 
 const LOG_EVENTS = Object.freeze({
   START: 'START',
@@ -30,7 +35,7 @@ function ensureCrawlerStorage() {
 
 function writeJson(filePath, payload) {
   ensureCrawlerStorage();
-  fs.writeFileSync(filePath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+  writeJsonAtomic(filePath, payload);
 }
 
 function appendLog(event, details = {}) {
@@ -78,13 +83,18 @@ function initializeRunFiles() {
 
 function stageRecord(records, record) {
   records.push({ ...record, status: 'staged' });
-  writeJson(STAGING_PATH, records);
+  if (records.length % CHECKPOINT_EVERY === 0) writeJson(STAGING_PATH, records);
   appendLog(LOG_EVENTS.STAGED, { source_id: record.source_id, url: record.url, crawl_id: record.crawl_id });
 }
 
 function rejectRecord(records, rejection) {
   records.push({ timestamp: new Date().toISOString(), ...rejection });
-  writeJson(REJECTED_PATH, records);
+  if (records.length % CHECKPOINT_EVERY === 0) writeJson(REJECTED_PATH, records);
+}
+
+function flushRecords(stagedRecords, rejectedRecords) {
+  writeJson(STAGING_PATH, stagedRecords);
+  writeJson(REJECTED_PATH, rejectedRecords);
 }
 
 function writeReport(report) {
@@ -98,6 +108,7 @@ module.exports = {
   REPORT_PATH,
   STAGING_PATH,
   appendLog,
+  flushRecords,
   initializeRunFiles,
   rejectRecord,
   stageRecord,

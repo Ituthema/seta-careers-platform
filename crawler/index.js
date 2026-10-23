@@ -8,9 +8,11 @@ const { parsePdf } = require('./parsers/pdf-parser');
 const { evaluateRun, parseMinSuccessRate } = require('./core/run-status');
 const { normalizeParsedContent } = require('./pipeline/normalize');
 const { validateNormalizedContent } = require('./pipeline/validate');
+const { createDedupe } = require('./pipeline/dedupe');
 const {
   LOG_EVENTS,
   appendLog,
+  flushRecords,
   initializeRunFiles,
   rejectRecord,
   stageRecord,
@@ -116,6 +118,13 @@ async function crawlSource(source, context) {
     crawled_at: new Date().toISOString(),
   };
 
+  // Synchronous from here to stageRecord, so concurrent sources cannot both pass the check.
+  const duplicate = context.dedupe.check(stagedRecord);
+  if (duplicate) {
+    reject(context.rejectedRecords, { ...source, url: fetchResult.url }, duplicate.reason, `Same page as source ${duplicate.duplicate_of}`);
+    return;
+  }
+
   stageRecord(context.stagedRecords, stagedRecord);
 }
 
@@ -154,14 +163,22 @@ async function main() {
     });
     sourcesLoaded = sources.length;
     const limit = await createLimit(config.concurrency);
+    const dedupe = createDedupe();
 
     await Promise.all(
-      sources.map((source) => limit(() => processSource(source, { report, stagedRecords, rejectedRecords }))),
+      sources.map((source) => limit(() => processSource(source, { report, stagedRecords, rejectedRecords, dedupe }))),
     );
   } catch (error) {
     fatalError = error;
     appendLog(LOG_EVENTS.FETCH_FAILURE, { error: error.message, fatal: true });
   } finally {
+    // A failed flush must not stop the report from being written, but it must fail the run.
+    try {
+      flushRecords(stagedRecords, rejectedRecords);
+    } catch (error) {
+      fatalError = fatalError || new Error(`Could not write staging output: ${error.message}`);
+      appendLog(LOG_EVENTS.INTERNAL_ERROR, { error: fatalError.message, fatal: true });
+    }
     report.completed_at = new Date().toISOString();
     report.staged_records = stagedRecords.length;
     report.rejected_records = rejectedRecords.length;
