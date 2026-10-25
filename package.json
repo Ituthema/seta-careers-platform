@@ -15,7 +15,8 @@
     "source:health": "node scripts/source-health-check.js",
     "crawl": "node crawler/index.js",
     "test": "node scripts/run-tests.js",
-    "review:candidates": "node scripts/review-candidates.js"
+    "review:candidates": "node scripts/review-candidates.js",
+    "add:listing": "node scripts/add-listing.js"
   },
   "engines": {
     "node": ">=18"

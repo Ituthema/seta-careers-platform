@@ -245,6 +245,16 @@ The crawler stages whole pages (`crawler/output/staging.json`), not structured l
 
 1. `npm run crawl` stages pages from active sources.
 2. `npm run review:candidates` scans the staged pages for opportunity-like links and text, and prints the leads that mention a **future closing date** (dates are only read when they sit next to words like "closing" or "deadline"). The full list is written to `crawler/output/candidates.json` (untracked). Logic: `crawler/pipeline/candidates.js`.
-3. Open each lead on the official page, confirm the details, then add the record to `data/opportunities.json` and run `npm run validate` (which also checks that a verified listing's domain is in the registry).
+3. Open each lead on the official page, confirm the details, then turn it into a draft and run `npm run add:listing` (which also checks that a verified listing's domain is in the registry).
 
-If the crawl staged nothing, the command says so and points at `rejected.json` and `crawl-report.json`. Step 3 is still manual; a guided "add listing" command is the planned next batch.
+If the crawl staged nothing, the command says so and points at `rejected.json` and `crawl-report.json`. Step 3 is still a human decision, but `npm run add:listing` does the validation and bookkeeping (see "Adding a listing" below).
+
+## Adding a listing
+
+`npm run add:listing -- draft.json` validates a draft and shows the finished record (dry run). Add `--write` to append it to `data/opportunities.json`, regenerate the static pages and sitemap, and run `npm run validate`. Copy `docs/templates/listing-draft.example.json` as a starting point (do not publish the template itself; its URLs are examples).
+
+What it does for you: assigns the next `id`, generates a unique `slug` from the title, sets `posted_date`/`updated_date` to today, `expired: false`, and `featured: false` unless the draft says otherwise.
+
+What it refuses: a missing field or bad enum (category, province, employment status), a closing date in the past, a duplicate slug or application URL, and `verified: true` when the source or application domain is not in `data/sources.json`. It warns when a listing is unverified, when the description is short, and when the application and source links are on different sites.
+
+Commit `data/opportunities.json`, `sitemap.xml` and the generated pages together; Quality Gates checks they match.
