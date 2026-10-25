@@ -9,6 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { findUncoveredVerified } = require('./validators/registry-coverage');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'data');
@@ -237,7 +238,18 @@ if (!fs.existsSync(DATA_DIR)) {
   errors.push('Expected lowercase data/ directory. Rename Data/ to data/ for Linux and GitHub Pages compatibility.');
 }
 
-validateOpportunities(readJson('data/opportunities.json'));
+const opportunitiesData = readJson('data/opportunities.json');
+validateOpportunities(opportunitiesData);
+
+// Verified listings must point at domains the source registry knows about.
+// Live listings are errors; expired ones are warnings so history does not block CI.
+const sourcesData = readJson('data/sources.json');
+if (Array.isArray(opportunitiesData) && Array.isArray(sourcesData)) {
+  for (const gap of findUncoveredVerified(opportunitiesData, sourcesData)) {
+    const msg = `opportunity ${gap.id}: verified listing ${gap.field} domain "${gap.host || gap.url}" is not in data/sources.json (add it, or set verified to false)`;
+    (gap.expired ? warnings : errors).push(msg);
+  }
+}
 validateGuides(readJson('data/guides.json'));
 validateMetadata('data/categories.json', ['id', 'label', 'icon', 'description']);
 validateMetadata('data/provinces.json', ['id', 'label', 'icon', 'major_cities', 'description']);

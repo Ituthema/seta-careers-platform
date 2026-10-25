@@ -232,3 +232,9 @@ Apply these additional controls when onboarding sources:
 - Do not activate a source whose canonical domain or opportunity page remains unverified. Inactive records with a documented reason are preferable to a plausible but unverified URL.
 - Confirm deadlines immediately before publication and recheck them during expiry processing. Never infer or fabricate a replacement deadline from an aggregator.
 - Source health checks only test reachability/redirects/SSL; they do not validate opportunity content, deadlines, authenticity, or freshness.
+
+## Verified listings must be covered by the registry
+
+`npm run validate` checks every listing with `verified: true`: its `source_url` and `application_url` hosts must match a host in `data/sources.json` (equal, or one a subdomain of the other, ignoring `www`; a bare suffix such as `gov.za` never counts). Live listings fail the check; expired ones only warn, so history does not block CI. To fix a gap, register the domain (inactive is fine until a fetch confirms it) or set `verified` to `false`. Logic lives in `scripts/validators/registry-coverage.js`.
+
+Current known gaps closed as inactive leads: `sasol-bursaries`, `kzn-department-of-health`, `standard-bank-careers-co-za` (all used by expired listings; none could be fetched, so none are active).

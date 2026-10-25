@@ -2754,5 +2754,44 @@
     "last_checked": null,
     "last_success": null,
     "notes": "Inactive: the page showed only embedded download placeholders and a general advert PDF, with no readable titles or dates (page modified 27 Jan 2026). Re-enable if a readable list is found."
+  },
+  {
+    "source_id": "sasol-bursaries",
+    "name": "Sasol Bursaries",
+    "type": "private",
+    "url": "https://www.sasolbursaries.com/welcome/",
+    "active": false,
+    "crawl_strategy": "html",
+    "frequency": "monthly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Domain used by listing 008. Inactive: could not be fetched in the 2026-10 review (no official page surfaced in search, only aggregators). Re-check, then activate if it lists the current cycle."
+  },
+  {
+    "source_id": "kzn-department-of-health",
+    "name": "KwaZulu-Natal Department of Health",
+    "type": "government",
+    "url": "https://www.kznhealth.gov.za/",
+    "active": false,
+    "crawl_strategy": "html",
+    "frequency": "monthly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Domain used by listing 007. Inactive: not fetched in the 2026-10 review; search surfaced only aggregator posts for provincial internships. Re-check for a vacancies or internships section."
+  },
+  {
+    "source_id": "standard-bank-careers-co-za",
+    "name": "Standard Bank careers (standardbank.co.za)",
+    "type": "private",
+    "url": "https://www.standardbank.co.za/careers",
+    "active": false,
+    "crawl_strategy": "html",
+    "frequency": "monthly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Domain used by listing 011. Inactive: not fetched. The official early-careers internships page on careers.standardbank.com showed only a 2024 window (stale), so the registered standard-bank-early-careers entry is the one to trust."
   }
 ]
