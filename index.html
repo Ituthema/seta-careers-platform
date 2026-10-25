@@ -44,7 +44,7 @@ h1,h2,h3{font-family:'Fraunces',serif}
 /* ═══ BUTTONS ════════════════════════════════════════════════ */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;border:none;cursor:pointer;transition:var(--tr);line-height:1.3;text-decoration:none}
 .btn-primary{background:var(--g);color:#fff}.btn-primary:hover{background:var(--gd);transform:translateY(-1px);box-shadow:0 4px 14px rgba(13,74,38,.25)}
-.btn-amber{background:var(--a);color:#fff}.btn-amber:hover{background:var(--ald);transform:translateY(-1px)}
+.btn-amber{background:var(--a);color:#1a1a1a}.btn-amber:hover{background:var(--ald);transform:translateY(-1px)}
 .btn-outline{background:transparent;color:var(--g);border:1.5px solid var(--g)}.btn-outline:hover{background:var(--glt)}
 .btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--bd)}.btn-ghost:hover{background:var(--sur);border-color:var(--g);color:var(--g)}
 .btn-red{background:var(--rd);color:#fff}.btn-red:hover{background:#b91c1c}
@@ -78,7 +78,7 @@ h1,h2,h3{font-family:'Fraunces',serif}
 .nl:hover,.nl.act{background:var(--glt);color:var(--g)}
 .nl-cta{margin-left:8px;padding:8px 18px;background:var(--g);color:#fff!important;border-radius:7px;font-size:13.5px;font-weight:600}
 .nl-cta:hover{background:var(--gd)}
-.hbg{display:none;background:none;border:none;font-size:22px;color:var(--tx);margin-left:auto;cursor:pointer}
+.hbg{display:none;min-width:44px;min-height:44px;background:none;border:none;font-size:22px;color:var(--tx);margin-left:auto;cursor:pointer}
 .drawer{display:none;flex-direction:column;gap:2px;padding:12px 24px 20px;border-top:1px solid var(--bd)}
 .drawer.open{display:flex}
 .dl{background:none;border:none;padding:10px 12px;border-radius:6px;font-size:14px;font-weight:500;color:var(--t2);text-align:left;cursor:pointer}
@@ -97,7 +97,7 @@ h1,h2,h3{font-family:'Fraunces',serif}
 .search-bar{display:flex;max-width:660px;margin:0 auto 28px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shl)}
 .search-bar input{flex:1;padding:16px 20px;border:none;outline:none;font-size:15px;color:var(--tx)}
 .search-bar select{padding:0 14px;border:none;border-left:1px solid var(--bd);outline:none;font-size:13px;color:var(--mu);background:transparent;cursor:pointer}
-.search-bar button{padding:16px 28px;background:var(--a);color:#fff;border:none;font-weight:700;font-size:14px;cursor:pointer;transition:background .15s;white-space:nowrap}
+.search-bar button{padding:16px 28px;background:var(--a);color:#1a1a1a;border:none;font-weight:700;font-size:14px;cursor:pointer;transition:background .15s;white-space:nowrap}
 .search-bar button:hover{background:var(--ald)}
 .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .chip{padding:7px 16px;background:rgba(255,255,255,.12);color:#dcfce7;border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:13px;cursor:pointer;font-weight:500;transition:var(--tr)}
@@ -113,7 +113,7 @@ h1,h2,h3{font-family:'Fraunces',serif}
 /* ═══ SECTION ════════════════════════════════════════════════ */
 .sec-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px}
 .sec-title{font-size:clamp(22px,3.5vw,34px);font-weight:900;color:var(--g);letter-spacing:-1px}
-.sec-lnk{background:none;border:none;color:var(--g);font-weight:600;font-size:14px;cursor:pointer}
+.sec-lnk{background:none;border:none;color:var(--g);font-weight:600;font-size:14px;cursor:pointer;min-height:24px;padding:2px 0}
 .sec-lnk:hover{text-decoration:underline}
 
 /* ═══ CATEGORY TILES ═════════════════════════════════════════ */
@@ -194,9 +194,9 @@ h1,h2,h3{font-family:'Fraunces',serif}
 
 /* ═══ DETAIL ════════════════════════════════════════════════ */
 .breadcrumb{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mu);margin-bottom:24px;flex-wrap:wrap}
-.breadcrumb button{background:none;border:none;color:var(--mu);cursor:pointer;font-size:13px}
+.breadcrumb button{background:none;border:none;color:var(--mu);cursor:pointer;font-size:13px;min-height:24px;padding:2px 0}
 .breadcrumb button:hover{color:var(--g)}
-.breadcrumb .sep{color:#d1d5db}
+.breadcrumb .sep{color:#6b7280}
 .detail-h1{font-size:clamp(24px,4vw,40px);font-weight:900;color:var(--tx);line-height:1.15;letter-spacing:-1.5px;margin-bottom:20px}
 .qf-bar{display:flex;flex-wrap:wrap;gap:14px;padding:16px 20px;background:#f0fdf4;border:1px solid #d1fae5;border-radius:var(--r);margin-bottom:26px}
 .qf-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)}
@@ -212,12 +212,12 @@ h1,h2,h3{font-family:'Fraunces',serif}
 .doc-check{color:var(--g);font-weight:700;margin-top:1px;flex-shrink:0}
 .apply-block{background:var(--g);border-radius:var(--r);padding:28px;text-align:center;margin:32px 0}
 .apply-block p{color:#bbf7d0;font-size:13px;margin-bottom:16px}
-.apply-btn{display:inline-block;padding:15px 40px;background:var(--a);color:#fff;border-radius:9px;font-weight:700;font-size:16px;text-decoration:none;transition:var(--tr)}
+.apply-btn{display:inline-block;padding:15px 40px;background:var(--a);color:#1a1a1a;border-radius:9px;font-weight:700;font-size:16px;text-decoration:none;transition:var(--tr)}
 .apply-btn:hover{background:var(--ald);transform:translateY(-1px)}
 .apply-note{color:#6ee7b7;font-size:11px;margin-top:14px}
 .share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;justify-content:center}
 .share-btn{padding:9px 18px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;border:none;display:flex;align-items:center;gap:6px;transition:var(--tr)}
-.share-wa{background:#25d366;color:#fff}.share-wa:hover{background:#1da851}
+.share-wa{background:#15803d;color:#fff}.share-wa:hover{background:#166534}
 .share-copy{background:#f3f4f6;color:var(--t2);border:1px solid var(--bd)}.share-copy:hover{background:#e5e7eb}
 
 /* ═══ CALENDAR ══════════════════════════════════════════════ */
@@ -306,12 +306,12 @@ footer{background:#111827;color:#9ca3af}
 .flogo{display:flex;align-items:center;gap:8px;margin-bottom:12px}
 .flogo-icon{width:30px;height:30px;background:var(--g);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px}
 .flogo-text{font-family:'Fraunces',serif;font-size:17px;font-weight:900;color:#fff}
-.fa{font-size:12.5px;color:#6b7280;line-height:1.7;margin-bottom:12px}
-.ft{font-size:12px;color:#4b5563;line-height:1.9}
-.fcol h4{color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;font-weight:700}
-.fl-btn{display:block;background:none;border:none;color:#6b7280;font-size:13px;padding:3.5px 0;cursor:pointer;text-align:left;transition:color .15s}
+.fa{font-size:12.5px;color:#9ca3af;line-height:1.7;margin-bottom:12px}
+.ft{font-size:12px;color:#9ca3af;line-height:1.9}
+.fcol h2{color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;font-weight:700}
+.fl-btn{display:block;background:none;border:none;color:#9ca3af;font-size:13px;min-height:24px;padding:3.5px 0;cursor:pointer;text-align:left;transition:color .15s}
 .fl-btn:hover{color:#fff}
-.fbar{border-top:1px solid #1f2937;max-width:var(--mw);margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:#4b5563}
+.fbar{border-top:1px solid #1f2937;max-width:var(--mw);margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:#9ca3af}
 
 /* ═══ RESPONSIVE ════════════════════════════════════════════ */
 @media(max-width:900px){
@@ -340,15 +340,27 @@ footer{background:#111827;color:#9ca3af}
   body{background:#fff;font-size:13px}
   .opp-card{break-inside:avoid}
 }
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:8px;top:-60px;z-index:1000;background:#0d4a26;color:#fff;padding:10px 16px;border-radius:6px;font-weight:700;text-decoration:none}
+.skip-link:focus{top:8px}
+#app:focus{outline:none}
+:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px}
+.search-bar input:focus-visible,.search-bar select:focus-visible,.dir-search input:focus-visible,.fsel:focus-visible,.flds:focus-visible{outline:3px solid #1d4ed8;outline-offset:-3px}
+.search-bar button:focus-visible,.btn-amber:focus-visible,.apply-btn:focus-visible{outline-color:#1a1a1a}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#app">Skip to main content</a>
+<div id="route-announcer" class="sr-only" role="status" aria-live="polite"></div>
 
 <!-- ═══ NAV ══════════════════════════════════════════════════ -->
-<nav id="nav">
+<header>
+<nav id="nav" aria-label="Main">
   <div class="nav-in">
     <button class="logo" onclick="go('home')">
-      <div class="logo-icon">🧭</div>
+      <div class="logo-icon" aria-hidden="true">🧭</div>
       <span class="logo-text">Opportunities<em>ZA</em></span>
     </button>
     <div class="nav-links">
@@ -360,7 +372,7 @@ footer{background:#111827;color:#9ca3af}
       <button class="nl" onclick="go('saved')">🔖 Saved</button>
       <button class="nl nl-cta" onclick="go('directory')">Browse All</button>
     </div>
-    <button class="hbg" id="hbg" onclick="toggleDrw()">☰</button>
+    <button class="hbg" id="hbg" onclick="toggleDrw()" aria-label="Open menu" aria-expanded="false" aria-controls="drw">☰</button>
   </div>
   <div class="drawer" id="drw">
     <button class="dl" onclick="goDir('learnership');closeDrw()">🎓 Learnerships</button>
@@ -376,9 +388,10 @@ footer{background:#111827;color:#9ca3af}
     <button class="btn btn-primary btn-full" style="margin-top:8px;border-radius:8px;padding:12px" onclick="go('directory');closeDrw()">Browse All Opportunities</button>
   </div>
 </nav>
+</header>
 
 <!-- ═══ MAIN ══════════════════════════════════════════════════ -->
-<main id="app"></main>
+<main id="app" tabindex="-1"></main>
 
 <!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
 <footer>
@@ -389,7 +402,7 @@ footer{background:#111827;color:#9ca3af}
       <div class="ft">✓ Never collect your documents<br>✓ Never charge application fees<br>✓ All listings link to official sources</div>
     </div>
     <div>
-      <h4 class="fcol">Opportunities</h4>
+      <h2 class="fcol">Opportunities</h2>
       <button class="fl-btn" onclick="go('directory')">Browse All</button>
       <button class="fl-btn" onclick="goDir('learnership')">Learnerships</button>
       <button class="fl-btn" onclick="goDir('bursary')">Bursaries</button>
@@ -398,7 +411,7 @@ footer{background:#111827;color:#9ca3af}
       <button class="fl-btn" onclick="go('provinces')">By Province</button>
     </div>
     <div>
-      <h4 class="fcol">Tools & Guides</h4>
+      <h2 class="fcol">Tools & Guides</h2>
       <button class="fl-btn" onclick="go('calendar')">Deadline Calendar</button>
       <button class="fl-btn" onclick="go('eligibility')">Eligibility Checker</button>
       <button class="fl-btn" onclick="go('scam')">Scam Checker</button>
@@ -407,7 +420,7 @@ footer{background:#111827;color:#9ca3af}
       <button class="fl-btn" onclick="go('guides')">SETA Guides</button>
     </div>
     <div>
-      <h4 class="fcol">Company</h4>
+      <h2 class="fcol">Company</h2>
       <button class="fl-btn" onclick="go('about')">About Us</button>
       <button class="fl-btn" onclick="go('about')">Contact</button>
       <button class="fl-btn" onclick="go('about')">Disclaimer</button>
@@ -697,7 +710,7 @@ function urgInfo(d){
   const n=days(d);
   if(n<0) return{label:"Closed",cls:"",c:"#6b7280",bg:"#f3f4f6"};
   if(n<=3) return{label:`${n}d left`,cls:"pill-red",c:"#dc2626",bg:"#fee2e2"};
-  if(n<=7) return{label:`${n}d left`,cls:"pill-amber",c:"#d97706",bg:"#fef3c7"};
+  if(n<=7) return{label:`${n}d left`,cls:"pill-amber",c:"#92400e",bg:"#fef3c7"};
   if(n<=30) return{label:`${n}d left`,cls:"pill-green",c:"#166534",bg:"#dcfce7"};
   return{label:fmtD(d),cls:"pill-gray",c:"#374151",bg:"#f3f4f6"};
 }
@@ -861,6 +874,7 @@ class RouterWrapper {
     window.scrollTo(0,0);
     closeDrw();
     render();
+    announceRoute();
   }
   start(){
     this.apply(this.getCurrentRoute());
@@ -925,11 +939,34 @@ function render(){
   }
 }
 
+/* Per-route document title, screen-reader announcement and focus move (skipped on first load). */
+const BASE_TITLE='OpportunitiesZA';
+const PAGE_TITLES={directory:'Browse Opportunities',calendar:'Deadline Calendar',tools:'Free Career Tools',eligibility:'Eligibility Checker',scam:'Scam Awareness Checker',checklist:'Application Checklist Generator','bursary-checker':'Bursary Probability Checker',guides:'SETA Guides',provinces:'Browse by Province',saved:'Saved Opportunities',about:'About Us'};
+let _firstRoute=true;
+function routeTitle(){
+  if(_page==='home')return null;
+  if(_page==='detail')return _opp&&_opp.title?_opp.title:'Opportunity';
+  if(_page==='guide-detail')return _guide&&_guide.title?_guide.title:'Guide';
+  if(_page==='directory'){const c=CATS.find(x=>x.id===_dirCat);return c?c.label:PAGE_TITLES.directory;}
+  return PAGE_TITLES[_page]||null;
+}
+function announceRoute(){
+  const t=routeTitle();
+  document.title=t?`${t} | ${BASE_TITLE}`:'OpportunitiesZA | Learnerships, Bursaries & Internships South Africa 2026';
+  if(_firstRoute){_firstRoute=false;return;}
+  const a=document.getElementById('route-announcer');
+  if(a)a.textContent=t||'Home';
+  const m=document.getElementById('app');
+  if(m)m.focus({preventScroll:true});
+}
+
 /* ═══════════════════════════════════════════════════════════
    NAV HELPERS
 ═══════════════════════════════════════════════════════════ */
-function toggleDrw(){const d=document.getElementById('drw'),h=document.getElementById('hbg');d.classList.toggle('open');h.textContent=d.classList.contains('open')?'✕':'☰';}
-function closeDrw(){const d=document.getElementById('drw'),h=document.getElementById('hbg');d.classList.remove('open');if(h)h.textContent='☰';}
+function setDrw(open){const d=document.getElementById('drw'),h=document.getElementById('hbg');d.classList.toggle('open',open);if(h){h.textContent=open?'✕':'☰';h.setAttribute('aria-expanded',String(open));h.setAttribute('aria-label',open?'Close menu':'Open menu');}}
+function toggleDrw(){setDrw(!document.getElementById('drw').classList.contains('open'));}
+function closeDrw(){setDrw(false);}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('drw').classList.contains('open')){closeDrw();const h=document.getElementById('hbg');if(h)h.focus();}});
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20));
 document.addEventListener('click',e=>{
   const save=e.target.closest('[data-action="toggle-save"]');
@@ -982,8 +1019,8 @@ function renderHome(){
       <h1>Find Your <em>Career</em><br> Opportunity in SA</h1>
       <p class="hero-sub">Learnerships, bursaries, internships, and apprenticeships — linked to the official application pages.</p>
       <div class="search-bar">
-        <input id="hq" placeholder="Search learnerships, bursaries, companies..." onkeydown="if(event.key==='Enter')heroSearch()">
-        <select id="hc">
+        <input id="hq" aria-label="Search opportunities" placeholder="Search learnerships, bursaries, companies..." onkeydown="if(event.key==='Enter')heroSearch()">
+        <select id="hc" aria-label="Opportunity type">
           <option value="">All Types</option>
           ${CATS.map(c=>`<option value="${attr(c.id)}">${esc(c.label)}</option>`).join('')}
         </select>
@@ -1112,26 +1149,26 @@ function renderDir(defCat=''){
   <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Showing ${live.length} current listings across South Africa</p>
 
   <div class="dir-search">
-    <input id="di" placeholder="Search by company, sector, keyword..." oninput="applyDir()">
+    <input id="di" aria-label="Search opportunities" placeholder="Search by company, sector, keyword..." oninput="applyDir()">
     <button class="btn btn-ghost btn-sm" onclick="document.getElementById('di').value='';applyDir()">Clear</button>
   </div>
   <div class="dir-filters">
-    <select class="fsel" id="dc" onchange="applyDir()">
+    <select class="fsel" id="dc" aria-label="Category" onchange="applyDir()">
       <option value="">All Categories</option>
       ${CATS.map(c=>`<option value="${attr(c.id)}" ${c.id===defCat?'selected':''}>${esc(c.label)}</option>`).join('')}
     </select>
-    <select class="fsel" id="dp" onchange="applyDir()">
+    <select class="fsel" id="dp" aria-label="Province" onchange="applyDir()">
       <option value="">All Provinces</option>
       ${PROVS.filter(p=>p!=='Nationwide').map(p=>`<option value="${attr(p)}">${esc(p)}</option>`).join('')}
     </select>
-    <select class="fsel" id="dq" onchange="applyDir()">
+    <select class="fsel" id="dq" aria-label="Qualification" onchange="applyDir()">
       <option value="">Any Qualification</option>
       <option value="Grade 11">Grade 11</option>
       <option value="Matric">Matric</option>
       <option value="Diploma">Diploma</option>
       <option value="Degree">Degree</option>
     </select>
-    <select class="fsel" id="ds" onchange="applyDir()">
+    <select class="fsel" id="ds" aria-label="Sort order" onchange="applyDir()">
       <option value="date">Sort: Closing Date</option>
     </select>
     <label class="fcheck"><input type="checkbox" id="dv" onchange="applyDir()"> Source checked only</label>
@@ -1275,7 +1312,7 @@ function renderCal(){
   <h1 style="font-size:clamp(26px,5vw,42px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">Deadline Calendar</h1>
   <p style="color:var(--mu);margin-bottom:24px">Keep track of closing dates — all upcoming deadlines in one view</p>
   <div class="cal-ctrl">
-    <select class="fsel" id="calCat" onchange="calCat(this.value)">
+    <select class="fsel" id="calCat" aria-label="Category" onchange="calCat(this.value)">
       <option value="">All Categories</option>
       ${CATS.map(c=>`<option value="${attr(c.id)}" ${c.id===calState.cat?'selected':''}>${esc(c.label)}</option>`).join('')}
     </select>
@@ -1493,7 +1530,7 @@ function renderChecklist(){
   <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Select the opportunity type and get a personalised document and step checklist.</p>
   <div class="checker-card">
     <label class="fl">Opportunity type</label>
-    <select class="flds" id="clType" onchange="showChecklist(this.value)" style="margin-bottom:20px">
+    <select class="flds" id="clType" aria-label="Application type" onchange="showChecklist(this.value)" style="margin-bottom:20px">
       <option value="">Select type...</option>
       ${Object.entries(CL).map(([k,v])=>`<option value="${k}">${v.label}</option>`).join('')}
     </select>
@@ -1551,7 +1588,7 @@ function renderBursaryChecker(){
       {id:"bp4",l:"Field of study interest",opts:[["engineering","Engineering / Sciences"],["it","Information Technology"],["health","Health Sciences"],["commerce","Commerce / Accounting"],["education","Education / Teaching"],["other","Other / Humanities"]]},
       {id:"bp5",l:"Current study status",opts:[["new","Entering university for first time"],["continuing","Currently studying"],["tvet","TVET college student"],["other","Other"]]},
     ].map(f=>`<div style="margin-bottom:18px">
-      <label class="fl">${f.l}</label>
+      <label class="fl" for="${f.id}">${f.l}</label>
       <select class="flds" id="${f.id}">${f.opts.map(([v,l])=>`<option value="${attr(v)}">${esc(l)}</option>`).join('')}</select>
     </div>`).join('')}
     <button class="btn btn-primary btn-lg btn-full" onclick="runBursary()">Calculate My Probability →</button>
