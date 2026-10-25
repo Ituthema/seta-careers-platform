@@ -198,7 +198,7 @@ writePage('/guides', baseLayout({
   title: 'SETA Guides and Career Advice | OpportunitiesZA',
   description: 'Plain-language guides to SETAs, learnerships, bursaries, applications, and career preparation in South Africa.',
   jsonld: [breadcrumbLd([['Home', '/'], ['Guides', '/guides/']])],
-  body: '<nav class="muted"><a href="/">Home</a> / Guides</nav><h1>SETA Guides & Career Advice</h1><p>Practical information for South African job seekers, learners, and students.</p>' + guideCards
+  body: '<nav class="muted"><a href="/">Home</a> / Guides</nav><h1>SETA Guides &amp; Career Advice</h1><p>Practical information for South African job seekers, learners, and students.</p>' + guideCards
 }));
 sitemapEntries.push({ route: '/guides', updated: guides.map(function (g) { return g.updated_date || ''; }).sort().pop() || '' });
 
