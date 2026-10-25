@@ -1,0 +1,19 @@
+{
+  "title": "Example Engineering Learnership 2027",
+  "category": "learnership",
+  "sector": "Engineering",
+  "province": "Gauteng",
+  "qualification_level": "Matric",
+  "stipend": "R5 000 per month",
+  "closing_date": "2026-12-01",
+  "application_url": "https://www.example.org/careers/apply",
+  "source_name": "Example Company careers page",
+  "source_url": "https://www.example.org/careers",
+  "description": "A twelve month engineering learnership for unemployed matriculants, with workplace experience and a monthly stipend paid by the employer. Confirm the requirements on the official page.",
+  "eligibility": ["South African citizen", "Matric with mathematics"],
+  "documents_needed": ["South African ID", "Matric results"],
+  "employment_eligibility": ["unemployed"],
+  "tags": ["engineering", "gauteng"],
+  "verified": false,
+  "featured": false
+}
