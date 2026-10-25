@@ -11,7 +11,8 @@ const { opportunityRoutePath, CAT_PATH_MAP, isListedOpportunity } = require('../
 
 const ROOT = path.resolve(__dirname, '..');
 const BASE = 'https://setacareersportal.abrdns.com';
-const OUTPUT_ROOTS = [...new Set([...Object.values(CAT_PATH_MAP), 'guides'])];
+const INFO_ROOTS = ['calendar', 'provinces', 'about', 'tools'];
+const OUTPUT_ROOTS = [...new Set([...Object.values(CAT_PATH_MAP), 'guides', ...INFO_ROOTS])];
 
 function readJSON(file) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
@@ -93,7 +94,7 @@ function baseLayout(options) {
     '<meta property="og:description" content="' + description + '">\n<meta property="og:url" content="' + escapeHTML(canonical) + '">\n' +
     '<meta property="og:site_name" content="OpportunitiesZA">\n<meta property="og:locale" content="en_ZA">\n<meta name="twitter:card" content="summary">\n' +
     '<meta name="robots" content="index,follow">\n' + jsonLd(options.jsonld) +
-    '<style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#fafaf9;color:#1a1a1a;font:16px/1.7 system-ui,-apple-system,sans-serif}header,main,footer{max-width:900px;margin:auto;padding:20px}header{border-bottom:1px solid #e5e7eb;background:#fff}header a,.back{color:#0d4a26;text-decoration:none;font-weight:700}.brand{font-weight:900;font-size:1.2rem}main{padding-top:36px;padding-bottom:56px}h1,h2,h3{line-height:1.2}h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.04em}h2{margin-top:32px;font-size:1.4rem}.muted{color:#596579}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.pill{display:inline-block;background:#dcfce7;color:#166534;padding:4px 10px;border-radius:20px;font-size:.85rem;font-weight:700}.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;margin:14px 0}.btn{display:inline-block;background:#0d4a26;color:#fff;text-decoration:none;font-weight:700;padding:11px 16px;border-radius:8px;margin:8px 8px 8px 0}.btn.secondary{background:#f3f4f6;color:#0d4a26}.list{padding-left:22px}.empty{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:16px}footer{border-top:1px solid #e5e7eb;color:#596579;font-size:.9rem}a{overflow-wrap:anywhere}</style>\n</head>\n<body>\n<!-- GENERATED SEO PAGE: OpportunitiesZA -->\n<header><a class="brand" href="/">OpportunitiesZA</a> <span class="muted">· South African career opportunities</span></header>\n<main>' + options.body + '</main>\n<footer><a href="/">Home</a> · <a href="/#/">Open interactive website</a> · Check every application deadline and eligibility requirement with the official provider.</footer>\n</body>\n</html>\n';
+    '<style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#fafaf9;color:#1a1a1a;font:16px/1.7 system-ui,-apple-system,sans-serif}header,main,footer{max-width:900px;margin:auto;padding:20px}header{border-bottom:1px solid #e5e7eb;background:#fff}header a,.back{color:#0d4a26;text-decoration:none;font-weight:700}.brand{font-weight:900;font-size:1.2rem}main{padding-top:36px;padding-bottom:56px}h1,h2,h3{line-height:1.2}h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.04em}h2{margin-top:32px;font-size:1.4rem}.muted{color:#596579}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.pill{display:inline-block;background:#dcfce7;color:#166534;padding:4px 10px;border-radius:20px;font-size:.85rem;font-weight:700}.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;margin:14px 0}.btn{display:inline-block;background:#0d4a26;color:#fff;text-decoration:none;font-weight:700;padding:11px 16px;border-radius:8px;margin:8px 8px 8px 0}.btn.secondary{background:#f3f4f6;color:#0d4a26}.list{padding-left:22px}.empty{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:16px}footer{border-top:1px solid #e5e7eb;color:#596579;font-size:.9rem}a{overflow-wrap:anywhere}</style>\n</head>\n<body>\n<!-- GENERATED SEO PAGE: OpportunitiesZA -->\n<header><a class="brand" href="/">OpportunitiesZA</a> <span class="muted">· South African career opportunities</span></header>\n<main>' + options.body + '</main>\n<footer><a href="/">Home</a> · <a href="/calendar/">Calendar</a> · <a href="/provinces/">Provinces</a> · <a href="/tools/">Tools</a> · <a href="/guides/">Guides</a> · <a href="/about/">About</a> · <a href="/#/">Open interactive website</a> · Check every application deadline and eligibility requirement with the official provider.</footer>\n</body>\n</html>\n';
 }
 function listItems(items) {
   if (!items || !items.length) return '<p class="muted">Not specified by the listing.</p>';
@@ -237,6 +238,118 @@ guides.forEach(function (g) {
   }));
   sitemapEntries.push({ route: route, updated: g.updated_date || '' });
 });
+
+// ── Information pages: calendar, provinces (+ one per province), tools, about ──
+// Content depends only on the data files (never on today's date) so the committed
+// output cannot drift just because time passed.
+const provinces = readJSON('data/provinces.json');
+const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+function oppCardHTML(o) {
+  return '<article class="card"><h3><a href="' + escapeHTML(ensureTrailingSlash(opportunityRoutePath(o))) + '">' + escapeHTML(o.title) + '</a></h3>' +
+    '<p class="muted">' + escapeHTML(o.province) + ' · ' + escapeHTML(o.qualification_level) + ' · Closing ' + escapeHTML(dateText(o.closing_date)) + '</p></article>';
+}
+function latestUpdate(items) {
+  return items.map(function (o) { return o.updated_date || ''; }).sort().pop() || '';
+}
+const byClosing = live.slice().sort(function (a, b) { return String(a.closing_date).localeCompare(String(b.closing_date)); });
+
+// Calendar
+const months = {};
+byClosing.forEach(function (o) {
+  const key = String(o.closing_date || '').slice(0, 7);
+  if (/^\d{4}-\d{2}$/.test(key)) (months[key] = months[key] || []).push(o);
+});
+const calendarBody = Object.keys(months).sort().map(function (key) {
+  return '<h2>' + MONTH_NAMES[Number(key.slice(5)) - 1] + ' ' + key.slice(0, 4) + '</h2>' + months[key].map(oppCardHTML).join('\n');
+}).join('\n');
+writePage('/calendar', baseLayout({
+  route: '/calendar',
+  title: 'Deadline Calendar: Learnerships, Bursaries & Internships | OpportunitiesZA',
+  description: 'Closing dates for current South African learnerships, bursaries, internships and apprenticeships, listed by month so you do not miss a deadline.',
+  jsonld: [breadcrumbLd([['Home', '/'], ['Deadline calendar', '/calendar/']])],
+  body: '<nav class="muted"><a href="/">Home</a> / Deadline calendar</nav><h1>Deadline Calendar</h1>' +
+    '<p>Closing dates for current listings, earliest first. Always confirm the date with the official provider before applying.</p>' +
+    (calendarBody || '<div class="empty">No listings with an upcoming closing date right now. Check back soon.</div>') +
+    '<p><a class="btn secondary" href="/#/calendar">Open the interactive calendar</a></p>'
+}));
+sitemapEntries.push({ route: '/calendar', updated: latestUpdate(live) });
+
+// Provinces index and one page per province
+const provinceCount = function (province) {
+  return live.filter(function (o) { return o.province === province.label; });
+};
+writePage('/provinces', baseLayout({
+  route: '/provinces',
+  title: 'Learnerships, Bursaries & Internships by Province | OpportunitiesZA',
+  description: 'Browse South African learnerships, bursaries and internships by province, with major cities and top employers for each.',
+  jsonld: [breadcrumbLd([['Home', '/'], ['Provinces', '/provinces/']])],
+  body: '<nav class="muted"><a href="/">Home</a> / Provinces</nav><h1>Opportunities by Province</h1>' +
+    '<p>Pick your province to see its major cities, top employers and current listings.</p>' +
+    provinces.map(function (pr) {
+      const n = provinceCount(pr).length;
+      return '<article class="card"><h2><a href="/provinces/' + encodeURIComponent(pr.id) + '/">' + escapeHTML(pr.label) + '</a></h2>' +
+        '<p>' + escapeHTML(pr.description) + '</p><p class="muted">' + n + (n === 1 ? ' current listing' : ' current listings') + '</p></article>';
+    }).join('\n')
+}));
+sitemapEntries.push({ route: '/provinces', updated: latestUpdate(live) });
+
+provinces.forEach(function (pr) {
+  const route = '/provinces/' + encodeURIComponent(pr.id);
+  const local = provinceCount(pr);
+  const nationwide = live.filter(function (o) { return o.province === 'Nationwide'; });
+  writePage(route, baseLayout({
+    route: route,
+    title: pr.seo_title,
+    description: pr.seo_desc,
+    jsonld: [breadcrumbLd([['Home', '/'], ['Provinces', '/provinces/'], [pr.label, route + '/']])],
+    body: '<nav class="muted"><a href="/">Home</a> / <a href="/provinces/">Provinces</a> / ' + escapeHTML(pr.label) + '</nav>' +
+      '<h1>Learnerships, Bursaries &amp; Internships in ' + escapeHTML(pr.label) + '</h1>' +
+      '<p>' + escapeHTML(pr.description) + '</p>' +
+      '<h2>Major cities</h2>' + listItems(pr.major_cities) +
+      '<h2>Top employers</h2>' + listItems(pr.top_employers) +
+      '<h2>Current listings in ' + escapeHTML(pr.label) + '</h2>' +
+      (local.length ? local.map(oppCardHTML).join('\n') : '<div class="empty">No current listings are specific to ' + escapeHTML(pr.label) + ' right now.</div>') +
+      (nationwide.length ? '<h2>Nationwide listings</h2><p class="muted">Open to applicants in any province.</p>' + nationwide.map(oppCardHTML).join('\n') : '') +
+      '<p><a class="btn secondary" href="/provinces/">All provinces</a></p>'
+  }));
+  sitemapEntries.push({ route: route, updated: latestUpdate(local.concat(nationwide)) });
+});
+
+// Tools (the tools themselves are interactive and live in the app)
+const toolList = [
+  ['Eligibility Checker', 'Answer a few questions and see the learnerships, bursaries and internships you are likely to qualify for.', '/#/eligibility'],
+  ['Scam Awareness Checker', 'Describe an opportunity and check it against common scam warning signs.', '/#/scam'],
+  ['Application Checklist Generator', 'Get a document and preparation checklist for a learnership, bursary or internship.', '/#/checklist'],
+  ['Bursary Probability Checker', 'Get a rough indication of your bursary chances from your marks, household income and field of study.', '/#/bursary-checker'],
+  ['Deadline Calendar', 'See current closing dates by month.', '/calendar/'],
+  ['Browse by Province', 'Find opportunities in your province.', '/provinces/']
+];
+writePage('/tools', baseLayout({
+  route: '/tools',
+  title: 'Free Career Tools for South African Applicants | OpportunitiesZA',
+  description: 'Free tools for South African applicants: eligibility checker, application checklist, bursary probability checker, scam awareness checker and deadline calendar.',
+  jsonld: [breadcrumbLd([['Home', '/'], ['Free tools', '/tools/']])],
+  body: '<nav class="muted"><a href="/">Home</a> / Free tools</nav><h1>Free Career Tools</h1>' +
+    '<p>No login and no fees. The interactive tools open in the app; your answers stay in your browser.</p>' +
+    toolList.map(function (t) {
+      return '<article class="card"><h2><a href="' + escapeHTML(t[2]) + '">' + escapeHTML(t[0]) + '</a></h2><p>' + escapeHTML(t[1]) + '</p></article>';
+    }).join('\n')
+}));
+sitemapEntries.push({ route: '/tools', updated: '' });
+
+// About
+writePage('/about', baseLayout({
+  route: '/about',
+  title: 'About OpportunitiesZA | South African Career Opportunities',
+  description: 'OpportunitiesZA publishes South African learnerships, bursaries and internships that link to official sources, with free tools and plain-language guides.',
+  jsonld: [breadcrumbLd([['Home', '/'], ['About', '/about/']])],
+  body: '<nav class="muted"><a href="/">Home</a> / About</nav><h1>About OpportunitiesZA</h1>' +
+    '<p>OpportunitiesZA exists to make South Africa’s career opportunity landscape simple and accessible. The biggest barrier between an unemployed young South African and their first qualification is not effort, it is information.</p>' +
+    '<p>We publish listings that link to official sources, explain SETA systems in plain language, and build free tools so people can see what they qualify for without paying anyone or sending their documents anywhere.</p>' +
+    '<h2>Disclaimer</h2><p>OpportunitiesZA is an independent information platform. We are not an employer, recruiter, recruitment agency or government department. We do not collect personal documents, charge fees or guarantee placement in any programme. Always verify details with the official source before applying or sharing personal information.</p>' +
+    '<h2>Contact</h2><p>General enquiries, scam reports and opportunity submissions: <a href="mailto:contact@setacareersportal.abrdns.com">contact@setacareersportal.abrdns.com</a></p>'
+}));
+sitemapEntries.push({ route: '/about', updated: '' });
 
 function xmlEscape(value) {
   return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')

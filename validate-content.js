@@ -54,6 +54,8 @@ const guides = loadJSON('data/guides.json');
 const live = opportunities.filter(isListedOpportunity);
 const expectedOpportunityPaths = new Set(live.map(opportunityRoutePath));
 const expectedGuidePaths = new Set(guides.map(g => '/guides/' + encodeURIComponent(g.id)));
+const provinces = loadJSON('data/provinces.json');
+const expectedInfoPaths = new Set(['/calendar', '/provinces', '/tools', '/about', ...provinces.map(p => '/provinces/' + encodeURIComponent(p.id))]);
 const expectedCategoryPaths = new Set(live.map(o => '/' + (CAT_PATH_MAP[o.category] || (o.category + 's'))));
 
 const sitemap = read('sitemap.xml');
@@ -75,8 +77,9 @@ const sitemapCategoryPaths = new Set([...sitemapPaths].filter(p => /^\/(?:learne
 compareSets('Opportunity sitemap sync', expectedOpportunityPaths, sitemapOpportunityPaths);
 compareSets('Guide sitemap sync', expectedGuidePaths, sitemapGuidePaths);
 compareSets('Category sitemap sync', expectedCategoryPaths, sitemapCategoryPaths);
+compareSets('Info page sitemap sync', expectedInfoPaths, new Set([...sitemapPaths].filter(p => /^\/(?:calendar|provinces|tools|about)(?:\/[^/]+)?$/.test(p))));
 
-for (const route of [...expectedOpportunityPaths, ...expectedGuidePaths, ...expectedCategoryPaths, '/guides']) {
+for (const route of [...expectedOpportunityPaths, ...expectedGuidePaths, ...expectedCategoryPaths, ...expectedInfoPaths, '/guides']) {
   const file = outputFile(route);
   if (!fs.existsSync(file)) {
     fail('Missing generated static page for ' + route + ' (' + path.relative(ROOT, file) + '). Run npm run sitemap.');
@@ -91,4 +94,4 @@ for (const route of [...expectedOpportunityPaths, ...expectedGuidePaths, ...expe
 
 if (process.exitCode) process.exit(process.exitCode);
 console.log('✅ SEO route validation passed: ' + expectedOpportunityPaths.size + ' opportunity pages, ' +
-  expectedCategoryPaths.size + ' category pages and ' + guides.length + ' guide pages use crawlable, canonical URLs.');
+  expectedCategoryPaths.size + ' category pages, ' + guides.length + ' guide pages and ' + expectedInfoPaths.size + ' info pages use crawlable, canonical URLs.');
