@@ -92,6 +92,10 @@ for (const route of [...expectedOpportunityPaths, ...expectedGuidePaths, ...expe
   if (!/<meta name="description" content="[^"]+">/.test(html)) fail('Missing meta description for ' + route);
 }
 
+// Share-preview image: the file must exist and index.html must point at it.
+if (!fs.existsSync(path.join(ROOT, 'assets/og-image.png'))) fail('Missing assets/og-image.png (referenced by og:image).');
+if (!read('index.html').includes('<meta property="og:image" content="' + BASE + '/assets/og-image.png">')) fail('index.html is missing the og:image tag for assets/og-image.png.');
+
 if (process.exitCode) process.exit(process.exitCode);
 console.log('✅ SEO route validation passed: ' + expectedOpportunityPaths.size + ' opportunity pages, ' +
   expectedCategoryPaths.size + ' category pages, ' + guides.length + ' guide pages and ' + expectedInfoPaths.size + ' info pages use crawlable, canonical URLs.');
