@@ -197,7 +197,7 @@ h1,h2,h3{font-family:'Fraunces',serif}
 .rc strong{color:var(--tx)}
 .no-res{text-align:center;padding:72px 24px;color:var(--mu);grid-column:1/-1}
 .no-res .nr-ico{font-size:48px;margin-bottom:14px}
-.no-res h3{font-family:'Fraunces',serif;font-size:22px;color:var(--t2);margin-bottom:8px}
+.no-res h2,.no-res h3{font-family:'Fraunces',serif;font-size:22px;color:var(--t2);margin-bottom:8px}
 
 /* ═══ DETAIL ════════════════════════════════════════════════ */
 .breadcrumb{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mu);margin-bottom:24px;flex-wrap:wrap}
@@ -295,7 +295,7 @@ h1,h2,h3{font-family:'Fraunces',serif}
 .prov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:32px}
 .prov-tile{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:18px;cursor:pointer;transition:var(--tr);text-align:left}
 .prov-tile:hover{border-color:var(--g);background:var(--glt)}
-.prov-tile h3{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
+.prov-tile h2{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px}
 .prov-tile p{font-size:12px;color:var(--mu)}
 
 /* ═══ ABOUT ══════════════════════════════════════════════════ */
@@ -1031,11 +1031,13 @@ document.addEventListener('keydown',e=>{
 /* ═══════════════════════════════════════════════════════════
    OPP CARD
 ═══════════════════════════════════════════════════════════ */
+// Card headings sit directly under the page h1 on list pages, and under an h2 section elsewhere.
+function cardTag(){return _page==='directory'||_page==='saved'||_page==='guides'?'h2':'h3';}
 function oppCard(o,compact=false){
   const u=urgInfo(o.close);
   return`<div class="opp-card${o.featured?' featured':''}" data-action="open-opp" data-opp-id="${attr(o.id)}" tabindex="0" role="button">
   <div class="oc-top">${badge(o.cat)}${o.verified?'<span class="oc-verified">✓ Source checked</span>':''}</div>
-  <h3 class="oc-title">${esc(o.title)}</h3>
+  <${cardTag()} class="oc-title">${esc(o.title)}</${cardTag()}>
   <div class="oc-meta"><span>📍 ${esc(o.prov)}</span>${o.stipend?`<span>💰 ${esc(o.stipend)}</span>`:''}</div>
   <div class="oc-footer">${pill(o.close)}<div style="display:flex;align-items:center;gap:10px"><span class="oc-link">View & Apply →</span>${bkBtn(o.id)}</div></div>
   </div>`;
@@ -1151,7 +1153,7 @@ function renderHome(){
       ${GUIDES.slice(0,3).map(g=>`
         <div class="guide-card" data-action="open-guide" data-guide-id="${attr(g.id)}">
           <div class="gc-meta">📖 ${esc(g.cat.replace('-',' '))} · ${esc(g.read)}</div>
-          <h3 class="gc-title">${esc(g.title)}</h3>
+          <${cardTag()} class="gc-title">${esc(g.title)}</${cardTag()}>
           <p class="gc-intro">${esc(g.intro)}</p>
           <span class="gc-lnk">Read guide →</span>
         </div>`).join('')}
@@ -1255,7 +1257,7 @@ function resetDir(){
   applyDir();
 }
 
-function noRes(){return`<div class="no-res"><div class="nr-ico">🔍</div><h3>No results found</h3><p style="font-size:14px;margin-bottom:20px">Try adjusting filters or search term</p><button class="btn btn-primary" onclick="resetDir()">Clear all filters</button></div>`;}
+function noRes(){return`<div class="no-res"><div class="nr-ico">🔍</div><${cardTag()}>No results found</${cardTag()}><p style="font-size:14px;margin-bottom:20px">Try adjusting filters or search term</p><button class="btn btn-primary" onclick="resetDir()">Clear all filters</button></div>`;}
 function bindDir(){
   if(!_pendingDirSearch) return;
   const {q,cat}=_pendingDirSearch;
@@ -1371,7 +1373,7 @@ function calList(){
   opps.forEach(o=>{const k=o.close.slice(0,7);if(!byM[k])byM[k]=[];byM[k].push(o);});
   return Object.entries(byM).map(([ym,items])=>`
     <div style="margin-bottom:28px">
-      <h3 class="lmh">${fmtMY(ym+'-01')}</h3>
+      <h2 class="lmh">${fmtMY(ym+'-01')}</h2>
       ${items.map(o=>{const u=urgInfo(o.close);const ci=catInfo(o.cat);return`
         <div class="li" data-action="open-opp" data-opp-id="${attr(o.id)}">
           <div class="li-dt">${fmtShort(o.close)}</div>
@@ -1693,7 +1695,7 @@ function renderGuides(){
   <div class="guide-grid">
     ${GUIDES.map(g=>`<div class="guide-card" data-action="open-guide" data-guide-id="${attr(g.id)}">
       <div class="gc-meta">📖 ${esc(g.cat.replace('-',' '))} · ${esc(g.read)} read</div>
-      <h3 class="gc-title">${esc(g.title)}</h3>
+      <${cardTag()} class="gc-title">${esc(g.title)}</${cardTag()}>
       <p class="gc-intro">${esc(g.intro)}</p>
       <span class="gc-lnk">Read guide →</span>
     </div>`).join('')}
@@ -1751,7 +1753,7 @@ function renderProvinces(){
   <p style="color:var(--mu);margin-bottom:32px;font-size:15px">Select your province to see all relevant opportunities</p>
   <div class="prov-grid">
     ${provData.map(({p,cnt})=>`<button class="prov-tile" data-action="filter-province" data-province="${attr(p)}">
-      <h3>📍 ${esc(p)}</h3>
+      <h2>📍 ${esc(p)}</h2>
       <p>${cnt} opportunities available</p>
     </button>`).join('')}
   </div>
@@ -1778,7 +1780,7 @@ function renderSaved(){
     <h1 style="font-size:clamp(26px,5vw,40px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">🔖 Saved Opportunities</h1>
     <div class="saved-empty">
       <div class="se-ico">🔖</div>
-      <h3 style="font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--t2);margin-bottom:10px">No saved opportunities yet</h3>
+      <h2 style="font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--t2);margin-bottom:10px">No saved opportunities yet</h2>
       <p style="font-size:14px;margin-bottom:24px">Click the 🔲 button on any opportunity card to save it for later.</p>
       <button class="btn btn-primary" onclick="go('directory')">Browse Opportunities</button>
     </div>
