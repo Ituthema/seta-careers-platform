@@ -163,3 +163,45 @@ test('guardedLookup blocks a hostname that resolves to loopback, and the opt-out
     await new Promise((resolve) => server.close(resolve));
   }
 });
+
+// --- robots.txt integration -------------------------------------------------
+
+const { createRobotsChecker } = require('./robots');
+const checkerFor = (body, status = 200) => createRobotsChecker(async () => ({ status, body: Buffer.from(body) }));
+
+test('a robots-disallowed source is never requested and reports ROBOTS_DISALLOWED', async () => {
+  const { calls, deps } = scripted([ok()]);
+  const robots = checkerFor('User-agent: *\nDisallow: /jobs');
+  const result = await fetchSource(source, config, () => {}, {}, { ...deps, robots });
+  assert.equal(result.ok, false);
+  assert.equal(result.rejectReason, 'ROBOTS_DISALLOWED');
+  assert.equal(result.attempts, 0);
+  assert.equal(calls.length, 0, 'the page must not be fetched');
+});
+
+test('an allowed source is fetched normally', async () => {
+  const { calls, deps } = scripted([ok()]);
+  const robots = checkerFor('User-agent: *\nDisallow: /private');
+  const result = await fetchSource(source, config, () => {}, {}, { ...deps, robots });
+  assert.equal(result.ok, true);
+  assert.equal(calls.length, 1);
+});
+
+test('an unreachable robots.txt blocks the source as ROBOTS_UNREACHABLE', async () => {
+  const { calls, deps } = scripted([ok()]);
+  const robots = checkerFor('', 503);
+  const result = await fetchSource(source, config, () => {}, {}, { ...deps, robots });
+  assert.equal(result.ok, false);
+  assert.equal(result.rejectReason, 'ROBOTS_UNREACHABLE');
+  assert.equal(calls.length, 0);
+});
+
+test('a redirect onto a robots-disallowed path is rejected after the fetch', async () => {
+  const { calls, deps } = scripted([ok({ url: 'https://example.org/private/portal' })]);
+  const robots = checkerFor('User-agent: *\nDisallow: /private');
+  const result = await fetchSource(source, config, () => {}, {}, { ...deps, robots });
+  assert.equal(result.ok, false);
+  assert.equal(result.rejectReason, 'ROBOTS_DISALLOWED');
+  assert.equal(calls.length, 1);
+  assert.equal(result.url, 'https://example.org/private/portal');
+});
