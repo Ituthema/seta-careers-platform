@@ -238,3 +238,13 @@ Apply these additional controls when onboarding sources:
 `npm run validate` checks every listing with `verified: true`: its `source_url` and `application_url` hosts must match a host in `data/sources.json` (equal, or one a subdomain of the other, ignoring `www`; a bare suffix such as `gov.za` never counts). Live listings fail the check; expired ones only warn, so history does not block CI. To fix a gap, register the domain (inactive is fine until a fetch confirms it) or set `verified` to `false`. Logic lives in `scripts/validators/registry-coverage.js`.
 
 Current known gaps closed as inactive leads: `sasol-bursaries`, `kzn-department-of-health`, `standard-bank-careers-co-za` (all used by expired listings; none could be fetched, so none are active).
+
+## From crawled pages to published listings
+
+The crawler stages whole pages (`crawler/output/staging.json`), not structured listings, and nothing publishes them automatically. Publishing is a human step on purpose: listings carry a "source checked" promise.
+
+1. `npm run crawl` stages pages from active sources.
+2. `npm run review:candidates` scans the staged pages for opportunity-like links and text, and prints the leads that mention a **future closing date** (dates are only read when they sit next to words like "closing" or "deadline"). The full list is written to `crawler/output/candidates.json` (untracked). Logic: `crawler/pipeline/candidates.js`.
+3. Open each lead on the official page, confirm the details, then add the record to `data/opportunities.json` and run `npm run validate` (which also checks that a verified listing's domain is in the registry).
+
+If the crawl staged nothing, the command says so and points at `rejected.json` and `crawl-report.json`. Step 3 is still manual; a guided "add listing" command is the planned next batch.
