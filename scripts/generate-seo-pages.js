@@ -66,6 +66,21 @@ function removeOldGeneratedPages() {
   }
   OUTPUT_ROOTS.forEach(function (name) { walk(path.join(ROOT, name)); });
 }
+// JSON-LD must not be able to close its own <script> element.
+function jsonLd(objects) {
+  return (objects || []).map(function (object) {
+    return '<script type="application/ld+json">' + JSON.stringify(object).replace(/</g, '\\u003c') + '</script>\n';
+  }).join('');
+}
+function breadcrumbLd(crumbs) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map(function (crumb, index) {
+      return { '@type': 'ListItem', position: index + 1, name: crumb[0], item: BASE + crumb[1] };
+    })
+  };
+}
 function baseLayout(options) {
   const title = escapeHTML(options.title);
   const description = escapeHTML(options.description);
@@ -76,7 +91,8 @@ function baseLayout(options) {
     '<link rel="canonical" href="' + escapeHTML(canonical) + '">\n' +
     '<meta property="og:type" content="website">\n<meta property="og:title" content="' + title + '">\n' +
     '<meta property="og:description" content="' + description + '">\n<meta property="og:url" content="' + escapeHTML(canonical) + '">\n' +
-    '<meta name="robots" content="index,follow">\n' +
+    '<meta property="og:site_name" content="OpportunitiesZA">\n<meta property="og:locale" content="en_ZA">\n<meta name="twitter:card" content="summary">\n' +
+    '<meta name="robots" content="index,follow">\n' + jsonLd(options.jsonld) +
     '<style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#fafaf9;color:#1a1a1a;font:16px/1.7 system-ui,-apple-system,sans-serif}header,main,footer{max-width:900px;margin:auto;padding:20px}header{border-bottom:1px solid #e5e7eb;background:#fff}header a,.back{color:#0d4a26;text-decoration:none;font-weight:700}.brand{font-weight:900;font-size:1.2rem}main{padding-top:36px;padding-bottom:56px}h1,h2,h3{line-height:1.2}h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.04em}h2{margin-top:32px;font-size:1.4rem}.muted{color:#596579}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.pill{display:inline-block;background:#dcfce7;color:#166534;padding:4px 10px;border-radius:20px;font-size:.85rem;font-weight:700}.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;margin:14px 0}.btn{display:inline-block;background:#0d4a26;color:#fff;text-decoration:none;font-weight:700;padding:11px 16px;border-radius:8px;margin:8px 8px 8px 0}.btn.secondary{background:#f3f4f6;color:#0d4a26}.list{padding-left:22px}.empty{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:16px}footer{border-top:1px solid #e5e7eb;color:#596579;font-size:.9rem}a{overflow-wrap:anywhere}</style>\n</head>\n<body>\n<!-- GENERATED SEO PAGE: OpportunitiesZA -->\n<header><a class="brand" href="/">OpportunitiesZA</a> <span class="muted">· South African career opportunities</span></header>\n<main>' + options.body + '</main>\n<footer><a href="/">Home</a> · <a href="/#/">Open interactive website</a> · Check every application deadline and eligibility requirement with the official provider.</footer>\n</body>\n</html>\n';
 }
 function listItems(items) {
@@ -135,6 +151,7 @@ liveCategories.forEach(function (categoryPath) {
   writePage(route, baseLayout({
     route: route,
     title: label + ' in South Africa | OpportunitiesZA',
+    jsonld: [breadcrumbLd([['Home', '/'], [label, '/' + categoryPath + '/']])],
     description: 'Browse current ' + label.toLowerCase() + ' opportunities in South Africa, with eligibility details, closing dates, and official application links.',
     body: '<nav class="muted"><a href="/">Home</a> / ' + escapeHTML(label) + '</nav><h1>' + escapeHTML(label) + ' in South Africa</h1>' +
       '<p>Current listings are shown below. Confirm eligibility, deadlines, and application instructions with the official provider before applying.</p>' +
@@ -166,6 +183,7 @@ live.forEach(function (o) {
     route: route,
     title: (o.title || 'Career opportunity') + ' | OpportunitiesZA',
     description: description,
+    jsonld: [breadcrumbLd([['Home', '/'], [categoryLabels[CAT_PATH_MAP[o.category] || (o.category + 's')] || o.category, '/' + (CAT_PATH_MAP[o.category] || (o.category + 's')) + '/'], [o.title || 'Career opportunity', route + '/']])],
     body: body
   }));
   sitemapEntries.push({ route: route, updated: o.updated_date || '' });
@@ -179,6 +197,7 @@ writePage('/guides', baseLayout({
   route: '/guides',
   title: 'SETA Guides and Career Advice | OpportunitiesZA',
   description: 'Plain-language guides to SETAs, learnerships, bursaries, applications, and career preparation in South Africa.',
+  jsonld: [breadcrumbLd([['Home', '/'], ['Guides', '/guides/']])],
   body: '<nav class="muted"><a href="/">Home</a> / Guides</nav><h1>SETA Guides & Career Advice</h1><p>Practical information for South African job seekers, learners, and students.</p>' + guideCards
 }));
 sitemapEntries.push({ route: '/guides', updated: guides.map(function (g) { return g.updated_date || ''; }).sort().pop() || '' });
@@ -192,6 +211,24 @@ guides.forEach(function (g) {
     route: route,
     title: (g.meta_title || g.title) + ' | OpportunitiesZA',
     description: g.meta_description || g.intro,
+    jsonld: [
+      breadcrumbLd([['Home', '/'], ['Guides', '/guides/'], [g.title, route + '/']]),
+      Object.assign({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: g.title,
+        description: g.meta_description || g.intro,
+        mainEntityOfPage: BASE + route + '/',
+        publisher: { '@type': 'Organization', name: 'OpportunitiesZA', url: BASE + '/' }
+      }, g.updated_date ? { dateModified: g.updated_date } : {}),
+      ...((g.faq || []).length ? [{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: g.faq.map(function (item) {
+          return { '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } };
+        })
+      }] : [])
+    ],
     body: '<nav class="muted"><a href="/">Home</a> / <a href="/guides/">Guides</a></nav><h1>' + escapeHTML(g.title) + '</h1>' +
       '<p class="muted">' + escapeHTML(g.read_time || g.read || '') + ' · Updated ' + escapeHTML(dateText(g.updated_date)) + '</p>' +
       '<section class="card"><p>' + escapeHTML(g.intro) + '</p></section>' + guideBodyToSafeParagraphs(g.body) +

@@ -8,6 +8,13 @@
 <meta property="og:title" content="OpportunitiesZA | SA Career Opportunities 2026">
 <meta property="og:description" content="Learnerships, bursaries, and internships across South Africa, linked to official sources. Free to use.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://setacareersportal.abrdns.com/">
+<meta property="og:site_name" content="OpportunitiesZA">
+<meta property="og:locale" content="en_ZA">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://setacareersportal.abrdns.com/">
+<meta name="robots" content="index,follow">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"OpportunitiesZA","url":"https://setacareersportal.abrdns.com/","inLanguage":"en-ZA","description":"Learnerships, bursaries, internships and apprenticeships across South Africa, linked to official application pages."}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -937,6 +944,36 @@ function render(){
     case 'about': app.innerHTML=renderAbout();break;
     default: app.innerHTML=renderHome();
   }
+  applyRouteMeta();
+}
+
+/* Per-route meta tags. Hash routes share one URL for crawlers (fragments are not indexed),
+   so the canonical stays on the home page; this keeps description/og/robots accurate for
+   browsers, link previews that run JS, and crawlers that render. Personal pages are noindex. */
+const DEFAULT_DESC=document.querySelector('meta[name="description"]')?.content||'';
+const ROUTE_DESC={
+  directory:'Search and filter learnerships, bursaries, internships and apprenticeships across South Africa by province, qualification and closing date.',
+  calendar:'Deadline calendar for South African learnerships, bursaries and internships, so you do not miss a closing date.',
+  tools:'Free career tools for South African applicants: eligibility checker, application checklist, bursary probability checker and scam awareness checker.',
+  eligibility:'Answer a few questions to see which learnerships, bursaries and internships you may qualify for in South Africa.',
+  scam:'Check an opportunity against common scam warning signs before you share personal details or pay anything.',
+  checklist:'Generate a document and preparation checklist for a learnership, bursary or internship application.',
+  'bursary-checker':'Get a rough indication of your bursary chances based on marks, household income and field of study.',
+  guides:'Plain-language guides to SETAs, learnerships, bursaries, applications and career preparation in South Africa.',
+  provinces:'Browse South African learnerships, bursaries and internships by province.',
+  about:'About OpportunitiesZA: how listings are sourced, linked to official pages and kept up to date.'
+};
+const NOINDEX_PAGES=new Set(['saved']);
+function setMeta(selector,attr,value){const el=document.querySelector(selector);if(el)el.setAttribute(attr,value);}
+function applyRouteMeta(){
+  let desc=ROUTE_DESC[_page]||DEFAULT_DESC;
+  if(_page==='detail'&&_opp&&_opp.desc)desc=String(_opp.desc).replace(/\s+/g,' ').slice(0,155);
+  if(_page==='guide-detail'&&_guide)desc=_guide.meta_description||_guide.intro||desc;
+  setMeta('meta[name="description"]','content',desc);
+  setMeta('meta[property="og:description"]','content',desc);
+  const t=_page==='detail'&&_opp?_opp.title:_page==='guide-detail'&&_guide?_guide.title:null;
+  setMeta('meta[property="og:title"]','content',t?`${t} | OpportunitiesZA`:document.title);
+  setMeta('meta[name="robots"]','content',NOINDEX_PAGES.has(_page)||(_page==='detail'&&!_opp)?'noindex,follow':'index,follow');
 }
 
 /* Per-route document title, screen-reader announcement and focus move (skipped on first load). */
