@@ -1,4 +1,4 @@
-// Runs every *.test.js under crawler/ with the built-in test runner.
+// Runs every *.test.js under crawler/ and scripts/ with the built-in test runner.
 // Dependency-free and cross-platform: no shell globs, so it behaves the same on
 // Windows, macOS, Linux and in CI, and a new test file is picked up automatically.
 const fs = require('fs');
@@ -15,9 +15,9 @@ function findTests(dir) {
   });
 }
 
-const files = findTests(path.join(ROOT, 'crawler')).sort();
+const files = ['crawler', 'scripts'].flatMap((dir) => findTests(path.join(ROOT, dir))).sort();
 if (files.length === 0) {
-  console.error('No test files found under crawler/.');
+  console.error('No test files found under crawler/ or scripts/.');
   process.exit(1);
 }
 
