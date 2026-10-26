@@ -258,3 +258,19 @@ What it does for you: assigns the next `id`, generates a unique `slug` from the 
 What it refuses: a missing field or bad enum (category, province, employment status), a closing date in the past, a duplicate slug or application URL, and `verified: true` when the source or application domain is not in `data/sources.json`. It warns when a listing is unverified, when the description is short, and when the application and source links are on different sites.
 
 Commit `data/opportunities.json`, `sitemap.xml` and the generated pages together; Quality Gates checks they match.
+
+## AI-assisted drafts (optional, local only)
+
+`npm run ai:draft -- <official page URL>` fetches one page you choose, asks Claude to fill the listing fields from that page only, and writes `docs/listing-drafts/<slug>.json` plus `<slug>.evidence.json`. Run it on your own machine (for example Termux); the website never calls the API.
+
+Setup: `npm install` once (the fetcher needs axios and cheerio), then `export ANTHROPIC_API_KEY=...` in the shell. Never save the key in a file in the repo. Model: `--model <id>` or `AI_DRAFT_MODEL` (default `claude-sonnet-5-5`).
+
+Safeguards, because AI text can be wrong and pages are untrusted:
+- The page is fetched with the crawler's safe fetcher: robots.txt and private-network checks apply. PDFs and JavaScript-only pages are not supported.
+- The model must quote the page for the closing date, stipend and qualification. A claim whose quote is not on the page is removed, and a closing date must also parse to the stated date. A missing date then shows up as an error from the add-listing rules.
+- The application link must be a real link on the page, otherwise the page URL is used.
+- `verified` is always `false` and `featured` always `false`, whatever the model or the page says. The page text cannot change that.
+- No web search: it cannot invent opportunities, only read the page you give it.
+- It never publishes. Review the draft against the page, then run `npm run add:listing`.
+
+Limits: the description and eligibility wording are written by the model from the page, so read them; a page with several programmes is skipped ("not a single opportunity").
