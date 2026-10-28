@@ -1,81 +1,50 @@
-# Architecture Overview — CareerHub SA
+# Architecture Overview — Verified Current State
 
-## Purpose
-South Africa's career opportunity intelligence platform for learnerships, bursaries, internships, and apprenticeships.
+**Baseline commit reviewed:** `380b3ad94939f6f4e5b1390bc733cf33c6865e94`  
+**Baseline date:** 2026-10-28  
+**Evidence:** repository files at the commit and GitHub Actions runs linked in [the implementation baseline](../status/IMPLEMENTATION_BASELINE.md).
 
-## Stack
-- **Frontend:** Vanilla HTML5 / CSS3 / JavaScript (ES6+)
-- **Hosting:** GitHub Pages (static site)
-- **Data:** JSON files served statically from `/data/`
-- **Build:** Zero build step — no bundler, no transpiler
-- **Domain:** setacareersportal.abrdns.com (custom domain via CNAME)
+## Current architecture
 
-## Temporary Scaffolding (Phase 1 Only)
+- **Frontend:** one main vanilla HTML/CSS/JavaScript application in `index.html`; no React/Vite build is configured in the current `package.json`.
+- **Hosting:** GitHub Pages, serving the repository root and custom domain `setacareersportal.abrdns.com`.
+- **Published data:** static JSON arrays in `data/`; the frontend and SEO generation scripts read these files.
+- **SEO output:** `scripts/generate-seo-pages.js` writes crawlable directory-style pages and `sitemap.xml`. The interactive app and generated static pages coexist.
+- **Routing contract:** `index.html` and root `route-paths.js` both map opportunity categories to canonical paths. Detail paths use category plus slug when available; `/opportunity/{id}` is a legacy fallback.
+- **Validation:** `npm run validate`, `npm run validate:routes`, `npm run validate:pages`, `npm run links`, and `npm test`; `npm run check` composes the release checks defined in `package.json`.
+- **Source registry:** `data/sources.json` is used by registry auditing, source-health probing, and the crawler.
+- **Crawler:** `npm run crawl` runs a Node pipeline with source loading, robots handling, bounded fetching, HTML/PDF parsing, normalisation, validation, deduplication, staging, rejection diagnostics, and run reports. Candidate staging is not equivalent to publication.
+- **Publication:** approved opportunity records are committed to `data/opportunities.json`; the crawler path reviewed here does not directly publish fetched candidates into the public dataset.
 
-These exist now for rapid launch but will be replaced as the project scales.
+## Category contract and known gap
 
-| Feature | Current | Target | Migration Phase | Why Temporary |
-|---|---|---|---|---|
-| Hosting | GitHub Pages | Vercel/Netlify → VPS | Phase 3 | No server-side processing, rate limits |
-| Frontend | Single `index.html` (~110KB) | Vite + React/Vue/Svelte components | Phase 2 | Unmaintainable monolith, no testing isolation |
-| Data | Static JSON files | PostgreSQL + REST API | Phase 3 | No concurrent editing, file size limits, no user-generated content |
-| Build | Zero build step | Vite build pipeline | Phase 2 | No component reusability, no TypeScript, no tree-shaking |
-| Search | Client-side only | Algolia/Typesense → Elasticsearch | Phase 4 | Loads entire dataset, no fuzzy matching, no analytics |
-| Bookmarks | localStorage | Cloud-synced user accounts | Phase 3 | Device-specific, no sync, cleared on browser reset |
-| Routing | Hash-based (`/#/`) | History API + SSR | Phase 4 | Bad for SEO, ugly URLs, no dynamic OG tags per page |
-| Auth | None | JWT → OAuth | Phase 3 | Can't personalize, can't sync bookmarks, no admin roles |
-| Crawler | Node pipeline in `crawler/` (`npm run crawl`), run manually; stages candidates to `crawler/output/` | Scheduled AI pipeline | Phase 5 | No schedule, weak deduplication, no NLP parsing |
-| Publishing | Manual git push | Auto-publish after review | Phase 5 | High error rate, no workflow (draft → review → publish) |
-| Validation | Scripts run in CI (`.github/workflows/quality.yml`) on pull requests and pushes; link check and releases still manual | Full CI/CD | Phase 3 | Partial enforcement only |
-| SEO | Basic OG tags | Full structured data + SSR | Phase 4 | No JSON-LD, no dynamic meta tags per opportunity |
+The current validator and both route maps recognise these six category IDs:
 
-## Permanent Contracts (Never Change)
+| Category ID | Canonical path |
+| --- | --- |
+| `learnership` | `/learnerships/{slug}` |
+| `internship` | `/internships/{slug}` |
+| `bursary` | `/bursaries/{slug}` |
+| `apprenticeship` | `/apprenticeships/{slug}` |
+| `tvet` | `/tvet-pathways/{slug}` |
+| `job` | `/jobs/{slug}` |
 
-These survive all architecture migrations:
+However, `data/categories.json` currently contains metadata for only learnership, internship, bursary, and apprenticeship. The 17 published records at this baseline also use only those four categories. Treat TVET and jobs as present in routing/validation, but not yet fully reconciled across display metadata and actual published inventory.
 
-- **Data schema:** Field names, types, structure — the API contract
-- **User flow:** Search → Filter → View → Bookmark → Apply
-- **SEO requirements:** sitemap.xml, OG tags, structured data, canonical URLs
-- **Source governance:** Every opportunity must have verified official source
-- **Mobile-first responsive design:** All UI must work on 320px+
-- **Content validation rules:** Required fields, date formats, URL protocols
+## Public data contracts
 
-## Public Interfaces
+- `data/opportunities.json`, `data/guides.json`, `data/categories.json`, `data/provinces.json`, and `data/sources.json` are JSON arrays.
+- Runtime opportunity validation is implemented in `scripts/validate-content.js`. `docs/schema-draft.json` is a documentation/reference artifact, not the executable validator.
+- Opportunity fields include source and application URLs, verification/expiry flags, dates, eligibility, and employment eligibility.
+- The `expired` flag controls sitemap inclusion; a future closing date or `verified: true` alone is not proof an opportunity remains officially open.
 
-| Interface | Location | Consumers | Stability |
-|---|---|---|---|
-| Opportunities API | `data/opportunities.json` | Frontend, sitemap generator | Permanent schema |
-| Guides API | `data/guides.json` | Frontend | Permanent schema |
-| Categories API | `data/categories.json` | Frontend | Permanent schema |
-| Provinces API | `data/provinces.json` | Frontend | Permanent schema |
-| Sitemap | `sitemap.xml` | Search engines | Auto-generated |
+## Migration policy
 
-## Prohibited Modifications
+React/Vite, a server-side API, PostgreSQL, SSR, authentication, hosted search, and automated publication are **proposals, not current implementation requirements**. Do not implement a migration based only on a timeline in an old document. Propose a migration only when measured limits, operational needs, or an approved roadmap item justify it, and include migration cost, compatibility, rollback, and validation plans.
 
-- **NEVER** rename `index.html` — GitHub Pages requires it at root
-- **NEVER** add a build step (Webpack, Vite, etc.) without Phase 2 migration plan
-- **NEVER** commit `node_modules/`
-- **NEVER** modify `CNAME` without DNS preparation
-- **NEVER** delete data records — mark `expired: true` (retains SEO value)
-- **NEVER** rename JSON field names without backward compatibility plan
-- **NEVER** break the Search → Filter → View → Bookmark → Apply user flow
+## Repository boundaries
 
-## Repository Boundaries
-
-| Task Type | Allowed Directories | Forbidden Directories |
-|---|---|---|
-| UI Feature | `index.html` | `data/`, `scripts/`, `crawler/` |
-| Content | `data/*.json` | `index.html`, `scripts/` |
-| Script | `scripts/` | `index.html`, `data/` (read-only) |
-| SEO | `index.html`, `sitemap.xml`, `robots.txt` | `data/`, `scripts/` |
-| Documentation | `docs/` | `index.html`, `data/`, `scripts/` |
-
-## Migration Roadmap
-
-| Phase | Timeline | Focus | Key Deliverables |
-|---|---|---|---|
-| Phase 1: Launch | Now | Static scaffolding | GitHub Pages, JSON data, manual workflows |
-| Phase 2: Structure | Month 3–4 | Build step + components | Vite, component extraction, TypeScript |
-| Phase 3: Platform | Month 5–6 | Backend + database | Vercel/Netlify, PostgreSQL, REST API, JWT auth |
-| Phase 4: Scale | Month 7–8 | SSR + search engine | Next.js/Nuxt, Algolia/Typesense, headless CMS |
-| Phase 5: Intelligence | Month 9–12 | AI automation | AI crawler, NLP parser, review queue, auto-publish, ML scoring |
+- Keep the root `index.html` and `CNAME` contracts intact unless a specifically reviewed deployment change requires otherwise.
+- Do not bypass content validation or commit unreviewed crawler candidates.
+- Preserve source TLS verification; inaccessible or bot-blocked sources must be classified as unverified/restricted rather than assumed empty.
+- Keep changes scoped and reconcile the affected documentation in the same pull request where practical.
