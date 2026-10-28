@@ -223,6 +223,7 @@ data.unshift({
   verified: e.A_VERIFIED === 'true',
   featured: false,
   expired: false,
+  publication_status: 'needs_review',
   description: need('A_DESC', 'Description'),
   eligibility: ['South African citizen with valid ID', qual + ' certificate'],
   employment_eligibility: employment,
