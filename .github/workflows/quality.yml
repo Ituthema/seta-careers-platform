@@ -44,4 +44,7 @@ jobs:
         run: npm run validate:pages
 
       - name: Ensure generated SEO files are committed and current
-        run: test -z "$(git status --porcelain -- sitemap.xml learnerships internships bursaries apprenticeships tvet-pathways guides calendar provinces tools about)"
+        run: |
+          git status --short -- sitemap.xml learnerships internships bursaries apprenticeships tvet-pathways guides calendar provinces tools about
+          git diff -- sitemap.xml bursaries/index.html calendar/index.html provinces/eastern-cape/index.html provinces/free-state/index.html provinces/gauteng/index.html provinces/kwazulu-natal/index.html provinces/limpopo/index.html provinces/mpumalanga/index.html provinces/north-west/index.html provinces/northern-cape/index.html provinces/western-cape/index.html bursaries/funza-lushaka-bursary-2027-first-time-applicants/index.html
+          test -z "$(git status --porcelain -- sitemap.xml learnerships internships bursaries apprenticeships tvet-pathways guides calendar provinces tools about)"
