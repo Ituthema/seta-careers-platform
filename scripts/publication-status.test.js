@@ -59,4 +59,7 @@ test('interactive directory fails closed when publication status is absent', () 
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   assert.match(html, /publicationStatus:o\.publication_status\|\|'needs_review'/);
   assert.match(html, /o\.publicationStatus==='open'&&!o\.expired/);
+  assert.match(html, /_opp=liveOpps\(\)\.find\(o=>o\.id===id\)\|\|null/);
+  assert.match(html, /function openOpp\(id\)\{_opp=liveOpps\(\)\.find/);
+  assert.match(html, /const saved=liveOpps\(\)\.filter/);
 });
