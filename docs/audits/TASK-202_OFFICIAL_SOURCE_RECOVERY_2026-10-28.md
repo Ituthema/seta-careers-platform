@@ -59,6 +59,7 @@ The GitHub connector was used to make focused edits on a branch; repository scri
 ## Files changed
 
 - `data/opportunities.json` — added record `014`; no existing record was deleted or reopened.
+- `data/sources.json` — registered the Microsoft Forms application endpoint for verified-listing domain coverage only; it is inactive for opportunity crawling.
 - `scripts/source-health-check.js` — added a `health_state` field and separate unverified count; no TLS verification behavior was weakened.
 - `scripts/source-health-check.test.js` — tests successful responses, HTTP errors, no-response cases, and warnings.
 - `docs/audits/TASK-202_OFFICIAL_SOURCE_RECOVERY_2026-10-28.md` — this audit.
