@@ -12,32 +12,45 @@ South Africa's career opportunity intelligence platform for learnerships, bursar
 
 ```
 /seta-careers-platform/
-│
-├── index.html              ← Main SPA (the entire website, hash-routed)
-├── 404.html                ← GitHub Pages fallback: maps old path URLs to hash routes
-├── robots.txt              ← SEO crawl directives
-├── sitemap.xml             ← Generated: npm run sitemap
-├── sitemap-generator.js    ← Regenerates sitemap.xml from data/
-├── route-paths.js          ← Shared route + "listed in sitemap" logic (mirrors index.html)
-├── validate-content.js     ← Route check: sitemap vs data vs index.html (npm run validate:routes)
-├── CNAME                   ← Custom domain
-├── package.json            ← npm scripts (validate, sitemap, expire, links, check, crawl, ...)
-├── deploy.sh               ← Interactive deploy helper
-│
-├── /data/
-│   ├── opportunities.json  ← All opportunity records
-│   ├── guides.json         ← Guide articles (body is sanitised HTML)
-│   ├── categories.json     ← Category metadata
-│   ├── provinces.json      ← Province list
-│   └── sources.json        ← Source registry used by the crawler and audits
-│
-├── /scripts/               ← validate-content.js, check-links.js, mark-expired.js,
-│                             source-audit.js, source-health-check.js, normalize_dataset.js
-├── /crawler/               ← Node crawler that stages candidate listings (npm run crawl)
-├── /reports/ , /logs/      ← Generated audit / health / normalisation reports
-├── /docs/                  ← Architecture, security, source governance, audits
-└── /.github/workflows/     ← quality.yml (CI gates), source-health.yml (weekly)
+├── index.html                 # Interactive vanilla HTML/CSS/JS application
+├── route-paths.js             # Shared category-to-canonical-path mapping
+├── 404.html                   # Legacy/path fallback for GitHub Pages
+├── CNAME                      # Custom-domain declaration
+├── robots.txt, sitemap.xml    # Crawl directives and generated sitemap
+├── data/
+│   ├── opportunities.json     # Published opportunity records
+│   ├── guides.json            # Career/SETA guide content
+│   ├── categories.json        # Category display metadata (currently 4 entries)
+│   ├── provinces.json         # Province metadata
+│   └── sources.json           # Source registry (discovery/monitoring input)
+├── scripts/                   # Validation, SEO page generation, source audits,
+│                              # health checks, expiry, review and listing tools
+├── crawler/                   # HTML/PDF fetching, parsing, normalisation,
+│                              # validation, deduplication and candidate staging
+├── .github/workflows/         # Quality, browser, crawler, source-health,
+│                              # ingestion and Pages workflows
+└── docs/                      # Architecture, operating workflow, roadmap,
+                               # rules, research and dated audits
 ```
+
+**Routing and publishing model:** the interactive application lives in `index.html`. The repository also generates crawlable static SEO pages at real paths (for example, category and opportunity routes), plus a sitemap. Do not describe the entire site as hash-routed: hash-based interactive routes and static SEO routes coexist. The shared route mapping is in `route-paths.js`; the SPA's mapping is mirrored in `index.html`.
+
+**Current category distinction:** the router and content validator recognise six opportunity category IDs (`learnership`, `internship`, `bursary`, `apprenticeship`, `tvet`, `job`). `data/categories.json` currently contains display metadata for only four; TVET/jobs metadata coverage must be checked before assuming those categories are fully represented in every UI surface.
+
+**Primary commands** (see `package.json` for the authoritative script definitions):
+
+- `npm test` — test suite
+- `npm run validate` — validate published JSON content
+- `npm run links` — check source/application links
+- `npm run sitemap` — generate static SEO pages and sitemap via `scripts/generate-seo-pages.js`
+- `npm run validate:routes` — validate route/sitemap/data consistency
+- `npm run validate:pages` — validate the root `CNAME`
+- `npm run check` — run the configured release checks
+- `npm run crawl` — fetch sources and stage crawl candidates; this does not publish them
+- `npm run source:audit` / `npm run source:health` — registry validation and source health probing
+- `npm run review:candidates` / `npm run add:listing` — candidate review and controlled listing workflow
+
+See [the documentation index](docs/README.md) for the current workflow, roadmap, baseline and architecture notes.
 
 ---
 
@@ -227,7 +240,7 @@ git push
 `data/` is the canonical content source. After editing opportunities or guides, regenerate the sitemap from the JSON files and run the slug agreement check before publishing.
 
 ```bash
-node sitemap-generator.js
+npm run sitemap
 node validate-content.js
 git add sitemap.xml
 git commit -m "Update sitemap"
@@ -428,7 +441,7 @@ python3 -m json.tool data/opportunities.json
 
 ### Sitemap or slug validation error
 ```bash
-node sitemap-generator.js
+npm run sitemap
 node validate-content.js
 # Confirms live opportunity slugs in data/opportunities.json match sitemap.xml and that index.html loads /data/opportunities.json
 ```
