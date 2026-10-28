@@ -72,7 +72,7 @@ for (const loc of locs) {
 const opportunityPattern = new RegExp('^/(?:' + Object.values(CAT_PATH_MAP).join('|') + ')/[^/]+$');
 const sitemapOpportunityPaths = new Set([...sitemapPaths].filter(p => opportunityPattern.test(p)));
 const sitemapGuidePaths = new Set([...sitemapPaths].filter(p => /^\/guides\/[^/]+$/.test(p)));
-const sitemapCategoryPaths = new Set([...sitemapPaths].filter(p => /^\/(?:learnerships|internships|bursaries|apprenticeships|tvet-pathways)$/.test(p)));
+const sitemapCategoryPaths = new Set([...sitemapPaths].filter(p => /^\/(?:learnerships|internships|bursaries|apprenticeships|tvet-pathways|jobs)$/.test(p)));
 
 compareSets('Opportunity sitemap sync', expectedOpportunityPaths, sitemapOpportunityPaths);
 compareSets('Guide sitemap sync', expectedGuidePaths, sitemapGuidePaths);
