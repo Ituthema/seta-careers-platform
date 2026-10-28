@@ -48,7 +48,7 @@ test('--write appends exactly one listing', () => {
 
 test('an invalid draft exits 1 with reasons and writes nothing', () => {
   const { dir, data, sources } = setup();
-  const result = run([freshDraft(dir, { category: 'job', closing_date: '2020-01-01' }), '--data', data, '--sources', sources, '--write', '--no-regenerate']);
+  const result = run([freshDraft(dir, { category: 'invalid-category', closing_date: '2020-01-01' }), '--data', data, '--sources', sources, '--write', '--no-regenerate']);
   assert.equal(result.status, 1);
   assert.match(result.stderr, /category must be/);
   assert.match(result.stderr, /before today/);
