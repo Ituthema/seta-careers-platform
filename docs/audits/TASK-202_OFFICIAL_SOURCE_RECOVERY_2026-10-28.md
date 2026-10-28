@@ -54,7 +54,7 @@ The dataset now contains a verified open learnership and verified open bursary l
 
 ## Validation status
 
-The GitHub connector was used to make focused edits on a branch; repository scripts could not be executed in this connector session. Therefore, **no local test or validation result is claimed here**. The PR's GitHub Actions checks must confirm the new listing, generated SEO pages/sitemap, and source-health tests. If generated pages or sitemap are reported stale, run the repository's documented `npm run sitemap` workflow and include only the generated files associated with the listing.
+The GitHub connector was used to make focused edits on a branch; repository scripts could not be executed in this connector session. Therefore, **no local test or validation result is claimed here**. GitHub Actions initially caught a missing registry entry for the Microsoft Forms application host; the endpoint was registered and the rerun passed content validation and link checks. Generated SEO output was then updated for the new category/detail routes, deadline calendar, Mpumalanga province pages, and sitemap. The generated-output consistency gate is being rerun on this revision.
 
 ## Files changed
 
@@ -62,4 +62,6 @@ The GitHub connector was used to make focused edits on a branch; repository scri
 - `data/sources.json` — registered the Microsoft Forms application endpoint for verified-listing domain coverage only; it is inactive for opportunity crawling.
 - `scripts/source-health-check.js` — added a `health_state` field and separate unverified count; no TLS verification behavior was weakened.
 - `scripts/source-health-check.test.js` — tests successful responses, HTTP errors, no-response cases, and warnings.
+- `learnerships/index.html` and `learnerships/mpumalanga-basic-traffic-officers-diploma-learnership-2026-27/index.html` — generated category and detail pages.
+- `calendar/index.html`, `provinces/index.html`, `provinces/mpumalanga/index.html`, and `sitemap.xml` — generated output updated for the new listing.
 - `docs/audits/TASK-202_OFFICIAL_SOURCE_RECOVERY_2026-10-28.md` — this audit.
