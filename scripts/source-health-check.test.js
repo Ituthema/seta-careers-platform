@@ -24,6 +24,7 @@ test('buildReport counts a successful HTTP response as healthy', () => {
   assert.equal(report.summary.healthy, 1);
   assert.equal(report.summary.unhealthy, 0);
   assert.equal(report.summary.unverified, 0);
+  assert.equal(report.summary.restricted, 0);
   assert.equal(report.sources[0].health_state, 'healthy');
 });
 
@@ -34,6 +35,7 @@ test('buildReport distinguishes a real HTTP error from a network failure', () =>
   ], config);
   assert.equal(report.status, 'FAIL');
   assert.equal(report.summary.unhealthy, 1);
+  assert.equal(report.summary.restricted, 0);
   assert.equal(report.summary.unverified, 1);
   assert.equal(report.sources[0].health_state, 'unhealthy');
   assert.equal(report.sources[1].health_state, 'unverified');
@@ -57,4 +59,29 @@ test('redirect and TLS warnings do not weaken certificate verification or mark a
   assert.equal(report.status, 'WARN');
   assert.equal(report.summary.healthy, 1);
   assert.equal(report.summary.unverified, 0);
+});
+
+test('401 and 403 responses are restricted warnings, not confirmed dead sources', () => {
+  const report = buildReport([
+    source({ source_id: 'forbidden', status: 403, healthy: false }),
+    source({ source_id: 'unauthorized', status: 401, healthy: false }),
+  ], config);
+  assert.equal(report.status, 'WARN');
+  assert.equal(report.summary.healthy, 0);
+  assert.equal(report.summary.unhealthy, 0);
+  assert.equal(report.summary.restricted, 2);
+  assert.equal(report.sources[0].health_state, 'restricted');
+  assert.equal(report.sources[1].health_state, 'restricted');
+});
+
+test('404 remains a confirmed HTTP failure while restricted responses are counted separately', () => {
+  const report = buildReport([
+    source({ source_id: 'missing', status: 404, healthy: false }),
+    source({ source_id: 'blocked', status: 403, healthy: false }),
+  ], config);
+  assert.equal(report.status, 'FAIL');
+  assert.equal(report.summary.unhealthy, 1);
+  assert.equal(report.summary.restricted, 1);
+  assert.equal(report.sources[0].health_state, 'unhealthy');
+  assert.equal(report.sources[1].health_state, 'restricted');
 });

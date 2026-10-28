@@ -46,7 +46,8 @@ if (health && health.summary) {
   // when many sites block probes even though the job treats that as a warning.
   lines.push(
     `- **Source health:** ${s.healthy}/${s.checked} healthy, ` +
-    `${s.unhealthy} unhealthy, ${s.with_redirects} redirecting, ${s.ssl_available} with SSL`
+    `${s.unhealthy} confirmed HTTP failures, ${s.restricted || 0} access-restricted (401/403), ` +
+    `${s.unverified} unverified/no HTTP response, ${s.with_redirects} redirecting, ${s.ssl_available} with SSL`
   );
   if (health.error) lines.push(`  - Health check error: ${health.error}`);
 } else {
@@ -55,7 +56,7 @@ if (health && health.summary) {
 
 lines.push(
   '',
-  'Many public SA government and SETA sites block automated probes, so unhealthy sources are warnings, not failures.',
+  '401/403 responses are access-restricted, not proof that a source is down; other HTTP error responses need manual review. Network/TLS failures remain unverified.',
   'The full JSON reports are attached to this run as the `source-reports` artifact.',
   ''
 );
