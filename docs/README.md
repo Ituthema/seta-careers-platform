@@ -14,6 +14,11 @@ Use these documents in this order when planning or operating the project.
 - [Verified implementation baseline](status/IMPLEMENTATION_BASELINE.md) — commit-specific snapshot of current architecture, data counts, known discrepancies, and observed CI results.
 - [Implementation–documentation reconciliation rule](context/CODEX_TASK_RULES.md) — mandatory evidence and reporting rules for code/documentation work.
 
+## Current inventory and category gaps
+
+- [Published inventory reconciliation (2026-10-28)](audits/2026-10-28-published-inventory-reconciliation.md) — record-by-record official-source review, including the Mpumalanga traffic-learnership application-link conflict.
+- [TVET/jobs metadata gap plan](status/TVET_JOBS_METADATA_GAP_PLAN.md) — scoped implementation sequence and acceptance criteria; no placeholder vacancies.
+
 ## Evidence and audits
 
 - [Data audit report](data-audit-report.md) — consult the report date and scope before treating findings as current.
