@@ -1,12 +1,14 @@
 # Development Backlog
 
+> **Status reconciliation note (2026-10-28):** checked boxes below mean the named artifact/capability was found in the repository at baseline commit `380b3ad94939f6f4e5b1390bc733cf33c6865e94`; they do not certify exhaustive functional testing. Unchecked historical tasks are not automatically current priorities. Use `docs/roadmap/PRIORITISED_NEXT_STEPS.md` for the active execution order.
+
 ## Phase A — Documentation Foundation (Weeks 1–2)
-- [ ] TASK-001: Create docs/architecture/overview.md
-- [ ] TASK-002: Create docs/architecture/frontend.md
-- [ ] TASK-003: Create docs/architecture/data.md
+- [x] TASK-001: Create docs/architecture/overview.md — exists; reconciled in this baseline task
+- [x] TASK-002: Create docs/architecture/frontend.md — exists; routing section reconciled in this baseline task
+- [x] TASK-003: Create docs/architecture/data.md — exists; category/URL contract reconciled in this baseline task
 - [ ] TASK-004: Create docs/architecture/scripts.md
 - [ ] TASK-005: Create docs/architecture/deployment.md
-- [ ] TASK-006: Create docs/modules/module-index.md
+- [x] TASK-006: Create docs/modules/module-index.md — exists; status reconciled in this baseline task
 - [ ] TASK-007: Create docs/modules/homepage.md
 - [ ] TASK-008: Create docs/modules/search.md
 - [ ] TASK-009: Create docs/modules/opportunity-detail.md
@@ -21,7 +23,7 @@
 - [ ] TASK-018: Create docs/modules/admin-dashboard.md
 - [ ] TASK-019: Create docs/modules/authentication.md
 - [ ] TASK-020: Create docs/modules/deployment.md
-- [ ] TASK-021: Create docs/phases/dependency-map.md
+- [x] TASK-021: Create docs/phases/dependency-map.md — file exists; its dependency claims still need a separate full reconciliation
 - [ ] TASK-022: Create docs/phases/task-examples.md
 - [ ] TASK-023: Create docs/rules/boundaries.md
 - [ ] TASK-024: Create docs/rules/coding.md
@@ -30,11 +32,11 @@
 - [ ] TASK-027: Create docs/rules/commits.md
 - [ ] TASK-028: Create docs/context/repository-summary.md
 - [ ] TASK-029: Create docs/context/frontend-context.md
-- [ ] TASK-030: Create docs/context/data-context.md
-- [ ] TASK-031: Create docs/context/scripts-context.md
+- [x] TASK-030: Create docs/context/data-context.md — file exists
+- [x] TASK-031: Create docs/context/scripts-context.md — file exists
 - [ ] TASK-032: Create docs/context/crawler-context.md
 - [ ] TASK-033: Create docs/context/seo-context.md
-- [ ] TASK-034: Create docs/templates/codex-task-template.md
+- [x] TASK-034: Create docs/templates/codex-task-template.md — file exists and requires the reconciliation rule
 - [ ] TASK-035: Create docs/templates/feature-implementation.md
 - [ ] TASK-036: Create docs/templates/bug-fix.md
 - [ ] TASK-037: Create docs/templates/refactoring.md
@@ -64,7 +66,7 @@
 
 ## Phase D — Automation (Week 6)
 - [ ] TASK-057: Add GitHub Actions auto-sitemap on data changes
-- [ ] TASK-058: Add GitHub Actions validation on PR
+- [x] TASK-058: Add GitHub Actions validation on PR — `.github/workflows/quality.yml` runs on pull requests
 - [ ] TASK-059: Add scheduled link checker (weekly cron)
 
 ## Phase E — SEO Enhancement (Week 7)
@@ -75,8 +77,8 @@
 
 ## Phase F — Data Pipeline (Weeks 8–10)
 - [ ] TASK-064: Document crawler architecture
-- [ ] TASK-065: Add data normalization pipeline
-- [ ] TASK-066: Add source health monitoring
+- [x] TASK-065: Add data normalization pipeline — crawler normalisation exists in `crawler/pipeline/normalize.js`
+- [x] TASK-066: Add source health monitoring — script and workflow exist; run results must be checked separately
 - [ ] TASK-067: Create review queue workflow
 
 ## Phase G — Scale Preparation (Weeks 11–12)
