@@ -131,7 +131,8 @@ const categoryLabels = {
   internships: 'Internships',
   bursaries: 'Bursaries',
   apprenticeships: 'Apprenticeships',
-  'tvet-pathways': 'TVET Pathways'
+  'tvet-pathways': 'TVET Pathways',
+  jobs: 'Jobs and Vacancies'
 };
 removeOldGeneratedPages();
 
