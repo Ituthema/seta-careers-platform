@@ -1,0 +1,72 @@
+name: Opportunity Ingestion and Freshness Report
+
+# This is deliberately separate from source-health.yml: reachability checks do
+# not discover or stage opportunity candidates. Nothing in this workflow
+# publishes listings; humans must verify candidates before adding them.
+on:
+  schedule:
+    - cron: '0 6 * * 3' # Wednesdays 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: opportunity-ingestion
+  cancel-in-progress: false
+
+jobs:
+  crawl-and-report:
+    name: Crawl sources and report review candidates
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Validate source registry
+        run: npm run source:audit -- --write-report
+
+      - name: Crawl active registered sources
+        id: crawl
+        run: npm run crawl
+
+      # Run even if the crawler returns a non-zero status: its report and
+      # rejection records are still valuable evidence for diagnosing gaps.
+      - name: Extract review candidates (never auto-publish)
+        if: always()
+        run: |
+          if [ -f crawler/output/staging.json ]; then
+            npm run review:candidates
+          else
+            echo "No staging output was created; candidate extraction was skipped."
+          fi
+
+      - name: Write ingestion summary
+        if: always()
+        run: node scripts/summarize-crawl-reports.js >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload crawl and review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: opportunity-ingestion-report
+          path: |
+            crawler/output/crawl-report.json
+            crawler/output/staging.json
+            crawler/output/rejected.json
+            crawler/output/candidates.json
+            crawler/logs/crawl.log
+            reports/source-audit-report.json
+          if-no-files-found: warn
+          retention-days: 90
