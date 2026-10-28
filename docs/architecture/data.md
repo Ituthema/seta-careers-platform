@@ -6,7 +6,7 @@
 ## Files
 | File | Purpose | Top-level shape | Fields |
 |---|---|---|---|
-| `opportunities.json` | All opportunity listings | Array of records | See "Required Fields" below and `docs/schema-draft.json` |
+| `opportunities.json` | All opportunity listings | Array of records | See "Required Fields" below and `docs/schema-draft.json` (reference draft; runtime validation is defined by `scripts/validate-content.js`) |
 | `guides.json` | Educational guide articles | Array of records | `id`, `slug`, `title`, `category`, `intro`, `body` (HTML, sanitised on render), `faq`, `related_slugs`, `meta_title`, `meta_description`, `read_time`, `published_date`, `updated_date` |
 | `categories.json` | Category metadata | Array of records | `id`, `label`, `plural`, `icon`, `description`, `color`, `bg`, `seo_title`, `seo_desc` |
 | `provinces.json` | The nine provinces | Array of records | `id`, `label`, `icon`, `major_cities`, `description`, `top_employers`, `seo_title`, `seo_desc` |
@@ -31,7 +31,7 @@ npm run validate         # scripts/validate-content.js: schema, dates, enums, du
 npm run validate:routes  # validate-content.js: sitemap/route/data consistency
 npm run validate:pages   # scripts/validate-pages-config.js: CNAME / Pages config
 npm run links            # scripts/check-links.js: live URL check
-npm run sitemap          # sitemap-generator.js
+npm run sitemap          # scripts/generate-seo-pages.js (static SEO pages + sitemap)
 npm run expire           # scripts/mark-expired.js: flag lapsed listings
 npm run check            # full release check
 ```
@@ -47,7 +47,7 @@ breaking change to all of them.
 - Dates: `YYYY-MM-DD`
 - Booleans: `true`/`false` (not strings)
 - Arrays: always valid JSON arrays
-- URLs: must include protocol (`https://`)
+- URLs: validator accepts `http://` and `https://`; prefer HTTPS
 - No trailing commas
 - 2-space indentation
 
@@ -56,7 +56,7 @@ Enforced by `scripts/validate-content.js`:
 - `id` (string, unique)
 - `slug` (string, kebab-case, unique)
 - `title` (string)
-- `category` (string; one of `learnership`, `internship`, `bursary`, `apprenticeship`, `tvet`)
+- `category` (string; validator accepts `learnership`, `internship`, `bursary`, `apprenticeship`, `tvet`, `job`)
 - `sector` (string)
 - `province` (string; a province from `provinces.json` or `Nationwide`)
 - `qualification_level` (string)
