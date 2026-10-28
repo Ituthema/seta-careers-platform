@@ -9,6 +9,11 @@ Use these documents in this order when planning or operating the project.
 3. [Architecture overview](architecture/overview.md) — current technical structure, contracts, constraints, and migration considerations.
 4. [Upscale workflow](UPSCALE_WORKFLOW.md) — existing growth and editorial cadence guidance. Apply it alongside the stricter official-verification and evidence requirements in the project operating workflow.
 
+## Current implementation evidence
+
+- [Verified implementation baseline](status/IMPLEMENTATION_BASELINE.md) — commit-specific snapshot of current architecture, data counts, known discrepancies, and observed CI results.
+- [Implementation–documentation reconciliation rule](context/CODEX_TASK_RULES.md) — mandatory evidence and reporting rules for code/documentation work.
+
 ## Evidence and audits
 
 - [Data audit report](data-audit-report.md) — consult the report date and scope before treating findings as current.
