@@ -42,8 +42,8 @@ test('summary reports crawl outcomes, candidate leads and live-listing baseline'
 
 test('missing reports are explicitly reported without inventing counts', () => {
   const output = buildSummary({ crawl: null, candidates: null, opportunities: null, today: '2026-10-28' });
-  assert.match(output, /Crawl report: missing or unreadable/);
-  assert.match(output, /Candidate report: missing or unreadable/);
+  assert.match(output, /Crawl report:\\*\\* missing or unreadable/);
+  assert.match(output, /Candidate report:\\*\\* missing or unreadable/);
   assert.match(output, /Repository listing baseline: data\/opportunities\.json missing or unreadable/);
 });
 
