@@ -2806,5 +2806,18 @@
     "last_checked": "2026-10-28T13:57:32.025Z",
     "last_success": null,
     "notes": "Application portal linked by the Department of Basic Education's official Funza Lushaka 2027 notice. Portal linked from the official notice; direct application flow not independently tested during the 2026-10-28 audit."
+  },
+  {
+    "source_id": "mpg-traffic-learnership-application-form",
+    "name": "Mpumalanga DCSSL Traffic Learnership — application form endpoint",
+    "type": "government",
+    "url": "https://forms.cloud.microsoft/r/tKW94ibBVF",
+    "active": false,
+    "crawl_strategy": "html",
+    "frequency": "monthly",
+    "priority": 2,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Application endpoint linked directly from the official Mpumalanga Provincial Government advert for DCSSL/05/2026. Hosted on Microsoft Forms. Registered for verified-listing domain coverage only; not an opportunity-discovery crawl source. Official advert checked 2026-10-28; endpoint reachability was not independently tested."
   }
 ]
