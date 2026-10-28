@@ -804,7 +804,8 @@ function copyOppUrl(btn){
 }
 const badge=cat=>`<span class="badge badge-${attr(safeId(cat))}">${esc(cat)}</span>`;
 const pill=(d)=>{const u=urgInfo(d);return`<span class="pill ${attr(u.cls)}" style="background:${attr(u.bg)};color:${attr(u.c)}">${esc(u.label)}</span>`;};
-const liveOpps=()=>OPPS.filter(o=>o.publicationStatus==='open'&&!o.expired&&days(o.close)>=0);
+const isPublicOpportunity=o=>o.publicationStatus==='open'&&!o.expired&&days(o.close)>=0;
+const liveOpps=()=>OPPS.filter(isPublicOpportunity);
 
 // Saved (localStorage)
 const getSaved=()=>{try{return JSON.parse(localStorage.getItem('opza_saved')||'[]')}catch{return[]}};
@@ -874,12 +875,12 @@ class RouterWrapper {
     }else if(parts[0]==='opportunity'){
       _page='detail';
       const id=safeDecode(parts[1]);
-      _opp=OPPS.find(o=>o.id===id)||null;
+      _opp=liveOpps().find(o=>o.id===id)||null;
     }else if(pathCatMap[parts[0]]&&parts[1]){
       _page='detail';
       const slug=safeDecode(parts[1]);
       const cat=pathCatMap[parts[0]];
-      _opp=OPPS.find(o=>o.slug===slug&&o.cat===cat)||OPPS.find(o=>o.slug===slug)||null;
+      _opp=liveOpps().find(o=>o.slug===slug&&o.cat===cat)||liveOpps().find(o=>o.slug===slug)||null;
     }else if(parts[0]==='guides'&&parts[1]){
       _page='guide-detail';
       const id=safeDecode(parts[1]);
@@ -931,7 +932,7 @@ function go(p,data=null){
   AppRouter.navigate(AppRouter.pageToPath(p,data));
 }
 function goDir(cat){_dirCat=cat;go('directory',cat);}
-function openOpp(id){_opp=OPPS.find(o=>String(o.id)===String(id));go('detail');}
+function openOpp(id){_opp=liveOpps().find(o=>String(o.id)===String(id));go('detail');}
 function openGuide(id){_guide=GUIDES.find(g=>g.id===id);go('guide-detail');}
 
 function render(){
@@ -1784,7 +1785,7 @@ function filterByProvince(prov){
 ═══════════════════════════════════════════════════════════ */
 function renderSaved(){
   const ids=getSaved();
-  const saved=OPPS.filter(o=>ids.includes(o.id));
+  const saved=liveOpps().filter(o=>ids.includes(o.id));
   if(!saved.length) return`<div class="page" style="max-width:var(--mw);margin:0 auto;padding:40px 24px 80px">
     <h1 style="font-size:clamp(26px,5vw,40px);font-weight:900;color:var(--g);letter-spacing:-1px;margin-bottom:8px">🔖 Saved Opportunities</h1>
     <div class="saved-empty">
