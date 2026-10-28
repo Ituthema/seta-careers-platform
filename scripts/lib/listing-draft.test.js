@@ -37,7 +37,7 @@ test('general job vacancy drafts are accepted as a supported category', () => {
 });
 
 test('missing and invalid fields are all reported', () => {
-  const { listing, errors } = buildListing({ title: 'x', category: 'job', province: 'Mars', closing_date: '2026-02-30', application_url: 'nope', employment_eligibility: ['retired'] }, existing, sources, NOW);
+  const { listing, errors } = buildListing({ title: 'x', category: 'invalid-category', province: 'Mars', closing_date: '2026-02-30', application_url: 'nope', employment_eligibility: ['retired'] }, existing, sources, NOW);
   assert.equal(listing, null);
   for (const text of ['sector is required', 'category must be', 'province must be', 'closing_date must be a real date', 'application_url must be a valid', 'employment_eligibility has invalid', 'eligibility must be']) {
     assert.ok(errors.some((e) => e.includes(text)), text);
