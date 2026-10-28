@@ -99,36 +99,21 @@ Known page targets include:
 - `ProvincePage.jsx` for province-filtered listings.
 
 ## Routing
-- Hash-based routing is used for GitHub Pages compatibility.
-- Current route patterns:
-  - `/#/` — homepage
-  - `/#/directory` — full opportunity directory
-  - `/#/directory/{category}` — directory pre-filtered by category
-    (`learnership`, `internship`, `bursary`, `apprenticeship`)
-  - `/#/opportunity/{id}` — opportunity detail page, keyed by the
-    opportunity's `id` field (NOT its `slug`)
-  - `/#/guides/{id}` — guide detail page, keyed by the guide's `id`
-    field (e.g. `g001`; NOT its `slug`)
-  - `/#/calendar`, `/#/tools`, `/#/eligibility`, `/#/scam`,
-    `/#/checklist`, `/#/bursary-checker`, `/#/guides`,
-    `/#/provinces`, `/#/saved`, `/#/about` — top-level pages matched
-    by RouterWrapper.apply()'s catch-all `else{ _page=parts[0]; }`
-    branch
-  - There is no `/#/category/{slug}` or `/#/province/{slug}` route.
-    Category filtering happens via `/#/directory/{category}`;
-    province filtering is client-side UI state on `/#/provinces` and
-    `/#/directory`, not a distinct route per province.
-- `404.html` converts legacy path-style URLs (e.g. `/opportunity/001`
-  from before the hash-route scheme was adopted, or stray external
-  backlinks) into the equivalent `/#/...` hash route and redirects
-  there, so old links still resolve into the correct page instead of
-  falling back to the homepage. See 404.html for the conversion logic.
 
-The SPA still uses hash routing for its non-generated utility and directory views, and the hash routes remain supported for backward compatibility. Published opportunity details and guides now have a crawlable static HTML counterpart at real paths (for example, `/bursaries/{slug}/` and `/guides/{id}/`). The `npm run sitemap` command runs `scripts/generate-seo-pages.js`, which regenerates these static pages and `sitemap.xml` from the JSON content. Generated pages include unique title/description metadata and a canonical URL; the sitemap must list only real, generated paths and must not contain hash fragments. Keep the generated HTML committed alongside the source data, and run `npm run validate:routes` after regeneration.
+The current routing model has two cooperating layers:
 
-Information pages are generated the same way: `/calendar/`, `/provinces/`, one `/provinces/{id}/` page per entry in `data/provinces.json`, `/tools/` and `/about/`. They carry JSON-LD breadcrumbs, depend only on the data files (never today's date, so CI's committed-output check stays stable), and link into the interactive app for the tools themselves. The About and Tools copy lives in `scripts/generate-seo-pages.js` and mirrors `renderAbout()` / `renderTools()` in `index.html`; update both when that text changes. `validate-content.js` (root) checks these pages exist and match the sitemap, and `quality.yml` fails if they are not committed.
+1. **Interactive application:** `index.html` contains `RouterWrapper` and maps category IDs through `catPathMap`: `learnership → learnerships`, `internship → internships`, `bursary → bursaries`, `apprenticeship → apprenticeships`, `tvet → tvet-pathways`, and `job → jobs`. Detail paths use the category plural plus the opportunity slug when available; `/opportunity/{id}` remains a legacy fallback.
+2. **Static SEO pages:** `scripts/generate-seo-pages.js` writes real directory-style HTML pages for crawlable landing/detail routes and regenerates `sitemap.xml`. `route-paths.js` is the shared build-time path mapping and must remain aligned with the mapping in `index.html`.
 
-Legacy `/#/...` links remain supported by the SPA. The existing `404.html` fallback continues to translate legacy `/opportunity/{id}` links, while the generated category/slug and guide paths are served directly by GitHub Pages. This static SEO layer is a compatibility bridge for the current single-file SPA, not a replacement for a future History API/SSR architecture.
+Do not assume every public URL is a hash fragment or that the SPA alone supplies all SEO pages. The generated static pages and the interactive application coexist on GitHub Pages.
+
+The content validator currently accepts six opportunity category IDs: `learnership`, `internship`, `bursary`, `apprenticeship`, `tvet`, and `job`. However, `data/categories.json` currently defines display metadata for only the first four. Treat TVET/job as supported by the route/validation layer but **not yet fully reconciled across category metadata** until that gap is explicitly resolved.
+
+Current relevant commands:
+- `npm run sitemap` — generate static SEO pages and sitemap.
+- `npm run validate:routes` — check route/data/sitemap agreement.
+- `npm run validate` — validate published content.
+- `npm run check` — run the configured release checks.
 
 ## State Management
 - Pure JavaScript objects are used for UI and data state.
