@@ -20,8 +20,24 @@
     "Updated CV",
     "Proof of Grade 12 or equivalent qualification"
   ],
-  "employment_eligibility": ["unemployed"],
-  "tags": ["agriculture", "gauteng", "pretoria", "grade-12", "learnership"],
+  "employment_eligibility": [
+    "unemployed"
+  ],
+  "tags": [
+    "agriculture",
+    "gauteng",
+    "pretoria",
+    "grade-12",
+    "learnership"
+  ],
   "verified": false,
-  "featured": false
+  "featured": false,
+  "verification_status": "confirmed_deadline_today_hold_publication",
+  "verification_checked_at": "2026-10-28",
+  "verification_notes": [
+    "The official AFGRI recruitment page was checked on 2026-10-28. It confirms the 12-month Farmer Development learnership, Grade 12/equivalent, unemployed-applicant criterion, Gauteng/Pretoria North location, market-related salary wording, and closing date 2026-10-28.",
+    "The closing date is the audit date. Do not publish through this pull request or represent the draft as open after 2026-10-28; re-check the official portal before any later publication.",
+    "The official page does not explicitly substantiate the draft's specific document list (updated CV and proof of Grade 12). Keep verified=false until those document requirements are confirmed.",
+    "This draft remains separate from data/opportunities.json and was not published."
+  ]
 }

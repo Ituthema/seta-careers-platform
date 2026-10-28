@@ -425,5 +425,44 @@
     ],
     "posted_date": "2026-04-22",
     "updated_date": "2026-06-03"
+  },
+  {
+    "id": "013",
+    "slug": "funza-lushaka-bursary-2027-first-time-applicants",
+    "title": "Funza Lushaka Bursary 2027 — First-Time Applicants",
+    "category": "bursary",
+    "sector": "Department of Basic Education / Teacher Education",
+    "province": "Nationwide",
+    "qualification_level": "Matric with a bachelor's pass or university-entry requirements",
+    "stipend": "Bursary covering tuition, accommodation or transport, meals, learning materials, personal-care allowance and teaching practice support; amounts not specified on the official notice",
+    "closing_date": "2027-01-31",
+    "application_url": "https://www.eservices.gov.za/",
+    "source_name": "Department of Basic Education — Funza Lushaka Bursary Programme",
+    "source_url": "https://www.education.gov.za/ArchivedDocuments/ArchivedArticles/2027FunzaLushakaBursaryProgramme.aspx",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "The Department of Basic Education says Funza Lushaka Bursary applications for 2027 opened on 1 October 2026. This listing is for first-time applicants, whose closing date is 31 January 2027; returning applicants have an earlier 30 November 2026 deadline. The bursary supports teacher education and covers specified study and living costs. Apply through the official eServices portal and confirm the current requirements there.",
+    "eligibility": [
+      "Youth below the age of 30",
+      "Passed Matric with a bachelor's pass or meets university-entry requirements",
+      "Interested in teacher education; priority subject areas are aligned with provincial needs, including STEM, South African Indigenous languages and inclusive education"
+    ],
+    "employment_eligibility": [
+      "student"
+    ],
+    "documents_needed": [
+      "Check the official eServices application portal for the required supporting documents"
+    ],
+    "tags": [
+      "funza-lushaka",
+      "bursary",
+      "teacher-training",
+      "education",
+      "2027",
+      "nationwide"
+    ],
+    "posted_date": "2026-10-28",
+    "updated_date": "2026-10-28"
   }
 ]

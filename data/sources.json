@@ -2793,5 +2793,18 @@
     "last_checked": null,
     "last_success": null,
     "notes": "Domain used by listing 011. Inactive: not fetched. The official early-careers internships page on careers.standardbank.com showed only a 2024 window (stale), so the registered standard-bank-early-careers entry is the one to trust."
+  },
+  {
+    "source_id": "govza-eservices",
+    "name": "South African Government eServices portal",
+    "type": "government",
+    "url": "https://www.eservices.gov.za/",
+    "active": true,
+    "crawl_strategy": "hybrid",
+    "frequency": "weekly",
+    "priority": 1,
+    "last_checked": "2026-10-28T13:57:32.025Z",
+    "last_success": null,
+    "notes": "Application portal linked by the Department of Basic Education's official Funza Lushaka 2027 notice. Portal linked from the official notice; direct application flow not independently tested during the 2026-10-28 audit."
   }
 ]
