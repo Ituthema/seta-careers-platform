@@ -2803,7 +2803,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": "2026-10-28",
+    "last_checked": "2026-10-28T00:00:00.000Z",
     "last_success": null,
     "notes": "Application portal linked by the Department of Basic Education's official Funza Lushaka 2027 notice. Portal linked from the official notice; direct application flow not independently tested during the 2026-10-28 audit."
   }
