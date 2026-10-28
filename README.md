@@ -228,7 +228,7 @@ nano data/opportunities.json
 python3 -m json.tool data/opportunities.json > /dev/null && echo "✅ Valid JSON" || echo "❌ JSON Error — fix before pushing"
 
 # Validate that index.html loads /data/ and live opportunity slugs match sitemap.xml
-node validate-content.js
+npm run validate:routes
 
 # Push live
 git add data/opportunities.json
@@ -241,7 +241,7 @@ git push
 
 ```bash
 npm run sitemap
-node validate-content.js
+npm run validate:routes
 git add sitemap.xml
 git commit -m "Update sitemap"
 git push
@@ -442,7 +442,7 @@ python3 -m json.tool data/opportunities.json
 ### Sitemap or slug validation error
 ```bash
 npm run sitemap
-node validate-content.js
+npm run validate:routes
 # Confirms live opportunity slugs in data/opportunities.json match sitemap.xml and that index.html loads /data/opportunities.json
 ```
 
