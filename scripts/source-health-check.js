@@ -256,7 +256,7 @@ async function runHealthCheck(options = {}) {
     const report = {
       generated_at: new Date().toISOString(),
       status: 'FAIL',
-      summary: { checked: 0, healthy: 0, unhealthy: 0, with_redirects: 0, ssl_available: 0, timeout_ms: config.timeoutMs },
+      summary: { checked: 0, healthy: 0, unhealthy: 0, unverified: 0, with_redirects: 0, ssl_available: 0, timeout_ms: config.timeoutMs },
       validation_issues: validation.issues,
       sources: [],
     };
@@ -292,7 +292,7 @@ if (require.main === module) {
     const report = {
       generated_at: new Date().toISOString(),
       status: 'FAIL',
-      summary: { checked: 0, healthy: 0, unhealthy: 0, with_redirects: 0, ssl_available: 0, timeout_ms: getConfig().timeoutMs },
+      summary: { checked: 0, healthy: 0, unhealthy: 0, unverified: 0, with_redirects: 0, ssl_available: 0, timeout_ms: getConfig().timeoutMs },
       error: error.message,
       sources: [],
     };
