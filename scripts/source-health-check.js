@@ -186,24 +186,27 @@ async function mapWithConcurrency(items, concurrency, mapper) {
 }
 
 function buildReport(results, config) {
-  // A failed request is not proof that a source is down. If no HTTP status was
-  // received (DNS, timeout, TLS, proxy or connection error), classify it as
-  // unverified and keep it separate from an actual HTTP error response.
+  // A response from an access-controlled site is not proof the site is down.
+  // No HTTP response is unverified; 401/403 are restricted; other 4xx/5xx
+  // responses are confirmed HTTP failures that need human review.
   const classified = results.map((result) => ({
     ...result,
     health_state: result.status === null
       ? 'unverified'
       : result.status >= 200 && result.status < 400
         ? 'healthy'
-        : 'unhealthy',
+        : [401, 403].includes(result.status)
+          ? 'restricted'
+          : 'unhealthy',
   }));
   const healthyCount = classified.filter((result) => result.health_state === 'healthy').length;
   const unhealthyCount = classified.filter((result) => result.health_state === 'unhealthy').length;
+  const restrictedCount = classified.filter((result) => result.health_state === 'restricted').length;
   const unverifiedCount = classified.filter((result) => result.health_state === 'unverified').length;
   const withRedirects = classified.filter((result) => result.redirects > 0).length;
   const sslWarnings = classified.filter((result) => result.ssl_available === false).length;
   const status = unhealthyCount > 0 ? 'FAIL'
-    : unverifiedCount > 0 || withRedirects > 0 || sslWarnings > 0 ? 'WARN'
+    : restrictedCount > 0 || unverifiedCount > 0 || withRedirects > 0 || sslWarnings > 0 ? 'WARN'
       : 'PASS';
 
   return {
@@ -213,6 +216,7 @@ function buildReport(results, config) {
       checked: classified.length,
       healthy: healthyCount,
       unhealthy: unhealthyCount,
+      restricted: restrictedCount,
       unverified: unverifiedCount,
       with_redirects: withRedirects,
       ssl_available: classified.filter((result) => result.ssl_available).length,
@@ -228,7 +232,7 @@ function printHealth(report) {
 
   for (const result of report.sources) {
     const level = result.health_state === 'unhealthy' ? 'FAIL'
-      : result.health_state === 'unverified' || result.redirects > 0 || !result.ssl_available ? 'WARN'
+      : result.health_state === 'restricted' || result.health_state === 'unverified' || result.redirects > 0 || !result.ssl_available ? 'WARN'
         : 'PASS';
     const status = result.status === null ? 'n/a' : result.status;
     const error = result.error ? ` (${result.error})` : '';
@@ -256,7 +260,7 @@ async function runHealthCheck(options = {}) {
     const report = {
       generated_at: new Date().toISOString(),
       status: 'FAIL',
-      summary: { checked: 0, healthy: 0, unhealthy: 0, unverified: 0, with_redirects: 0, ssl_available: 0, timeout_ms: config.timeoutMs },
+      summary: { checked: 0, healthy: 0, unhealthy: 0, restricted: 0, unverified: 0, with_redirects: 0, ssl_available: 0, timeout_ms: config.timeoutMs },
       validation_issues: validation.issues,
       sources: [],
     };
