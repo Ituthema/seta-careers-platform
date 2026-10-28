@@ -10,7 +10,7 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Public Service Vacancy Circulars. Cross-check the official South African Government 'Government Jobs This Week' index (source govza-government-jobs-week) and linked dated circular PDFs; treat the circular itself as primary evidence. Research checked 2026-10-18; no RSS/API endpoint confirmed."
+    "notes": "Public Service Vacancy Circulars. Verified 2026-10-28 against the official South African Government 'Government Jobs This Week' index, which links Public Service Vacancy Circular No. 38 of 23 October 2026 and national/provincial vacancy PDFs. Treat the dated circular and linked advert as primary evidence; verify each closing date and eligibility before publishing. No RSS/API endpoint confirmed."
   },
   {
     "source_id": "national-treasury",
@@ -50,6 +50,19 @@
     "last_checked": null,
     "last_success": null,
     "notes": "Public employment services, departmental vacancies and labour market programmes."
+  },
+  {
+    "source_id": "department-employment-labour-vacancies",
+    "name": "Department of Employment and Labour — Official Vacancies",
+    "type": "government",
+    "url": "https://www.labour.gov.za/Vacancies/Pages/Vacancies-List.aspx",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 1,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Dedicated official departmental vacancy list, separate from the department's general homepage. Verified 2026-10-28: the live list showed multiple posts closing 30 October 2026 and 6 November 2026; confirm the individual advert, location, eligibility and current status before creating a listing. Official page states public-service applications use the Z83 form where applicable and that departmental services are free."
   },
   {
     "source_id": "department-health",
@@ -959,7 +972,7 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Official national government discovery index linking to the current Public Service Vacancy Circular and related government vacancy notices. Treat linked circular/PDF as primary evidence; extract circular number and publication date. Research checked 2026-10-18; no RSS/API endpoint confirmed."
+    "notes": "Official national government discovery index linking to the current Public Service Vacancy Circular and related government vacancy notices. Verified 2026-10-28: page links Public Service Vacancy Circular No. 38 of 23 October 2026 and national/provincial vacancy PDFs. Treat linked circular/PDF as primary evidence; extract circular number and publication date. No RSS/API endpoint confirmed."
   },
   {
     "source_id": "nsfas-application-guidance",
