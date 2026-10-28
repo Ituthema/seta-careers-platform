@@ -94,14 +94,14 @@
     "source_id": "services-seta",
     "name": "Services SETA",
     "type": "seta",
-    "url": "https://www.serviceseta.org.za/",
+    "url": "https://servicesseta.org.za/",
     "active": true,
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Services-sector learnerships, discretionary grants and skills programmes."
+    "notes": "Official Services SETA homepage confirmed during manual review on 2026-10-28; the live official site lists 2026/27 discretionary-grant and strategic-project funding announcements. The previous www.serviceseta.org.za hostname may fail automated TLS/network probes; retain normal certificate verification and treat no-response health results as unverified. Source: https://servicesseta.org.za/."
   },
   {
     "source_id": "etdp-seta",
@@ -179,7 +179,7 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Local government skills programmes and discretionary grants."
+    "notes": "Official LGSETA homepage confirmed during manual review on 2026-10-28. It identifies the Local Government Sector Education and Training Authority and links learner information including the DG Bursary Window. A network/TLS probe failure is not evidence that the official source is down; do not weaken TLS verification. Source: https://lgseta.org.za/."
   },
   {
     "source_id": "teta",
@@ -738,7 +738,7 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Student funding announcements and operational opportunities."
+    "notes": "Official NSFAS homepage retained as the canonical source. On 2026-10-28, the South African Government's official notice reported that 2027 funding applications close 31 October 2026 and directs applicants to NSFAS official platforms. A network/TLS probe failure is not evidence that the source is down; do not weaken TLS verification. Source: https://www.gov.za/news/media-statements/nsfas-records-868626-applications-2027-funding-cycle-20-oct-2026."
   },
   {
     "source_id": "dhet",
