@@ -5,6 +5,7 @@
 // be unit-tested; scripts/add-listing.js does the I/O.
 
 const { findUncoveredVerified, hostOf, hostsRelated } = require('../validators/registry-coverage');
+const { PUBLICATION_STATUSES } = require('../../route-paths');
 
 const CATEGORIES = ['learnership', 'internship', 'bursary', 'apprenticeship', 'tvet', 'job'];
 const PROVINCES = ['Eastern Cape', 'Free State', 'Gauteng', 'KwaZulu-Natal', 'Limpopo', 'Mpumalanga', 'Northern Cape', 'North West', 'Western Cape', 'Nationwide'];
@@ -62,6 +63,9 @@ function buildListing(draft, existing, sources, now = new Date()) {
     if (!nonEmptyStrings(d[field])) errors.push(`${field} must be a non-empty list of text`);
   }
   if (d.category && !CATEGORIES.includes(d.category)) errors.push(`category must be one of: ${CATEGORIES.join(', ')}`);
+  if (d.publication_status !== undefined && !PUBLICATION_STATUSES.has(d.publication_status)) {
+    errors.push(`publication_status must be one of: ${[...PUBLICATION_STATUSES].join(', ')}`);
+  }
   if (d.province && !PROVINCES.includes(d.province)) errors.push(`province must be one of: ${PROVINCES.join(', ')}`);
   if (nonEmptyStrings(d.employment_eligibility)) {
     const bad = d.employment_eligibility.filter((v) => !EMPLOYMENT.includes(v));
@@ -87,11 +91,15 @@ function buildListing(draft, existing, sources, now = new Date()) {
   }
 
   const verified = d.verified === true;
+  if (d.publication_status === 'open' && !verified) {
+    errors.push('publication_status open requires verified: true and current official-source review');
+  }
   if (verified && errors.length === 0) {
     const probe = findUncoveredVerified([{ id: 'draft', verified: true, source_url: d.source_url, application_url: d.application_url }], sources);
     for (const gap of probe) errors.push(`verified: true needs ${gap.field} domain "${gap.host}" in data/sources.json; register it first or leave verified false`);
   }
-  if (!verified) warnings.push('verified is false: the listing is published as unverified until you have checked it against its official page');
+  if (!verified) warnings.push('verified is false: publication_status will default to needs_review and the listing will not appear publicly');
+  if (d.publication_status !== 'open') warnings.push('publication_status defaults to needs_review unless you explicitly set it to open after current official-source verification and human approval');
   if (d.application_url && d.source_url && isHttpUrl(d.application_url) && isHttpUrl(d.source_url) &&
       !hostsRelated(hostOf(d.application_url), hostOf(d.source_url))) {
     warnings.push('application_url and source_url are on different sites; confirm the application link really belongs to the source');
@@ -115,6 +123,7 @@ function buildListing(draft, existing, sources, now = new Date()) {
     verified,
     featured: d.featured === true,
     expired: false,
+    publication_status: d.publication_status === 'open' ? 'open' : 'needs_review',
     description: d.description.trim(),
     eligibility: d.eligibility.map((v) => v.trim()),
     employment_eligibility: d.employment_eligibility,
