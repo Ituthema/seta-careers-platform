@@ -46,4 +46,5 @@ jobs:
       - name: Ensure generated SEO files are committed and current
         run: |
           git status --short -- sitemap.xml learnerships internships bursaries apprenticeships tvet-pathways guides calendar provinces tools about
+          git diff -- bursaries/funza-lushaka-bursary-2027-first-time-applicants/index.html
           test -z "$(git status --porcelain -- sitemap.xml learnerships internships bursaries apprenticeships tvet-pathways guides calendar provinces tools about)"
