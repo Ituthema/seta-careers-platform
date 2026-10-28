@@ -471,14 +471,14 @@
     "source_id": "mtn",
     "name": "MTN Group",
     "type": "private",
-    "url": "https://group.mtn.com/careers/",
+    "url": "https://www.mtn.com/join-our-yello-family-people-and-culture/",
     "active": true,
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Telecommunications careers and graduate programmes."
+    "notes": "Official MTN Group careers landing page. The legacy https://group.mtn.com/careers/ returned HTTP 404 in the 2026-10-28 automated health report; official landing page links to opportunities across MTN's footprint and the Global Graduate Programme. Rechecked 2026-10-28."
   },
   {
     "source_id": "vodacom",
@@ -1752,7 +1752,7 @@
     "priority": 3,
     "last_checked": null,
     "last_success": null,
-    "notes": "Page shows a 2026-27 learnership advert PDF; no closing date on the page. Careers vacancy list at https://www.sita.co.za/content/vacancies2 (not fetched). Verified 2026-10-22."
+    "notes": "Official SITA Internships page. Search indexing rechecked 2026-10-28 showed the page listing a 2026-27 learnership advert PDF; automated health probe reported HTTP 404 on 2026-10-28, so treat that result as transient/inconsistent and retain the URL for follow-up. Official SITA youth-development programme page: https://www.sita.co.za/content/youth-development-programme. Do not treat the 2026/27 internship PDF closing 2026-03-06 as an open opportunity."
   },
   {
     "source_id": "statssa-vacancies",
