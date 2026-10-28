@@ -41,7 +41,7 @@ All checks below were performed on 2026-10-28. “Confirmed open” means the of
 
 | Opportunity | Official evidence | Result and action |
 |---|---|---|
-| NSFAS 2027 funding | [NSFAS — How to apply](https://www.nsfas.org.za/content/how-to-apply.html) and [NSFAS homepage](https://www.nsfas.org.za/) | **Confirmed open at audit time.** Official pages state applications opened 18 September and close 31 October 2026. Existing record ID `003` retained; source URL changed to the detailed official application page, last-updated date set to 2026-10-28, and eligibility wording aligned to official income thresholds including the disability threshold. |
+| NSFAS 2027 funding | [NSFAS — How to apply](https://www.nsfas.org.za/content/how-to-apply.html) and [NSFAS homepage](https://www.nsfas.org.za/) | **Confirmed open at audit time.** Official pages state applications opened 18 September and close 31 October 2026. Existing record ID `003` retained. Its stored closing date is supported by the official page; no metadata change was needed for this audit. |
 | Funza Lushaka Bursary 2027 — first-time applicants | [Department of Basic Education official notice](https://www.education.gov.za/ArchivedDocuments/ArchivedArticles/2027FunzaLushakaBursaryProgramme.aspx), which links to [eServices](https://www.eservices.gov.za/) | **Confirmed open.** The notice says applications opened 1 October 2026; returning applicants close 30 November 2026 and first-time applicants close 31 January 2027. Added a first-time-applicant record (ID `013`) with the latter deadline, explicitly distinguishing the earlier returning-applicant deadline. |
 | AFGRI Farmer Development learnership (AO-2494) | [Official AFGRI recruitment page](https://afgri.mcidirecthire.com/External/Job?Ref=TEkBhDYErs0qhHgueWeCgt_yRI-cnPLR1MRk1RR6CpovtNnuiVlYCxkOUAzXEEVwx_D6XKczw4UO6wc3odkYiaZxDHfU-No8uMmZea6okqGk-2sOaLrLWYk4CgoMVSLcu1_CwzPcVE8bAjaW8-TCrg) | The official page confirms the 12-month programme, Grade 12/equivalent, unemployment, Gauteng location, market-related salary and closing date **28 October 2026**. This is the audit date and the deadline is same-day. Keep the draft unpublished in this PR to avoid publishing an item likely to be closed by review/merge time. Do not carry it forward as open after the closing day. |
 | DFFE 2027 student bursary | [Official DFFE bursaries page](https://www.dffe.gov.za/index.php/bursaries) | **Rejected as expired:** official page states the deadline was 2 October 2026. |
@@ -83,7 +83,7 @@ The patch is intended to run through the repository's existing GitHub Actions on
 ## Files changed by this task
 
 - `docs/audits/task-201-verified-opportunity-recovery-2026-10-28.md` — this audit.
-- `data/opportunities.json` — verified Funza Lushaka first-time-applicant listing and NSFAS official-source/eligibility metadata refresh.
+- `data/opportunities.json` — verified Funza Lushaka first-time-applicant listing.
 - `data/sources.json` — register the official eServices host linked from the DBE notice.
 
 No expired record was deleted, no expired listing was represented as open, and no AFGRI same-day deadline draft was published.
