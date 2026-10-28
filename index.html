@@ -70,7 +70,7 @@ h1,h2,h3{font-family:'Fraunces',serif}
 .badge-internship{background:var(--blt);color:var(--bl)}
 .badge-bursary{background:var(--alt);color:#92400e}
 .badge-apprenticeship{background:var(--plt);color:var(--pu)}
-.badge-tvet{background:#ecfdf5;color:#065f46}
+.badge-tvet{background:#ecfdf5;color:#065f46}.badge-job{background:#e0f2fe;color:#075985}
 .pill{font-family:'DM Mono',monospace;font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:20px;display:inline-block}
 .pill-red{background:var(--rlt);color:var(--rd)}
 .pill-amber{background:var(--alt);color:#92400e}
@@ -379,6 +379,7 @@ footer{background:#111827;color:#9ca3af}
       <button class="nl" onclick="goDir('learnership')">Learnerships</button>
       <button class="nl" onclick="goDir('bursary')">Bursaries</button>
       <button class="nl" onclick="goDir('internship')">Internships</button>
+      <button class="nl" onclick="goDir('job')">Jobs</button>
       <button class="nl" onclick="go('guides')">SETA Guides</button>
       <button class="nl" onclick="go('calendar')">📅 Calendar</button>
       <button class="nl" onclick="go('saved')">🔖 Saved</button>
@@ -390,6 +391,7 @@ footer{background:#111827;color:#9ca3af}
     <button class="dl" onclick="goDir('learnership');closeDrw()">🎓 Learnerships</button>
     <button class="dl" onclick="goDir('bursary');closeDrw()">📚 Bursaries</button>
     <button class="dl" onclick="goDir('internship');closeDrw()">💼 Internships</button>
+    <button class="dl" onclick="goDir('job');closeDrw()">🧰 Jobs and Vacancies</button>
     <button class="dl" onclick="goDir('apprenticeship');closeDrw()">🔧 Apprenticeships</button>
     <button class="dl" onclick="go('guides');closeDrw()">📖 SETA Guides</button>
     <button class="dl" onclick="go('calendar');closeDrw()">📅 Deadline Calendar</button>
@@ -419,6 +421,7 @@ footer{background:#111827;color:#9ca3af}
       <button class="fl-btn" onclick="goDir('learnership')">Learnerships</button>
       <button class="fl-btn" onclick="goDir('bursary')">Bursaries</button>
       <button class="fl-btn" onclick="goDir('internship')">Internships</button>
+      <button class="fl-btn" onclick="goDir('job')">Jobs</button>
       <button class="fl-btn" onclick="goDir('apprenticeship')">Apprenticeships</button>
       <button class="fl-btn" onclick="go('provinces')">By Province</button>
     </div>
@@ -825,7 +828,7 @@ const bkBtn=id=>`<button class="bk-btn bk-${attr(safeId(id))}" data-action="togg
 ═══════════════════════════════════════════════════════════ */
 let _page='home',_opp=null,_guide=null,_dirCat='';
 let _pendingDirSearch=null; // {q, cat} — set by heroSearch(), consumed once by bindDir()
-const catPathMap={learnership:'learnerships',internship:'internships',bursary:'bursaries',apprenticeship:'apprenticeships',tvet:'tvet-pathways'};
+const catPathMap={learnership:'learnerships',internship:'internships',bursary:'bursaries',apprenticeship:'apprenticeships',tvet:'tvet-pathways',job:'jobs'};
 const pathCatMap=Object.fromEntries(Object.entries(catPathMap).map(([cat,path])=>[path,cat]));
 let calState={year:new Date().getFullYear(),month:new Date().getMonth(),view:'list',cat:'',sel:null};
 

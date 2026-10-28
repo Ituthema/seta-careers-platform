@@ -26,8 +26,18 @@ test('a good draft becomes a full record with generated fields', () => {
   assert.deepEqual(Object.keys(listing).slice(0, 4), ['id', 'slug', 'title', 'category']);
 });
 
+test('general job vacancy drafts are accepted as a supported category', () => {
+  const input = draft();
+  input.title = 'Administrative Clerk Vacancy';
+  input.category = 'job';
+  const { listing, errors } = buildListing(input, existing, sources, NOW);
+  assert.deepEqual(errors, []);
+  assert.equal(listing.category, 'job');
+  assert.equal(require('../../route-paths').opportunityRoutePath(listing), '/jobs/administrative-clerk-vacancy');
+});
+
 test('missing and invalid fields are all reported', () => {
-  const { listing, errors } = buildListing({ title: 'x', category: 'job', province: 'Mars', closing_date: '2026-02-30', application_url: 'nope', employment_eligibility: ['retired'] }, existing, sources, NOW);
+  const { listing, errors } = buildListing({ title: 'x', category: 'invalid-category', province: 'Mars', closing_date: '2026-02-30', application_url: 'nope', employment_eligibility: ['retired'] }, existing, sources, NOW);
   assert.equal(listing, null);
   for (const text of ['sector is required', 'category must be', 'province must be', 'closing_date must be a real date', 'application_url must be a valid', 'employment_eligibility has invalid', 'eligibility must be']) {
     assert.ok(errors.some((e) => e.includes(text)), text);

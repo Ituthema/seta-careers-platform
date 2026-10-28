@@ -59,7 +59,7 @@ const guideRequiredFields = [
   'updated_date',
 ];
 
-const categoryIds = new Set(['learnership', 'internship', 'bursary', 'apprenticeship', 'tvet']);
+const categoryIds = new Set(['learnership', 'internship', 'bursary', 'apprenticeship', 'tvet', 'job']);
 const guideCategories = new Set(['seta-guides', 'career-advice']);
 const employmentStatuses = new Set(['unemployed', 'student', 'employed']);
 const provinceNames = new Set([
