@@ -6,7 +6,7 @@
 
 const { findUncoveredVerified, hostOf, hostsRelated } = require('../validators/registry-coverage');
 
-const CATEGORIES = ['learnership', 'internship', 'bursary', 'apprenticeship', 'tvet'];
+const CATEGORIES = ['learnership', 'internship', 'bursary', 'apprenticeship', 'tvet', 'job'];
 const PROVINCES = ['Eastern Cape', 'Free State', 'Gauteng', 'KwaZulu-Natal', 'Limpopo', 'Mpumalanga', 'Northern Cape', 'North West', 'Western Cape', 'Nationwide'];
 const EMPLOYMENT = ['unemployed', 'student', 'employed'];
 const REQUIRED_TEXT = ['title', 'category', 'sector', 'province', 'qualification_level', 'stipend', 'closing_date', 'application_url', 'source_name', 'source_url', 'description'];
