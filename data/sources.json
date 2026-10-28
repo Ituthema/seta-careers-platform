@@ -2836,7 +2836,7 @@
   {
     "source_id": "lhm-careers",
     "name": "LH Marthinusen Official Careers and Apprenticeship Applications",
-    "type": "employer",
+    "type": "private",
     "url": "https://www.lhm.co.za/vacancies.html",
     "active": true,
     "crawl_strategy": "html",
