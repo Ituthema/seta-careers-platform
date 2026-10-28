@@ -17,7 +17,8 @@
     "test": "node scripts/run-tests.js",
     "review:candidates": "node scripts/review-candidates.js",
     "add:listing": "node scripts/add-listing.js",
-    "ai:draft": "node scripts/ai-draft.js"
+    "ai:draft": "node scripts/ai-draft.js",
+    "extract:vacancies": "node scripts/extract-vacancies.js"
   },
   "engines": {
     "node": ">=18"

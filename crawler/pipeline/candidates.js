@@ -12,6 +12,7 @@ const CATEGORY_PATTERNS = [
   ['bursary', /bursar|scholarship/i],
   ['internship', /internship|intern\b|work[- ]integrated|\byes\b/i],
   ['apprenticeship', /apprentice|artisan/i],
+  ['job', /\b(job|jobs|vacanc(?:y|ies)|position|post\s+of|administrative\s+clerk|office\s+aid|employment\s+opportunit(?:y|ies))\b/i],
   ['tvet', /\btvet\b/i],
 ];
 
@@ -64,7 +65,7 @@ function closingDates(text) {
   return [...found].sort();
 }
 
-const LINK_KEYWORDS = /learnership|bursar|scholarship|internship|apprentice|graduate|artisan|tvet|vacanc|opportunit|early-careers|youth|\byes\b/i;
+const LINK_KEYWORDS = /learnership|bursar|scholarship|internship|apprentice|graduate|artisan|tvet|vacanc|job|career|opportunit|early-careers|youth|\byes\b/i;
 
 function linkCandidates(record) {
   const links = Array.isArray(record.metadata && record.metadata.links) ? record.metadata.links : [];

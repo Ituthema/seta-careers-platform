@@ -18,6 +18,8 @@ test('categories come from keywords', () => {
   assert.equal(categoryOf('Bursary applications'), 'bursary');
   assert.equal(categoryOf('Graduate Internship'), 'internship');
   assert.equal(categoryOf('Artisan apprenticeship'), 'apprenticeship');
+  assert.equal(categoryOf('Administrative Clerk vacancy'), 'job');
+  assert.equal(categoryOf('Office Aid post'), 'job');
   assert.equal(categoryOf('About our company'), null);
 });
 
