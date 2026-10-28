@@ -2819,5 +2819,31 @@
     "last_checked": null,
     "last_success": null,
     "notes": "Application endpoint linked directly from the official Mpumalanga Provincial Government advert for DCSSL/05/2026. Hosted on Microsoft Forms. Registered for verified-listing domain coverage only; not an opportunity-discovery crawl source. Official advert checked 2026-10-28; endpoint reachability was not independently tested."
+  },
+  {
+    "source_id": "city-of-johannesburg-internship-application-form",
+    "name": "City of Johannesburg Internship Circular 029/2026 — application form endpoint",
+    "type": "government",
+    "url": "https://share.hsforms.com/1qifX7lzWTm2xp9GwPEOeXA469tl",
+    "active": false,
+    "crawl_strategy": "html",
+    "frequency": "monthly",
+    "priority": 2,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Online application endpoint linked in official City of Johannesburg Student Internship Circular 029/2026. Registered for verified-listing domain coverage only; not an opportunity-discovery crawl source. Official circular checked 2026-10-28."
+  },
+  {
+    "source_id": "lhm-careers",
+    "name": "LH Marthinusen Official Careers and Apprenticeship Applications",
+    "type": "private",
+    "url": "https://www.lhm.co.za/vacancies.html",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 1,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Official employer career index listing branch-specific apprenticeship forms and closing dates. Individual branch application pages provide trade choices, N2/NCV Level 4 requirements, CV format, and the instruction not to submit multiple applications. Checked 2026-10-28."
   }
 ]
