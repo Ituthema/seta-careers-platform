@@ -7,7 +7,7 @@
 You are a [frontend|backend|content|devops] developer for CareerHub SA.
 
 ## Objective
-[One sentence. Exactly one feature. No "and".]
+[One sentence describing one coherent task.]
 
 ## Classification
 - **Type:** [Feature|Bug|Refactor|Content|Documentation]
@@ -25,18 +25,20 @@ You are a [frontend|backend|content|devops] developer for CareerHub SA.
 - [Primary file(s) to modify]
 
 ## Context Documents (READ FIRST)
-1. [Required doc 1]
-2. [Required doc 2]
+1. `docs/context/CODEX_TASK_RULES.md` — mandatory implementation/documentation reconciliation rules.
+2. [Required task-specific context document]
+3. [Additional supporting document if necessary]
 
 ## Success Criteria
 - [ ] Criterion 1
 - [ ] Criterion 2
-- [ ] Criterion 3
+- [ ] Affected documentation is reconciled with the implementation, or any justified exception is recorded.
 
 ## Validation Steps
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
+1. Inspect the current base commit and relevant implementation, tests, configuration, and CI workflows.
+2. Run the targeted validation commands for the changed scope; report exact commands and results.
+3. Check the final diff and ensure documentation claims match the code and observed validation.
+4. Report the base SHA, changed files, unresolved discrepancies, and uncertainties. Do not claim unrun checks passed.
 
 ## Commit Message
 ```
@@ -44,14 +46,14 @@ type(scope): description
 ```
 
 ## Stop Condition
-After committing, STOP. Wait for next task.
+After completing the scoped task and reporting validation, STOP. Do not begin unrelated tasks.
 
 ## Example Task
-**Task:** Add a "Closing Soon" section to the homepage.
-**Allowed:** `index.html`, `docs/modules/homepage.md`
-**Forbidden:** `data/`, `scripts/`, `crawler/`, other docs
+**Task:** Add a “Closing Soon” section to the homepage.
+**Allowed:** `index.html`, relevant homepage tests, and `docs/modules/homepage.md`
+**Forbidden:** `data/`, `scripts/`, `crawler/`, unrelated docs
 **Entry:** `index.html`
-**Context:** `docs/modules/homepage.md`, `docs/rules/coding.md`
-**Success:** Section appears on homepage, shows opportunities closing within 14 days, is responsive.
-**Validation:** Load site, scroll to section, verify cards render, check mobile view.
+**Context:** `docs/context/CODEX_TASK_RULES.md`, `docs/modules/homepage.md`
+**Success:** Section appears on homepage, shows opportunities closing within 14 days, is responsive, and its documentation matches the implementation.
+**Validation:** Run the relevant automated tests, inspect the rendered page if browser tooling is available, and report the actual results.
 **Commit:** `feat(homepage): add closing soon section`
