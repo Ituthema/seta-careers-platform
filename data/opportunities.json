@@ -98,16 +98,16 @@
     "closing_date": "2026-10-31",
     "application_url": "https://my.nsfas.org.za",
     "source_name": "NSFAS Official Website",
-    "source_url": "https://www.nsfas.org.za/content/how-to-apply.html",
+    "source_url": "https://www.nsfas.org.za",
     "verified": true,
     "featured": true,
     "expired": false,
     "description": "NSFAS applications for the 2027 academic year are open from 18 September to 31 October 2026. Eligible students at public universities and TVET colleges can apply for funding through the official myNSFAS portal. Applications are free; applicants should confirm their personal eligibility and required documents directly with NSFAS.",
     "eligibility": [
       "South African citizen",
-      "Household income up to R350,000 per year for general applicants; up to R600,000 for students with disabilities, subject to NSFAS criteria",
+      "Household income below R350 000/year",
       "Registered or applying at a public university or TVET college",
-      "SASSA grant recipients may qualify; confirm current eligibility directly with NSFAS"
+      "SASSA grant recipients qualify automatically"
     ],
     "employment_eligibility": [
       "student"
@@ -127,7 +127,7 @@
       "official-source-refreshed"
     ],
     "posted_date": "2026-09-18",
-    "updated_date": "2026-10-28"
+    "updated_date": "2026-10-17"
   },
   {
     "id": "004",
