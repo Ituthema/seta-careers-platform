@@ -11,8 +11,9 @@
  * A listing stays open for its whole closing day (closing_date < today means
  * closed), matching the logic in index.html's daysUntil().
  *
- * Only the `expired` flag is changed. updated_date is deliberately left alone
- * because the UI shows it as "Last verified".
+ * Both `expired` and `publication_status` are updated so lifecycle validation
+ * remains consistent. updated_date is deliberately left alone because it is
+ * not a reliable verification timestamp.
  *
  * Usage:
  *   node scripts/mark-expired.js                 # apply
@@ -47,6 +48,7 @@ const changed = [];
 for (const o of opportunities) {
   if (!o.expired && o.closing_date && o.closing_date < TODAY) {
     o.expired = true;
+    o.publication_status = 'expired';
     changed.push(`${o.id} (${o.closing_date}) ${o.title}`);
   }
 }
