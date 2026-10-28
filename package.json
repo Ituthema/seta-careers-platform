@@ -16,7 +16,8 @@
     "crawl": "node crawler/index.js",
     "test": "node scripts/run-tests.js",
     "review:candidates": "node scripts/review-candidates.js",
-    "add:listing": "node scripts/add-listing.js"
+    "add:listing": "node scripts/add-listing.js",
+    "ai:draft": "node scripts/ai-draft.js"
   },
   "engines": {
     "node": ">=18"
