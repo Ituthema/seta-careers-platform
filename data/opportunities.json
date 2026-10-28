@@ -553,5 +553,161 @@
     ],
     "posted_date": "2026-10-22",
     "updated_date": "2026-10-28"
+  },
+  {
+    "id": "016",
+    "slug": "lh-marthinusen-apprenticeship-johannesburg-2026",
+    "title": "LH Marthinusen Apprenticeship Applications — Johannesburg Branch",
+    "category": "apprenticeship",
+    "sector": "LH Marthinusen — Electrical and Mechanical Engineering Services",
+    "province": "Gauteng",
+    "qualification_level": "N2 / NCV Level 4 with four complete subjects in the relevant trade",
+    "stipend": "Not disclosed by employer",
+    "closing_date": "2026-11-15",
+    "application_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Application.html",
+    "source_name": "LH Marthinusen Official Careers — Apprenticeship Applications",
+    "source_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Application.html",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "LH Marthinusen is accepting apprenticeship applications for its Johannesburg branch. The official form lists Armature Winder, Electrician, Welder, and Fitter and Turner trades. Minimum requirement: N2 / NCV Level 4 with four completed subjects relevant to the trade. A CV in Word or PDF format and supporting documents are required. Applications close 15 November 2026. The employer explicitly asks candidates not to submit multiple applications across branches or trades.",
+    "eligibility": [
+      "N2 / NCV Level 4 with four complete subjects in the relevant field or trade",
+      "Select the trade that matches your completed subjects",
+      "Submit only one application across branches and trades, as instructed by the employer"
+    ],
+    "employment_eligibility": [],
+    "documents_needed": [
+      "CV in Word or PDF format",
+      "Supporting documents required by the online application form",
+      "Completed online application form"
+    ],
+    "tags": [
+      "lh-marthinusen",
+      "apprenticeship",
+      "artisan-training",
+      "engineering",
+      "official-source-verified",
+      "johannesburg"
+    ],
+    "posted_date": "2026-10-22",
+    "updated_date": "2026-10-28"
+  },
+  {
+    "id": "017",
+    "slug": "lh-marthinusen-apprenticeship-durban-2026",
+    "title": "LH Marthinusen Apprenticeship Applications — Durban Branch",
+    "category": "apprenticeship",
+    "sector": "LH Marthinusen — Electrical and Mechanical Engineering Services",
+    "province": "KwaZulu-Natal",
+    "qualification_level": "N2 / NCV Level 4 with four complete subjects in the relevant trade",
+    "stipend": "Not disclosed by employer",
+    "closing_date": "2026-11-15",
+    "application_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Applications-DB.html",
+    "source_name": "LH Marthinusen Official Careers — Apprenticeship Applications",
+    "source_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Applications-DB.html",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "LH Marthinusen is accepting apprenticeship applications for its Durban branch. The official form lists Armature Winder, Electrician, Welder, and Fitter and Turner trades. Minimum requirement: N2 / NCV Level 4 with four completed subjects relevant to the trade. A CV in Word or PDF format and supporting documents are required. Applications close 15 November 2026. The employer explicitly asks candidates not to submit multiple applications across branches or trades.",
+    "eligibility": [
+      "N2 / NCV Level 4 with four complete subjects in the relevant field or trade",
+      "Select the trade that matches your completed subjects",
+      "Submit only one application across branches and trades, as instructed by the employer"
+    ],
+    "employment_eligibility": [],
+    "documents_needed": [
+      "CV in Word or PDF format",
+      "Supporting documents required by the online application form",
+      "Completed online application form"
+    ],
+    "tags": [
+      "lh-marthinusen",
+      "apprenticeship",
+      "artisan-training",
+      "engineering",
+      "official-source-verified",
+      "durban"
+    ],
+    "posted_date": "2026-10-22",
+    "updated_date": "2026-10-28"
+  },
+  {
+    "id": "018",
+    "slug": "lh-marthinusen-apprenticeship-cape-town-2026",
+    "title": "LH Marthinusen Apprenticeship Applications — Cape Town Branch",
+    "category": "apprenticeship",
+    "sector": "LH Marthinusen — Electrical and Mechanical Engineering Services",
+    "province": "Western Cape",
+    "qualification_level": "N2 / NCV Level 4 with four complete subjects in the relevant trade",
+    "stipend": "Not disclosed by employer",
+    "closing_date": "2026-11-15",
+    "application_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Applications-CT.html",
+    "source_name": "LH Marthinusen Official Careers — Apprenticeship Applications",
+    "source_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Applications-CT.html",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "LH Marthinusen is accepting apprenticeship applications for its Cape Town branch. The official form lists Armature Winder, Electrician, Welder, and Fitter and Turner trades. Minimum requirement: N2 / NCV Level 4 with four completed subjects relevant to the trade. A CV in Word or PDF format and supporting documents are required. Applications close 15 November 2026. The employer explicitly asks candidates not to submit multiple applications across branches or trades.",
+    "eligibility": [
+      "N2 / NCV Level 4 with four complete subjects in the relevant field or trade",
+      "Select the trade that matches your completed subjects",
+      "Submit only one application across branches and trades, as instructed by the employer"
+    ],
+    "employment_eligibility": [],
+    "documents_needed": [
+      "CV in Word or PDF format",
+      "Supporting documents required by the online application form",
+      "Completed online application form"
+    ],
+    "tags": [
+      "lh-marthinusen",
+      "apprenticeship",
+      "artisan-training",
+      "engineering",
+      "official-source-verified",
+      "cape-town"
+    ],
+    "posted_date": "2026-10-22",
+    "updated_date": "2026-10-28"
+  },
+  {
+    "id": "019",
+    "slug": "lh-marthinusen-apprenticeship-phalaborwa-2026",
+    "title": "LH Marthinusen Apprenticeship Applications — Phalaborwa Branch",
+    "category": "apprenticeship",
+    "sector": "LH Marthinusen — Electrical and Mechanical Engineering Services",
+    "province": "Limpopo",
+    "qualification_level": "N2 / NCV Level 4 with four complete subjects in the relevant trade",
+    "stipend": "Not disclosed by employer",
+    "closing_date": "2026-11-15",
+    "application_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Applications-PB.html",
+    "source_name": "LH Marthinusen Official Careers — Apprenticeship Applications",
+    "source_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Applications-PB.html",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "LH Marthinusen is accepting apprenticeship applications for its Phalaborwa branch. The official form lists Armature Winder, Electrician, Welder, and Fitter and Turner trades. Minimum requirement: N2 / NCV Level 4 with four completed subjects relevant to the trade. A CV in Word or PDF format and supporting documents are required. Applications close 15 November 2026. The employer explicitly asks candidates not to submit multiple applications across branches or trades.",
+    "eligibility": [
+      "N2 / NCV Level 4 with four complete subjects in the relevant field or trade",
+      "Select the trade that matches your completed subjects",
+      "Submit only one application across branches and trades, as instructed by the employer"
+    ],
+    "employment_eligibility": [],
+    "documents_needed": [
+      "CV in Word or PDF format",
+      "Supporting documents required by the online application form",
+      "Completed online application form"
+    ],
+    "tags": [
+      "lh-marthinusen",
+      "apprenticeship",
+      "artisan-training",
+      "engineering",
+      "official-source-verified",
+      "phalaborwa"
+    ],
+    "posted_date": "2026-10-22",
+    "updated_date": "2026-10-28"
   }
 ]
