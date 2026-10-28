@@ -26,6 +26,16 @@ test('a good draft becomes a full record with generated fields', () => {
   assert.deepEqual(Object.keys(listing).slice(0, 4), ['id', 'slug', 'title', 'category']);
 });
 
+test('general job vacancy drafts are accepted as a supported category', () => {
+  const input = draft();
+  input.title = 'Administrative Clerk Vacancy';
+  input.category = 'job';
+  const { listing, errors } = buildListing(input, existing, sources, NOW);
+  assert.deepEqual(errors, []);
+  assert.equal(listing.category, 'job');
+  assert.equal(require('../../route-paths').opportunityRoutePath(listing), '/jobs/administrative-clerk-vacancy');
+});
+
 test('missing and invalid fields are all reported', () => {
   const { listing, errors } = buildListing({ title: 'x', category: 'job', province: 'Mars', closing_date: '2026-02-30', application_url: 'nope', employment_eligibility: ['retired'] }, existing, sources, NOW);
   assert.equal(listing, null);
