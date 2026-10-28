@@ -46,4 +46,4 @@ function isListedOpportunity(o) {
   return Boolean(o && o.publication_status === 'open' && !o.expired);
 }
 
-module.exports = { CAT_PATH_MAP, opportunityRoutePath, isListedOpportunity };
+module.exports = { CAT_PATH_MAP, PUBLICATION_STATUSES, opportunityRoutePath, isListedOpportunity };
