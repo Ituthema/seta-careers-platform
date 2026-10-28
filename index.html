@@ -617,6 +617,7 @@ function mapOpportunity(o){
     verified:Boolean(o.verified),
     featured:Boolean(o.featured),
     expired:Boolean(o.expired),
+    publicationStatus:o.publication_status||'needs_review',
     slug:o.slug,
     desc:o.description||'',
     elig:o.eligibility||[],
@@ -803,7 +804,7 @@ function copyOppUrl(btn){
 }
 const badge=cat=>`<span class="badge badge-${attr(safeId(cat))}">${esc(cat)}</span>`;
 const pill=(d)=>{const u=urgInfo(d);return`<span class="pill ${attr(u.cls)}" style="background:${attr(u.bg)};color:${attr(u.c)}">${esc(u.label)}</span>`;};
-const liveOpps=()=>OPPS.filter(o=>!o.expired&&days(o.close)>=0);
+const liveOpps=()=>OPPS.filter(o=>o.publicationStatus==='open'&&!o.expired&&days(o.close)>=0);
 
 // Saved (localStorage)
 const getSaved=()=>{try{return JSON.parse(localStorage.getItem('opza_saved')||'[]')}catch{return[]}};
