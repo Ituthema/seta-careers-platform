@@ -464,5 +464,51 @@
     ],
     "posted_date": "2026-10-28",
     "updated_date": "2026-10-28"
+  },
+  {
+    "id": "014",
+    "slug": "mpumalanga-basic-traffic-officers-diploma-learnership-2026-27",
+    "title": "Mpumalanga Basic Traffic Officers Diploma Learnership 2026/27",
+    "category": "learnership",
+    "sector": "Mpumalanga Department of Community Safety, Security and Liaison",
+    "province": "Mpumalanga",
+    "qualification_level": "Matric",
+    "stipend": "R5 000/month",
+    "closing_date": "2026-10-30",
+    "application_url": "https://forms.cloud.microsoft/r/tKW94ibBVF",
+    "source_name": "Mpumalanga Provincial Government — Official Vacancy Advert",
+    "source_url": "https://www.mpg.gov.za/vacancies/traffic-learnership-department-community-safety-security-and-liaison",
+    "verified": true,
+    "featured": false,
+    "expired": false,
+    "description": "A 12-month Basic Traffic Officers Diploma learnership at Mpumalanga Traffic Training College in Mkhuhlu (Calcutta), Bushbuckridge Local Municipality. The official advert lists a stipend of R5 000 per month and a closing date of 30 October 2026. The advert does not state an employment-status restriction; applicants should confirm any eligibility uncertainty with the department.",
+    "eligibility": [
+      "Grade 12 certificate",
+      "South African citizen residing in Mpumalanga",
+      "At least a Code B driving licence",
+      "No criminal record",
+      "Fit and proper to participate in strenuous training; shortlisted candidates undergo a medical assessment",
+      "Must be prepared for driving and competency tests"
+    ],
+    "employment_eligibility": [
+      "unemployed",
+      "employed"
+    ],
+    "documents_needed": [
+      "Completed new Z83 application form",
+      "Detailed CV including at least three referees and their contact details",
+      "Copies of qualifications and other supporting documents if shortlisted, as directed by the advert"
+    ],
+    "tags": [
+      "traffic-officer",
+      "government",
+      "mpumalanga",
+      "matric",
+      "learnership",
+      "12-month-programme",
+      "official-source-verified"
+    ],
+    "posted_date": "2026-10-13",
+    "updated_date": "2026-10-28"
   }
 ]

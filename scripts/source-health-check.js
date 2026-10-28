@@ -186,34 +186,53 @@ async function mapWithConcurrency(items, concurrency, mapper) {
 }
 
 function buildReport(results, config) {
-  const healthyCount = results.filter((result) => result.healthy).length;
-  const unhealthyCount = results.length - healthyCount;
-  const warnCount = results.filter((result) => result.ssl_available === false || result.redirects > 0).length;
+  // A failed request is not proof that a source is down. If no HTTP status was
+  // received (DNS, timeout, TLS, proxy or connection error), classify it as
+  // unverified and keep it separate from an actual HTTP error response.
+  const classified = results.map((result) => ({
+    ...result,
+    health_state: result.status === null
+      ? 'unverified'
+      : result.status >= 200 && result.status < 400
+        ? 'healthy'
+        : 'unhealthy',
+  }));
+  const healthyCount = classified.filter((result) => result.health_state === 'healthy').length;
+  const unhealthyCount = classified.filter((result) => result.health_state === 'unhealthy').length;
+  const unverifiedCount = classified.filter((result) => result.health_state === 'unverified').length;
+  const withRedirects = classified.filter((result) => result.redirects > 0).length;
+  const sslWarnings = classified.filter((result) => result.ssl_available === false).length;
+  const status = unhealthyCount > 0 ? 'FAIL'
+    : unverifiedCount > 0 || withRedirects > 0 || sslWarnings > 0 ? 'WARN'
+      : 'PASS';
 
   return {
     generated_at: new Date().toISOString(),
-    status: unhealthyCount > 0 ? 'FAIL' : warnCount > 0 ? 'WARN' : 'PASS',
+    status,
     summary: {
-      checked: results.length,
+      checked: classified.length,
       healthy: healthyCount,
       unhealthy: unhealthyCount,
-      with_redirects: results.filter((result) => result.redirects > 0).length,
-      ssl_available: results.filter((result) => result.ssl_available).length,
+      unverified: unverifiedCount,
+      with_redirects: withRedirects,
+      ssl_available: classified.filter((result) => result.ssl_available).length,
       timeout_ms: config.timeoutMs,
     },
-    sources: results,
+    sources: classified,
   };
 }
 
 function printHealth(report) {
   console.log(`Source health: ${report.status}`);
-  console.log(`Checked: ${report.summary.checked}; healthy: ${report.summary.healthy}; unhealthy: ${report.summary.unhealthy}; redirects: ${report.summary.with_redirects}; SSL available: ${report.summary.ssl_available}.`);
+  console.log(`Checked: ${report.summary.checked}; healthy: ${report.summary.healthy}; unhealthy HTTP responses: ${report.summary.unhealthy}; unverified/no HTTP response: ${report.summary.unverified}; redirects: ${report.summary.with_redirects}; SSL available: ${report.summary.ssl_available}.`);
 
   for (const result of report.sources) {
-    const level = result.healthy ? (result.redirects > 0 || !result.ssl_available ? 'WARN' : 'PASS') : 'FAIL';
+    const level = result.health_state === 'unhealthy' ? 'FAIL'
+      : result.health_state === 'unverified' || result.redirects > 0 || !result.ssl_available ? 'WARN'
+        : 'PASS';
     const status = result.status === null ? 'n/a' : result.status;
     const error = result.error ? ` (${result.error})` : '';
-    console.log(`[${level}] ${result.source_id}: status=${status}, response_time=${result.response_time}ms, redirects=${result.redirects}, ssl=${result.ssl_available}${error}`);
+    console.log(`[${level}] ${result.source_id}: state=${result.health_state}, status=${status}, response_time=${result.response_time}ms, redirects=${result.redirects}, ssl=${result.ssl_available}${error}`);
   }
 
   if (shouldWriteReport()) {
@@ -237,7 +256,7 @@ async function runHealthCheck(options = {}) {
     const report = {
       generated_at: new Date().toISOString(),
       status: 'FAIL',
-      summary: { checked: 0, healthy: 0, unhealthy: 0, with_redirects: 0, ssl_available: 0, timeout_ms: config.timeoutMs },
+      summary: { checked: 0, healthy: 0, unhealthy: 0, unverified: 0, with_redirects: 0, ssl_available: 0, timeout_ms: config.timeoutMs },
       validation_issues: validation.issues,
       sources: [],
     };
@@ -261,7 +280,8 @@ async function main() {
   // A health report may include unavailable third-party sources.  The default
   // invocation is a reporting operation, so retain the report and return
   // success unless the caller explicitly asks for a strict health gate.
-  if (config.strict && report.summary.unhealthy > 0) {
+  if (config.strict && (report.summary.unhealthy > 0 || report.summary.unverified > 0)) {
+    console.error('Strict source-health check failed: at least one source returned an HTTP error or could not be verified.');
     process.exit(1);
   }
 
@@ -273,7 +293,7 @@ if (require.main === module) {
     const report = {
       generated_at: new Date().toISOString(),
       status: 'FAIL',
-      summary: { checked: 0, healthy: 0, unhealthy: 0, with_redirects: 0, ssl_available: 0, timeout_ms: getConfig().timeoutMs },
+      summary: { checked: 0, healthy: 0, unhealthy: 0, unverified: 0, with_redirects: 0, ssl_available: 0, timeout_ms: getConfig().timeoutMs },
       error: error.message,
       sources: [],
     };
