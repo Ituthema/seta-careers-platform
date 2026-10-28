@@ -17,6 +17,7 @@ const CAT_PATH_MAP = {
   bursary: 'bursaries',
   apprenticeship: 'apprenticeships',
   tvet: 'tvet-pathways',
+  job: 'jobs',
 };
 
 // `o` is a raw record from data/opportunities.json (category/slug/id).
