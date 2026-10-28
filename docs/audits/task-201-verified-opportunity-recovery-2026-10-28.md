@@ -78,7 +78,21 @@ The only open categories represented after this pass are bursaries. There are no
 
 ## E. Validation record
 
-The patch is intended to run through the repository's existing GitHub Actions on the pull request. This audit authoring session did not execute the Node scripts locally, so no local pass is claimed. Actual pull-request workflow results must be recorded after CI completes. Required commands: `npm test`, `npm run validate`, `npm run links`, `npm run sitemap`, `npm run validate:routes`, `npm run validate:pages`, and `npm run check`.
+**Remote CI result:** all required checks passed on implementation commit `000b5768e3bdb2064b8dacf02d566e0c7e9cd5b5` on 2026-10-28. This environment could not clone the repository for a local run, so these are the actual GitHub Actions results, not local claims.
+
+| Check | Actual result |
+|---|---|
+| `npm test` | Passed: 73 tests, 72 passed, 0 failed, 1 skipped |
+| `npm run validate` | Passed with 0 warnings |
+| `npm run links` | 15 unique opportunity URLs checked; 0 errors, 8 warnings. 13 URLs responded; NSFAS and KZN Health remained unverified due to TLS certificate-chain errors. Six other warnings were HTTP 403 restrictions/rate limits. TLS verification was not weakened. |
+| `npm run sitemap` | Passed: generated 2 active opportunity pages, 1 category landing page and a sitemap with 25 URLs |
+| `npm run validate:routes` | Passed: 2 opportunity pages, 1 category page, 7 guide pages and 13 information pages use crawlable canonical routes |
+| `npm run validate:pages` | Passed: GitHub Pages CNAME verified as `setacareersportal.abrdns.com` |
+| Generated SEO files current/committed check | Passed |
+| Crawler tests | Passed on Node 20 and Node 22 |
+| Browser smoke tests | Passed |
+
+The `npm run check` wrapper was not invoked as one command because the remote workflow runs its constituent checks individually; the validation, link, sitemap, route and Pages checks above all ran and passed. The link warnings are recorded rather than suppressed.
 
 ## Files changed by this task
 
