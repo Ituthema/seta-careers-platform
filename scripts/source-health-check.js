@@ -280,7 +280,8 @@ async function main() {
   // A health report may include unavailable third-party sources.  The default
   // invocation is a reporting operation, so retain the report and return
   // success unless the caller explicitly asks for a strict health gate.
-  if (config.strict && report.summary.unhealthy > 0) {
+  if (config.strict && (report.summary.unhealthy > 0 || report.summary.unverified > 0)) {
+    console.error('Strict source-health check failed: at least one source returned an HTTP error or could not be verified.');
     process.exit(1);
   }
 
