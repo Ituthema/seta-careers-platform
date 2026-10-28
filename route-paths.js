@@ -29,13 +29,21 @@ function opportunityRoutePath(o) {
   return `/opportunity/${encodeURIComponent((o && o.id) || '')}`;
 }
 
-// Whether an opportunity belongs in the sitemap. Deliberately depends ONLY
-// on the `expired` flag, never on today's date, so the generated sitemap (and
-// the CI "sitemap is committed" check) cannot change just because time passed.
-// Keeping `expired` accurate is the job of `npm run expire` plus the
-// lapsed-but-not-expired warning in scripts/validate-content.js.
+// Publication lifecycle is an explicit editorial decision. Only records with
+// publication_status === "open" belong in public listings and generated SEO
+// pages. The legacy expired flag remains a defensive guard while consumers
+// migrate; this helper deliberately does not compare today's date so generated
+// output is deterministic. Keep publication_status and expired consistent.
+const PUBLICATION_STATUSES = new Set([
+  'open',
+  'expired',
+  'on_hold',
+  'withdrawn',
+  'needs_review',
+]);
+
 function isListedOpportunity(o) {
-  return !o.expired;
+  return Boolean(o && o.publication_status === 'open' && !o.expired);
 }
 
 module.exports = { CAT_PATH_MAP, opportunityRoutePath, isListedOpportunity };
