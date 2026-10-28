@@ -576,7 +576,11 @@
       "Select the trade that matches your completed subjects",
       "Submit only one application across branches and trades, as instructed by the employer"
     ],
-    "employment_eligibility": [],
+    "employment_eligibility": [
+      "unemployed",
+      "student",
+      "employed"
+    ],
     "documents_needed": [
       "CV in Word or PDF format",
       "Supporting documents required by the online application form",
@@ -615,7 +619,11 @@
       "Select the trade that matches your completed subjects",
       "Submit only one application across branches and trades, as instructed by the employer"
     ],
-    "employment_eligibility": [],
+    "employment_eligibility": [
+      "unemployed",
+      "student",
+      "employed"
+    ],
     "documents_needed": [
       "CV in Word or PDF format",
       "Supporting documents required by the online application form",
@@ -654,7 +662,11 @@
       "Select the trade that matches your completed subjects",
       "Submit only one application across branches and trades, as instructed by the employer"
     ],
-    "employment_eligibility": [],
+    "employment_eligibility": [
+      "unemployed",
+      "student",
+      "employed"
+    ],
     "documents_needed": [
       "CV in Word or PDF format",
       "Supporting documents required by the online application form",
@@ -693,7 +705,11 @@
       "Select the trade that matches your completed subjects",
       "Submit only one application across branches and trades, as instructed by the employer"
     ],
-    "employment_eligibility": [],
+    "employment_eligibility": [
+      "unemployed",
+      "student",
+      "employed"
+    ],
     "documents_needed": [
       "CV in Word or PDF format",
       "Supporting documents required by the online application form",
