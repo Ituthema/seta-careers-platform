@@ -4,7 +4,7 @@
 **Baseline:** `main` after TASK-202 / PR #104, merge commit `523bf94ac9de81e5b0d09549996f72d509e4cc71`  
 **Scope:** Continue official-source research to address the internship/apprenticeship gap; preserve source verification and generated route conventions.
 
-## Accepted official opportunity
+## Accepted official opportunities
 
 ### City of Johannesburg Administration Officer Internship — Circular 029/2026
 
@@ -24,13 +24,32 @@
 
 The published listing intentionally preserves the City-specific residence restriction; it is not a nationwide internship. Applicants should read the circular before applying and verify the application form remains active.
 
+## Accepted official apprenticeship campaign
+
+### LH Marthinusen Apprenticeship Applications — four branches
+
+The official employer careers index lists apprenticeship applications published 22 October 2026 and closing **15 November 2026** for Johannesburg, Durban, Cape Town, and Phalaborwa. Each branch has its own official form. The branch forms list these trades: Armature Winder, Electrician, Welder, and Fitter and Turner.
+
+- **Minimum requirement:** N2 / NCV Level 4 with four completed subjects in the relevant field or trade.
+- **Documents:** CV in Word or PDF format plus supporting documents required by the form.
+- **Application rule:** The employer explicitly says not to submit multiple applications across branches or trades; the listing descriptions repeat this warning.
+- **Stipend:** Not disclosed in the official listing; no amount has been invented.
+- **Johannesburg:** [Official branch application form](https://www.lhm.co.za/vacancies/Apprenticeship-Application.html) — Gauteng.
+- **Durban:** [Official branch application form](https://www.lhm.co.za/vacancies/Apprenticeship-Applications-DB.html) — KwaZulu-Natal.
+- **Cape Town:** [Official branch application form](https://www.lhm.co.za/vacancies/Apprenticeship-Applications-CT.html) — Western Cape.
+- **Phalaborwa:** [Official branch application form](https://www.lhm.co.za/vacancies/Apprenticeship-Applications-PB.html) — Limpopo.
+- **Official careers index:** [LH Marthinusen Careers](https://www.lhm.co.za/vacancies.html).
+
+These are represented as four branch-specific records because the official pages use separate forms and interview locations. Applicants should select one branch/trade application, as the employer instructs.
+
 ## Other source findings
 
 - **MISA Apprenticeship and Experiential Learnership Programmes 2026/2027 — rejected as open.** The official advert states the application deadline was 28 September 2026 at 16:00. Do not publish it as open without a new official advert or extension.
   - Official page: https://www.misa.gov.za/apprenticeship-learnership-programmes/
   - Official advert PDF: https://www.misa.gov.za/wp-content/uploads/2026/09/MISA-Apprentice-EL-Skills-Development-Advert-2026-2027.pdf
 - **City of Johannesburg internship circulars 001–028/2026 — not accepted from the listing index alone.** Their current status must be verified from each individual circular; the index contains multiple older circulars and does not prove they remain open.
-- No currently open apprenticeship with an independently verified official deadline was confirmed in this pass. Keep the apprenticeship category gap visible rather than relabeling closed programmes as active.
+- **LH Marthinusen apprenticeship campaign — ACCEPTED.** The employer's official careers index and four branch-specific application pages show publication on 22 October 2026 and closing on 15 November 2026. Four branch records were added with the same closing date and branch-specific official application URLs.
+- The apprenticeship category is no longer empty after this recovery. Continue checking for further verified openings, but do not duplicate the same branch campaign or encourage applicants to submit multiple applications.
 
 ## Implementation
 
