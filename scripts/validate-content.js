@@ -10,6 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const { findUncoveredVerified } = require('./validators/registry-coverage');
+const { NOTE_FIELDS, NOT_STATED, isMissing, missingWithoutNote } = require('./lib/field-notes');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'data');
@@ -73,6 +74,7 @@ const provinceNames = new Set([
   'North West',
   'Western Cape',
   'Nationwide',
+  NOT_STATED, // province not stated by the advert (needs a field_notes comment)
 ]);
 
 const errors = [];
@@ -147,7 +149,9 @@ function validateOpportunities(opportunities) {
     if (!categoryIds.has(opportunity.category)) errors.push(`${label}: unknown category "${opportunity.category}"`);
     if (!provinceNames.has(opportunity.province)) warnings.push(`${label}: province "${opportunity.province}" is not in the standard province list`);
 
+    // closing_date may be null when the advert publishes none; field_notes must then say so (checked below).
     for (const field of ['closing_date', 'posted_date', 'updated_date']) {
+      if (field === 'closing_date' && isMissing('closing_date', opportunity.closing_date)) continue;
       if (!isIsoDate(opportunity[field])) errors.push(`${label}: ${field} must be YYYY-MM-DD`);
     }
 
@@ -168,23 +172,35 @@ function validateOpportunities(opportunities) {
       if (typeof opportunity[field] !== 'boolean') errors.push(`${label}: ${field} must be boolean`);
     }
 
-    for (const field of ['eligibility', 'documents_needed', 'tags']) {
-      if (!Array.isArray(opportunity[field]) || opportunity[field].length === 0) {
-        errors.push(`${label}: ${field} must be a non-empty array`);
-      }
+    // Lists must be arrays; an empty list means "not stated" and then needs a field_notes comment (checked below).
+    for (const field of ['eligibility', 'documents_needed', 'tags', 'employment_eligibility']) {
+      if (!Array.isArray(opportunity[field])) errors.push(`${label}: ${field} must be an array`);
     }
-
-    if (!Array.isArray(opportunity.employment_eligibility) || opportunity.employment_eligibility.length === 0) {
-      errors.push(`${label}: employment_eligibility must be a non-empty array`);
-    } else {
+    if (Array.isArray(opportunity.employment_eligibility)) {
       const invalid = opportunity.employment_eligibility.filter(v => !employmentStatuses.has(v));
       if (invalid.length) {
         errors.push(`${label}: employment_eligibility contains invalid value(s): ${invalid.join(', ')}`);
       }
     }
 
-    if (typeof opportunity.description !== 'string' || opportunity.description.length < 80) {
+    if (!isMissing('description', opportunity.description) && opportunity.description.length < 80) {
       warnings.push(`${label}: description should be at least 80 characters for search quality`);
+    }
+
+    // Missing-field rule: anything the advert did not state must be recorded as missing AND explained.
+    if (opportunity.field_notes !== undefined) {
+      const notes = opportunity.field_notes;
+      if (!notes || typeof notes !== 'object' || Array.isArray(notes)) {
+        errors.push(`${label}: field_notes must be an object of field name -> comment`);
+      } else {
+        for (const [key, value] of Object.entries(notes)) {
+          if (!NOTE_FIELDS.includes(key)) errors.push(`${label}: field_notes has unknown field "${key}" (allowed: ${NOTE_FIELDS.join(', ')})`);
+          else if (typeof value !== 'string' || value.trim() === '') errors.push(`${label}: field_notes.${key} must be a non-empty comment`);
+        }
+      }
+    }
+    for (const field of missingWithoutNote(opportunity)) {
+      errors.push(`${label}: ${field} is missing/unknown but has no explanation; add field_notes.${field} (e.g. "${field === 'stipend' ? 'Stipend unknown: the advert does not state one.' : 'Say why this is unknown.'}")`);
     }
   }
 }
