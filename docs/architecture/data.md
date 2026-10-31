@@ -68,6 +68,7 @@ Enforced by `scripts/validate-content.js`:
 - `verified` (boolean)
 - `featured` (boolean)
 - `expired` (boolean)
+- `publication_status` (enum: `open`, `expired`, `on_hold`, `withdrawn`, `needs_review`)
 - `description` (string)
 - `eligibility` (non-empty array of strings)
 - `documents_needed` (non-empty array of strings)
@@ -75,12 +76,12 @@ Enforced by `scripts/validate-content.js`:
 - `tags` (non-empty array of strings)
 - `posted_date`, `updated_date` (YYYY-MM-DD; `updated_date` is shown to users as "Last verified")
 
-### Expiry
-- The UI hides a listing after its closing day by comparing `closing_date` with the visitor's local date.
-- The sitemap and route validator do **not** look at the date; they only use the `expired` flag, so the sitemap changes
-  only when the data changes.
-- Keep `expired` accurate: run `npm run expire` after dates pass. `npm run validate` warns about lapsed listings that are
-  still `expired: false`; set `CONTENT_STRICT_EXPIRY=true` to make that an error.
+### Publication lifecycle and expiry
+- `publication_status` is the editorial publication gate. Only `open` records are eligible for public directory and SEO output; the interactive UI also requires `expired: false` and a closing date that has not passed.
+- `on_hold`, `withdrawn`, and `needs_review` records must not appear in public listings, generated category/detail pages, or the sitemap.
+- The validator checks the status enum and rejects inconsistent `open` with `expired: true`, or `expired` status with `expired: false`.
+- The shared route helper does not compare today's date, keeping generated output deterministic. Run `npm run expire` after deadlines pass. The validator warns about lapsed listings still marked `expired: false`; set `CONTENT_STRICT_EXPIRY=true` to make that an error.
+- New listing drafts default to `needs_review`; a human reviewer must explicitly approve an `open` status after checking current official evidence. `verified: true` alone is not publication approval.
 
 ## Temporary Limitations
 - No concurrent editing (merge conflicts)

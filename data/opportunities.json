@@ -41,7 +41,8 @@
       "official-source-refreshed"
     ],
     "posted_date": "2026-04-01",
-    "updated_date": "2026-06-03"
+    "updated_date": "2026-06-03",
+    "publication_status": "expired"
   },
   {
     "id": "002",
@@ -84,7 +85,8 @@
       "gauteng"
     ],
     "posted_date": "2026-04-05",
-    "updated_date": "2026-04-05"
+    "updated_date": "2026-04-05",
+    "publication_status": "expired"
   },
   {
     "id": "003",
@@ -127,7 +129,8 @@
       "official-source-refreshed"
     ],
     "posted_date": "2026-09-18",
-    "updated_date": "2026-10-17"
+    "updated_date": "2026-10-17",
+    "publication_status": "open"
   },
   {
     "id": "004",
@@ -168,7 +171,8 @@
       "western-cape"
     ],
     "posted_date": "2026-04-08",
-    "updated_date": "2026-04-08"
+    "updated_date": "2026-04-08",
+    "publication_status": "expired"
   },
   {
     "id": "006",
@@ -210,7 +214,8 @@
       "matric"
     ],
     "posted_date": "2026-04-12",
-    "updated_date": "2026-04-12"
+    "updated_date": "2026-04-12",
+    "publication_status": "expired"
   },
   {
     "id": "007",
@@ -253,7 +258,8 @@
       "kwazulu-natal"
     ],
     "posted_date": "2026-04-14",
-    "updated_date": "2026-04-14"
+    "updated_date": "2026-04-14",
+    "publication_status": "expired"
   },
   {
     "id": "008",
@@ -297,7 +303,8 @@
       "official-source-refreshed"
     ],
     "posted_date": "2026-04-15",
-    "updated_date": "2026-06-03"
+    "updated_date": "2026-06-03",
+    "publication_status": "expired"
   },
   {
     "id": "010",
@@ -339,7 +346,8 @@
       "western-cape"
     ],
     "posted_date": "2026-04-18",
-    "updated_date": "2026-04-18"
+    "updated_date": "2026-04-18",
+    "publication_status": "expired"
   },
   {
     "id": "011",
@@ -381,7 +389,8 @@
       "yes-programme"
     ],
     "posted_date": "2026-04-20",
-    "updated_date": "2026-04-20"
+    "updated_date": "2026-04-20",
+    "publication_status": "expired"
   },
   {
     "id": "012",
@@ -424,7 +433,8 @@
       "official-source-refreshed"
     ],
     "posted_date": "2026-04-22",
-    "updated_date": "2026-06-03"
+    "updated_date": "2026-06-03",
+    "publication_status": "expired"
   },
   {
     "id": "013",
@@ -463,7 +473,8 @@
       "nationwide"
     ],
     "posted_date": "2026-10-28",
-    "updated_date": "2026-10-28"
+    "updated_date": "2026-10-28",
+    "publication_status": "open"
   },
   {
     "id": "014",
@@ -509,7 +520,8 @@
       "official-source-verified"
     ],
     "posted_date": "2026-10-13",
-    "updated_date": "2026-10-28"
+    "updated_date": "2026-10-28",
+    "publication_status": "open"
   },
   {
     "id": "015",
@@ -552,7 +564,8 @@
       "circular-029-2026"
     ],
     "posted_date": "2026-10-22",
-    "updated_date": "2026-10-28"
+    "updated_date": "2026-10-28",
+    "publication_status": "open"
   },
   {
     "id": "016",
@@ -595,7 +608,8 @@
       "johannesburg"
     ],
     "posted_date": "2026-10-22",
-    "updated_date": "2026-10-28"
+    "updated_date": "2026-10-28",
+    "publication_status": "open"
   },
   {
     "id": "017",
@@ -638,7 +652,8 @@
       "durban"
     ],
     "posted_date": "2026-10-22",
-    "updated_date": "2026-10-28"
+    "updated_date": "2026-10-28",
+    "publication_status": "open"
   },
   {
     "id": "018",
@@ -681,7 +696,8 @@
       "cape-town"
     ],
     "posted_date": "2026-10-22",
-    "updated_date": "2026-10-28"
+    "updated_date": "2026-10-28",
+    "publication_status": "open"
   },
   {
     "id": "019",
@@ -724,6 +740,7 @@
       "phalaborwa"
     ],
     "posted_date": "2026-10-22",
-    "updated_date": "2026-10-28"
+    "updated_date": "2026-10-28",
+    "publication_status": "open"
   }
 ]

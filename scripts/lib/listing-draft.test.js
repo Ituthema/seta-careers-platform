@@ -22,6 +22,7 @@ test('a good draft becomes a full record with generated fields', () => {
   assert.equal(listing.slug, 'example-engineering-learnership-2027-and-beyond');
   assert.equal(listing.posted_date, '2026-10-25');
   assert.equal(listing.expired, false);
+  assert.equal(listing.publication_status, 'needs_review');
   assert.equal(listing.verified, false);
   assert.deepEqual(Object.keys(listing).slice(0, 4), ['id', 'slug', 'title', 'category']);
 });
@@ -49,6 +50,19 @@ test('closed dates, duplicate slugs and duplicate application links are rejected
   assert.ok(buildListing({ ...draft(), closing_date: '2026-10-25' }, existing, sources, NOW).errors.length === 0);
   assert.ok(buildListing({ ...draft(), slug: 'taken' }, existing, sources, NOW).errors.some((e) => /already used by listing 003/.test(e)));
   assert.ok(buildListing({ ...draft(), application_url: 'https://www.example.org/apply/taken' }, existing, sources, NOW).errors.some((e) => /application_url is already used/.test(e)));
+});
+
+test('new listings need explicit open approval and verified source evidence to publish', () => {
+  const pending = buildListing(draft(), existing, sources, NOW);
+  assert.equal(pending.listing.publication_status, 'needs_review');
+  const openWithoutVerification = buildListing({ ...draft(), publication_status: 'open' }, existing, sources, NOW);
+  assert.equal(openWithoutVerification.listing, null);
+  assert.ok(openWithoutVerification.errors.some((e) => /publication_status open requires verified: true/.test(e)));
+  const approved = buildListing({ ...draft(), verified: true, publication_status: 'open' }, existing, sources, NOW);
+  assert.deepEqual(approved.errors, []);
+  assert.equal(approved.listing.publication_status, 'open');
+  const invalid = buildListing({ ...draft(), publication_status: 'published' }, existing, sources, NOW);
+  assert.ok(invalid.errors.some((e) => /publication_status must be one of/.test(e)));
 });
 
 test('verified: true needs registry coverage for both URLs', () => {
