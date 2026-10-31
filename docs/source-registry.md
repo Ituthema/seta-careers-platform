@@ -255,7 +255,9 @@ If the crawl staged nothing, the command says so and points at `rejected.json` a
 
 What it does for you: assigns the next `id`, generates a unique `slug` from the title, sets `posted_date`/`updated_date` to today, `expired: false`, and `featured: false` unless the draft says otherwise.
 
-What it refuses: a missing field or bad enum (category, province, employment status), a closing date in the past, a duplicate slug or application URL, and `verified: true` when the source or application domain is not in `data/sources.json`. It warns when a listing is unverified, when the description is short, and when the application and source links are on different sites.
+What it refuses: a missing title, category or link (`application_url` or `source_url`), a bad value (unknown category, province or employment status, an impossible date, a field of the wrong type), a closing date in the past, a duplicate slug or application URL, and `verified: true` when the source or application domain is not in `data/sources.json`. It warns when a listing is unverified, when the description is short, and when the application and source links are on different sites.
+
+What it allows: any other field may be left out. It is then stored as missing (`Not stated`, `null` or `[]`) with a comment in `field_notes`, for example `Stipend unknown: the advert does not state one.` Put your own wording in the draft under `field_notes` to replace the default. See "Missing fields and `field_notes`" in `docs/architecture/data.md`.
 
 Commit `data/opportunities.json`, `sitemap.xml` and the generated pages together; Quality Gates checks they match.
 
@@ -267,7 +269,7 @@ Setup: `npm install` once (the fetcher needs axios and cheerio), then `export AN
 
 Safeguards, because AI text can be wrong and pages are untrusted:
 - The page is fetched with the crawler's safe fetcher: robots.txt and private-network checks apply. PDFs and JavaScript-only pages are not supported.
-- The model must quote the page for the closing date, stipend and qualification. A claim whose quote is not on the page is removed, and a closing date must also parse to the stated date. A missing date then shows up as an error from the add-listing rules.
+- The model must quote the page for the closing date, stipend and qualification. A claim whose quote is not on the page is removed, and a closing date must also parse to the stated date. A dropped claim (for example an unconfirmed date) becomes a missing field with a comment, shown as a warning, instead of blocking the draft.
 - The application link must be a real link on the page, otherwise the page URL is used.
 - `verified` is always `false` and `featured` always `false`, whatever the model or the page says. The page text cannot change that.
 - No web search: it cannot invent opportunities, only read the page you give it.

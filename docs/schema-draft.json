@@ -24,11 +24,13 @@
       "updated_date",
       "verified"
     ],
-    "optional_fields": [],
+    "optional_fields": [
+      "field_notes"
+    ],
     "field_types": {
       "application_url": "string",
       "category": "string",
-      "closing_date": "string",
+      "closing_date": "string|null",
       "description": "string",
       "documents_needed": "array",
       "eligibility": "array",
@@ -47,7 +49,8 @@
       "title": "string",
       "updated_date": "string",
       "verified": "boolean",
-      "employment_eligibility": "array"
+      "employment_eligibility": "array",
+      "field_notes": "object"
     },
     "allowed_values": {
       "province": [
@@ -79,7 +82,8 @@
     "format_rules": {
       "dates": "YYYY-MM-DD",
       "urls": "HTTP or HTTPS (the validator accepts both; prefer HTTPS)"
-    }
+    },
+    "notes": "Missing fields: sector, province, qualification_level, stipend = \"Not stated\"; closing_date = null; description = fixed placeholder; eligibility, documents_needed, employment_eligibility = []. Each missing field requires a non-empty comment in field_notes (see scripts/lib/field-notes.js). \"Not stated\" is also an allowed province value. Executable rules live in scripts/validate-content.js."
   },
   "guides": {
     "required_fields": [
