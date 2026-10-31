@@ -60,12 +60,14 @@ test('a well-supported draft passes checks, is never verified, and has no errors
   assert.equal(r.slug, 'farming-learnership-2026-27');
 });
 
-test('a closing date the page does not contain is removed and reported as missing', async () => {
+test('a closing date the page does not contain is removed and recorded as missing with a comment', async () => {
   const wrong = () => JSON.stringify({ ...JSON.parse(goodModel()), draft: { ...JSON.parse(goodModel()).draft, closing_date: '2026-12-15' }, evidence: { ...JSON.parse(goodModel()).evidence, closing_date: 'The closing date is 15 December 2026.' } });
   const r = await makeDraft(URL_, deps(wrong));
   assert.equal(r.draft.closing_date, undefined);
   assert.ok(r.dropped.includes('closing_date'));
-  assert.ok(r.errors.some((e) => /closing_date is required/.test(e)));
+  // A dropped claim no longer blocks the draft: it becomes a missing field with a comment.
+  assert.deepEqual(r.errors, []);
+  assert.ok(r.warnings.some((w) => /Closing date is missing/.test(w)));
 });
 
 test('an invented stipend and an invented application link are replaced', async () => {

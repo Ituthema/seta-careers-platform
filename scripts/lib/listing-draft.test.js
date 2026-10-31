@@ -36,12 +36,45 @@ test('general job vacancy drafts are accepted as a supported category', () => {
   assert.equal(require('../../route-paths').opportunityRoutePath(listing), '/jobs/administrative-clerk-vacancy');
 });
 
-test('missing and invalid fields are all reported', () => {
-  const { listing, errors } = buildListing({ title: 'x', category: 'invalid-category', province: 'Mars', closing_date: '2026-02-30', application_url: 'nope', employment_eligibility: ['retired'] }, existing, sources, NOW);
+test('invalid values are all reported, and only title, category and a link are essential', () => {
+  const { listing, errors } = buildListing({ title: 'x', category: 'invalid-category', province: 'Mars', closing_date: '2026-02-30', application_url: 'nope', employment_eligibility: ['retired'], eligibility: 'not a list' }, existing, sources, NOW);
   assert.equal(listing, null);
-  for (const text of ['sector is required', 'category must be', 'province must be', 'closing_date must be a real date', 'application_url must be a valid', 'employment_eligibility has invalid', 'eligibility must be']) {
+  for (const text of ['category must be', 'province must be', 'closing_date must be a real date', 'application_url must be a valid', 'employment_eligibility has invalid', 'eligibility must be a list of text']) {
     assert.ok(errors.some((e) => e.includes(text)), text);
   }
+  const none = buildListing({}, existing, sources, NOW);
+  assert.equal(none.listing, null);
+  for (const text of ['title is required', 'category is required', 'application_url or source_url is required']) {
+    assert.ok(none.errors.some((e) => e.includes(text)), text);
+  }
+});
+
+test('a draft with only the essentials becomes a listing with a comment for every missing field', () => {
+  const { listing, errors, warnings } = buildListing({ title: 'Bare Bones Internship', category: 'internship', source_url: 'https://www.example.org/careers' }, existing, sources, NOW);
+  assert.deepEqual(errors, []);
+  assert.equal(listing.stipend, 'Not stated');
+  assert.equal(listing.closing_date, null);
+  assert.deepEqual(listing.eligibility, []);
+  assert.equal(listing.application_url, 'https://www.example.org/careers');
+  assert.equal(listing.source_name, 'example.org');
+  assert.match(listing.field_notes.stipend, /Stipend unknown/);
+  assert.match(listing.field_notes.closing_date, /Closing date unknown/);
+  assert.deepEqual(Object.keys(listing.field_notes).sort(), ['closing_date', 'description', 'documents_needed', 'eligibility', 'employment_eligibility', 'province', 'qualification_level', 'sector', 'stipend']);
+  assert.ok(warnings.some((w) => /no closing date/.test(w)));
+  assert.equal(listing.verified, false);
+});
+
+test('a custom comment replaces the default, and fields that are given get no comment', () => {
+  const { listing } = buildListing({ ...draft(), stipend: '', field_notes: { stipend: 'Stipend unknown: employer says it is set at interview.' } }, existing, sources, NOW);
+  assert.equal(listing.field_notes.stipend, 'Stipend unknown: employer says it is set at interview.');
+  assert.deepEqual(Object.keys(listing.field_notes), ['stipend']);
+  assert.equal(buildListing(draft(), existing, sources, NOW).listing.field_notes, undefined);
+});
+
+test('a missing closing date is allowed, but a past one is still refused', () => {
+  const { closing_date, ...noDate } = draft();
+  assert.equal(buildListing(noDate, existing, sources, NOW).listing.closing_date, null);
+  assert.ok(buildListing({ ...draft(), closing_date: '2026-10-24' }, existing, sources, NOW).errors.some((e) => /before today/.test(e)));
 });
 
 test('closed dates, duplicate slugs and duplicate application links are rejected', () => {

@@ -57,23 +57,49 @@ Enforced by `scripts/validate-content.js`:
 - `slug` (string, kebab-case, unique)
 - `title` (string)
 - `category` (string; validator accepts `learnership`, `internship`, `bursary`, `apprenticeship`, `tvet`, `job`)
-- `sector` (string)
-- `province` (string; a province from `provinces.json` or `Nationwide`)
-- `qualification_level` (string)
-- `stipend` (string)
-- `closing_date` (string, YYYY-MM-DD)
+- `sector` (string; `Not stated` when unknown)
+- `province` (string; a province from `provinces.json`, `Nationwide`, or `Not stated` when unknown)
+- `qualification_level` (string; `Not stated` when unknown)
+- `stipend` (string; `Not stated` when unknown)
+- `closing_date` (string, YYYY-MM-DD, or `null` when the advert publishes none)
 - `application_url` (string, URL)
 - `source_name` (string)
 - `source_url` (string, URL)
 - `verified` (boolean)
 - `featured` (boolean)
 - `expired` (boolean)
-- `description` (string)
-- `eligibility` (non-empty array of strings)
-- `documents_needed` (non-empty array of strings)
-- `employment_eligibility` (non-empty array of `"unemployed" | "student" | "employed"`) — who this opportunity is open to
-- `tags` (non-empty array of strings)
+- `description` (string; a fixed placeholder when none was available)
+- `eligibility` (array of strings; `[]` when unknown)
+- `documents_needed` (array of strings; `[]` when unknown)
+- `employment_eligibility` (array of `"unemployed" | "student" | "employed"`; `[]` when unknown) — who this opportunity is open to
+- `tags` (array of strings; may be empty)
+- `field_notes` (optional object, field name -> comment; see below)
 - `posted_date`, `updated_date` (YYYY-MM-DD; `updated_date` is shown to users as "Last verified")
+
+### Missing fields and `field_notes`
+An advert often leaves things out. That must not block a listing, and it must never be hidden: the field is stored as
+missing **and** explained in `field_notes`. Implemented in `scripts/lib/field-notes.js`; tested by
+`scripts/lib/field-notes.test.js`, `scripts/lib/listing-draft.test.js` and enforced by `scripts/validate-content.js`.
+
+| Field | Stored as "missing" | Example comment |
+| --- | --- | --- |
+| `sector`, `province`, `qualification_level`, `stipend` | `"Not stated"` | `Stipend unknown: the advert does not state one.` |
+| `closing_date` | `null` | `Closing date unknown: no closing date was published. Confirm on the official page before applying.` |
+| `description` | fixed placeholder sentence | `No description was available when this listing was added.` |
+| `eligibility`, `documents_needed`, `employment_eligibility` | `[]` | `Required documents unknown: the advert does not list any.` |
+
+Rules:
+- Every missing field MUST have a non-empty comment in `field_notes`; `npm run validate` fails otherwise.
+- `field_notes` keys must be one of the fields above. Fields that have a real value need no comment.
+- Only `title`, `category` and a link (`application_url` or `source_url`) are essential for `npm run add:listing`; the
+  builder fills a missing field's marker value and default comment (a draft can supply its own comment in `field_notes`).
+- A value that is supplied must still be valid: a bad date or unknown province is an error, not "missing".
+- A closing date in the past is still refused; a missing one is allowed. `npm run expire` and the lapsed-date warning skip
+  listings with no date, so re-check them by hand.
+
+**Status (this change):** the data contract, builder and validator are implemented and tested. Display of the notes in the
+UI, static pages, calendar and sitemap handling of undated listings is **planned** (follow-up batch); until it merges, do
+not publish a listing with missing fields.
 
 ### Expiry
 - The UI hides a listing after its closing day by comparing `closing_date` with the visitor's local date.
