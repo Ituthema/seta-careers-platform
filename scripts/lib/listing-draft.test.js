@@ -85,12 +85,16 @@ test('closed dates, duplicate slugs and duplicate application links are rejected
   assert.ok(buildListing({ ...draft(), application_url: 'https://www.example.org/apply/taken' }, existing, sources, NOW).errors.some((e) => /application_url is already used/.test(e)));
 });
 
-test('new listings need explicit open approval and verified source evidence to publish', () => {
+test('new listings need explicit open approval to publish; verification is optional but is labelled', () => {
   const pending = buildListing(draft(), existing, sources, NOW);
   assert.equal(pending.listing.publication_status, 'needs_review');
+  // Relaxed: an explicit open is allowed without verification, with a warning (the site shows an "Unverified" label).
   const openWithoutVerification = buildListing({ ...draft(), publication_status: 'open' }, existing, sources, NOW);
-  assert.equal(openWithoutVerification.listing, null);
-  assert.ok(openWithoutVerification.errors.some((e) => /publication_status open requires verified: true/.test(e)));
+  assert.deepEqual(openWithoutVerification.errors, []);
+  assert.equal(openWithoutVerification.listing.publication_status, 'open');
+  assert.equal(openWithoutVerification.listing.verified, false);
+  assert.ok(openWithoutVerification.warnings.some((w) => /publishing as open while verified is false/.test(w)));
+  assert.ok(!openWithoutVerification.warnings.some((w) => /will default to needs_review/.test(w)), 'no contradictory warning');
   const approved = buildListing({ ...draft(), verified: true, publication_status: 'open' }, existing, sources, NOW);
   assert.deepEqual(approved.errors, []);
   assert.equal(approved.listing.publication_status, 'open');
