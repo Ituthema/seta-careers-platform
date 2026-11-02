@@ -42,6 +42,11 @@ jobs:
       - name: Regenerate static pages and sitemap
         run: npm run sitemap
 
+      # The unit tests assert facts about specific records, so expiring a listing can break one.
+      # Catch that here, before a pull request is opened, rather than on main after it is merged.
+      - name: Run unit tests
+        run: npm test
+
       - name: Validate the result
         run: |
           npm run validate
@@ -78,7 +83,7 @@ jobs:
           BODY="Automated daily expiry ($TODAY, South Africa time).
 
           - Ran \`npm run expire\`, then \`npm run sitemap\`.
-          - Passed \`npm run validate\`, \`validate:routes\` and \`validate:pages\` in this job.
+          - Passed \`npm test\`, \`npm run validate\`, \`validate:routes\` and \`validate:pages\` in this job.
           - Expired listings leave the public pages and the sitemap once this is merged.
           - Listings with no closing date are never expired automatically; see the job summary.
 

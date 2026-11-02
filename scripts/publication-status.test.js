@@ -50,7 +50,8 @@ test('all current records have a valid, consistent publication status', () => {
 test('Mpumalanga traffic learnership uses the corrected official application URL', () => {
   const record = opportunities.find((opportunity) => opportunity.id === '014');
   assert.ok(record);
-  assert.equal(record.publication_status, 'open');
+  // Open until its closing date, expired afterwards (the daily expiry job flips it); never on hold or withdrawn here.
+  assert.ok(['open', 'expired'].includes(record.publication_status), `unexpected status ${record.publication_status}`);
   assert.equal(record.closing_date, '2026-10-30');
   assert.equal(record.application_url, 'https://forms.cloud.microsoft/r/tKW94ibBVF');
 });
