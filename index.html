@@ -156,6 +156,7 @@ h1,h2,h3{font-family:'Fraunces',serif}
 .opp-card.featured::before{content:'⭐ Featured';position:absolute;top:12px;right:12px;font-size:10px;background:var(--alt);color:#92400e;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:.5px}
 .oc-top{display:flex;justify-content:space-between;align-items:flex-start}
 .notes-box{background:#fffbeb;border:1px solid #fcd34d;color:#78350f;border-radius:10px;padding:14px 16px;margin:0 0 20px;font-size:14px;line-height:1.6}.notes-box ul{margin:8px 0 8px 20px}.notes-box span{font-size:13px}.note-unknown{font-size:14px;color:var(--mu);font-style:italic}
+.oc-unverified{font-size:11px;color:#92400e;background:#fef3c7;border-radius:6px;padding:2px 7px;font-weight:600}
 .oc-verified{font-size:11px;color:var(--gmid);font-weight:600}
 .oc-title{font-family:'Fraunces',serif;font-size:16.5px;font-weight:700;color:var(--tx);line-height:1.3}
 .oc-meta{display:flex;gap:12px;flex-wrap:wrap}
@@ -1060,7 +1061,7 @@ function cardTag(){return _page==='directory'||_page==='saved'||_page==='guides'
 function oppCard(o,compact=false){
   const u=urgInfo(o.close);
   return`<div class="opp-card${o.featured?' featured':''}" data-action="open-opp" data-opp-id="${attr(o.id)}" tabindex="0" role="button">
-  <div class="oc-top">${badge(o.cat)}${o.verified?'<span class="oc-verified">✓ Source checked</span>':''}</div>
+  <div class="oc-top">${badge(o.cat)}${o.verified?'<span class="oc-verified">✓ Source checked</span>':'<span class="oc-unverified" title="Not yet checked against the official advert">Unverified</span>'}</div>
   <${cardTag()} class="oc-title">${esc(o.title)}</${cardTag()}>
   <div class="oc-meta"><span>📍 ${esc(o.prov)}</span>${o.stipend?`<span>💰 ${esc(o.stipend)}</span>`:''}</div>
   <div class="oc-footer">${pill(o.close)}<div style="display:flex;align-items:center;gap:10px"><span class="oc-link">View & Apply →</span>${bkBtn(o.id)}</div></div>
@@ -1314,7 +1315,7 @@ function renderDetail(){
   </div>
 
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px">
-    ${badge(o.cat)}${o.verified?'<span style="font-size:12px;color:var(--gmid);font-weight:600">✓ Source checked</span>':''}
+    ${badge(o.cat)}${o.verified?'<span style="font-size:12px;color:var(--gmid);font-weight:600">✓ Source checked</span>':'<span class="oc-unverified" title="Not yet checked against the official advert">Unverified — confirm on the official page before applying</span>'}
   </div>
 
   <h1 class="detail-h1">${esc(o.title)}</h1>

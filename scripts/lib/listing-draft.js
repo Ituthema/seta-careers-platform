@@ -130,14 +130,16 @@ function buildListing(draft, existing, sources, now = new Date()) {
   }
 
   const verified = d.verified === true;
+  // `open` no longer requires verified: true. A person may publish a listing that has an official link but
+  // has not been checked yet; the site labels it "Unverified" and keeps the "Source checked" badge for verified ones.
   if (d.publication_status === 'open' && !verified) {
-    errors.push('publication_status open requires verified: true and current official-source review');
+    warnings.push('publishing as open while verified is false: the site will label this listing "Unverified"; check the official page and set verified to true when you have');
   }
   if (verified && errors.length === 0) {
     const probe = findUncoveredVerified([{ id: 'draft', verified: true, source_url: sourceUrl, application_url: applicationUrl }], sources);
     for (const gap of probe) errors.push(`verified: true needs ${gap.field} domain "${gap.host}" in data/sources.json; register it first or leave verified false`);
   }
-  if (!verified) warnings.push('verified is false: publication_status will default to needs_review and the listing will not appear publicly');
+  if (!verified && d.publication_status !== 'open') warnings.push('verified is false: publication_status will default to needs_review and the listing will not appear publicly');
   if (d.publication_status !== 'open') warnings.push('publication_status defaults to needs_review unless you explicitly set it to open after current official-source verification and human approval');
   if (applicationUrl && sourceUrl && isHttpUrl(applicationUrl) && isHttpUrl(sourceUrl) &&
       !hostsRelated(hostOf(applicationUrl), hostOf(sourceUrl))) {

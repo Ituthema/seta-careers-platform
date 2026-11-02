@@ -14,10 +14,11 @@ function openListing() {
 }
 const CAT_PATH = { learnership: 'learnerships', internship: 'internships', bursary: 'bursaries', apprenticeship: 'apprenticeships', tvet: 'tvet-pathways', job: 'jobs' };
 
-test('homepage renders an open opportunity card', async ({ page }) => {
+test('homepage renders its hero and, when listings are open, an opportunity card', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.hero h1')).toContainText('Find Your Career Opportunity in SA');
-  await expect(page.locator('.opp-card').first()).toBeVisible();
+  // With no open listing the page legitimately has no card, so only require one when the data has an open listing.
+  if (openListing()) await expect(page.locator('.opp-card').first()).toBeVisible();
 });
 
 test('an open listing detail route links to its official application page', async ({ page }) => {

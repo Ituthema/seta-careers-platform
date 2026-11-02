@@ -192,6 +192,7 @@ live.forEach(function (o) {
   const body = '<nav class="muted"><a href="/">Home</a> / <a href="/' + escapeHTML(CAT_PATH_MAP[o.category] || (o.category + 's')) + '/">' +
     escapeHTML(categoryLabels[CAT_PATH_MAP[o.category] || (o.category + 's')] || o.category) + '</a></nav>' +
     '<h1>' + escapeHTML(o.title) + '</h1>' +
+    (o.verified === true ? '' : '<p class="muted" role="note"><strong>Unverified:</strong> this listing has not yet been checked against the official advert. Confirm the details with the provider before applying.</p>') +
     '<div class="meta"><span class="pill">' + escapeHTML(o.category) + '</span><span class="pill">' + escapeHTML(o.province) + '</span></div>' +
     '<p>' + escapeHTML(o.description) + '</p>' +
     '<section class="card"><h2>Opportunity details</h2><p><strong>Sector / SETA:</strong> ' + escapeHTML(o.sector) + '</p>' +
