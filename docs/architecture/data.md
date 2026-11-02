@@ -98,10 +98,17 @@ Rules:
 - A closing date in the past is still refused; a missing one is allowed. `npm run expire` and the lapsed-date warning skip
   listings with no date, so re-check them by hand.
 
-**Status:** the data contract, builder and validator are implemented and tested. Display of the notes in the UI, static
-pages and calendar, and handling of undated listings in `index.html`, is **planned** (follow-up batch). New drafts default
-to `publication_status: needs_review`, so a listing with missing fields stays out of public listings and the sitemap; do
-not set one to `open` until that batch has merged. `npm run expire` skips listings with no closing date.
+**Status:**
+- **Implemented and tested:** data contract, `add:listing` builder and validator (batch 1); display (batch 2).
+- **Interactive app (`index.html`):** an undated listing is treated as open-ended, never closed; it shows "Closing date not stated",
+  a "No closing date" pill, a "Some details were not published" box with every `field_notes` comment, and the comment in place of an
+  empty eligibility or documents list. Undated listings sort last and stay off the interactive calendar.
+- **Static pages (`scripts/generate-seo-pages.js`):** the same comments appear under "Details not published"; undated listings sort
+  after dated ones and are left off the static deadline calendar.
+- **Tests:** `scripts/seo-undated-listing.test.js` (runs the real generator on a temporary copy) and
+  `tests/browser/undated-listing.spec.cjs` (Playwright, run in the Browser Smoke Tests workflow).
+- **Still manual:** `npm run expire` skips undated listings, so re-check them against the official page. Publishing is still gated by
+  `publication_status`: new drafts are `needs_review`, and `open` currently requires `verified: true`.
 
 ### Publication lifecycle and expiry
 - `publication_status` is the editorial publication gate. Only `open` records are eligible for public directory and SEO output; the interactive UI also requires `expired: false` and a closing date that has not passed.

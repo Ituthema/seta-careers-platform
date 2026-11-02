@@ -99,8 +99,27 @@ function baseLayout(options) {
     '<meta name="robots" content="index,follow">\n' + jsonLd(options.jsonld) +
     '<style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#fafaf9;color:#1a1a1a;font:16px/1.7 system-ui,-apple-system,sans-serif}header,main,footer{max-width:900px;margin:auto;padding:20px}header{border-bottom:1px solid #e5e7eb;background:#fff}header a,.back{color:#0d4a26;text-decoration:none;font-weight:700}.brand{font-weight:900;font-size:1.2rem}main{padding-top:36px;padding-bottom:56px}h1,h2,h3{line-height:1.2}h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.04em}h2{margin-top:32px;font-size:1.4rem}.muted{color:#596579}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.pill{display:inline-block;background:#dcfce7;color:#166534;padding:4px 10px;border-radius:20px;font-size:.85rem;font-weight:700}.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;margin:14px 0}.btn{display:inline-block;background:#0d4a26;color:#fff;text-decoration:none;font-weight:700;padding:11px 16px;border-radius:8px;margin:8px 8px 8px 0}.btn.secondary{background:#f3f4f6;color:#0d4a26}.list{padding-left:22px}.empty{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:16px}footer{border-top:1px solid #e5e7eb;color:#596579;font-size:.9rem}a{overflow-wrap:anywhere}</style>\n</head>\n<body>\n<!-- GENERATED SEO PAGE: OpportunitiesZA -->\n<header><a class="brand" href="/">OpportunitiesZA</a> <span class="muted">· South African career opportunities</span></header>\n<main>' + options.body + '</main>\n<footer><a href="/">Home</a> · <a href="/calendar/">Calendar</a> · <a href="/provinces/">Provinces</a> · <a href="/tools/">Tools</a> · <a href="/guides/">Guides</a> · <a href="/about/">About</a> · <a href="/#/">Open interactive website</a> · Check every application deadline and eligibility requirement with the official provider.</footer>\n</body>\n</html>\n';
 }
-function listItems(items) {
-  if (!items || !items.length) return '<p class="muted">Not specified by the listing.</p>';
+// Listings may omit fields; each omission is explained in field_notes (see scripts/lib/field-notes.js).
+function noteText(o, field, fallback) {
+  const notes = o && o.field_notes && typeof o.field_notes === 'object' ? o.field_notes : {};
+  return typeof notes[field] === 'string' && notes[field].trim() ? notes[field].trim() : fallback;
+}
+function notesSection(o) {
+  const notes = o && o.field_notes && typeof o.field_notes === 'object' ? o.field_notes : {};
+  const items = Object.keys(notes).filter(function (k) { return typeof notes[k] === 'string' && notes[k].trim(); });
+  if (!items.length) return '';
+  return '<section class="card" role="note"><h2>Details not published</h2><ul class="list">' +
+    items.map(function (k) { return '<li>' + escapeHTML(notes[k]) + '</li>'; }).join('') +
+    '</ul><p class="muted">Confirm everything on the official advert before applying.</p></section>';
+}
+// Earliest closing date first; listings with no closing date go last (stable and independent of today's date).
+function byClosingDate(a, b) {
+  const x = a.closing_date || '9999-99-99';
+  const y = b.closing_date || '9999-99-99';
+  return x === y ? 0 : (x < y ? -1 : 1);
+}
+function listItems(items, emptyText) {
+  if (!items || !items.length) return '<p class="muted">' + escapeHTML(emptyText || 'Not specified by the listing.') + '</p>';
   return '<ul class="list">' + items.map(function (item) { return '<li>' + escapeHTML(item) + '</li>'; }).join('') + '</ul>';
 }
 function guideBodyToSafeParagraphs(html) {
@@ -143,13 +162,13 @@ const liveCategories = [...new Set(live.map(function (o) {
 liveCategories.forEach(function (categoryPath) {
   const items = live.filter(function (o) {
     return (CAT_PATH_MAP[o.category] || (o.category + 's')) === categoryPath;
-  }).sort(function (a, b) { return String(a.closing_date).localeCompare(String(b.closing_date)); });
+  }).sort(byClosingDate);
   const label = categoryLabels[categoryPath] || categoryPath;
   const cards = items.map(function (o) {
     const route = opportunityRoutePath(o);
     return '<article class="card"><h2><a href="' + escapeHTML(ensureTrailingSlash(route)) + '">' + escapeHTML(o.title) + '</a></h2>' +
       '<p>' + escapeHTML(o.description) + '</p><p class="muted">' + escapeHTML(o.province) + ' · ' +
-      escapeHTML(o.qualification_level) + ' · Closing ' + escapeHTML(dateText(o.closing_date)) + '</p></article>';
+      escapeHTML(o.qualification_level) + ' · ' + escapeHTML(o.closing_date ? 'Closing ' + dateText(o.closing_date) : 'Closing date not stated') + '</p></article>';
   }).join('\n');
   const route = '/' + categoryPath;
   const updated = items.map(function (o) { return o.updated_date || ''; }).sort().pop() || '';
@@ -177,9 +196,10 @@ live.forEach(function (o) {
     '<p>' + escapeHTML(o.description) + '</p>' +
     '<section class="card"><h2>Opportunity details</h2><p><strong>Sector / SETA:</strong> ' + escapeHTML(o.sector) + '</p>' +
     '<p><strong>Minimum qualification:</strong> ' + escapeHTML(o.qualification_level) + '</p><p><strong>Stipend / funding:</strong> ' + escapeHTML(o.stipend) + '</p>' +
-    '<p><strong>Closing date:</strong> ' + escapeHTML(dateText(o.closing_date)) + '</p><p><strong>Posted:</strong> ' + escapeHTML(dateText(o.posted_date)) + '</p>' +
+    '<p><strong>Closing date:</strong> ' + escapeHTML(o.closing_date ? dateText(o.closing_date) : 'Not stated') + '</p><p><strong>Posted:</strong> ' + escapeHTML(dateText(o.posted_date)) + '</p>' +
     '<p><strong>Last updated:</strong> ' + escapeHTML(dateText(o.updated_date)) + '</p></section>' +
-    '<h2>Eligibility</h2>' + listItems(o.eligibility) + '<h2>Documents to prepare</h2>' + listItems(o.documents_needed) +
+    notesSection(o) +
+    '<h2>Eligibility</h2>' + listItems(o.eligibility, noteText(o, 'eligibility')) + '<h2>Documents to prepare</h2>' + listItems(o.documents_needed, noteText(o, 'documents_needed')) +
     '<p>' + (applicationURL ? '<a class="btn" rel="nofollow noopener" href="' + escapeHTML(applicationURL) + '">Visit official application page</a>' : '') +
     (sourceURL ? '<a class="btn secondary" rel="nofollow noopener" href="' + escapeHTML(sourceURL) + '">Check source</a>' : '') + '</p>' +
     '<p class="muted">Listing status and closing dates can change. Confirm the current vacancy and instructions directly with ' + escapeHTML(o.source_name || 'the provider') + '.</p>';
@@ -250,12 +270,12 @@ const provinces = readJSON('data/provinces.json');
 const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 function oppCardHTML(o) {
   return '<article class="card"><h3><a href="' + escapeHTML(ensureTrailingSlash(opportunityRoutePath(o))) + '">' + escapeHTML(o.title) + '</a></h3>' +
-    '<p class="muted">' + escapeHTML(o.province) + ' · ' + escapeHTML(o.qualification_level) + ' · Closing ' + escapeHTML(dateText(o.closing_date)) + '</p></article>';
+    '<p class="muted">' + escapeHTML(o.province) + ' · ' + escapeHTML(o.qualification_level) + ' · ' + escapeHTML(o.closing_date ? 'Closing ' + dateText(o.closing_date) : 'Closing date not stated') + '</p></article>';
 }
 function latestUpdate(items) {
   return items.map(function (o) { return o.updated_date || ''; }).sort().pop() || '';
 }
-const byClosing = live.slice().sort(function (a, b) { return String(a.closing_date).localeCompare(String(b.closing_date)); });
+const byClosing = live.slice().sort(byClosingDate);
 
 // Calendar
 const months = {};

@@ -155,6 +155,7 @@ h1,h2,h3{font-family:'Fraunces',serif}
 .opp-card:hover{border-color:var(--g);box-shadow:0 8px 28px rgba(13,74,38,.12);transform:translateY(-3px)}
 .opp-card.featured::before{content:'⭐ Featured';position:absolute;top:12px;right:12px;font-size:10px;background:var(--alt);color:#92400e;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:.5px}
 .oc-top{display:flex;justify-content:space-between;align-items:flex-start}
+.notes-box{background:#fffbeb;border:1px solid #fcd34d;color:#78350f;border-radius:10px;padding:14px 16px;margin:0 0 20px;font-size:14px;line-height:1.6}.notes-box ul{margin:8px 0 8px 20px}.notes-box span{font-size:13px}.note-unknown{font-size:14px;color:var(--mu);font-style:italic}
 .oc-verified{font-size:11px;color:var(--gmid);font-weight:600}
 .oc-title{font-family:'Fraunces',serif;font-size:16.5px;font-weight:700;color:var(--tx);line-height:1.3}
 .oc-meta{display:flex;gap:12px;flex-wrap:wrap}
@@ -610,7 +611,8 @@ function mapOpportunity(o){
     prov:o.province,
     qual:o.qualification_level,
     stipend:o.stipend||'',
-    close:o.closing_date,
+    close:o.closing_date||null, // null = the advert published no closing date (see notes.closing_date)
+    notes:(o.field_notes&&typeof o.field_notes==='object')?o.field_notes:{},
     url:o.application_url,
     src:o.source_name||'Official source',
     srcUrl:o.source_url||o.application_url,
@@ -709,7 +711,9 @@ function safeDecode(segment){
 // or time of day. Returns the number of whole calendar days remaining
 // (0 = closes today, negative = already past its closing date).
 function daysUntil(dateOnlyString){
-  if(!dateOnlyString) return -1;
+  // No closing date published: treated as open-ended (Infinity), never as closed.
+  // Listings still go through the publication_status gate, and carry a field_notes comment.
+  if(dateOnlyString===null||dateOnlyString===undefined||dateOnlyString==='') return Infinity;
   const [y,m,d]=String(dateOnlyString).split('-').map(Number);
   if(!y||!m||!d) return -1;
   const closing=new Date(y,m-1,d); // local midnight of the closing date
@@ -718,12 +722,16 @@ function daysUntil(dateOnlyString){
   return Math.round((closing-todayLocal)/86400000);
 }
 const days=daysUntil;
-const fmtD=d=>new Date(d).toLocaleDateString("en-ZA",{day:"numeric",month:"long",year:"numeric"});
+const fmtD=d=>d?new Date(d).toLocaleDateString("en-ZA",{day:"numeric",month:"long",year:"numeric"}):"Closing date not stated";
+// Sort key / comparator for closing dates: undated listings go last.
+const closeKey=d=>d?new Date(d).getTime():Infinity;
+const byClose=(a,b)=>{const x=closeKey(a.close),y=closeKey(b.close);return x===y?0:(x<y?-1:1);};
 const fmtMY=d=>new Date(d).toLocaleDateString("en-ZA",{month:"long",year:"numeric"});
 const fmtShort=d=>new Date(d).toLocaleDateString("en-ZA",{day:"numeric",month:"short"});
 
 function urgInfo(d){
   const n=days(d);
+  if(n===Infinity) return{label:"No closing date",cls:"pill-gray",c:"#374151",bg:"#f3f4f6"};
   if(n<0) return{label:"Closed",cls:"",c:"#6b7280",bg:"#f3f4f6"};
   if(n<=3) return{label:`${n}d left`,cls:"pill-red",c:"#dc2626",bg:"#fee2e2"};
   if(n<=7) return{label:`${n}d left`,cls:"pill-amber",c:"#92400e",bg:"#fef3c7"};
@@ -804,6 +812,12 @@ function copyOppUrl(btn){
 }
 const badge=cat=>`<span class="badge badge-${attr(safeId(cat))}">${esc(cat)}</span>`;
 const pill=(d)=>{const u=urgInfo(d);return`<span class="pill ${attr(u.cls)}" style="background:${attr(u.bg)};color:${attr(u.c)}">${esc(u.label)}</span>`;};
+// Explains every field the advert did not state (data/opportunities.json field_notes).
+const notesBox=o=>{
+  const items=Object.keys(o.notes||{}).filter(k=>typeof o.notes[k]==='string'&&o.notes[k].trim());
+  if(!items.length) return '';
+  return`<div class="notes-box" role="note"><strong>ℹ️ Some details were not published</strong><ul>${items.map(k=>`<li>${esc(o.notes[k])}</li>`).join('')}</ul><span>Always confirm on the official advert before applying.</span></div>`;
+};
 const isPublicOpportunity=o=>o.publicationStatus==='open'&&!o.expired&&days(o.close)>=0;
 const liveOpps=()=>OPPS.filter(isPublicOpportunity);
 
@@ -1059,7 +1073,7 @@ function oppCard(o,compact=false){
 function renderHome(){
   const live=liveOpps();
   const closing=[...live].filter(o=>days(o.close)<=30).sort((a,b)=>days(a.close)-days(b.close)).slice(0,7);
-  const featured=[...live].sort((a,b)=>new Date(a.close)-new Date(b.close)).slice(0,6);
+  const featured=[...live].sort(byClose).slice(0,6);
   return`<div class="page">
   <!-- HERO -->
   <div class="hero">
@@ -1192,7 +1206,7 @@ function heroSearch(){
 ═══════════════════════════════════════════════════════════ */
 function renderDir(defCat=''){
   const live=liveOpps();
-  const res=filterOpps(live,defCat,'','',false).sort((a,b)=>new Date(a.close)-new Date(b.close));
+  const res=filterOpps(live,defCat,'','',false).sort(byClose);
   return`<div class="page" style="max-width:var(--mw);margin:0 auto;padding:40px 24px 80px">
   <h1 style="font-size:clamp(26px,5vw,44px);font-weight:900;color:var(--g);letter-spacing:-1.5px;margin-bottom:8px">Browse Opportunities</h1>
   <p style="color:var(--mu);margin-bottom:24px;font-size:15px">Showing ${live.length} current listings across South Africa</p>
@@ -1291,7 +1305,7 @@ function renderDetail(){
   </div>`;
   const u=urgInfo(o.close);
   const rel=liveOpps().filter(r=>r.cat===o.cat&&r.id!==o.id).slice(0,3);
-  const waText=encodeURIComponent(`🚨 ${o.title}\n📍 ${o.prov}\n💰 ${o.stipend}\n⏳ Closes ${fmtD(o.close)}\n\nApply here: ${o.url}`);
+  const waText=encodeURIComponent(`🚨 ${o.title}\n📍 ${o.prov}\n💰 ${o.stipend}\n⏳ ${o.close?'Closes '+fmtD(o.close):'Closing date not stated'}\n\nApply here: ${o.url}`);
   return`<div class="page" style="max-width:var(--cw);margin:0 auto;padding:40px 24px 80px">
   <div class="breadcrumb">
     <button onclick="go('home')">Home</button><span class="sep">›</span>
@@ -1307,7 +1321,7 @@ function renderDetail(){
 
   <div class="qf-bar">
     <div class="qf-item">📍 ${esc(o.prov)}</div>
-    <div class="qf-item${days(o.close)<=7?' urg':''}">⏳ Closes ${fmtD(o.close)}</div>
+    <div class="qf-item${days(o.close)<=7?' urg':''}">⏳ ${o.close?'Closes '+esc(fmtD(o.close)):'Closing date not stated'}</div>
     ${o.stipend?`<div class="qf-item">💰 ${esc(o.stipend)}</div>`:''}
     <div class="qf-item">🎓 ${esc(o.qual)}</div>
     <div class="qf-item">🏢 ${esc(o.sector)}</div>
@@ -1315,9 +1329,11 @@ function renderDetail(){
 
   <div class="urg-banner" style="background:${u.bg};border:1px solid ${u.c}44;color:${u.c}">
     <span style="font-size:16px">⏳</span>
-    <span>${esc(days(o.close)<=7?`Only ${days(o.close)} days left to apply!`:`Closing: ${fmtD(o.close)}`)}</span>
+    <span>${esc(!o.close?'No closing date was published. Confirm on the official page before applying.':days(o.close)<=7?`Only ${days(o.close)} days left to apply!`:`Closing: ${fmtD(o.close)}`)}</span>
     ${bkBtn(o.id)}
   </div>
+
+  ${notesBox(o)}
 
   <div class="det-sec">
     <h2>About This Opportunity</h2>
@@ -1326,12 +1342,12 @@ function renderDetail(){
 
   <div class="det-sec">
     <h2>Who Can Apply</h2>
-    <ul class="elig-list">${o.elig.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>
+    ${o.elig.length?`<ul class="elig-list">${o.elig.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>`:`<p class="note-unknown">${esc(o.notes.eligibility||'Eligibility requirements were not stated. Check the official advert.')}</p>`}
   </div>
 
   <div class="det-sec">
     <h2>Documents Needed</h2>
-    <div class="doc-list">${o.docs.map(d=>`<div class="doc-item"><span class="doc-check">✓</span><span style="font-size:14px;color:var(--t2)">${esc(d)}</span></div>`).join('')}</div>
+    ${o.docs.length?`<div class="doc-list">${o.docs.map(d=>`<div class="doc-item"><span class="doc-check">✓</span><span style="font-size:14px;color:var(--t2)">${esc(d)}</span></div>`).join('')}</div>`:`<p class="note-unknown">${esc(o.notes.documents_needed||'Required documents were not stated. Check the official advert.')}</p>`}
     <button class="btn btn-ghost btn-sm" onclick="go('checklist')" style="margin-top:12px">📋 Generate a personalised checklist →</button>
   </div>
 
@@ -1374,7 +1390,7 @@ function renderCal(){
   </div>`;
 }
 
-function calOpps(){return liveOpps().filter(o=>!calState.cat||o.cat===calState.cat).sort((a,b)=>new Date(a.close)-new Date(b.close));}
+function calOpps(){return liveOpps().filter(o=>o.close&&(!calState.cat||o.cat===calState.cat)).sort(byClose);}
 
 function calList(){
   const opps=calOpps();
@@ -1493,7 +1509,7 @@ function runElig(){
     if(cat&&o.cat!==cat) return false;
     if(status&&!(o.employment_eligibility||[]).includes(status)) return false;
     return true;
-  }).sort((a,b)=>new Date(a.close)-new Date(b.close));
+  }).sort(byClose);
   const er=document.getElementById('eligRes');
   if(!er)return;
   er.innerHTML=res.length?`<h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--tx);margin:0 0 16px">${res.length} opportunities match your profile</h2>
@@ -1772,7 +1788,7 @@ function renderProvinces(){
 }
 
 function filterByProvince(prov){
-  const res=liveOpps().filter(o=>o.prov===prov||o.prov==='Nationwide').sort((a,b)=>new Date(a.close)-new Date(b.close));
+  const res=liveOpps().filter(o=>o.prov===prov||o.prov==='Nationwide').sort(byClose);
   const pr=document.getElementById('provResults');
   if(!pr)return;
   pr.innerHTML=`<h2 style="font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--g);margin-bottom:20px;border-top:2px solid var(--glt);padding-top:24px">Opportunities in ${esc(prov)} (${res.length} found)</h2>
