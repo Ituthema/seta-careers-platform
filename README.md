@@ -49,6 +49,7 @@ South Africa's career opportunity intelligence platform for learnerships, bursar
 - `npm run crawl` — fetch sources and stage crawl candidates; this does not publish them
 - `npm run source:audit` / `npm run source:health` — registry validation and source health probing
 - `npm run review:candidates` / `npm run add:listing` — candidate review and controlled listing workflow
+- `npm run candidates:drafts` — turn crawler leads into unverified, hidden-by-default draft files for `add:listing`
 
 See [the documentation index](docs/README.md) for the current workflow, roadmap, baseline and architecture notes.
 

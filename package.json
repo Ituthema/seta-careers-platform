@@ -18,7 +18,8 @@
     "review:candidates": "node scripts/review-candidates.js",
     "add:listing": "node scripts/add-listing.js",
     "ai:draft": "node scripts/ai-draft.js",
-    "extract:vacancies": "node scripts/extract-vacancies.js"
+    "extract:vacancies": "node scripts/extract-vacancies.js",
+    "candidates:drafts": "node scripts/candidates-to-drafts.js"
   },
   "engines": {
     "node": ">=18"
