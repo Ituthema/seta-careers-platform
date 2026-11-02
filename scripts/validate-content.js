@@ -11,6 +11,7 @@ const fs = require('fs');
 const path = require('path');
 const { findUncoveredVerified } = require('./validators/registry-coverage');
 const { NOTE_FIELDS, NOT_STATED, isMissing, missingWithoutNote } = require('./lib/field-notes');
+const { PUBLICATION_STATUSES } = require('../route-paths');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'data');
@@ -36,6 +37,7 @@ const opportunityRequiredFields = [
   'verified',
   'featured',
   'expired',
+  'publication_status',
   'description',
   'eligibility',
   'documents_needed',
@@ -170,6 +172,16 @@ function validateOpportunities(opportunities) {
 
     for (const field of ['verified', 'featured', 'expired']) {
       if (typeof opportunity[field] !== 'boolean') errors.push(`${label}: ${field} must be boolean`);
+    }
+
+    if (!PUBLICATION_STATUSES.has(opportunity.publication_status)) {
+      errors.push(`${label}: publication_status must be one of: ${[...PUBLICATION_STATUSES].join(', ')}`);
+    }
+    if (opportunity.publication_status === 'open' && opportunity.expired === true) {
+      errors.push(`${label}: publication_status cannot be open when expired is true`);
+    }
+    if (opportunity.publication_status === 'expired' && opportunity.expired !== true) {
+      errors.push(`${label}: publication_status expired requires expired: true`);
     }
 
     // Lists must be arrays; an empty list means "not stated" and then needs a field_notes comment (checked below).

@@ -11,6 +11,8 @@ Use these documents in this order when planning or operating the project.
 
 ## Current implementation evidence
 
+- [Publication lifecycle contract](status/PUBLICATION_LIFECYCLE.md) — allowed editorial states and the rules controlling public listings and generated SEO pages.
+
 - [Verified implementation baseline](status/IMPLEMENTATION_BASELINE.md) — commit-specific snapshot of current architecture, data counts, known discrepancies, and observed CI results.
 - [Implementation–documentation reconciliation rule](context/CODEX_TASK_RULES.md) — mandatory evidence and reporting rules for code/documentation work.
 

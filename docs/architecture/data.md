@@ -68,6 +68,7 @@ Enforced by `scripts/validate-content.js`:
 - `verified` (boolean)
 - `featured` (boolean)
 - `expired` (boolean)
+- `publication_status` (enum: `open`, `expired`, `on_hold`, `withdrawn`, `needs_review`)
 - `description` (string; a fixed placeholder when none was available)
 - `eligibility` (array of strings; `[]` when unknown)
 - `documents_needed` (array of strings; `[]` when unknown)
@@ -97,16 +98,17 @@ Rules:
 - A closing date in the past is still refused; a missing one is allowed. `npm run expire` and the lapsed-date warning skip
   listings with no date, so re-check them by hand.
 
-**Status (this change):** the data contract, builder and validator are implemented and tested. Display of the notes in the
-UI, static pages, calendar and sitemap handling of undated listings is **planned** (follow-up batch); until it merges, do
-not publish a listing with missing fields.
+**Status:** the data contract, builder and validator are implemented and tested. Display of the notes in the UI, static
+pages and calendar, and handling of undated listings in `index.html`, is **planned** (follow-up batch). New drafts default
+to `publication_status: needs_review`, so a listing with missing fields stays out of public listings and the sitemap; do
+not set one to `open` until that batch has merged. `npm run expire` skips listings with no closing date.
 
-### Expiry
-- The UI hides a listing after its closing day by comparing `closing_date` with the visitor's local date.
-- The sitemap and route validator do **not** look at the date; they only use the `expired` flag, so the sitemap changes
-  only when the data changes.
-- Keep `expired` accurate: run `npm run expire` after dates pass. `npm run validate` warns about lapsed listings that are
-  still `expired: false`; set `CONTENT_STRICT_EXPIRY=true` to make that an error.
+### Publication lifecycle and expiry
+- `publication_status` is the editorial publication gate. Only `open` records are eligible for public directory and SEO output; the interactive UI also requires `expired: false` and a closing date that has not passed.
+- `on_hold`, `withdrawn`, and `needs_review` records must not appear in public listings, generated category/detail pages, or the sitemap.
+- The validator checks the status enum and rejects inconsistent `open` with `expired: true`, or `expired` status with `expired: false`.
+- The shared route helper does not compare today's date, keeping generated output deterministic. Run `npm run expire` after deadlines pass. The validator warns about lapsed listings still marked `expired: false`; set `CONTENT_STRICT_EXPIRY=true` to make that an error.
+- New listing drafts default to `needs_review`; a human reviewer must explicitly approve an `open` status after checking current official evidence. `verified: true` alone is not publication approval.
 
 ## Temporary Limitations
 - No concurrent editing (merge conflicts)

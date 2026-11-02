@@ -13,6 +13,7 @@
       "id",
       "posted_date",
       "province",
+      "publication_status",
       "qualification_level",
       "sector",
       "slug",
@@ -50,7 +51,8 @@
       "updated_date": "string",
       "verified": "boolean",
       "employment_eligibility": "array",
-      "field_notes": "object"
+      "field_notes": "object",
+      "publication_status": "string"
     },
     "allowed_values": {
       "province": [
@@ -77,6 +79,13 @@
         "unemployed",
         "student",
         "employed"
+      ],
+      "publication_status": [
+        "expired",
+        "needs_review",
+        "on_hold",
+        "open",
+        "withdrawn"
       ]
     },
     "format_rules": {
