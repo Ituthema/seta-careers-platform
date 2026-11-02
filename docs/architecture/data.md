@@ -108,6 +108,7 @@ not set one to `open` until that batch has merged. `npm run expire` skips listin
 - `on_hold`, `withdrawn`, and `needs_review` records must not appear in public listings, generated category/detail pages, or the sitemap.
 - The validator checks the status enum and rejects inconsistent `open` with `expired: true`, or `expired` status with `expired: false`.
 - The shared route helper does not compare today's date, keeping generated output deterministic. Run `npm run expire` after deadlines pass. The validator warns about lapsed listings still marked `expired: false`; set `CONTENT_STRICT_EXPIRY=true` to make that an error.
+- **Daily automatic expiry:** the *Expire Lapsed Listings* workflow (`.github/workflows/expire-listings.yml`, 00:10 South Africa time) runs `npm run expire` and `npm run sitemap`, validates, and opens one pull request (`automation/expire-lapsed`) for review; it never pushes to `main`. It needs the repository setting *Allow GitHub Actions to create and approve pull requests*, and pull requests it creates do not start other workflows. Listings with no closing date are never expired automatically; the job summary lists them (`scripts/list-undated-open.js`) for a manual re-check.
 - New listing drafts default to `needs_review`; a human reviewer must explicitly approve an `open` status after checking current official evidence. `verified: true` alone is not publication approval.
 
 ## Temporary Limitations
