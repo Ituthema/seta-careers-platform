@@ -359,7 +359,9 @@ Do this for: homepage, all category pages, and first 10 opportunity pages in wee
 
 ## 🗑️ Mark Expired Opportunities
 
-Opportunities past their closing date should be marked expired (not deleted — they retain SEO value):
+**Automatic:** the *Expire Lapsed Listings* workflow (`.github/workflows/expire-listings.yml`) runs every day at 00:10 South Africa time. If any closing date has passed it runs `npm run expire` and `npm run sitemap`, checks the result, and opens one pull request (branch `automation/expire-lapsed`) for you to review and merge. It never pushes to `main`. One-time setup: **Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests"**. Pull requests made this way do not start other workflows, so run *Quality Gates* manually on the branch if you want them. Listings with **no** closing date are never expired automatically; the job summary lists them so you can re-check each one.
+
+**Manual** (same result): opportunities past their closing date should be marked expired (not deleted — they retain SEO value):
 
 ```bash
 nano data/opportunities.json
