@@ -249,6 +249,20 @@ The crawler stages whole pages (`crawler/output/staging.json`), not structured l
 
 If the crawl staged nothing, the command says so and points at `rejected.json` and `crawl-report.json`. Step 3 is still a human decision, but `npm run add:listing` does the validation and bookkeeping (see "Adding a listing" below).
 
+## From crawler leads to drafts
+
+`npm run crawl`, then `npm run extract:vacancies`, writes `crawler/output/vacancy-candidates.json` (leads, never publishable). `npm run candidates:drafts` turns those leads into draft files for `add:listing`:
+
+```
+crawl -> extract:vacancies -> candidates:drafts -> [you check the official page] -> add:listing --write
+```
+
+- Writes to `crawler/output/drafts/` (untracked) by default; `--out docs/listing-drafts` to keep them, `--max N` (default 25), `--input <file>`.
+- Skips leads whose closing date has passed, leads with no title or no link, and duplicates of a published listing or of another lead (it reuses the `add:listing` rules, so what it writes is accepted).
+- Every draft is `verified: false` and never sets `publication_status`, so the listing lands as `needs_review` and stays hidden until a person approves it. The crawler evidence is kept under `_lead` for the reviewer.
+- A lead holds little more than a title, a link and sometimes a date. The rest is recorded as unknown with a comment (see `docs/architecture/data.md`, "Missing fields"), unless you fill it in from the official page.
+- Tested by `scripts/lib/candidate-drafts.test.js`. Whether the live crawl produces useful leads is **unmeasured**: read `crawl-report.json` from the ingestion workflow first.
+
 ## Adding a listing
 
 `npm run add:listing -- draft.json` validates a draft and shows the finished record (dry run). Add `--write` to append it to `data/opportunities.json`, regenerate the static pages and sitemap, and run `npm run validate`. Copy `docs/templates/listing-draft.example.json` as a starting point (do not publish the template itself; its URLs are examples).
