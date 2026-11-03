@@ -103,7 +103,7 @@
     "source_url": "https://www.nsfas.org.za",
     "verified": true,
     "featured": true,
-    "expired": false,
+    "expired": true,
     "description": "NSFAS applications for the 2027 academic year are open from 18 September to 31 October 2026. Eligible students at public universities and TVET colleges can apply for funding through the official myNSFAS portal. Applications are free; applicants should confirm their personal eligibility and required documents directly with NSFAS.",
     "eligibility": [
       "South African citizen",
@@ -130,7 +130,7 @@
     ],
     "posted_date": "2026-09-18",
     "updated_date": "2026-10-17",
-    "publication_status": "open"
+    "publication_status": "expired"
   },
   {
     "id": "004",
@@ -491,7 +491,7 @@
     "source_url": "https://www.mpg.gov.za/vacancies/traffic-learnership-department-community-safety-security-and-liaison",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "A 12-month Basic Traffic Officers Diploma learnership at Mpumalanga Traffic Training College in Mkhuhlu (Calcutta), Bushbuckridge Local Municipality. The official advert lists a stipend of R5 000 per month and a closing date of 30 October 2026. The advert does not state an employment-status restriction; applicants should confirm any eligibility uncertainty with the department.",
     "eligibility": [
       "Grade 12 certificate",
@@ -521,7 +521,7 @@
     ],
     "posted_date": "2026-10-13",
     "updated_date": "2026-10-28",
-    "publication_status": "open"
+    "publication_status": "expired"
   },
   {
     "id": "015",
