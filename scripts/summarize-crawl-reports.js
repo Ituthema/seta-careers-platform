@@ -28,6 +28,13 @@ function buildSummary({ crawl, candidates, opportunities, today = southAfricanTo
       `- **Staging:** ${crawl.staged_records || 0} pages staged; ${crawl.rejected_records || 0} rejected; ` +
       `${Object.keys(crawl.rejected_by_reason || {}).length} rejection reason type(s).`
     );
+    if (crawl.follow && crawl.follow.selected) {
+      lines.push(
+        `- **Followed links:** ${crawl.follow.selected} detail pages selected; ` +
+        `${crawl.follow.successful_fetches || 0} fetched, ${crawl.follow.failed_fetches || 0} failed, ` +
+        `${crawl.follow.staged || 0} staged.`
+      );
+    }
     if (Array.isArray(crawl.failure_reasons) && crawl.failure_reasons.length) {
       lines.push(`- **Run warnings/failures:** ${crawl.failure_reasons.join('; ')}`);
     }
