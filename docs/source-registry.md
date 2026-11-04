@@ -290,3 +290,8 @@ Safeguards, because AI text can be wrong and pages are untrusted:
 - It never publishes. Review the draft against the page, then run `npm run add:listing`.
 
 Limits: the description and eligibility wording are written by the model from the page, so read them; a page with several programmes is skipped ("not a single opportunity").
+
+
+## Link following (one level)
+
+After the registry pass, the crawler selects up to 3 same-site links per source (120 in total) whose URL looks like an opportunity (learnership, bursary, internship, apprenticeship, vacancy, etc.) and stages those detail pages too, because closing dates usually live there rather than on the landing page. Followed pages are staged with `depth: 1` and `parent_url`; their fetch counts are reported separately under `follow` in the crawl report and do not affect the run verdict. Limits live in `crawler/config/crawler-config.js` (`followLinks`). Set `CRAWLER_FOLLOW_LINKS=false` to disable. robots.txt and the SSRF guard apply exactly as for registry sources.

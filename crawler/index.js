@@ -10,6 +10,7 @@ const { evaluateRun, parseMinSuccessRate } = require('./core/run-status');
 const { normalizeParsedContent } = require('./pipeline/normalize');
 const { validateNormalizedContent } = require('./pipeline/validate');
 const { createDedupe } = require('./pipeline/dedupe');
+const { selectFollowLinks } = require('./pipeline/follow-links');
 const {
   LOG_EVENTS,
   appendLog,
@@ -71,18 +72,21 @@ async function processSource(source, context) {
   }
 }
 
+// Followed pages (source.parent_url is set) are counted in report.follow, not in the main counters, so a
+// dead advert link can never change the run verdict that evaluateRun() computes from the registry sources.
 async function crawlSource(source, context) {
-  context.report.sources_processed += 1;
+  const counts = source.parent_url ? context.report.follow : context.report;
+  counts.sources_processed += 1;
 
   const fetchResult = await fetchSource(source, config, appendLog, LOG_EVENTS, { robots: context.robots });
   if (!fetchResult.ok) {
-    context.report.failed_fetches += 1;
+    counts.failed_fetches += 1;
     // ROBOTS_DISALLOWED / ROBOTS_UNREACHABLE are reported as their own reasons so a site asking not to be crawled is not mistaken for an outage.
     reject(context.rejectedRecords, source, fetchResult.rejectReason || 'FETCH_FAILED', fetchResult.error);
     return;
   }
 
-  context.report.successful_fetches += 1;
+  counts.successful_fetches += 1;
 
   const contentType = routeContent(fetchResult, appendLog, LOG_EVENTS);
   if (contentType === 'unknown') {
@@ -118,6 +122,8 @@ async function crawlSource(source, context) {
     text: normalized.normalizedText,
     metadata: normalized.metadata,
     crawled_at: new Date().toISOString(),
+    // A followed advert page keeps a pointer to the listing page that linked to it.
+    ...(source.parent_url ? { depth: 1, parent_url: source.parent_url } : {}),
   };
 
   // Synchronous from here to stageRecord, so concurrent sources cannot both pass the check.
@@ -143,6 +149,7 @@ async function main() {
     staged_records: 0,
     rejected_records: 0,
     rejected_by_reason: {},
+    follow: { selected: 0, sources_processed: 0, successful_fetches: 0, failed_fetches: 0, staged: 0 },
     status: '',
     failure_reasons: [],
   };
@@ -168,9 +175,19 @@ async function main() {
     const dedupe = createDedupe();
     const robots = createRobotsChecker((origin) => fetchRobotsFile(origin, config));
 
-    await Promise.all(
-      sources.map((source) => limit(() => processSource(source, { report, stagedRecords, rejectedRecords, dedupe, robots }))),
-    );
+    const context = { report, stagedRecords, rejectedRecords, dedupe, robots };
+    await Promise.all(sources.map((source) => limit(() => processSource(source, context))));
+
+    // Second pass: fetch a few opportunity-looking links from the pages staged above (one level only).
+    const followEnabled = String(process.env.CRAWLER_FOLLOW_LINKS || 'true').toLowerCase() !== 'false';
+    const targets = selectFollowLinks(stagedRecords, { enabled: followEnabled, ...config.followLinks });
+    report.follow.selected = targets.length;
+    const stagedBefore = stagedRecords.length;
+    await Promise.all(targets.map((target) => limit(() => processSource(
+      { source_id: target.source_id, name: target.source_name, url: target.url, type: 'followed', crawl_strategy: 'html', parent_url: target.parent_url },
+      context,
+    ))));
+    report.follow.staged = stagedRecords.length - stagedBefore;
   } catch (error) {
     fatalError = error;
     appendLog(LOG_EVENTS.FETCH_FAILURE, { error: error.message, fatal: true });
@@ -204,6 +221,10 @@ async function main() {
       `Crawl ${report.status}: ${report.sources_processed} source(s), ${report.successful_fetches} fetched, ` +
       `${report.failed_fetches} failed, ${report.internal_errors} internal error(s), ` +
       `${report.staged_records} staged, ${report.rejected_records} rejected.`,
+    );
+    console.log(
+      `Followed links: ${report.follow.selected} selected, ${report.follow.successful_fetches} fetched, ` +
+      `${report.follow.failed_fetches} failed, ${report.follow.staged} staged (not counted in the run verdict).`,
     );
     if (!verdict.ok) {
       console.error(`Crawl failed:\n${verdict.reasons.map((reason) => `  - ${reason}`).join('\n')}`);
