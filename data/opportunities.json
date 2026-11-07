@@ -538,7 +538,7 @@
     "source_url": "https://joburg.org.za/work_/Documents/Vacancies-2026/Internship-029_2026_Admin-Officer_EISD.pdf",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "An internship of up to 18 months supporting the Office of the Executive Director in the Environmental and Infrastructure Services Department. Published 22 October 2026; the circular lists a basic salary of R10,109.86 per month with no benefits. Only qualifying residents of the City of Johannesburg will be considered. Applications close 4 November 2026.",
     "eligibility": [
       "Grade 12 (NQF Level 4) plus a three-year qualification with 360 credits in Law, Administration, Public Governance, Business Management or Business Administration at NQF Level 6 or equivalent",
@@ -565,7 +565,7 @@
     ],
     "posted_date": "2026-10-22",
     "updated_date": "2026-10-28",
-    "publication_status": "open"
+    "publication_status": "expired"
   },
   {
     "id": "016",
