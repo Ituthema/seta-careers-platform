@@ -40,8 +40,8 @@ The file is a JSON array of source objects. Every object must follow the same sc
 | `crawl_strategy` | string | Yes | Expected extraction approach for future ingestion. | Must be one of the approved crawl strategies below. |
 | `frequency` | string | Yes | Intended review or crawl cadence. | Must be one of the approved frequencies below. |
 | `priority` | number | Yes | Relative source importance. `1` is highest priority and `4` is lowest. | Must be `1`, `2`, `3`, or `4`. |
-| `last_checked` | string/null | Yes | Timestamp reserved for automation to record the most recent probe or crawl attempt. | Must be `null` or an ISO-8601 UTC timestamp. |
-| `last_success` | string/null | Yes | Timestamp reserved for automation to record the most recent successful probe or crawl. | Must be `null` or an ISO-8601 UTC timestamp. |
+| `last_checked` | string/null | Yes | Newest probe or crawl attempt. Written by `scripts/apply-source-freshness.js` from the weekly source-health run (review branch `automation/source-freshness`). | Must be `null` or an ISO-8601 UTC timestamp. |
+| `last_success` | string/null | Yes | Newest probe that returned 2xx/3xx or crawl that staged a page. Blocked (401/403) and failed probes never count as success. | Must be `null` or an ISO-8601 UTC timestamp. |
 | `notes` | string | Yes | Operational context: what the source publishes, special handling, lifecycle notes, or replacement source IDs. | Must be a string; empty notes produce a warning. |
 
 ## Approved enum values
