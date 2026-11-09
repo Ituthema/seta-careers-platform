@@ -295,3 +295,16 @@ Limits: the description and eligibility wording are written by the model from th
 ## Link following (one level)
 
 After the registry pass, the crawler selects up to 3 same-site links per source (120 in total) whose URL looks like an opportunity (learnership, bursary, internship, apprenticeship, vacancy, etc.) and stages those detail pages too, because closing dates usually live there rather than on the landing page. Followed pages are staged with `depth: 1` and `parent_url`; their fetch counts are reported separately under `follow` in the crawl report and do not affect the run verdict. Limits live in `crawler/config/crawler-config.js` (`followLinks`). Set `CRAWLER_FOLLOW_LINKS=false` to disable. robots.txt and the SSRF guard apply exactly as for registry sources.
+
+
+## Manual-only sources
+
+Some sources cannot be crawled: they return HTTP 403 to automated clients, build their page with JavaScript, or their `robots.txt` cannot be fetched (RFC 9309 then requires the crawler to treat the site as disallowed). Mark them so the weekly crawl neither fetches them nor reports them as failures:
+
+| Field | Type | Required | Meaning |
+|---|---|---|---|
+| `access` | `"auto"` or `"manual"` | No (default `auto`) | `manual` = the crawler skips this source. It stays `active`, so the health check still probes it and people can still add its listings by hand. |
+| `manual_reason` | string | When `access` is `manual` | Why, and which run showed it. |
+| `manual_since` | `YYYY-MM-DD` | No | When it was marked. |
+
+Revisit manual sources when the weekly health report shows one answering normally, or when a site changes. To return one to the crawl, delete `access`, `manual_reason` and `manual_since`. The ingestion summary counts manual-only sources separately and never lists them as silent.

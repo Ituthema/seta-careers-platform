@@ -26,7 +26,10 @@ function sourceYield(sources, staged, candidatePages, rejected) {
     t.dated += (p.mentions || []).filter((m) => m.status === 'open').length;
   }
   const names = new Map((Array.isArray(sources) ? sources : []).map((s) => [s.source_id, s]));
-  const active = (Array.isArray(sources) ? sources : []).filter((s) => s.active !== false);
+  const all = (Array.isArray(sources) ? sources : []).filter((s) => s.active !== false);
+  // Manual-only sources are never crawled, so they are neither "silent" nor a failure.
+  const manual = all.filter((s) => s.access === 'manual').map((s) => s.source_id);
+  const active = all.filter((s) => s.access !== 'manual');
   const list = [...rows.values()].map((r) => ({ ...r, name: (names.get(r.source_id) || {}).name || r.source_id }));
   const silent = active.filter((s) => !rows.has(s.source_id) || rows.get(s.source_id).staged === 0).map((s) => s.source_id);
   const noDates = list.filter((r) => r.staged > 0 && r.dated === 0).map((r) => r.source_id);
@@ -38,13 +41,13 @@ function sourceYield(sources, staged, candidatePages, rejected) {
     const detail = typeof r.details === 'string' ? r.details : Array.isArray(r.details) ? r.details.join('; ') : '';
     why[r.source_id] = `${r.reason || 'UNKNOWN'}${detail ? `: ${detail.slice(0, 60)}` : ''}`;
   }
-  return { active: active.length, producers, silent, noDates, why };
+  return { active: active.length, manual: manual.length, producers, silent, noDates, why };
 }
 
 function renderYield(y, limit = 10) {
   const lines = [
     '### Source yield',
-    `- **Active sources:** ${y.active}; **with dated leads:** ${y.producers.length}; **staged pages but no dated lead:** ${y.noDates.length}; **silent (nothing staged):** ${y.silent.length}.`,
+    `- **Active sources:** ${y.active}; **with dated leads:** ${y.producers.length}; **staged pages but no dated lead:** ${y.noDates.length}; **silent (nothing staged):** ${y.silent.length}; **manual-only (not crawled):** ${y.manual || 0}.`,
   ];
   if (y.producers.length) {
     lines.push('', '| Source | Pages | Links | Dated leads |', '|---|---:|---:|---:|');

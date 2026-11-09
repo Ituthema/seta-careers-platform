@@ -11,6 +11,7 @@ const SOURCE_TYPES = Object.freeze([
 ]);
 
 const CRAWL_STRATEGIES = Object.freeze(['html', 'pdf', 'rss', 'api', 'hybrid']);
+const ACCESS_MODES = Object.freeze(['auto', 'manual']);
 const FREQUENCIES = Object.freeze(['hourly', 'daily', 'weekly', 'monthly']);
 const PRIORITIES = Object.freeze([1, 2, 3, 4]);
 
@@ -136,6 +137,16 @@ function validateSource(source, index = 0) {
     issues.push(createIssue('FAIL', 'INVALID_NOTES', `${prefix}.notes must be a string.`, source, 'notes'));
   } else if (source.notes.trim() === '') {
     issues.push(createIssue('WARN', 'EMPTY_NOTES', `${prefix}.notes is empty; add source context for operators.`, source, 'notes'));
+  }
+
+  // Optional. `manual` = the crawler must not fetch this source (it blocks automated access, hides
+  // its content behind JavaScript, or its robots.txt cannot be read). People add its listings by hand.
+  if (source.access !== undefined) {
+    if (!ACCESS_MODES.includes(source.access)) {
+      issues.push(createIssue('FAIL', 'INVALID_ACCESS', `${prefix}.access must be one of: ${ACCESS_MODES.join(', ')}.`, source, 'access'));
+    } else if (source.access === 'manual' && (typeof source.manual_reason !== 'string' || source.manual_reason.trim() === '')) {
+      issues.push(createIssue('FAIL', 'MISSING_MANUAL_REASON', `${prefix}.manual_reason is required when access is "manual".`, source, 'manual_reason'));
+    }
   }
 
   return issues;

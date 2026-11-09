@@ -29,6 +29,11 @@ function loadActiveSources(options = {}) {
 
   sources.forEach((source, index) => {
     if (!source || source.active !== true) return;
+    // Manual-only sources are listed for people; the crawler never fetches them.
+    if (source.access === 'manual') {
+      log(events.SOURCE_SKIPPED || 'SOURCE_SKIPPED', { source_id: source.source_id, reason: 'access=manual' });
+      return;
+    }
 
     const failures = validateSource(source, index).filter((issue) => issue.level === 'FAIL');
     if (failures.length > 0) {
