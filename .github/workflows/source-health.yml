@@ -5,12 +5,14 @@ on:
     - cron: '0 6 * * 1'  # Mondays 06:00 UTC
   workflow_dispatch: {}
 
-# Read-only on purpose. This job publishes its reports as a run artifact and a
-# job summary instead of committing them: the reports contain a generated_at
+# This job never pushes to main. It publishes its reports as a run artifact and
+# a job summary instead of committing them: the reports contain a generated_at
 # timestamp, so a "regenerate and diff against the committed copy" gate can
-# never pass, and a scheduled job should not push to main unreviewed.
+# never pass. The one thing it does write is a review branch
+# (automation/source-freshness) carrying the registry's last_checked /
+# last_success timestamps; merging that branch is optional and a human decision.
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: source-health
@@ -41,6 +43,23 @@ jobs:
       # SOURCE_HEALTH_STRICT=1 here to also fail on unhealthy sources.
       - name: Run source health check (write report)
         run: npm run source:health -- --write-report
+
+      - name: Record last_checked / last_success on a review branch
+        if: always()
+        run: |
+          node scripts/apply-source-freshness.js
+          if git diff --quiet -- data/sources.json; then
+            echo "Registry timestamps unchanged."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git checkout -b automation/source-freshness
+            git add data/sources.json
+            git commit -m "Record source freshness from the $(date -u +%F) health check"
+            git push -f origin automation/source-freshness
+            echo "### Source freshness" >> "$GITHUB_STEP_SUMMARY"
+            echo "Branch \`automation/source-freshness\` holds updated last_checked / last_success timestamps. Merging is optional." >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Summarise reports
         if: always()
