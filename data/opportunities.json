@@ -742,5 +742,126 @@
     "posted_date": "2026-10-22",
     "updated_date": "2026-10-28",
     "publication_status": "open"
+  },
+  {
+    "id": "020",
+    "slug": "city-of-ekurhuleni-community-bursary-programme-2027",
+    "title": "City of Ekurhuleni Community Bursary Programme 2027",
+    "category": "bursary",
+    "sector": "Local government — Built environment, ICT, Finance, Environmental health, TVET",
+    "province": "Gauteng",
+    "qualification_level": "Matric completed; full-time undergraduate study (TVET entry at N3)",
+    "stipend": "Not stated",
+    "closing_date": "2026-11-30",
+    "application_url": "https://bursaries.ekurhuleni.gov.za/",
+    "source_name": "City of Ekurhuleni bursary portal (details cross-checked with a 30 Oct 2026 Bizcommunity report and NWU's external bursaries page)",
+    "source_url": "https://bursaries.ekurhuleni.gov.za/",
+    "verified": false,
+    "featured": false,
+    "expired": false,
+    "publication_status": "open",
+    "description": "The City of Ekurhuleni funds talented local youth studying full-time towards an undergraduate qualification in Built Environment (civil, electrical, property, construction, geomatics/GIS), Environmental Health Sciences, Finance (BCom Accounting & Finance, logistics and supply chain), ICT (BICT IoT, BSc Computer Science, BSc IT) or TVET technical, artisan and apprenticeship qualifications. Applications are online: register on the portal, activate your account by email, complete the form and keep your reference number. Late applications are not accepted. Details were not read from the portal itself (it needs a browser), so confirm on the portal before applying.",
+    "eligibility": [
+      "South African citizen",
+      "Permanently resident in the City of Ekurhuleni, Gauteng",
+      "Aged 18 to 35",
+      "Matric completed",
+      "Registered or accepted at an accredited university, university of technology or TVET college",
+      "Strong academic record",
+      "Total household income of no more than R600,000 per year"
+    ],
+    "employment_eligibility": [
+      "student"
+    ],
+    "documents_needed": [],
+    "tags": [
+      "bursary",
+      "gauteng",
+      "ekurhuleni",
+      "2027"
+    ],
+    "posted_date": "2026-11-09",
+    "updated_date": "2026-11-09",
+    "field_notes": {
+      "stipend": "Stipend unknown: what the bursary covers (tuition, books, accommodation or allowance) is not stated in the sources checked.",
+      "documents_needed": "Required documents unknown: the portal lists them. Certified copies must be no older than three months."
+    }
+  },
+  {
+    "id": "021",
+    "slug": "peermont-community-benefit-trust-bursary-programme-2027",
+    "title": "Peermont Community Benefit Trust Bursary Programme 2027",
+    "category": "bursary",
+    "sector": "Hospitality and community benefit trust (all fields except medicine)",
+    "province": "Gauteng",
+    "qualification_level": "Full-time undergraduate study",
+    "stipend": "Not stated",
+    "closing_date": "2026-11-30",
+    "application_url": "https://lnkd.in/e66AFWWJ",
+    "source_name": "North-West University — external bursaries notice",
+    "source_url": "https://studies.nwu.ac.za/studies/external-bursaries",
+    "verified": false,
+    "featured": false,
+    "expired": false,
+    "publication_status": "open",
+    "description": "The Peermont Community Benefit Trust offers bursaries to young people who permanently live in the Ekurhuleni Metropolitan area and plan to study full-time at undergraduate level. The trust says the bursary covers tuition and registration fees, accommodation, and prescribed books or study materials. The trust no longer funds medicine. This listing relies on NWU's external bursaries page; the short application link is the one NWU publishes. Confirm all details with the trust before applying.",
+    "eligibility": [
+      "Permanently resident in the Ekurhuleni Metropolitan area",
+      "Planning to study full-time at undergraduate level",
+      "Medicine is not funded"
+    ],
+    "employment_eligibility": [
+      "student"
+    ],
+    "documents_needed": [],
+    "tags": [
+      "bursary",
+      "gauteng",
+      "ekurhuleni",
+      "2027"
+    ],
+    "posted_date": "2026-11-09",
+    "updated_date": "2026-11-09",
+    "field_notes": {
+      "stipend": "Stipend unknown: the notice lists tuition, registration, accommodation and books but gives no monthly allowance.",
+      "documents_needed": "Required documents unknown: the notice does not list them."
+    }
+  },
+  {
+    "id": "022",
+    "slug": "nesp-honours-scholarship-physics-renewable-energy-north-west-university",
+    "title": "NESP Honours Scholarship — Physics (Renewable Energy), North-West University",
+    "category": "bursary",
+    "sector": "Science — Physics (Renewable Energy)",
+    "province": "North West",
+    "qualification_level": "Honours (Physics, Renewable Energy)",
+    "stipend": "Not stated",
+    "closing_date": "2026-11-13",
+    "application_url": "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=8YZNsbqDE0unArXAIxuTN6lvqRKIecZKhDrl5OHmOxJUMlNZRTVKQkMwRVJZT0gxQVJBUDJaTTY5OS4u",
+    "source_name": "North-West University — external bursaries notice",
+    "source_url": "https://studies.nwu.ac.za/studies/external-bursaries",
+    "verified": false,
+    "featured": false,
+    "expired": false,
+    "publication_status": "open",
+    "description": "North-West University lists a scholarship opportunity for eligible Physics students through the Nurturing Emerging Scholars Programme (NESP), at Honours level in Physics (Renewable Energy). Applications use an online Microsoft form and close on 13 November 2026. The notice is brief, so confirm eligibility and what the scholarship pays with NWU before applying.",
+    "eligibility": [],
+    "employment_eligibility": [
+      "student"
+    ],
+    "documents_needed": [],
+    "tags": [
+      "bursary",
+      "north-west",
+      "honours",
+      "physics"
+    ],
+    "posted_date": "2026-11-09",
+    "updated_date": "2026-11-09",
+    "field_notes": {
+      "stipend": "Stipend unknown: the notice does not state the scholarship value.",
+      "eligibility": "Eligibility requirements unknown: the notice only says eligible Physics students may apply.",
+      "documents_needed": "Required documents unknown: the notice does not list them."
+    }
   }
 ]
