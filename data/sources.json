@@ -23,7 +23,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Government finance jobs, internships, bursaries and tender-related notices."
+    "notes": "Government finance jobs, internships, bursaries and tender-related notices.",
+    "access": "manual",
+    "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "sars",
@@ -49,7 +52,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Public employment services, departmental vacancies and labour market programmes."
+    "notes": "Public employment services, departmental vacancies and labour market programmes.",
+    "access": "manual",
+    "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "department-employment-labour-vacancies",
@@ -101,7 +107,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "ICT, media and telecommunications skills opportunities."
+    "notes": "ICT, media and telecommunications skills opportunities.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "services-seta",
@@ -127,7 +136,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Education, training and development opportunities."
+    "notes": "Education, training and development opportunities.",
+    "access": "manual",
+    "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "bankseta",
@@ -192,7 +204,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Official LGSETA homepage confirmed during manual review on 2026-10-28. It identifies the Local Government Sector Education and Training Authority and links learner information including the DG Bursary Window. A network/TLS probe failure is not evidence that the official source is down; do not weaken TLS verification. Source: https://lgseta.org.za/."
+    "notes": "Official LGSETA homepage confirmed during manual review on 2026-10-28. It identifies the Local Government Sector Education and Training Authority and links learner information including the DG Bursary Window. A network/TLS probe failure is not evidence that the official source is down; do not weaken TLS verification. Source: https://lgseta.org.za/.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "teta",
@@ -244,7 +259,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "University vacancies, internships and bursary notices."
+    "notes": "University vacancies, internships and bursary notices.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "wits",
@@ -270,7 +288,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "University careers, bursaries and graduate programmes."
+    "notes": "University careers, bursaries and graduate programmes.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "uct",
@@ -387,7 +408,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Rail-sector vacancies and internship opportunities."
+    "notes": "Rail-sector vacancies and internship opportunities.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "sanral",
@@ -400,7 +424,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Roads infrastructure careers, bursaries and scholarships."
+    "notes": "Roads infrastructure careers, bursaries and scholarships.",
+    "access": "manual",
+    "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "saa",
@@ -530,7 +557,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Retail careers, bursaries and graduate programmes."
+    "notes": "Retail careers, bursaries and graduate programmes.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "pick-n-pay",
@@ -543,7 +573,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Retail careers and graduate opportunities."
+    "notes": "Retail careers and graduate opportunities.",
+    "access": "manual",
+    "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "woolworths",
@@ -556,7 +589,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Retail careers and early-career programmes."
+    "notes": "Retail careers and early-career programmes.",
+    "access": "manual",
+    "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "city-of-johannesburg",
@@ -595,7 +631,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Durban metro vacancies, internships and bursaries."
+    "notes": "Durban metro vacancies, internships and bursaries.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "tshwane",
@@ -608,7 +647,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Pretoria metro vacancies and youth opportunities."
+    "notes": "Pretoria metro vacancies and youth opportunities.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "ekurhuleni",
@@ -621,7 +663,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Metro vacancies, internships and learnerships."
+    "notes": "Metro vacancies, internships and learnerships.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "nelson-mandela-bay",
@@ -673,7 +718,10 @@
     "priority": 3,
     "last_checked": null,
     "last_success": null,
-    "notes": "Large local municipality vacancies and internships."
+    "notes": "Large local municipality vacancies and internships.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "stellenbosch-municipality",
@@ -712,7 +760,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Provincial vacancies, internships and skills programmes."
+    "notes": "Provincial vacancies, internships and skills programmes.",
+    "access": "manual",
+    "manual_reason": "robots.txt disallows this crawler (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "kzn-government",
@@ -725,7 +776,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Provincial government vacancies and programme notices."
+    "notes": "Provincial government vacancies and programme notices.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "csir",
@@ -751,7 +805,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Official NSFAS homepage retained as the canonical source. On 2026-10-28, the South African Government's official notice reported that 2027 funding applications close 31 October 2026 and directs applicants to NSFAS official platforms. A network/TLS probe failure is not evidence that the source is down; do not weaken TLS verification. Source: https://www.gov.za/news/media-statements/nsfas-records-868626-applications-2027-funding-cycle-20-oct-2026."
+    "notes": "Official NSFAS homepage retained as the canonical source. On 2026-10-28, the South African Government's official notice reported that 2027 funding applications close 31 October 2026 and directs applicants to NSFAS official platforms. A network/TLS probe failure is not evidence that the source is down; do not weaken TLS verification. Source: https://www.gov.za/news/media-statements/nsfas-records-868626-applications-2027-funding-cycle-20-oct-2026.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "dhet",
@@ -985,7 +1042,10 @@
     "priority": 1,
     "last_checked": null,
     "last_success": null,
-    "notes": "Official NSFAS application guidance and funding-cycle announcements. Pair with myNSFAS only as the application destination; verify intake year, opening/closing dates and eligibility on the official NSFAS page. Research checked 2026-10-18; 2027 cycle was reported open 2026-09-18 through 2026-10-31, so recheck dates before publication."
+    "notes": "Official NSFAS application guidance and funding-cycle announcements. Pair with myNSFAS only as the application destination; verify intake year, opening/closing dates and eligibility on the official NSFAS page. Research checked 2026-10-18; 2027 cycle was reported open 2026-09-18 through 2026-10-31, so recheck dates before publication.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "dws-erecruitment",
@@ -1011,7 +1071,10 @@
     "priority": 3,
     "last_checked": null,
     "last_success": null,
-    "notes": "Verified 2026-10-20. Non-technical internship programme for graduates and learner interns. No fixed intake dates; the page says adverts appear on the website and in print media."
+    "notes": "Verified 2026-10-20. Non-technical internship programme for graduates and learner interns. No fixed intake dates; the page says adverts appear on the website and in print media.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "dmpr",
@@ -1050,7 +1113,10 @@
     "priority": 3,
     "last_checked": null,
     "last_success": null,
-    "notes": "Verified 2026-10-20. Vacancy and board-nomination circulars; no internships seen on the check date. Posts are undated, so use the linked circular PDFs for dates."
+    "notes": "Verified 2026-10-20. Vacancy and board-nomination circulars; no internships seen on the check date. Posts are undated, so use the linked circular PDFs for dates.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "dalrrd",
@@ -1330,13 +1396,13 @@
     "name": "Western Cape Government - Jobs, Bursaries and Tenders",
     "type": "government",
     "url": "https://www.westerncape.gov.za/jobs-bursaries-and-tenders",
-    "active": true,
+    "active": false,
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Verified 2026-10-22. Hub page linking how to apply and the e-recruitment system (now westerncapegov.erecruit.co). The old e-recruitment.westerncape.gov.za host showed \"Under Construction\"."
+    "notes": "Verified 2026-10-22. Hub page linking how to apply and the e-recruitment system (now westerncapegov.erecruit.co). The old e-recruitment.westerncape.gov.za host showed \"Under Construction\". Deactivated 2026-11-09: serves the same page as source western-cape-government."
   },
   {
     "source_id": "ec-dsd",
@@ -1596,7 +1662,10 @@
     "priority": 4,
     "last_checked": null,
     "last_success": null,
-    "notes": "Verified 2026-10-22. Mostly stale: two executive posts closed 7 Dec 2025 and the page ends \"No Vacancies Available\"."
+    "notes": "Verified 2026-10-22. Mostly stale: two executive posts closed 7 Dec 2025 and the page ends \"No Vacancies Available\".",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "vut-vacancies",
@@ -1752,7 +1821,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "11 posts with locations and closing dates (22 Oct to 4 Nov 2026) seen on 2026-10-22, including learning and development and environmental monitor roles. Sub-pages exist for internships and an external bursary call (2027 intake, not fetched). Verified 2026-10-22."
+    "notes": "11 posts with locations and closing dates (22 Oct to 4 Nov 2026) seen on 2026-10-22, including learning and development and environmental monitor roles. Sub-pages exist for internships and an external bursary call (2027 intake, not fetched). Verified 2026-10-22.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "sita-internships",
@@ -1765,7 +1837,10 @@
     "priority": 3,
     "last_checked": null,
     "last_success": null,
-    "notes": "Official SITA Internships page. Search indexing rechecked 2026-10-28 showed the page listing a 2026-27 learnership advert PDF; automated health probe reported HTTP 404 on 2026-10-28, so treat that result as transient/inconsistent and retain the URL for follow-up. Official SITA youth-development programme page: https://www.sita.co.za/content/youth-development-programme. Do not treat the 2026/27 internship PDF closing 2026-03-06 as an open opportunity."
+    "notes": "Official SITA Internships page. Search indexing rechecked 2026-10-28 showed the page listing a 2026-27 learnership advert PDF; automated health probe reported HTTP 404 on 2026-10-28, so treat that result as transient/inconsistent and retain the URL for follow-up. Official SITA youth-development programme page: https://www.sita.co.za/content/youth-development-programme. Do not treat the 2026/27 internship PDF closing 2026-03-06 as an open opportunity.",
+    "access": "manual",
+    "manual_reason": "robots.txt could not be fetched from the crawl runner, so the crawler (RFC 9309) must treat the whole site as disallowed (2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "statssa-vacancies",
@@ -2077,7 +2152,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Seven programmes (CA, Tech, Quants, Navigate, internships). CA Programme applications open 1 Sep and close 30 Sep each year; other programmes list no dates. Verified 2026-10-22."
+    "notes": "Seven programmes (CA, Tech, Quants, Navigate, internships). CA Programme applications open 1 Sep and close 30 Sep each year; other programmes list no dates. Verified 2026-10-22.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "discovery-careers",
@@ -2142,7 +2220,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Lists CA training and vac programmes, Tax, Forensics, Digital trust, Strategy&, Deals, Actuarial and a SAIPA learnership; applications via PwC graduate registration platform. No dates on the page. Verified 2026-10-22."
+    "notes": "Lists CA training and vac programmes, Tax, Forensics, Digital trust, Strategy&, Deals, Actuarial and a SAIPA learnership; applications via PwC graduate registration platform. No dates on the page. Verified 2026-10-22.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "kpmg-za-graduate-opportunities",
@@ -2194,7 +2275,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "Graduate Programme with rolling applications through the year via the South Africa graduate job search (angloamerican.com/careers/job-opportunities/apply?country=SouthAfrica&searchtext=graduate). Page does not list bursaries or learnerships. The old southafrica.angloamerican.com graduate URL redirects here. Verified 2026-10-23."
+    "notes": "Graduate Programme with rolling applications through the year via the South Africa graduate job search (angloamerican.com/careers/job-opportunities/apply?country=SouthAfrica&searchtext=graduate). Page does not list bursaries or learnerships. The old southafrica.angloamerican.com graduate URL redirects here. Verified 2026-10-23.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "sibanye-stillwater-jobs",
@@ -2441,7 +2525,10 @@
     "priority": 3,
     "last_checked": null,
     "last_success": null,
-    "notes": "Table with Ref, Status, Description, Closing Date and Download columns; empty on 2026-10-23 (may load dynamically). Links Learnerships, Internships (see mqa entry) and Expired Vacancies pages. Verified 2026-10-23."
+    "notes": "Table with Ref, Status, Description, Closing Date and Download columns; empty on 2026-10-23 (may load dynamically). Links Learnerships, Internships (see mqa entry) and Expired Vacancies pages. Verified 2026-10-23.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "etdp-seta-vacancies",
@@ -2623,7 +2710,10 @@
     "priority": 2,
     "last_checked": null,
     "last_success": null,
-    "notes": "List of external bursary providers posted by Student Finance, last modified 15 Oct 2026: Funza Lushaka 2027 (new applicants 1 Oct 2026 to 31 Jan 2027), FoodBev DG3 (16 Oct 2026), KN Inzuzo 2027, and about 20 more with rolling or no stated deadline. Each entry links the provider document; some linked files are old. Use as a discovery list and check each provider. Verified 2026-10-23."
+    "notes": "List of external bursary providers posted by Student Finance, last modified 15 Oct 2026: Funza Lushaka 2027 (new applicants 1 Oct 2026 to 31 Jan 2027), FoodBev DG3 (16 Oct 2026), KN Inzuzo 2027, and about 20 more with rolling or no stated deadline. Each entry links the provider document; some linked files are old. Use as a discovery list and check each provider. Verified 2026-10-23.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "uct-jobs",
@@ -2740,7 +2830,10 @@
     "priority": 3,
     "last_checked": null,
     "last_success": null,
-    "notes": "Five adverts (Facilitator Diesel Mechanic uploaded Sept 2026; tutor database adverts Apr 2026) with no closing dates on the page; meta description says no current vacancies, so check the PDFs. Verified 2026-10-23."
+    "notes": "Five adverts (Facilitator Diesel Mechanic uploaded Sept 2026; tutor database adverts Apr 2026) with no closing dates on the page; meta description says no current vacancies, so check the PDFs. Verified 2026-10-23.",
+    "access": "manual",
+    "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
+    "manual_since": "2026-11-09"
   },
   {
     "source_id": "coastal-kzn-tvet-vacancies",

@@ -25,7 +25,7 @@ test('renders a table and tolerates missing input', () => {
   const text = renderYield(sourceYield(sources, staged, pages));
   assert.match(text, /\| a \| 2 \| 2 \| 1 \|/);
   assert.match(text, /Silent sources[^\n]*c/);
-  assert.deepEqual(sourceYield(null, null, null), { active: 0, producers: [], silent: [], noDates: [], why: {} });
+  assert.deepEqual(sourceYield(null, null, null), { active: 0, producers: [], silent: [], noDates: [], why: {}, manual: 0 });
 });
 
 test('explains silent sources with the crawler rejection reason', () => {
@@ -33,4 +33,13 @@ test('explains silent sources with the crawler rejection reason', () => {
   assert.equal(y.why.c, 'FETCH_FAILED: HTTP 403');
   assert.equal(y.why.a, undefined);
   assert.match(renderYield(y), /\| c \| FETCH_FAILED: HTTP 403 \|/);
+});
+
+test('manual-only sources are not crawled, so they are never reported as silent', () => {
+  const withManual = [...sources, { source_id: 'm', name: 'M', active: true, access: 'manual' }];
+  const y = sourceYield(withManual, staged, pages);
+  assert.equal(y.manual, 1);
+  assert.equal(y.active, 3);
+  assert.ok(!y.silent.includes('m'));
+  assert.match(renderYield(y), /manual-only \(not crawled\):\*\* 1/);
 });
