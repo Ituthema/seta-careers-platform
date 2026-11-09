@@ -1356,7 +1356,7 @@ function renderDetail(){
     <p>Always apply via the official company website. This links directly to the official source.</p>
     <a href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener noreferrer" class="apply-btn">Apply Now — Official Link ↗</a>
     <div class="share-row">
-      <a href="https://wa.me/?text=${waText}" target="_blank" class="share-btn share-wa">📲 Share on WhatsApp</a>
+      <a href="https://wa.me/?text=${waText}" target="_blank" rel="noopener noreferrer" class="share-btn share-wa">📲 Share on WhatsApp</a>
       <button class="share-btn share-copy" data-copy-url="${esc(safeUrl(o.url))}" onclick="copyOppUrl(this)">📋 Copy Link</button>
     </div>
     <div class="apply-note">Source: ${esc(o.src)} · Last checked: ${o.updatedDate?esc(fmtD(o.updatedDate)):'Check date unavailable'}</div>
