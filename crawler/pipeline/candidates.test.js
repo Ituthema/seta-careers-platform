@@ -42,3 +42,20 @@ test('extractAll skips pages without leads and summarises', () => {
   assert.equal(result.pages.length, 1);
   assert.deepEqual(result.summary, { pages_with_leads: 1, links: 1, mentions: 2, open_mentions: 1 });
 });
+
+test('a followed detail page yields one page-level lead with its closing date from anywhere in the text', () => {
+  const { extractCandidates } = require('./candidates');
+  const now = new Date('2026-11-09T08:00:00Z');
+  const filler = 'Apply online with your CV and ID.\n'.repeat(6);
+  const page = { source_id: 's', url: 'https://x.co.za/l/farming', title: 'Farming Learnership 2026', crawled_at: 'x', depth: 1,
+    text: `Farming Learnership 2026\nA 12 month programme.\n${filler}\nClosing date: 30 November 2026\n` };
+  const out = extractCandidates(page, now);
+  const lead = out.mentions.find((m) => m.page_level);
+  assert.ok(lead);
+  assert.equal(lead.line, 'Farming Learnership 2026');
+  assert.deepEqual(lead.closing_dates, ['2026-11-30']);
+  assert.equal(lead.status, 'open');
+  // Landing pages (no depth) and undated detail pages get no page-level lead.
+  assert.equal(extractCandidates({ ...page, depth: undefined }, now).mentions.some((m) => m.page_level), false);
+  assert.equal(extractCandidates({ ...page, text: 'No dates here' }, now).mentions.some((m) => m.page_level), false);
+});

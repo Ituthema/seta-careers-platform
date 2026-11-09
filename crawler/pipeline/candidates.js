@@ -103,9 +103,28 @@ function today(now = new Date()) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Johannesburg' }).format(now);
 }
 
+// A followed detail page (depth 1) IS the opportunity: its title names it and its closing date may
+// sit anywhere in the text, not within two lines of a keyword. Emit one lead for the whole page.
+function withPageLead(record, mentions) {
+  if (!record || !(record.depth > 0)) return mentions;
+  const title = String(record.title || '').replace(/\s+/g, ' ').trim();
+  const category = categoryOf(title);
+  if (!title || title.length > 160 || !category) return mentions;
+  const dates = closingDates(String(record.text || ''));
+  if (!dates.length) return mentions;
+  const same = mentions.find((m) => m.line.toLowerCase() === title.toLowerCase());
+  if (same) {
+    // The title line already exists as a mention; give it the page's dates.
+    same.closing_dates = [...new Set([...same.closing_dates, ...dates])].sort();
+    same.page_level = true;
+    return mentions;
+  }
+  return [{ category, line: title, closing_dates: dates, page_level: true }, ...mentions];
+}
+
 function extractCandidates(record, now = new Date()) {
   const cutoff = today(now);
-  const mentions = mentionCandidates(record).map((m) => ({
+  const mentions = withPageLead(record, mentionCandidates(record)).map((m) => ({
     ...m,
     // A date in the past means the page is stale or describes a closed window.
     status: m.closing_dates.length === 0 ? 'no_date' : (m.closing_dates.some((d) => d >= cutoff) ? 'open' : 'past'),
