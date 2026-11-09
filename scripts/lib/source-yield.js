@@ -11,7 +11,7 @@
 // "no dates" = staged pages but not one dated lead: a listing/info page, not a source of
 // time-bound opportunities. Those are the sources to replace or to follow deeper.
 
-function sourceYield(sources, staged, candidatePages) {
+function sourceYield(sources, staged, candidatePages, rejected) {
   const rows = new Map();
   const row = (id) => {
     if (!rows.has(id)) rows.set(id, { source_id: id, staged: 0, links: 0, mentions: 0, dated: 0 });
@@ -31,7 +31,14 @@ function sourceYield(sources, staged, candidatePages) {
   const silent = active.filter((s) => !rows.has(s.source_id) || rows.get(s.source_id).staged === 0).map((s) => s.source_id);
   const noDates = list.filter((r) => r.staged > 0 && r.dated === 0).map((r) => r.source_id);
   const producers = list.filter((r) => r.dated > 0).sort((a, b) => b.dated - a.dated || a.source_id.localeCompare(b.source_id));
-  return { active: active.length, producers, silent, noDates };
+  // Why a silent source gave nothing: the crawler's own rejection reason, with a short detail.
+  const why = {};
+  for (const r of Array.isArray(rejected) ? rejected : []) {
+    if (!r || !r.source_id || !silent.includes(r.source_id) || why[r.source_id]) continue;
+    const detail = typeof r.details === 'string' ? r.details : Array.isArray(r.details) ? r.details.join('; ') : '';
+    why[r.source_id] = `${r.reason || 'UNKNOWN'}${detail ? `: ${detail.slice(0, 60)}` : ''}`;
+  }
+  return { active: active.length, producers, silent, noDates, why };
 }
 
 function renderYield(y, limit = 10) {
@@ -43,7 +50,11 @@ function renderYield(y, limit = 10) {
     lines.push('', '| Source | Pages | Links | Dated leads |', '|---|---:|---:|---:|');
     for (const r of y.producers.slice(0, limit)) lines.push(`| ${r.source_id} | ${r.staged} | ${r.links} | ${r.dated} |`);
   }
-  if (y.silent.length) lines.push('', `Silent sources (candidates to fix or deactivate): ${y.silent.slice(0, 40).join(', ')}${y.silent.length > 40 ? ', …' : ''}`);
+  if (y.silent.length) {
+    lines.push('', '**Silent sources** (fix the URL, accept the block, or deactivate):', '', '| Source | Why |', '|---|---|');
+    for (const id of y.silent.slice(0, 40)) lines.push(`| ${id} | ${(y.why && y.why[id]) || 'no rejection recorded (nothing was staged)'} |`);
+    if (y.silent.length > 40) lines.push(`| … | ${y.silent.length - 40} more |`);
+  }
   return lines.join('\n');
 }
 

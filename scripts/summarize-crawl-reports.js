@@ -19,7 +19,7 @@ function southAfricanToday(now = new Date()) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Johannesburg' }).format(now);
 }
 
-function buildSummary({ crawl, candidates, opportunities, sources, staged, today = southAfricanToday() }) {
+function buildSummary({ crawl, candidates, opportunities, sources, staged, rejected, today = southAfricanToday() }) {
   const lines = ['## Opportunity ingestion and freshness', ''];
   if (crawl) {
     lines.push(
@@ -85,7 +85,7 @@ function buildSummary({ crawl, candidates, opportunities, sources, staged, today
   }
 
   if (Array.isArray(sources) && candidates && Array.isArray(candidates.pages)) {
-    lines.push('', renderYield(sourceYield(sources, staged, candidates.pages)));
+    lines.push('', renderYield(sourceYield(sources, staged, candidates.pages, rejected)));
   }
 
   lines.push(
@@ -104,6 +104,7 @@ if (require.main === module) {
     opportunities: readJson('data/opportunities.json'),
     sources: readJson('data/sources.json'),
     staged: readJson('crawler/output/staging.json'),
+    rejected: readJson('crawler/output/rejected.json'),
   });
   console.log(output);
 }

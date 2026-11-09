@@ -25,5 +25,12 @@ test('renders a table and tolerates missing input', () => {
   const text = renderYield(sourceYield(sources, staged, pages));
   assert.match(text, /\| a \| 2 \| 2 \| 1 \|/);
   assert.match(text, /Silent sources[^\n]*c/);
-  assert.deepEqual(sourceYield(null, null, null), { active: 0, producers: [], silent: [], noDates: [] });
+  assert.deepEqual(sourceYield(null, null, null), { active: 0, producers: [], silent: [], noDates: [], why: {} });
+});
+
+test('explains silent sources with the crawler rejection reason', () => {
+  const y = sourceYield(sources, staged, pages, [{ source_id: 'c', reason: 'FETCH_FAILED', details: 'HTTP 403' }, { source_id: 'a', reason: 'X' }]);
+  assert.equal(y.why.c, 'FETCH_FAILED: HTTP 403');
+  assert.equal(y.why.a, undefined);
+  assert.match(renderYield(y), /\| c \| FETCH_FAILED: HTTP 403 \|/);
 });
