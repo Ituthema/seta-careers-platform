@@ -5,6 +5,7 @@
  *   npm run extract:vacancies            # writes crawler/output/vacancy-candidates.json
  *   npm run candidates:drafts            # writes drafts to crawler/output/drafts/ (untracked)
  *   npm run candidates:drafts -- --out docs/listing-drafts --max 10
+ *   npm run candidates:drafts -- --include-undated   # also draft leads with no closing date
  *   npm run candidates:drafts -- --input some/vacancy-candidates.json
  *
  * Nothing is published. Each draft is unverified and defaults to needs_review. Open the official
@@ -37,7 +38,12 @@ if (!Array.isArray(leads)) { console.error('Expected vacancy-candidates.json to 
 const existing = readJson(path.join(ROOT, 'data/opportunities.json'), 'opportunities');
 const sources = readJson(path.join(ROOT, 'data/sources.json'), 'source registry');
 
-const { drafts, skipped } = buildDrafts(leads, existing, sources, new Date(), max);
+// Undated leads are mostly listing or info pages. By default only leads with a closing date are
+// drafted; pass --include-undated to draft the rest too.
+const includeUndated = args.includes('--include-undated');
+const pool = includeUndated ? leads : leads.filter((l) => l && l.closing_date);
+const { drafts, skipped } = buildDrafts(pool, existing, sources, new Date(), max);
+if (!includeUndated) console.log(`Undated leads left out: ${leads.length - pool.length} (use --include-undated to draft them).`);
 fs.mkdirSync(outDir, { recursive: true });
 for (const d of drafts) writeJsonAtomic(path.join(outDir, d.file), d.draft);
 

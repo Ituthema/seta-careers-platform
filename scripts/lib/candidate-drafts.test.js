@@ -29,23 +29,23 @@ test('a lead becomes an unverified draft that add:listing accepts and keeps hidd
 
 test('past, expired, titleless, linkless and duplicate leads are skipped with a reason', () => {
   const leads = [
-    lead({ candidate_id: 'a', title: 'Old', closing_date: '2026-10-01' }),
-    lead({ candidate_id: 'b', title: 'Flagged', status: 'possibly_expired' }),
+    lead({ candidate_id: 'a', title: 'Old Learnership', closing_date: '2026-10-01' }),
+    lead({ candidate_id: 'b', title: 'Flagged Learnership', status: 'possibly_expired' }),
     lead({ candidate_id: 'c', title: '   ' }),
-    lead({ candidate_id: 'd', title: 'No link', source_page_url: null, application_url: null }),
-    lead({ candidate_id: 'e', title: 'Already listed', application_url: 'https://example.gov.za/jobs/already-listed' }),
-    lead({ candidate_id: 'f', title: 'Good One', application_url: 'https://example.gov.za/jobs/good-one', closing_date: '2026-12-01' }),
-    lead({ candidate_id: 'g', title: 'Good One', application_url: 'https://example.gov.za/jobs/good-one-2', closing_date: '2026-12-01' }),
+    lead({ candidate_id: 'd', title: 'No Link Learnership', source_page_url: null, application_url: null }),
+    lead({ candidate_id: 'e', title: 'Already Listed Learnership', application_url: 'https://example.gov.za/jobs/already-listed' }),
+    lead({ candidate_id: 'f', title: 'Good One Learnership', application_url: 'https://example.gov.za/jobs/good-one', closing_date: '2026-12-01' }),
+    lead({ candidate_id: 'g', title: 'Good One Learnership', application_url: 'https://example.gov.za/jobs/good-one-2', closing_date: '2026-12-01' }),
   ];
   const { drafts, skipped } = buildDrafts(leads, existing, [], NOW);
-  assert.deepEqual(drafts.map((d) => d.draft.title), ['Good One']);
+  assert.deepEqual(drafts.map((d) => d.draft.title), ['Good One Learnership']);
   assert.equal(drafts[0].draft.closing_date, '2026-12-01');
   const reasons = skipped.map((s) => s.reason).join(' | ');
-  for (const text of ['has passed', 'no title', 'no link', 'application_url is already used', 'slug "good-one" is already used']) assert.ok(reasons.includes(text), text);
+  for (const text of ['has passed', 'no title', 'no link', 'application_url is already used', 'slug "good-one-learnership" is already used']) assert.ok(reasons.includes(text), text);
 });
 
 test('the limit is respected and long titles are shortened', () => {
-  const many = Array.from({ length: 5 }, (_, i) => lead({ candidate_id: `m${i}`, title: `Lead ${i}`, application_url: `https://example.gov.za/jobs/${i}` }));
+  const many = Array.from({ length: 5 }, (_, i) => lead({ candidate_id: `m${i}`, title: `Lead Learnership ${i}`, application_url: `https://example.gov.za/jobs/${i}` }));
   assert.equal(buildDrafts(many, [], [], NOW, 2).drafts.length, 2);
   assert.ok(cleanTitle('x'.repeat(300)).length <= 120);
   assert.equal(draftFromLead(null, '2026-11-03').skip, 'not a lead record');
@@ -59,4 +59,14 @@ test('works on real crawler output: leads from buildVacancyRecords become drafts
   assert.ok(drafts.length >= 1);
   assert.ok(drafts.every((d) => d.draft.verified === false && d.draft.source_url));
   assert.ok(drafts.some((d) => d.draft.closing_date === '2026-11-30'));
+});
+
+test('titleProblem rejects page-text fragments and accepts opportunity names', () => {
+  const { titleProblem } = require('./candidate-drafts');
+  for (const bad of ['Already registered on our Job Site? >', '• Click on All jobs.', '1375269855', '“I am confident this programme works', 'the Public Service Vacancy Circular 39', 'News, Vacancies, Tenders & Notices', 'Careers']) {
+    assert.ok(titleProblem(bad), bad);
+  }
+  for (const good of ['External Bursaries', 'Eskom Engineering Learnership 2026', 'LH Marthinusen Apprenticeship — Durban']) {
+    assert.equal(titleProblem(good), null, good);
+  }
 });

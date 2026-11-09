@@ -9,7 +9,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: read
+  contents: write # only to push the review branch below; nothing touches main
 
 concurrency:
   group: opportunity-ingestion
@@ -50,6 +50,30 @@ jobs:
             npm run review:candidates
           else
             echo "No staging output was created; candidate extraction was skipped."
+          fi
+
+      - name: Turn dated leads into unverified draft listings
+        if: always()
+        run: |
+          if [ -f crawler/output/staging.json ]; then
+            npm run extract:vacancies && npm run candidates:drafts
+          fi
+
+      - name: Push drafts to a review branch (never main)
+        if: always()
+        run: |
+          if ls crawler/output/drafts/*.json >/dev/null 2>&1; then
+            BR="ingestion/drafts-$(date -u +%F)"
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git checkout -b "$BR"
+            mkdir -p review/drafts && cp crawler/output/drafts/*.json review/drafts/
+            git add -f review/drafts
+            git commit -m "Ingestion drafts for human review ($(date -u +%F))" && git push -f origin "$BR" || true
+            echo "### Draft listings for review" >> "$GITHUB_STEP_SUMMARY"
+            echo "Branch: \`$BR\` (folder review/drafts). Verify each on the official page, then run add:listing." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No drafts produced."
           fi
 
       - name: Write ingestion summary
