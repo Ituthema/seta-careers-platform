@@ -19,12 +19,27 @@ function cleanTitle(text) {
   return t.length > MAX_TITLE ? t.slice(0, MAX_TITLE - 1).trimEnd() + '…' : t;
 }
 
+// A crawler "title" is often a sentence fragment from the page ("Already registered on our Job
+// Site? >", "• Click on All jobs.", a bare ID). Only titles that read like the name of an
+// opportunity become drafts; the rest stay in the lead file for people who want to browse it.
+const TITLE_WORDS = /(learnership|bursar|scholarship|internship|intern\b|apprentice|artisan|vacanc|graduate|trainee|tvet|work[- ]integrated|programme|program\b|early[- ]careers|funding|circular|\byes\b)/i;
+
+function titleProblem(title) {
+  if (!/^[A-Z]/.test(title)) return 'title does not start like a name (fragment, bullet or number)';
+  if (/[{}<>|;&]|\?\s*$|[.:,]\s*$|\bclick\b|\bselect\b|\bregistered\b/i.test(title)) return 'title reads like page text, not an opportunity name';
+  if (title.split(' ').length < 2) return 'title is a single word';
+  if (!TITLE_WORDS.test(title)) return 'title does not mention an opportunity type';
+  return null;
+}
+
 // Returns { draft } for a usable lead, or { skip: reason }.
 function draftFromLead(lead, today) {
   if (!lead || typeof lead !== 'object') return { skip: 'not a lead record' };
   if (lead.status === 'possibly_expired') return { skip: 'closing date has passed' };
   const title = cleanTitle(lead.title);
   if (!title) return { skip: 'no title' };
+  const problem = titleProblem(title);
+  if (problem) return { skip: problem };
   const closing = typeof lead.closing_date === 'string' ? lead.closing_date : null;
   if (closing && closing < today) return { skip: `closing date ${closing} has passed` };
   const sourceUrl = lead.source_page_url || lead.application_url;
@@ -60,7 +75,10 @@ function buildDrafts(leads, existing, sources, now = new Date(), max = 25) {
   const taken = new Set();
   const pool = Array.isArray(existing) ? existing.slice() : [];
 
-  for (const lead of Array.isArray(leads) ? leads : []) {
+  // Leads with a future closing date are the most useful, so they are drafted first.
+  const ordered = (Array.isArray(leads) ? leads : []).slice().sort((a, b) =>
+    (b && b.closing_date ? 1 : 0) - (a && a.closing_date ? 1 : 0));
+  for (const lead of ordered) {
     if (drafts.length >= max) { skipped.push({ title: cleanTitle(lead && lead.title), reason: `over the limit of ${max} drafts` }); continue; }
     const made = draftFromLead(lead, today);
     if (made.skip) { skipped.push({ title: cleanTitle(lead && lead.title), reason: made.skip }); continue; }
@@ -78,4 +96,4 @@ function buildDrafts(leads, existing, sources, now = new Date(), max = 25) {
   return { drafts, skipped };
 }
 
-module.exports = { draftFromLead, buildDrafts, cleanTitle };
+module.exports = { draftFromLead, buildDrafts, cleanTitle, titleProblem };
