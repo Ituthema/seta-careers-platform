@@ -19,7 +19,8 @@
     "add:listing": "node scripts/add-listing.js",
     "ai:draft": "node scripts/ai-draft.js",
     "extract:vacancies": "node scripts/extract-vacancies.js",
-    "candidates:drafts": "node scripts/candidates-to-drafts.js"
+    "candidates:drafts": "node scripts/candidates-to-drafts.js",
+    "sources:checklist": "node scripts/manual-sources-checklist.js"
   },
   "engines": {
     "node": ">=18"

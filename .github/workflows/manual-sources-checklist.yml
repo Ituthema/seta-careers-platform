@@ -1,0 +1,38 @@
+name: Monthly Manual Source Check
+
+# Opens one GitHub issue a month listing the sources the crawler cannot read, as a task list.
+# It only creates an issue: it changes no files and publishes nothing.
+on:
+  schedule:
+    - cron: '0 5 1 * *' # 1st of each month, 05:00 UTC (07:00 in South Africa)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  checklist:
+    name: Open the manual source checklist issue
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Create the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="Manual source check — $(date -u +'%B %Y')"
+          node scripts/manual-sources-checklist.js > checklist.md
+          if gh issue list --state open --search "\"$TITLE\" in:title" --json title -q '.[].title' | grep -qxF "$TITLE"; then
+            echo "An open issue titled '$TITLE' already exists; not creating another."
+          else
+            gh issue create --title "$TITLE" --body-file checklist.md
+          fi
