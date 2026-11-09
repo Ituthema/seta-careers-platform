@@ -8,8 +8,8 @@
     "crawl_strategy": "pdf",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:41.797Z",
+    "last_success": "2026-11-09T15:16:41.797Z",
     "notes": "Public Service Vacancy Circulars. Verified 2026-10-28 against the official South African Government 'Government Jobs This Week' index, which links Public Service Vacancy Circular No. 38 of 23 October 2026 and national/provincial vacancy PDFs. Treat the dated circular and linked advert as primary evidence; verify each closing date and eligibility before publishing. No RSS/API endpoint confirmed."
   },
   {
@@ -21,8 +21,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:46.464Z",
+    "last_success": "2026-11-09T15:16:46.464Z",
     "notes": "Government finance jobs, internships, bursaries and tender-related notices.",
     "access": "manual",
     "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
@@ -37,8 +37,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:45.449Z",
+    "last_success": "2026-11-09T15:16:45.449Z",
     "notes": "Tax administration careers and graduate opportunities."
   },
   {
@@ -50,8 +50,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:43.963Z",
+    "last_success": "2026-11-09T15:16:43.963Z",
     "notes": "Public employment services, departmental vacancies and labour market programmes.",
     "access": "manual",
     "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
@@ -66,8 +66,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:44.549Z",
+    "last_success": "2026-11-09T15:16:44.549Z",
     "notes": "Dedicated official departmental vacancy list, separate from the department's general homepage. Verified 2026-10-28: the live list showed multiple posts closing 30 October 2026 and 6 November 2026; confirm the individual advert, location, eligibility and current status before creating a listing. Official page states public-service applications use the Z83 form where applicable and that departmental services are free."
   },
   {
@@ -79,8 +79,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:45.274Z",
+    "last_success": "2026-11-09T15:16:45.274Z",
     "notes": "Health-sector vacancies, internships and programme notices."
   },
   {
@@ -92,8 +92,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:47.857Z",
+    "last_success": "2026-11-09T15:16:47.857Z",
     "notes": "Education department vacancies, bursaries and programme announcements."
   },
   {
@@ -105,7 +105,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:16:49.304Z",
     "last_success": null,
     "notes": "ICT, media and telecommunications skills opportunities.",
     "access": "manual",
@@ -121,8 +121,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:46.644Z",
+    "last_success": "2026-11-09T15:16:46.644Z",
     "notes": "Official Services SETA homepage confirmed during manual review on 2026-10-28; the live official site lists 2026/27 discretionary-grant and strategic-project funding announcements. The previous www.serviceseta.org.za hostname may fail automated TLS/network probes; retain normal certificate verification and treat no-response health results as unverified. Source: https://servicesseta.org.za/."
   },
   {
@@ -134,8 +134,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:46.100Z",
+    "last_success": "2026-11-09T15:16:46.100Z",
     "notes": "Education, training and development opportunities.",
     "access": "manual",
     "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
@@ -150,8 +150,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:50.114Z",
+    "last_success": "2026-11-09T15:16:50.114Z",
     "notes": "Banking-sector skills programmes, learnerships and bursaries."
   },
   {
@@ -163,8 +163,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:47.376Z",
+    "last_success": "2026-11-09T15:16:47.376Z",
     "notes": "Agriculture-sector skills and grant opportunities."
   },
   {
@@ -176,8 +176,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:50.639Z",
+    "last_success": "2026-11-09T15:16:50.639Z",
     "notes": "Construction-sector learnerships, bursaries and tenders."
   },
   {
@@ -189,8 +189,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:52.083Z",
+    "last_success": "2026-11-09T15:16:52.083Z",
     "notes": "Manufacturing, engineering and related services skills opportunities."
   },
   {
@@ -202,7 +202,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:16:47.804Z",
     "last_success": null,
     "notes": "Official LGSETA homepage confirmed during manual review on 2026-10-28. It identifies the Local Government Sector Education and Training Authority and links learner information including the DG Bursary Window. A network/TLS probe failure is not evidence that the official source is down; do not weaken TLS verification. Source: https://lgseta.org.za/.",
     "access": "manual",
@@ -218,8 +218,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:48.505Z",
+    "last_success": "2026-11-09T15:16:48.505Z",
     "notes": "Transport-sector bursaries, learnerships and skills programmes."
   },
   {
@@ -231,8 +231,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:49.419Z",
+    "last_success": "2026-11-09T15:16:49.419Z",
     "notes": "Health and welfare-sector skills development opportunities."
   },
   {
@@ -244,8 +244,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:53.303Z",
+    "last_success": "2026-11-09T15:16:53.303Z",
     "notes": "University vacancies, student funding and graduate opportunities."
   },
   {
@@ -257,7 +257,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:16:50.475Z",
     "last_success": null,
     "notes": "University vacancies, internships and bursary notices.",
     "access": "manual",
@@ -273,8 +273,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:51.399Z",
+    "last_success": "2026-11-09T15:16:51.399Z",
     "notes": "Academic, professional and student opportunity notices."
   },
   {
@@ -286,7 +286,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:16:53.013Z",
     "last_success": null,
     "notes": "University careers, bursaries and graduate programmes.",
     "access": "manual",
@@ -302,8 +302,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:52.566Z",
+    "last_success": "2026-11-09T15:16:52.566Z",
     "notes": "University vacancies and student funding opportunities."
   },
   {
@@ -315,8 +315,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:52.917Z",
+    "last_success": "2026-11-09T15:16:52.917Z",
     "notes": "University careers and student opportunity notices."
   },
   {
@@ -328,8 +328,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:55.048Z",
+    "last_success": "2026-11-09T15:16:55.048Z",
     "notes": "University vacancies, internships and bursaries."
   },
   {
@@ -341,8 +341,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:54.279Z",
+    "last_success": "2026-11-09T15:16:54.279Z",
     "notes": "University careers and student opportunities."
   },
   {
@@ -354,8 +354,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:57.639Z",
+    "last_success": "2026-11-09T15:16:57.639Z",
     "notes": "University vacancies and student support opportunities."
   },
   {
@@ -367,8 +367,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:55.171Z",
+    "last_success": "2026-11-09T15:16:55.171Z",
     "notes": "University vacancies, bursaries and internships."
   },
   {
@@ -380,8 +380,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:55.025Z",
+    "last_success": "2026-11-09T15:16:55.025Z",
     "notes": "Energy-sector careers, apprenticeships and graduate programmes."
   },
   {
@@ -393,8 +393,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:55.688Z",
+    "last_success": "2026-11-09T15:16:55.688Z",
     "notes": "Transport and logistics careers, learnerships and bursaries."
   },
   {
@@ -406,7 +406,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:03.685Z",
     "last_success": null,
     "notes": "Rail-sector vacancies and internship opportunities.",
     "access": "manual",
@@ -422,8 +422,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:57.233Z",
+    "last_success": "2026-11-09T15:16:57.233Z",
     "notes": "Roads infrastructure careers, bursaries and scholarships.",
     "access": "manual",
     "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
@@ -438,8 +438,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:57.092Z",
+    "last_success": "2026-11-09T15:16:57.092Z",
     "notes": "Aviation careers and trainee opportunities."
   },
   {
@@ -451,8 +451,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:57.253Z",
+    "last_success": "2026-11-09T15:16:57.253Z",
     "notes": "Defence manufacturing careers and technical opportunities."
   },
   {
@@ -464,8 +464,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:57.263Z",
+    "last_success": "2026-11-09T15:16:57.263Z",
     "notes": "Banking careers, internships and graduate programmes."
   },
   {
@@ -477,8 +477,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:59.506Z",
+    "last_success": "2026-11-09T15:16:59.506Z",
     "notes": "Banking and fintech career opportunities."
   },
   {
@@ -490,8 +490,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:04.493Z",
+    "last_success": "2026-11-09T15:17:04.493Z",
     "notes": "Banking careers, graduate and internship programmes."
   },
   {
@@ -503,8 +503,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:01.114Z",
+    "last_success": "2026-11-09T15:17:01.114Z",
     "notes": "Banking careers, internships and bursaries."
   },
   {
@@ -516,8 +516,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:58.263Z",
+    "last_success": "2026-11-09T15:16:58.263Z",
     "notes": "Official MTN Group careers landing page. The legacy https://group.mtn.com/careers/ returned HTTP 404 in the 2026-10-28 automated health report; official landing page links to opportunities across MTN's footprint and the Global Graduate Programme. Rechecked 2026-10-28."
   },
   {
@@ -529,8 +529,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:00.104Z",
+    "last_success": "2026-11-09T15:17:00.104Z",
     "notes": "Telecommunications careers, graduate and youth programmes."
   },
   {
@@ -542,8 +542,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:00.155Z",
+    "last_success": "2026-11-09T15:17:00.155Z",
     "notes": "Energy and chemicals careers, apprenticeships and bursaries."
   },
   {
@@ -555,7 +555,7 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:16:59.692Z",
     "last_success": null,
     "notes": "Retail careers, bursaries and graduate programmes.",
     "access": "manual",
@@ -571,8 +571,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:16:59.916Z",
+    "last_success": "2026-11-09T15:16:59.916Z",
     "notes": "Retail careers and graduate opportunities.",
     "access": "manual",
     "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
@@ -587,8 +587,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:01.698Z",
+    "last_success": "2026-11-09T15:17:01.698Z",
     "notes": "Retail careers and early-career programmes.",
     "access": "manual",
     "manual_reason": "The page is built in the browser with JavaScript, so the crawler sees no title or text (2026-11-09 crawl).",
@@ -603,8 +603,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:06.435Z",
+    "last_success": "2026-11-09T15:17:06.435Z",
     "notes": "Metropolitan municipality vacancies, internships and learnerships."
   },
   {
@@ -616,8 +616,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:03.130Z",
+    "last_success": "2026-11-09T15:17:03.130Z",
     "notes": "Metropolitan municipality jobs and skills programmes."
   },
   {
@@ -629,7 +629,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:03.193Z",
     "last_success": null,
     "notes": "Durban metro vacancies, internships and bursaries.",
     "access": "manual",
@@ -645,7 +645,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:04.229Z",
     "last_success": null,
     "notes": "Pretoria metro vacancies and youth opportunities.",
     "access": "manual",
@@ -661,7 +661,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:04.890Z",
     "last_success": null,
     "notes": "Metro vacancies, internships and learnerships.",
     "access": "manual",
@@ -677,8 +677,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:05.761Z",
+    "last_success": "2026-11-09T15:17:05.761Z",
     "notes": "Metro vacancies and skills development notices."
   },
   {
@@ -690,8 +690,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:06.059Z",
+    "last_success": "2026-11-09T15:17:06.059Z",
     "notes": "Metro vacancies, internships and public notices."
   },
   {
@@ -703,8 +703,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:07.738Z",
+    "last_success": "2026-11-09T15:17:07.738Z",
     "notes": "Metro vacancies and youth-development notices."
   },
   {
@@ -716,7 +716,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:15.514Z",
     "last_success": null,
     "notes": "Large local municipality vacancies and internships.",
     "access": "manual",
@@ -732,8 +732,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:09.127Z",
+    "last_success": "2026-11-09T15:17:09.127Z",
     "notes": "Municipal vacancies and public opportunity notices."
   },
   {
@@ -745,8 +745,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:12.002Z",
+    "last_success": "2026-11-09T15:17:12.002Z",
     "notes": "Provincial government vacancies and internships."
   },
   {
@@ -758,8 +758,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:13.284Z",
+    "last_success": "2026-11-09T15:17:13.284Z",
     "notes": "Provincial vacancies, internships and skills programmes.",
     "access": "manual",
     "manual_reason": "robots.txt disallows this crawler (2026-11-09 crawl).",
@@ -774,7 +774,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:10.652Z",
     "last_success": null,
     "notes": "Provincial government vacancies and programme notices.",
     "access": "manual",
@@ -790,8 +790,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:10.758Z",
+    "last_success": "2026-11-09T15:17:10.758Z",
     "notes": "Research careers, studentships and internships."
   },
   {
@@ -803,7 +803,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:10.910Z",
     "last_success": null,
     "notes": "Official NSFAS homepage retained as the canonical source. On 2026-10-28, the South African Government's official notice reported that 2027 funding applications close 31 October 2026 and directs applicants to NSFAS official platforms. A network/TLS probe failure is not evidence that the source is down; do not weaken TLS verification. Source: https://www.gov.za/news/media-statements/nsfas-records-868626-applications-2027-funding-cycle-20-oct-2026.",
     "access": "manual",
@@ -819,8 +819,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:12.166Z",
+    "last_success": "2026-11-09T15:17:12.166Z",
     "notes": "Post-school education opportunities, bursaries and skills programmes."
   },
   {
@@ -832,8 +832,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:12.189Z",
+    "last_success": "2026-11-09T15:17:12.189Z",
     "notes": "Official Mining Qualifications Authority internship programme page; individual notices are published under mqa.org.za/job/. A historical Quality Assurance Intern notice was found via aggregator research, but its 2025 deadline is expired and must not be republished as open. Research checked 2026-10-18; no RSS/API endpoint confirmed."
   },
   {
@@ -845,8 +845,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:12.707Z",
+    "last_success": "2026-11-09T15:17:12.707Z",
     "notes": "Crawford International recruitment portal on the Simplify platform (ADvTECH group). Research found this as the official application portal linked by BursaryZA; confirm a live vacancy exists before creating an opportunity. Portal may render listings with JavaScript. Research checked 2026-10-18."
   },
   {
@@ -858,8 +858,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:11.671Z",
+    "last_success": "2026-11-09T15:17:11.671Z",
     "notes": "Reachable and confirmed to be the right organisation on 2026-10-17. Graduate recruitment page. General careers page: https://www.genesis-analytics.com/join-our-team. The page does not use the name \"Global Young Professionals Programme\"."
   },
   {
@@ -871,8 +871,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:12.339Z",
+    "last_success": "2026-11-09T15:17:12.339Z",
     "notes": "Reachable and confirmed to be the right organisation on 2026-10-17. Careers page; no separate internship page found."
   },
   {
@@ -884,8 +884,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:13.105Z",
+    "last_success": "2026-11-09T15:17:13.105Z",
     "notes": "Reachable and confirmed to be the right organisation on 2026-10-17. Careers portal for the APEX Graduate Programme and other roles. The supplied lesaka.com domain could not be checked; the portal above is where vacancies are published."
   },
   {
@@ -1027,8 +1027,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:13.518Z",
+    "last_success": "2026-11-09T15:17:13.518Z",
     "notes": "Official national government discovery index linking to the current Public Service Vacancy Circular and related government vacancy notices. Verified 2026-10-28: page links Public Service Vacancy Circular No. 38 of 23 October 2026 and national/provincial vacancy PDFs. Treat linked circular/PDF as primary evidence; extract circular number and publication date. No RSS/API endpoint confirmed."
   },
   {
@@ -1040,7 +1040,7 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:13.099Z",
     "last_success": null,
     "notes": "Official NSFAS application guidance and funding-cycle announcements. Pair with myNSFAS only as the application destination; verify intake year, opening/closing dates and eligibility on the official NSFAS page. Research checked 2026-10-18; 2027 cycle was reported open 2026-09-18 through 2026-10-31, so recheck dates before publication.",
     "access": "manual",
@@ -1056,8 +1056,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:13.599Z",
+    "last_success": "2026-11-09T15:17:13.599Z",
     "notes": "Verified 2026-10-20. Official e-recruitment job list (reference number, category, closing date, More Info link per post). About 45 posts on the check date."
   },
   {
@@ -1069,7 +1069,7 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:16.989Z",
     "last_success": null,
     "notes": "Verified 2026-10-20. Non-technical internship programme for graduates and learner interns. No fixed intake dates; the page says adverts appear on the website and in print media.",
     "access": "manual",
@@ -1085,8 +1085,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:14.714Z",
+    "last_success": "2026-11-09T15:17:14.714Z",
     "notes": "Verified 2026-10-20. Opportunities centre linking to Learning-Opportunities, Current-Vacancies and Archived-Vacancies. Current-Vacancies said \"No current vacancies\" on the check date. Do not use the stale dmre.gov.za mirror."
   },
   {
@@ -1098,7 +1098,7 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:21.100Z",
     "last_success": null,
     "notes": "Verified 2026-10-20. National vacancies page; it said \"Currently no details on Vacancies\" on the check date, so expect empty results until posts appear. The KwaZulu-Natal department is a separate source."
   },
@@ -1111,7 +1111,7 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:15.693Z",
     "last_success": null,
     "notes": "Verified 2026-10-20. Vacancy and board-nomination circulars; no internships seen on the check date. Posts are undated, so use the linked circular PDFs for dates.",
     "access": "manual",
@@ -1153,8 +1153,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:15.847Z",
+    "last_success": "2026-11-09T15:17:15.847Z",
     "notes": "Verified 2026-10-22. Curated index of vacancies, internships, learnerships, bursaries and grants. Most items are links to other organisations, many via tinyurl.com short links and without dates. Treat as a discovery lead only: confirm each role on the employer's own page before publishing."
   },
   {
@@ -1166,8 +1166,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:17.349Z",
+    "last_success": "2026-11-09T15:17:17.349Z",
     "notes": "Verified 2026-10-22. Teacher-training bursary. The page stated returning students apply by 30 Nov 2026 and new applicants by 31 Jan 2027, via the eservices.gov.za portal. Time-sensitive: re-check dates before publishing."
   },
   {
@@ -1179,8 +1179,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:16.917Z",
+    "last_success": "2026-11-09T15:17:16.917Z",
     "notes": "Verified 2026-10-22. Chartered-accountancy bursary run by the professional body SAICA. No explicit application window on the page; applicants must also write the NBT before the end of August. Re-check eligibility and dates before publishing."
   },
   {
@@ -1192,8 +1192,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:16.960Z",
+    "last_success": "2026-11-09T15:17:16.960Z",
     "notes": "Verified 2026-10-22. Lists DSTI-NRF postgraduate calls (honours, masters, doctoral). The page showed 2025 and 2026 cycles; a 2027 call page exists at nrf.ac.za/dsti-nrf-postgraduate-student-funding-for-the-2027-academic-year/ (found in search, not fetched)."
   },
   {
@@ -1205,8 +1205,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:18.405Z",
+    "last_success": "2026-11-09T15:17:18.405Z",
     "notes": "Verified 2026-10-22. Undergraduate bursaries (finance, STEM, law). 2027 applications opened 1 Jun 2026 and closed 30 Sep 2026, so any listing must be marked expired. Expect the next window around June."
   },
   {
@@ -1218,8 +1218,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:17.604Z",
+    "last_success": "2026-11-09T15:17:17.604Z",
     "notes": "Verified 2026-10-22. Careers page with the Young Talent graduate programme (dbsa.org/start-dbsa-graduate-programme). Open vacancies are on an external portal, https://dbsa.erecruit.co/candidateapp/Jobs/Browse.aspx (link seen, not fetched)."
   },
   {
@@ -1231,8 +1231,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:17.079Z",
+    "last_success": "2026-11-09T15:17:17.079Z",
     "notes": "Verified 2026-10-22. Postgraduate leadership scholarship. Class of 2028 applications open 9 Mar 2027 (March to November each year); 2027 intake closed."
   },
   {
@@ -1283,8 +1283,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:18.187Z",
+    "last_success": "2026-11-09T15:17:18.187Z",
     "notes": "Verified 2026-10-22. Provincial job list; 437 vacancies on the check date (Health 373, Social Development 43, Public Works 18). Posts load per department via browse?office=CODE (for example EDU, LPT, OTP, SAC), so a crawl needs those URLs."
   },
   {
@@ -1296,8 +1296,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:18.974Z",
+    "last_success": "2026-11-09T15:17:18.974Z",
     "notes": "Verified 2026-10-22. Internship and learnership adverts by closing date, each linking a PDF. The newest (learner traffic officers) closed 24 Jul 2026, so check closing dates before publishing anything."
   },
   {
@@ -1309,8 +1309,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:19.938Z",
+    "last_success": "2026-11-09T15:17:19.938Z",
     "notes": "Verified 2026-10-22. Departmental vacancies with closing dates (23 and 30 Oct 2026 on the check date), including a learnership. Links to the e-recruitment portal."
   },
   {
@@ -1322,8 +1322,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:20.390Z",
+    "last_success": "2026-11-09T15:17:20.390Z",
     "notes": "Verified 2026-10-22. Official portal job list, 11 pages; titles and closing dates readable, requirement text is truncated."
   },
   {
@@ -1335,8 +1335,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:20.414Z",
+    "last_success": "2026-11-09T15:17:20.414Z",
     "notes": "Verified 2026-10-22. GPG job centre (\"more than 120 jobs listed\"). The home page table shows only the latest posts; use the Jobs by Department pages for the full list. Separate from the existing gauteng-government source."
   },
   {
@@ -1348,8 +1348,8 @@
     "crawl_strategy": "pdf",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:21.427Z",
+    "last_success": "2026-11-09T15:17:21.427Z",
     "notes": "Verified 2026-10-22. Vacancy circulars listed by year (2022 to 2026) as PDFs per department. The old host freestateonline.fs.gov.za redirects to fsonline.fs.gov.za."
   },
   {
@@ -1361,8 +1361,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:22.673Z",
+    "last_success": "2026-11-09T15:17:22.673Z",
     "notes": "Verified 2026-10-22. Downloads as DOC/DOCX/PDF: IT internship, \"Vacancies August 2026\", Z83 form. Several files are undated. The older www.northern-cape.gov.za job page blocks automated fetching."
   },
   {
@@ -1374,7 +1374,7 @@
     "crawl_strategy": "pdf",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:26.405Z",
     "last_success": null,
     "notes": "Verified 2026-10-22. 16 PDF adverts and circulars; all had closed by 22 Oct 2026 (newest closed 29 Jun 2026). No internships listed."
   },
@@ -1387,8 +1387,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:23.274Z",
+    "last_success": "2026-11-09T15:17:23.274Z",
     "notes": "Verified 2026-10-22. Directory of bursaries, learnerships and internships across departments (PAY first work experience, Masakh'iSizwe, Year Beyond, NYS). It said \"no current internship opportunities\" on the check date."
   },
   {
@@ -1413,8 +1413,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 4,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:23.855Z",
+    "last_success": "2026-11-09T15:17:23.855Z",
     "notes": "Verified 2026-10-22. Mostly stale: the newest item closed 12 Sep 2025 and two entries show a 2014 closing date that is probably a typo. Applications go through the provincial eRecruitment portal."
   },
   {
@@ -1439,8 +1439,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:25.663Z",
+    "last_success": "2026-11-09T15:17:25.663Z",
     "notes": "Verified 2026-10-22. Adverts for discretionary grant windows (Cycle 4 of 2026/27 closed 16 Oct 2026), mandatory grants and a 24-month internship programme. Most items are funding windows for employers and providers, not individual vacancies; vacancies are on a separate \"Vacancies at CHIETA\" page."
   },
   {
@@ -1452,8 +1452,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:27.305Z",
+    "last_success": "2026-11-09T15:17:27.305Z",
     "notes": "Verified 2026-10-22. 24-month internship adverts posted 15 Oct 2026 and 15 Apr 2026; no closing dates shown on the list, so read each advert. General adverts are at ewseta.org.za/ads/."
   },
   {
@@ -1465,8 +1465,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 4,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:24.824Z",
+    "last_success": "2026-11-09T15:17:24.824Z",
     "notes": "Verified 2026-10-22. Masters, PhD and food-science bursaries, submitted by the student's university rather than the student. No dates; the page still asks for 2022 registration proof, so wording is outdated. Re-check before publishing anything."
   },
   {
@@ -1478,8 +1478,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:25.653Z",
+    "last_success": "2026-11-09T15:17:25.653Z",
     "notes": "Verified 2026-10-22. Said \"There are currently no vacancies\" on the check date. The menu links a separate e-recruitment portal. PSETA does not award bursaries to individuals."
   },
   {
@@ -1595,8 +1595,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:26.472Z",
+    "last_success": "2026-11-09T15:17:26.472Z",
     "notes": "Verified 2026-10-22. Recruitment information page with no posts of its own. All applications go through NWU's e-recruitment portal at https://nwu.ci.hr/applicant/index.php (PNet), which has not been fetched."
   },
   {
@@ -1608,8 +1608,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:33.434Z",
+    "last_success": "2026-11-09T15:17:33.434Z",
     "notes": "Verified 2026-10-22. Links undergraduate, postgraduate and external bursaries and bank loans. No 2027 dates on this page; check the linked pages."
   },
   {
@@ -1621,8 +1621,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:27.453Z",
+    "last_success": "2026-11-09T15:17:27.453Z",
     "notes": "Verified 2026-10-22. No posts on the page; it links the vacancy portal https://ufs.hua.hrsmart.com/hr/ats/JobSearch/viewAll (not fetched)."
   },
   {
@@ -1634,8 +1634,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 4,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:27.674Z",
+    "last_success": "2026-11-09T15:17:27.674Z",
     "notes": "Verified 2026-10-22. Merit bursaries (mostly automatic, no application) plus donor funds applied for through PS Online Funding. No application windows are shown."
   },
   {
@@ -1647,8 +1647,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:28.216Z",
+    "last_success": "2026-11-09T15:17:28.216Z",
     "notes": "Verified 2026-10-22. Paginated notices for external bursaries and scholarships (NSFAS 2027, Babette Taute 2027, Energy Mobility 2027, MIM 2026 and others). Closing dates are not in the list; open each notice."
   },
   {
@@ -1660,7 +1660,7 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 4,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:35.574Z",
     "last_success": null,
     "notes": "Verified 2026-10-22. Mostly stale: two executive posts closed 7 Dec 2025 and the page ends \"No Vacancies Available\".",
     "access": "manual",
@@ -1676,8 +1676,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:28.951Z",
+    "last_success": "2026-11-09T15:17:28.951Z",
     "notes": "Verified 2026-10-22. One academic post on the check date (closing 27 Oct 2026); page modified 15 Oct 2026. Applications go through the VUT e-recruitment portal."
   },
   {
@@ -1689,8 +1689,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:29.223Z",
+    "last_success": "2026-11-09T15:17:29.223Z",
     "notes": "Verified 2026-10-22. Two posts closing 23 Oct 2026 (a head of department and a student registration assistant for 2027 registration); each links a PDF advert."
   },
   {
@@ -1702,8 +1702,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:29.935Z",
+    "last_success": "2026-11-09T15:17:29.935Z",
     "notes": "Verified 2026-10-22. Official \"Jobs at Rhodes University\" portal on Simplify. The vacancy list loads dynamically, so a plain HTML fetch showed no posts. The old ru.ac.za/jobs/internships page is stale (last modified 2017)."
   },
   {
@@ -1715,8 +1715,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:30.482Z",
+    "last_success": "2026-11-09T15:17:30.482Z",
     "notes": "Verified 2026-10-22. Category links (internal, support and academic positions, scholarship programmes, nominations) with no posts on the page itself; the footer reads 2021-2023, so freshness is uncertain."
   },
   {
@@ -1793,8 +1793,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:30.481Z",
+    "last_success": "2026-11-09T15:17:30.481Z",
     "notes": "Careers page links to the Land Bank eRecruit portal (landbank.erecruit.co); no posts shown on the page itself. The Bursary Opportunities page (https://landbank.co.za/Pages/Bursary-Opportunities.aspx) said \"no bursaries available\" on 2026-10-22; an annual external bursary form exists. Verified 2026-10-22."
   },
   {
@@ -1806,8 +1806,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:33.944Z",
+    "last_success": "2026-11-09T15:17:33.944Z",
     "notes": "Lists current vacancies as PDF adverts (Senior Manager, Necsa Learning Academy seen) and links the full list at https://necsa.mcidirecthire.com/external/currentopportunities. No internship, WIL or bursary content seen. Verified 2026-10-22."
   },
   {
@@ -1819,7 +1819,7 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:30.255Z",
     "last_success": null,
     "notes": "11 posts with locations and closing dates (22 Oct to 4 Nov 2026) seen on 2026-10-22, including learning and development and environmental monitor roles. Sub-pages exist for internships and an external bursary call (2027 intake, not fetched). Verified 2026-10-22.",
     "access": "manual",
@@ -1835,7 +1835,7 @@
     "crawl_strategy": "hybrid",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:30.681Z",
     "last_success": null,
     "notes": "Official SITA Internships page. Search indexing rechecked 2026-10-28 showed the page listing a 2026-27 learnership advert PDF; automated health probe reported HTTP 404 on 2026-10-28, so treat that result as transient/inconsistent and retain the URL for follow-up. Official SITA youth-development programme page: https://www.sita.co.za/content/youth-development-programme. Do not treat the 2026/27 internship PDF closing 2026-03-06 as an open opportunity.",
     "access": "manual",
@@ -1851,8 +1851,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:31.996Z",
+    "last_success": "2026-11-09T15:17:31.996Z",
     "notes": "One current advert plus about 40 archived ones, each a PDF with a closing date; the newest seen closed 6 Feb 2026, so the page may be stale. Registration link https://www.statssa.gov.za/recruitment. Internship page https://www.statssa.gov.za/?page_id=1823 (not fetched). Verified 2026-10-22."
   },
   {
@@ -1864,8 +1864,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:32.303Z",
+    "last_success": "2026-11-09T15:17:32.303Z",
     "notes": "Links the SARB Oracle recruitment portal and PDF brochures for the Graduate Development Programme, Chartered Accountant Trainee Programme, Data Scientist Programme, Economics Winter School, WIL and IT internships. Bursaries page: https://www.resbank.co.za/en/home/publications/bursaries. Page undated; brochures labelled 2023 to 2025. Verified 2026-10-22."
   },
   {
@@ -1877,8 +1877,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:33.462Z",
+    "last_success": "2026-11-09T15:17:33.462Z",
     "notes": "Describes the SAICA-accredited trainee auditor programme, LEAP vacation work and ICT internships; applications go through agsacareers.ci.hr. Bursaries open 15 Aug to 15 Sep each year. No intake year stated on the page. Verified 2026-10-22."
   },
   {
@@ -1903,8 +1903,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:33.147Z",
+    "last_success": "2026-11-09T15:17:33.147Z",
     "notes": "Describes learnerships, apprenticeships and internships and links the ACSA Oracle career portal (iaccgs.fa.ocs.oraclecloud.com). A separate learnership page exists at https://www.airports.co.za/business/careers/learnership. Page text is old and undated; the portal was not fetched. Verified 2026-10-22."
   },
   {
@@ -1916,8 +1916,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:35.749Z",
+    "last_success": "2026-11-09T15:17:35.749Z",
     "notes": "24-month Talent Development Programme; the 2026 TDP advert PDF is linked (https://www.armscor.co.za/wp-content/uploads/2026/01/TDP-Advert-2026.pdf). Related pages: bursaries https://www.armscor.co.za/bursaries/. The jobs page https://www.armscor.co.za/working-at-armscor/ showed \"no job posts available\" on 2026-10-22. Verified 2026-10-22."
   },
   {
@@ -1929,8 +1929,8 @@
     "crawl_strategy": "pdf",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:34.629Z",
+    "last_success": "2026-11-09T15:17:34.629Z",
     "notes": "Page holds one PDF attachment \"SABC VACANCIES\" and links the SABC vacancy portal; undated. PDF contents not read. Verified 2026-10-22."
   },
   {
@@ -1994,8 +1994,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:34.672Z",
+    "last_success": "2026-11-09T15:17:34.672Z",
     "notes": "Page links the City job search portal (SAP e-recruitment) plus graduate internship and bursary application pages, which are offered when available; no posts on the page itself. Verified 2026-10-22."
   },
   {
@@ -2007,8 +2007,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:35.486Z",
+    "last_success": "2026-11-09T15:17:35.486Z",
     "notes": "Official SuccessFactors portal; showed two Shared Services posts (Desktop Technician, IT Helpdesk Agent) on 2026-10-22. Search results also show a City of Tshwane Student Database posting and Job Forum PDFs at tshwane.gov.za (page_id=7038, blocked by robots). Verified 2026-10-22."
   },
   {
@@ -2020,8 +2020,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:36.245Z",
+    "last_success": "2026-11-09T15:17:36.245Z",
     "notes": "Index page links a Current Vacancies page and a 2026 folder (vacancies_list.php?year=2026); the listings themselves were not read. The 2023 archive page is closed posts only. Verified 2026-10-22."
   },
   {
@@ -2098,8 +2098,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:35.021Z",
+    "last_success": "2026-11-09T15:17:35.021Z",
     "notes": "Hub for graduate programmes, paid internships, learnerships and bursaries, each linked to its own page; no dates on the hub. Job search: https://www.standardbank.com/sbg/standard-bank-group/careers/apply/jobs/view-all-jobs. Verified 2026-10-22."
   },
   {
@@ -2111,8 +2111,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:35.847Z",
+    "last_success": "2026-11-09T15:17:35.847Z",
     "notes": "Lists GenA Graduate Programme, SAICA and CIMA trainee programmes and the Absa Bursary Programme; applications run on leap.ly; jobs on Workday (absa.wd3.myworkdayjobs.com). No dates on the page. Verified 2026-10-22."
   },
   {
@@ -2124,8 +2124,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:36.554Z",
+    "last_success": "2026-11-09T15:17:36.554Z",
     "notes": "Lists CIB Young Analyst, CA Training and Quants graduate programmes plus the external bursary (2027 applications closed; 2028 opens in 2027). Talent community at jobs.nedbank.co.za. Verified 2026-10-22."
   },
   {
@@ -2150,7 +2150,7 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:36.235Z",
     "last_success": null,
     "notes": "Seven programmes (CA, Tech, Quants, Navigate, internships). CA Programme applications open 1 Sep and close 30 Sep each year; other programmes list no dates. Verified 2026-10-22.",
     "access": "manual",
@@ -2166,8 +2166,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:36.278Z",
+    "last_success": "2026-11-09T15:17:36.278Z",
     "notes": "Describes Graduate Journey, 12-month internships and learnerships, GradHack and the Adrian Gore Fellowship; no dates, footer says 2022 so text may be dated. Individual learnership posts are on the same careers.discovery.co.za site. Verified 2026-10-22."
   },
   {
@@ -2205,8 +2205,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:36.654Z",
+    "last_success": "2026-11-09T15:17:36.654Z",
     "notes": "Lists six programmes (Audit, Sustainability Reporting and Assurance, Actuarial, Infinity X consulting, IT Audit, TrAX tax), each on its own page. No application windows on the hub. Verified 2026-10-22."
   },
   {
@@ -2218,8 +2218,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:37.509Z",
+    "last_success": "2026-11-09T15:17:37.509Z",
     "notes": "Lists CA training and vac programmes, Tax, Forensics, Digital trust, Strategy&, Deals, Actuarial and a SAIPA learnership; applications via PwC graduate registration platform. No dates on the page. Verified 2026-10-22.",
     "access": "manual",
     "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
@@ -2234,8 +2234,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:36.435Z",
+    "last_success": "2026-11-09T15:17:36.435Z",
     "notes": "Vacation work (closing 30 April 2026), graduate programme and CA training contracts; applications through KPMG Taleo portal. Verified 2026-10-22."
   },
   {
@@ -2247,8 +2247,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:38.454Z",
+    "last_success": "2026-11-09T15:17:38.454Z",
     "notes": "Lists about 14 programmes with annual application windows (for example Tax Trainee Jan to Oct, Actuarial and Quants Mar to May, Vacation Work Audit Sep to Oct); bursary on a separate page. Apply through the EY job board. Verified 2026-10-22."
   },
   {
@@ -2260,8 +2260,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:37.247Z",
+    "last_success": "2026-11-09T15:17:37.247Z",
     "notes": "2027 intake: start dates 1 Feb and 1 Mar 2027, applications closed 31 Aug 2026 (page checked 2026-10-22). Links the Discover Graduate Programme page https://www.vodacom.com/discover-graduate-programme.php (not fetched). Annual window."
   },
   {
@@ -2273,8 +2273,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:37.437Z",
+    "last_success": "2026-11-09T15:17:37.437Z",
     "notes": "Graduate Programme with rolling applications through the year via the South Africa graduate job search (angloamerican.com/careers/job-opportunities/apply?country=SouthAfrica&searchtext=graduate). Page does not list bursaries or learnerships. The old southafrica.angloamerican.com graduate URL redirects here. Verified 2026-10-23.",
     "access": "manual",
     "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
@@ -2302,8 +2302,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:40.559Z",
+    "last_success": "2026-11-09T15:17:40.559Z",
     "notes": "Bursary scheme: 2027 intake closed, 2028 intake opens October 2027 (ages 18 to 35, 60% or more). Internships 2026 intake closed 27 Feb 2026 (12 to 24 months, local communities). Graduate Development Programme for bursary completers. Annual windows. Verified 2026-10-23."
   },
   {
@@ -2315,8 +2315,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:38.596Z",
+    "last_success": "2026-11-09T15:17:38.596Z",
     "notes": "Describes bursaries (Student Bursaries 2026 on exxaro-learnership.erecruit.co), a three-year graduate programme and learnerships at Grovos and Colliery training centres. Vacancy portal exxaro.erecruit.co. No dates on the page. Verified 2026-10-23."
   },
   {
@@ -2328,8 +2328,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "monthly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:39.002Z",
+    "last_success": "2026-11-09T15:17:39.002Z",
     "notes": "Links the job search portal (implats.pnet.co.za) and a Young talent page https://www.implats.co.za/young-talent.php for bursaries, learnerships and graduate programmes (not fetched). No dates. A second career link points to a UAT test site; ignore it. Verified 2026-10-23."
   },
   {
@@ -2367,8 +2367,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:38.974Z",
+    "last_success": "2026-11-09T15:17:38.974Z",
     "notes": "Links an Oracle-hosted job site and a talent community; describes graduate roles in Buying and Planning (12 to 18 months), accredited learnerships, a Summer Vac Programme and a 3-week paid Workplace Experience Programme (June/July) at the Durban head office. No dates, no bursaries. Verified 2026-10-23."
   },
   {
@@ -2406,8 +2406,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:38.854Z",
+    "last_success": "2026-11-09T15:17:38.854Z",
     "notes": "Describes an internship programme, a one-year Africa and Paris placement for five graduates, and CHIETA-accredited learnerships (matric with 65% or more in maths and physical science). Vacancies link to careers.totalenergies.com. No dates. An internship form exists at https://totalenergies.co.za/internshipform. Verified 2026-10-23."
   },
   {
@@ -2432,8 +2432,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:39.803Z",
+    "last_success": "2026-11-09T15:17:39.803Z",
     "notes": "Table of six vacancies with published and closing dates and downloadable adverts; newest published 2 Sep 2026 (closed 15 Sep 2026), so most posts are closed. No internships. Verified 2026-10-23."
   },
   {
@@ -2445,8 +2445,8 @@
     "crawl_strategy": "html",
     "frequency": "monthly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:39.742Z",
+    "last_success": "2026-11-09T15:17:39.742Z",
     "notes": "Bursary application page for architecture students at public institutions; no current call or closing date shown. The last advert seen (for 2025) closed 29 Nov 2024. New calls appear under Announcements (https://www.sacapsa.com/news/announcements). Verified 2026-10-23."
   },
   {
@@ -2523,8 +2523,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:42.965Z",
+    "last_success": "2026-11-09T15:17:42.965Z",
     "notes": "Table with Ref, Status, Description, Closing Date and Download columns; empty on 2026-10-23 (may load dynamically). Links Learnerships, Internships (see mqa entry) and Expired Vacancies pages. Verified 2026-10-23.",
     "access": "manual",
     "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
@@ -2539,8 +2539,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:39.651Z",
+    "last_success": "2026-11-09T15:17:39.651Z",
     "notes": "Page only links the external portal https://etdpsetajobs.mcidirecthire.com/ and an RSS feed (https://www.etdpseta.org.za/edu/rss.xml, not read). Student bursary notices exist under /edu/urgent-notice (client error on 2026-10-23). Verified 2026-10-23."
   },
   {
@@ -2552,8 +2552,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:40.273Z",
+    "last_success": "2026-11-09T15:17:40.273Z",
     "notes": "Vacancy list with Current and Previous tabs; on 2026-10-23 five posts, the newest two closing 9 and 19 Oct 2026 and the rest older. Discretionary grant window adverts (2027/28) are separate PDFs on the same site. Verified 2026-10-23."
   },
   {
@@ -2565,8 +2565,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:42.129Z",
+    "last_success": "2026-11-09T15:17:42.129Z",
     "notes": "Two current vacancies (closing 14 and 21 Oct 2026) as PDF adverts; no internship vacancy, only a generic intern application form. Verified 2026-10-23."
   },
   {
@@ -2578,8 +2578,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:40.974Z",
+    "last_success": "2026-11-09T15:17:40.974Z",
     "notes": "Said \"There are currently no vacancies\" on 2026-10-23; the Vacancies menu links the external portal teta.mcidirecthire.com (not fetched). Verified 2026-10-23."
   },
   {
@@ -2591,8 +2591,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:41.241Z",
+    "last_success": "2026-11-09T15:17:41.241Z",
     "notes": "2026/2027 Unemployed Bursary Programme advert for institutions dated 11 Oct 2026; learner guidelines are headed 2025-2026; no closing date on the page; applications online via a link not shown. Contact bursaries@teta.org.za. Verified 2026-10-23."
   },
   {
@@ -2604,8 +2604,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:41.864Z",
+    "last_success": "2026-11-09T15:17:41.864Z",
     "notes": "Category with 11 pages of calls. The 2026/27 funding EOI (bursaries, WIL, internships, learnerships; closed 20 Feb 2026) is at https://www.hwseta.org.za/expression-of-interest-for-funding-2026-2027-closing-date-20-february-2026/. The five newest posts (Oct 2026) were for training providers and colleges, not individual learners. Verified 2026-10-23."
   },
   {
@@ -2695,8 +2695,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:43.214Z",
+    "last_success": "2026-11-09T15:17:43.214Z",
     "notes": "Official recruitment portal showing five current posts with apply-by dates (30 Oct to 1 Nov 2026) and a View more Jobs link. Academic and support staff; nGAP lecturer posts. Verified 2026-10-23."
   },
   {
@@ -2708,7 +2708,7 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
+    "last_checked": "2026-11-09T15:17:41.264Z",
     "last_success": null,
     "notes": "List of external bursary providers posted by Student Finance, last modified 15 Oct 2026: Funza Lushaka 2027 (new applicants 1 Oct 2026 to 31 Jan 2027), FoodBev DG3 (16 Oct 2026), KN Inzuzo 2027, and about 20 more with rolling or no stated deadline. Each entry links the provider document; some linked files are old. Use as a discovery list and check each provider. Verified 2026-10-23.",
     "access": "manual",
@@ -2724,8 +2724,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:41.804Z",
+    "last_success": "2026-11-09T15:17:41.804Z",
     "notes": "Official SuccessFactors portal; five recent posts (posted 15 to 22 Oct 2026), no closing dates shown, and the page also said no open positions match the category. Also lists vacancies per faculty at https://jobs.uct.ac.za/go/Vacancies-per-Faculty-and-Department/8773201/. UCT Careers Service jobs and bursaries page: https://careers.uct.ac.za/students-making-applications/applying-jobs-and-bursaries (not fetched). Verified 2026-10-23."
   },
   {
@@ -2737,8 +2737,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:42.790Z",
+    "last_success": "2026-11-09T15:17:42.790Z",
     "notes": "About 17 posts (9 academic, 8 support) with closing dates 23 Oct to 30 Nov 2026; applications through the iRecruitment portal (irec.wits.ac.za). Bursary pages: https://www.wits.ac.za/study-at-wits/financial-aid-and-scholarships-administration/scholarships-and-bursaries/external-opportunities/ (not fetched). Verified 2026-10-23."
   },
   {
@@ -2763,8 +2763,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:42.556Z",
+    "last_success": "2026-11-09T15:17:42.556Z",
     "notes": "Two academic posts (closing 23 and 30 Oct 2026); administrative vacancies: none. Applications through I-Recruitment; includes an intern contract application form but no intern posts. A separate 2026 internship advert PDF exists on unisa.ac.za (not fetched). Verified 2026-10-23."
   },
   {
@@ -2776,8 +2776,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:42.540Z",
+    "last_success": "2026-11-09T15:17:42.540Z",
     "notes": "31 posts (mostly part-time lecturers, plus WIL Assistant Coordinator) with closing dates 21 Oct to 2 Nov 2026 and reference numbers; some reference numbers repeat, check the PDF. Student placement portal https://placement.tut.ac.za/ and unemployed learner bursary window page https://tut.ac.za/2025-unemployed-learner-bursary seen in search (not fetched). Verified 2026-10-23."
   },
   {
@@ -2802,8 +2802,8 @@
     "crawl_strategy": "html",
     "frequency": "daily",
     "priority": 2,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:43.329Z",
+    "last_success": "2026-11-09T15:17:43.329Z",
     "notes": "High-volume notice board: 30 vacancy notices posted 13 to 22 Oct 2026, including 2027 Supplemental Instruction Leader and FYE mentor calls, student calls and contract lecturers; closing dates are in each notice, not the list. Verified 2026-10-23."
   },
   {
@@ -2828,8 +2828,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:44.183Z",
+    "last_success": "2026-11-09T15:17:44.183Z",
     "notes": "Five adverts (Facilitator Diesel Mechanic uploaded Sept 2026; tutor database adverts Apr 2026) with no closing dates on the page; meta description says no current vacancies, so check the PDFs. Verified 2026-10-23.",
     "access": "manual",
     "manual_reason": "The site answers automated requests with HTTP 403 (checked by the 2026-11-09 crawl).",
@@ -2844,8 +2844,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 3,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:43.432Z",
+    "last_success": "2026-11-09T15:17:43.432Z",
     "notes": "23 external adverts with dates of issue (newest 5 Oct 2026: Examination Assistant 2026; 16 Sep 2026 PL1 lecturers Carpentry and Plumbing; 27 Jul 2026 Umlazi V lecturer); no closing dates on the page, they are in the PDFs. Verified 2026-10-23."
   },
   {
@@ -2909,8 +2909,8 @@
     "crawl_strategy": "hybrid",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": "2026-10-28T13:57:32.025Z",
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:44.188Z",
+    "last_success": "2026-11-09T15:17:44.188Z",
     "notes": "Application portal linked by the Department of Basic Education's official Funza Lushaka 2027 notice. Portal linked from the official notice; direct application flow not independently tested during the 2026-10-28 audit."
   },
   {
@@ -2948,8 +2948,8 @@
     "crawl_strategy": "html",
     "frequency": "weekly",
     "priority": 1,
-    "last_checked": null,
-    "last_success": null,
+    "last_checked": "2026-11-09T15:17:45.527Z",
+    "last_success": "2026-11-09T15:17:45.527Z",
     "notes": "Official employer career index listing branch-specific apprenticeship forms and closing dates. Individual branch application pages provide trade choices, N2/NCV Level 4 requirements, CV format, and the instruction not to submit multiple applications. Checked 2026-10-28."
   }
 ]
