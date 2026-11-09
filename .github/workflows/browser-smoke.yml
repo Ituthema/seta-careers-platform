@@ -17,7 +17,9 @@ concurrency:
 jobs:
   chromium-smoke:
     name: Chromium smoke tests
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest now resolves to Ubuntu 26.04, which Playwright 1.56.1 cannot install
+    # Chromium on. Move to a newer image only together with a Playwright upgrade.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
 
     steps:
