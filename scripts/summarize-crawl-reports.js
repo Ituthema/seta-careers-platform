@@ -2,6 +2,7 @@
 'use strict';
 
 const fs = require('fs');
+const { sourceYield, renderYield } = require('./lib/source-yield');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -18,7 +19,7 @@ function southAfricanToday(now = new Date()) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Johannesburg' }).format(now);
 }
 
-function buildSummary({ crawl, candidates, opportunities, today = southAfricanToday() }) {
+function buildSummary({ crawl, candidates, opportunities, sources, staged, today = southAfricanToday() }) {
   const lines = ['## Opportunity ingestion and freshness', ''];
   if (crawl) {
     lines.push(
@@ -83,6 +84,10 @@ function buildSummary({ crawl, candidates, opportunities, today = southAfricanTo
     lines.push('- **Repository listing baseline:** data/opportunities.json missing or unreadable.');
   }
 
+  if (Array.isArray(sources) && candidates && Array.isArray(candidates.pages)) {
+    lines.push('', renderYield(sourceYield(sources, staged, candidates.pages)));
+  }
+
   lines.push(
     '',
     '**Publication safety:** crawler candidates are leads only. This workflow does not edit data/opportunities.json or publish listings. Verify each opportunity on its official source and use the reviewed listing workflow.',
@@ -97,6 +102,8 @@ if (require.main === module) {
     crawl: readJson('crawler/output/crawl-report.json'),
     candidates: readJson('crawler/output/candidates.json'),
     opportunities: readJson('data/opportunities.json'),
+    sources: readJson('data/sources.json'),
+    staged: readJson('crawler/output/staging.json'),
   });
   console.log(output);
 }
