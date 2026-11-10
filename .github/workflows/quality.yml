@@ -31,9 +31,6 @@ jobs:
       - name: Validate JSON content
         run: npm run validate
 
-      - name: Check opportunity links
-        run: npm run links
-
       - name: Generate crawlable SEO pages and sitemap
         run: npm run sitemap
 

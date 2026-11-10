@@ -23,7 +23,7 @@ Status labels describe the observed repository implementation, not a claim that 
 | Source health | Implemented | `scripts/source-health-check.js`, `.github/workflows/source-health.yml` | Confirm recent workflow output separately; registry timestamps may remain null. |
 | Content validation | Implemented | `scripts/validate-content.js`, `npm run validate` | Expiry warnings and official-status verification are different checks. |
 | SEO generation/routes | Implemented | `scripts/generate-seo-pages.js`, `route-paths.js`, `npm run validate:routes` | Static outputs must be regenerated and committed when relevant data/routes change. |
-| CI quality gates | Implemented | `.github/workflows/quality.yml` | Current run results are commit-specific; see baseline report. |
+| CI quality gates | Implemented | `.github/workflows/quality.yml` | Offline and deterministic: tests, content validation, generated pages/sitemap, routes, Pages config. Live link checking runs separately in `.github/workflows/link-check.yml` (weekly), so a third-party outage cannot block a pull request. |
 | Browser smoke tests | Implemented | `.github/workflows/browser-smoke.yml` | Smoke tests do not equal exhaustive end-to-end coverage. |
 | Authentication/admin dashboard | Not implemented in reviewed architecture | No current auth service or admin app was identified in the inspected implementation | Do not plan work that assumes user accounts exist. |
 | Automated publication | Not implemented in crawler path reviewed | Crawler stages candidates; publication uses reviewed data changes | Keep human approval gate. |
