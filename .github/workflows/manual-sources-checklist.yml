@@ -31,7 +31,7 @@ jobs:
         run: |
           TITLE="Manual source check — $(date -u +'%B %Y')"
           node scripts/manual-sources-checklist.js > checklist.md
-          if gh issue list --state open --search "\"$TITLE\" in:title" --json title -q '.[].title' | grep -qxF "$TITLE"; then
+          if gh api "repos/$GITHUB_REPOSITORY/issues?state=open&per_page=100" --paginate -q '.[] | select(.pull_request == null) | .title' | grep -qxF "$TITLE"; then
             echo "An open issue titled '$TITLE' already exists; not creating another."
           else
             gh issue create --title "$TITLE" --body-file checklist.md
