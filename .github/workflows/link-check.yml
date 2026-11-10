@@ -1,0 +1,30 @@
+name: Weekly Link Check
+
+# Checks every opportunity and source link over the live network. This used to run inside the
+# Quality Gates job, so a third-party site having a bad day could block an unrelated pull
+# request. It now runs on a schedule (and on demand) instead: a failure here is a prompt to fix
+# or expire a listing, not a reason to hold a code change. Quality Gates stays offline-deterministic.
+on:
+  schedule:
+    - cron: '30 5 * * 1' # Mondays 05:30 UTC (07:30 in South Africa)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: Check opportunity links
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check opportunity links
+        run: npm run links
