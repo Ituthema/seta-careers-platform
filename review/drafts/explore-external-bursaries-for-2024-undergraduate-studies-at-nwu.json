@@ -1,0 +1,22 @@
+{
+  "title": "Explore External Bursaries For 2024 Undergraduate Studies At NWU",
+  "category": "bursary",
+  "source_name": "North-West University - Bursaries and Loans",
+  "source_url": "https://studies.nwu.ac.za/studies/external-bursaries",
+  "verified": false,
+  "featured": false,
+  "_lead": {
+    "candidate_id": "bb4e2d2ec63f2cfd4614",
+    "source_id": "nwu-bursaries",
+    "evidence": {
+      "kind": "page_text",
+      "value": "Explore External Bursaries For 2024 Undergraduate Studies At NWU",
+      "closing_dates": [
+        "2026-11-30"
+      ]
+    },
+    "discovered_at": "2026-11-11T13:18:04.956Z",
+    "note": "Crawler lead. Open the official page, confirm the details, then fill in what the advert states. Leave the rest out; add:listing records it as unknown."
+  },
+  "closing_date": "2026-11-30"
+}

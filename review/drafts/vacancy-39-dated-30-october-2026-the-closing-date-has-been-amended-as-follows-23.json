@@ -1,0 +1,23 @@
+{
+  "title": "Vacancy 39 dated 30 October 2026, the closing date has been amended as follows: 23",
+  "category": "job",
+  "source_name": "South African Government — Government Jobs This Week",
+  "source_url": "https://www.gov.za/sites/default/files/PUBLIC%20SERVICE%20VACANCY%20CIRCULAR%20%2040%20OF%202026-%20national%20.pdf",
+  "verified": false,
+  "featured": false,
+  "_lead": {
+    "candidate_id": "e9bde372b0dea01fba5f",
+    "source_id": "govza-government-jobs-week",
+    "evidence": {
+      "kind": "page_text",
+      "value": "Vacancy 39 dated 30 October 2026, the closing date has been amended as follows: 23",
+      "closing_dates": [
+        "2026-10-30",
+        "2026-11-23"
+      ]
+    },
+    "discovered_at": "2026-11-11T13:18:04.956Z",
+    "note": "Crawler lead. Open the official page, confirm the details, then fill in what the advert states. Leave the rest out; add:listing records it as unknown."
+  },
+  "closing_date": "2026-11-23"
+}
