@@ -842,8 +842,8 @@
     "source_url": "https://studies.nwu.ac.za/studies/external-bursaries",
     "verified": true,
     "featured": false,
-    "expired": false,
-    "publication_status": "open",
+    "expired": true,
+    "publication_status": "expired",
     "description": "North-West University lists a scholarship opportunity for eligible Physics students through the Nurturing Emerging Scholars Programme (NESP), at Honours level in Physics (Renewable Energy). Applications use an online Microsoft form and close on 13 November 2026. The notice is brief, so confirm eligibility and what the scholarship pays with NWU before applying.",
     "eligibility": [],
     "employment_eligibility": [
