@@ -24,6 +24,8 @@ test('an open but unverified listing is published with an Unverified notice; a v
     fs.mkdirSync(path.join(tmp, 'scripts'));
     fs.copyFileSync(path.join(ROOT, 'scripts/generate-seo-pages.js'), path.join(tmp, 'scripts/generate-seo-pages.js'));
     fs.copyFileSync(path.join(ROOT, 'route-paths.js'), path.join(tmp, 'route-paths.js'));
+    fs.mkdirSync(path.join(tmp, 'scripts/lib'), { recursive: true });
+    fs.copyFileSync(path.join(ROOT, 'scripts/lib/csp.js'), path.join(tmp, 'scripts/lib/csp.js'));
     fs.cpSync(path.join(ROOT, 'data'), path.join(tmp, 'data'), { recursive: true });
     const file = path.join(tmp, 'data/opportunities.json');
     fs.writeFileSync(file, JSON.stringify(JSON.parse(fs.readFileSync(file, 'utf8')).concat([unverified, verified]), null, 2));
@@ -43,6 +45,8 @@ test('needs_review listings stay out of public output even if unverified', () =>
     fs.mkdirSync(path.join(tmp, 'scripts'));
     fs.copyFileSync(path.join(ROOT, 'scripts/generate-seo-pages.js'), path.join(tmp, 'scripts/generate-seo-pages.js'));
     fs.copyFileSync(path.join(ROOT, 'route-paths.js'), path.join(tmp, 'route-paths.js'));
+    fs.mkdirSync(path.join(tmp, 'scripts/lib'), { recursive: true });
+    fs.copyFileSync(path.join(ROOT, 'scripts/lib/csp.js'), path.join(tmp, 'scripts/lib/csp.js'));
     fs.cpSync(path.join(ROOT, 'data'), path.join(tmp, 'data'), { recursive: true });
     const file = path.join(tmp, 'data/opportunities.json');
     fs.writeFileSync(file, JSON.stringify(JSON.parse(fs.readFileSync(file, 'utf8')).concat([{ ...unverified, slug: 'review-only', title: 'Review Only', publication_status: 'needs_review' }]), null, 2));
