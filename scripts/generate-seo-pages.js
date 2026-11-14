@@ -6,6 +6,7 @@
  * Only pages with the marker below are replaced or removed by this script.
  */
 const fs = require('fs');
+const { STATIC_POLICY, metaTag } = require('./lib/csp');
 const path = require('path');
 const { opportunityRoutePath, CAT_PATH_MAP, isListedOpportunity } = require('../route-paths');
 
@@ -88,7 +89,7 @@ function baseLayout(options) {
   const description = escapeHTML(options.description);
   const canonical = routeURL(options.route);
   return '<!doctype html>\n<html lang="en">\n<head>\n' +
-    '<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n' +
+    '<meta charset="UTF-8">\n' + metaTag(STATIC_POLICY) + '\n<meta name="viewport" content="width=device-width,initial-scale=1">\n' +
     '<title>' + title + '</title>\n<meta name="description" content="' + description + '">\n' +
     '<link rel="canonical" href="' + escapeHTML(canonical) + '">\n' +
     '<meta property="og:type" content="website">\n<meta property="og:title" content="' + title + '">\n' +

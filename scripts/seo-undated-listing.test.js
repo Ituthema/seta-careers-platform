@@ -15,6 +15,8 @@ function generateWith(extraRecords) {
   fs.mkdirSync(path.join(tmp, 'scripts'));
   fs.copyFileSync(path.join(ROOT, 'scripts/generate-seo-pages.js'), path.join(tmp, 'scripts/generate-seo-pages.js'));
   fs.copyFileSync(path.join(ROOT, 'route-paths.js'), path.join(tmp, 'route-paths.js'));
+  fs.mkdirSync(path.join(tmp, 'scripts/lib'), { recursive: true });
+  fs.copyFileSync(path.join(ROOT, 'scripts/lib/csp.js'), path.join(tmp, 'scripts/lib/csp.js'));
   fs.cpSync(path.join(ROOT, 'data'), path.join(tmp, 'data'), { recursive: true });
   const file = path.join(tmp, 'data/opportunities.json');
   const records = JSON.parse(fs.readFileSync(file, 'utf8'));
