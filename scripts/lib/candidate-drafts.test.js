@@ -70,3 +70,23 @@ test('titleProblem rejects page-text fragments and accepts opportunity names', (
     assert.equal(titleProblem(good), null, good);
   }
 });
+
+test('aggregator leads need an official link and always stay unverified', () => {
+  const agg = [{ source_id: 'agg-1', type: 'aggregator', url: 'https://www.setacareers.co.za/' }];
+  const base = { source_id: 'agg-1', source_page_url: 'https://www.setacareers.co.za/post-1/', closing_date: '2026-12-01' };
+  const ok = draftFromLead(lead({ ...base, application_url: 'https://careers.example.co.za/apply/farming' }), '2026-11-03', agg);
+  assert.equal(ok.draft.verified, false);
+  assert.equal(ok.draft.source_url, 'https://careers.example.co.za/apply/farming', 'never the aggregator article');
+  assert.equal(ok.draft._lead.origin, 'aggregator');
+  assert.equal(ok.draft._lead.aggregator_page_url, 'https://www.setacareers.co.za/post-1/');
+  const noOfficial = draftFromLead(lead({ ...base, application_url: 'https://www.setacareers.co.za/apply-now/' }), '2026-11-03', agg);
+  assert.match(noOfficial.skip, /no official application link/);
+  const none = draftFromLead(lead({ ...base, application_url: undefined }), '2026-11-03', agg);
+  assert.match(none.skip, /no official application link/);
+});
+
+test('verified: true on an aggregator link is rejected by add:listing rules', () => {
+  const agg = [{ source_id: 'agg-1', type: 'aggregator', url: 'https://www.setacareers.co.za/' }];
+  const built = buildListing({ title: 'Farming Learnership', category: 'learnership', source_url: 'https://www.setacareers.co.za/post-1/', application_url: 'https://www.setacareers.co.za/post-1/', verified: true, closing_date: '2026-12-01' }, [], agg, NOW);
+  assert.ok(built.errors.some((e) => /aggregator/.test(e)), built.errors.join(' | '));
+});

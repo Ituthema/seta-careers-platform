@@ -137,7 +137,9 @@ function buildListing(draft, existing, sources, now = new Date()) {
   }
   if (verified && errors.length === 0) {
     const probe = findUncoveredVerified([{ id: 'draft', verified: true, source_url: sourceUrl, application_url: applicationUrl }], sources);
-    for (const gap of probe) errors.push(`verified: true needs ${gap.field} domain "${gap.host}" in data/sources.json; register it first or leave verified false`);
+    for (const gap of probe) errors.push(gap.aggregator
+      ? `verified: true cannot rest on an aggregator (${gap.field} domain "${gap.host}"); use the official page or leave verified false`
+      : `verified: true needs ${gap.field} domain "${gap.host}" in data/sources.json; register it first or leave verified false`);
   }
   if (!verified && d.publication_status !== 'open') warnings.push('verified is false: publication_status will default to needs_review and the listing will not appear publicly');
   if (d.publication_status !== 'open') warnings.push('publication_status defaults to needs_review unless you explicitly set it to open after current official-source verification and human approval');

@@ -2951,5 +2951,44 @@
     "last_checked": null,
     "last_success": null,
     "notes": "Official employer career index listing branch-specific apprenticeship forms and closing dates. Individual branch application pages provide trade choices, N2/NCV Level 4 requirements, CV format, and the instruction not to submit multiple applications. Checked 2026-10-28."
+  },
+  {
+    "source_id": "setacareers-aggregator",
+    "name": "SETACareers (aggregator)",
+    "type": "aggregator",
+    "url": "https://www.setacareers.co.za/",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Aggregator: DISCOVERY LEAD ONLY, never primary evidence (docs/source-expansion-2026-10.md Tier 4). Use it to spot opportunities, then confirm role, closing date, eligibility and application link on the official employer, SETA, institution or government page before drafting. Closed adverts often stay online, so recheck the date. Do not copy article text; record facts and the official link. Crawler honours robots.txt."
+  },
+  {
+    "source_id": "edupstairs-aggregator",
+    "name": "Edupstairs (aggregator)",
+    "type": "aggregator",
+    "url": "https://www.edupstairs.org/",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Aggregator: DISCOVERY LEAD ONLY, never primary evidence (docs/source-expansion-2026-10.md Tier 4). Use it to spot opportunities, then confirm role, closing date, eligibility and application link on the official employer, SETA, institution or government page before drafting. Closed adverts often stay online, so recheck the date. Do not copy article text; record facts and the official link. Crawler honours robots.txt."
+  },
+  {
+    "source_id": "bursaryza-aggregator",
+    "name": "BursaryZA (aggregator)",
+    "type": "aggregator",
+    "url": "https://bursaryza.pages.dev/",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 3,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Aggregator: DISCOVERY LEAD ONLY, never primary evidence (docs/source-expansion-2026-10.md Tier 4). Use it to spot opportunities, then confirm role, closing date, eligibility and application link on the official employer, SETA, institution or government page before drafting. Closed adverts often stay online, so recheck the date. Do not copy article text; record facts and the official link. Crawler honours robots.txt."
   }
 ]

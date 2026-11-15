@@ -25,8 +25,18 @@ function hostsRelated(a, b) {
   return long.endsWith('.' + short);
 }
 
+// Aggregators are discovery channels: a verified listing must be backed by an
+// official source, so aggregator domains never count as coverage.
+function isAggregator(source) {
+  return Boolean(source) && source.type === 'aggregator';
+}
+
 function registryHosts(sources) {
-  return [...new Set((sources || []).map((s) => hostOf(s.url)).filter(Boolean))];
+  return [...new Set((sources || []).filter((s) => !isAggregator(s)).map((s) => hostOf(s.url)).filter(Boolean))];
+}
+
+function aggregatorHosts(sources) {
+  return [...new Set((sources || []).filter(isAggregator).map((s) => hostOf(s.url)).filter(Boolean))];
 }
 
 function isCovered(url, hosts) {
@@ -37,16 +47,17 @@ function isCovered(url, hosts) {
 // Returns one entry per verified listing URL whose domain the registry lacks.
 function findUncoveredVerified(opportunities, sources) {
   const hosts = registryHosts(sources);
+  const aggHosts = aggregatorHosts(sources);
   const gaps = [];
   for (const o of opportunities || []) {
     if (o.verified !== true) continue;
     for (const field of ['source_url', 'application_url']) {
       if (o[field] && !isCovered(o[field], hosts)) {
-        gaps.push({ id: o.id, field, url: o[field], host: hostOf(o[field]), expired: o.expired === true });
+        gaps.push({ id: o.id, field, url: o[field], host: hostOf(o[field]), expired: o.expired === true, aggregator: isCovered(o[field], aggHosts) });
       }
     }
   }
   return gaps;
 }
 
-module.exports = { findUncoveredVerified, hostsRelated, hostOf, isCovered };
+module.exports = { findUncoveredVerified, hostsRelated, hostOf, isCovered, aggregatorHosts };

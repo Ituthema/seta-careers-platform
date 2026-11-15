@@ -35,3 +35,11 @@ test('an unparseable URL counts as uncovered', () => {
   const gaps = findUncoveredVerified([{ id: '9', verified: true, source_url: 'not a url' }], sources);
   assert.equal(gaps.length, 1);
 });
+
+test('an aggregator domain never covers a verified listing', () => {
+  const withAgg = [...sources, { type: 'aggregator', url: 'https://www.setacareers.co.za/' }];
+  const gaps = findUncoveredVerified([
+    { id: '7', verified: true, source_url: 'https://www.setacareers.co.za/post-1/', application_url: 'https://www.nsfas.org.za/apply' },
+  ], withAgg);
+  assert.deepEqual(gaps.map((g) => [g.id, g.field, g.aggregator]), [['7', 'source_url', true]]);
+});

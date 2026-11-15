@@ -11,6 +11,7 @@
 //   - the crawler evidence is kept under `_lead` so the reviewer can see where it came from.
 
 const { buildListing, slugify, todaySA } = require('./listing-draft');
+const { aggregatorHosts, isCovered } = require('../validators/registry-coverage');
 
 const MAX_TITLE = 120;
 
@@ -33,7 +34,7 @@ function titleProblem(title) {
 }
 
 // Returns { draft } for a usable lead, or { skip: reason }.
-function draftFromLead(lead, today) {
+function draftFromLead(lead, today, sources = []) {
   if (!lead || typeof lead !== 'object') return { skip: 'not a lead record' };
   if (lead.status === 'possibly_expired') return { skip: 'closing date has passed' };
   const title = cleanTitle(lead.title);
@@ -42,7 +43,16 @@ function draftFromLead(lead, today) {
   if (problem) return { skip: problem };
   const closing = typeof lead.closing_date === 'string' ? lead.closing_date : null;
   if (closing && closing < today) return { skip: `closing date ${closing} has passed` };
-  const sourceUrl = lead.source_page_url || lead.application_url;
+  // Leads from aggregators are discovery clues. The draft must point at the employer or
+  // institution, never at the aggregator article, so an official outbound link is required.
+  const fromAggregator = (sources || []).some((s) => s && s.source_id === lead.source_id && s.type === 'aggregator');
+  const aggHosts = aggregatorHosts(sources);
+  const official = (u) => Boolean(u) && !isCovered(u, aggHosts);
+  let sourceUrl = lead.source_page_url || lead.application_url;
+  if (fromAggregator) {
+    sourceUrl = official(lead.application_url) ? lead.application_url : null;
+    if (!sourceUrl) return { skip: 'aggregator lead has no official application link; find the official page first' };
+  }
   if (!sourceUrl) return { skip: 'no link to the official page' };
 
   const draft = {
@@ -57,7 +67,11 @@ function draftFromLead(lead, today) {
       source_id: lead.source_id,
       evidence: lead.evidence || null,
       discovered_at: lead.discovered_at || null,
-      note: 'Crawler lead. Open the official page, confirm the details, then fill in what the advert states. Leave the rest out; add:listing records it as unknown.',
+      origin: fromAggregator ? 'aggregator' : 'official_crawl',
+      aggregator_page_url: fromAggregator ? (lead.source_page_url || null) : undefined,
+      note: fromAggregator
+        ? 'Aggregator lead (discovery only). Open the official page, confirm role, closing date and eligibility there, and ignore the aggregator text. Leave verified false unless the official page confirms it.'
+        : 'Crawler lead. Open the official page, confirm the details, then fill in what the advert states. Leave the rest out; add:listing records it as unknown.',
     },
   };
   if (lead.application_url) draft.application_url = lead.application_url;
@@ -80,7 +94,7 @@ function buildDrafts(leads, existing, sources, now = new Date(), max = 25) {
     (b && b.closing_date ? 1 : 0) - (a && a.closing_date ? 1 : 0));
   for (const lead of ordered) {
     if (drafts.length >= max) { skipped.push({ title: cleanTitle(lead && lead.title), reason: `over the limit of ${max} drafts` }); continue; }
-    const made = draftFromLead(lead, today);
+    const made = draftFromLead(lead, today, sources);
     if (made.skip) { skipped.push({ title: cleanTitle(lead && lead.title), reason: made.skip }); continue; }
     const { draft } = made;
     // Reuse the real add:listing rules: duplicates of published listings or of earlier drafts are skipped.

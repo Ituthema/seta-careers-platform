@@ -274,7 +274,9 @@ validateOpportunities(opportunitiesData);
 const sourcesData = readJson('data/sources.json');
 if (Array.isArray(opportunitiesData) && Array.isArray(sourcesData)) {
   for (const gap of findUncoveredVerified(opportunitiesData, sourcesData)) {
-    const msg = `opportunity ${gap.id}: verified listing ${gap.field} domain "${gap.host || gap.url}" is not in data/sources.json (add it, or set verified to false)`;
+    const msg = gap.aggregator
+      ? `opportunity ${gap.id}: verified listing ${gap.field} points at an aggregator ("${gap.host}"); link the official page, or set verified to false`
+      : `opportunity ${gap.id}: verified listing ${gap.field} domain "${gap.host || gap.url}" is not in data/sources.json (add it, or set verified to false)`;
     (gap.expired ? warnings : errors).push(msg);
   }
 }

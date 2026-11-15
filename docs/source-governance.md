@@ -38,7 +38,8 @@ Use these exact numeric values in `priority`:
 ## Governance rules
 
 1. Every source must have a stable, kebab-case `source_id` that is never reused for a different organisation.
-2. `type` must be one of `government`, `seta`, `university`, `municipality`, `soe`, or `private`.
+2. `type` must be one of `government`, `seta`, `university`, `municipality`, `soe`, `private`, or `aggregator`.
+   `aggregator` sources (e.g. SETACareers, Edupstairs, BursaryZA) are discovery channels only: their domains never count as coverage for a `verified: true` listing, and drafts made from their leads must link the official page (never the aggregator article) and stay unverified until a person confirms the role, closing date and eligibility on that official page.
 3. `crawl_strategy` must be one of `html`, `pdf`, `rss`, `api`, or `hybrid`.
 4. `frequency` must be one of `hourly`, `daily`, `weekly`, or `monthly`.
 5. `priority` must be an integer from `1` to `4`.
