@@ -8,6 +8,7 @@ const SOURCE_TYPES = Object.freeze([
   'municipality',
   'soe',
   'private',
+  'aggregator', // discovery leads only; never evidence that a listing is verified
 ]);
 
 const CRAWL_STRATEGIES = Object.freeze(['html', 'pdf', 'rss', 'api', 'hybrid']);
