@@ -809,8 +809,34 @@ function sanitizeGuideHtml(html){
 // directly into an inline onclick handler, which HTML-escaping alone
 // cannot safely protect (see TASK-122 rationale).
 function copyOppUrl(btn){
-  const url=btn.getAttribute('data-copy-url')||'';
-  navigator.clipboard.writeText(url).then(()=>{btn.textContent='✓ Copied!';});
+  copyText(btn.getAttribute('data-copy-url')||'',btn);
+}
+
+// Copies text and reports the real outcome on the button. The async Clipboard
+// API is unavailable on non-secure origins and can reject (permissions, focus,
+// some in-app browsers), so fall back to a hidden textarea + execCommand and
+// show a visible failure state instead of failing silently.
+function copyText(text,btn){
+  const label=btn.textContent;
+  const done=ok=>{
+    btn.textContent=ok?'✓ Copied!':'Copy failed - select the link manually';
+    setTimeout(()=>{btn.textContent=label;},2000);
+  };
+  const legacy=()=>{
+    const ta=document.createElement('textarea');
+    ta.value=text;ta.setAttribute('readonly','');
+    ta.style.cssText='position:fixed;top:-1000px;opacity:0';
+    document.body.appendChild(ta);ta.select();
+    let ok=false;
+    try{ok=document.execCommand('copy');}catch(_){ok=false;}
+    ta.remove();
+    return ok;
+  };
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>done(true),()=>done(legacy()));
+  }else{
+    done(legacy());
+  }
 }
 const badge=cat=>`<span class="badge badge-${attr(safeId(cat))}">${esc(cat)}</span>`;
 const pill=(d)=>{const u=urgInfo(d);return`<span class="pill ${attr(u.cls)}" style="background:${attr(u.bg)};color:${attr(u.c)}">${esc(u.label)}</span>`;};
@@ -1039,7 +1065,7 @@ document.addEventListener('click',e=>{
   const guide=e.target.closest('[data-action="open-guide"]');
   if(guide){openGuide(guide.dataset.guideId);return;}
   const copy=e.target.closest('[data-action="copy-url"]');
-  if(copy){navigator.clipboard.writeText(copy.dataset.url||'').then(()=>copy.textContent='✓ Copied!');return;}
+  if(copy){copyText(copy.dataset.url||'',copy);return;}
   const dir=e.target.closest('[data-action="go-dir"]');
   if(dir){goDir(dir.dataset.category||'');return;}
   const province=e.target.closest('[data-action="filter-province"]');
