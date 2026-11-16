@@ -1,0 +1,43 @@
+{
+  "title": "Emalahleni Local Municipality External Bursary 2027",
+  "category": "bursary",
+  "sector": "Local government — engineering, IT, finance, law, environmental management, architecture and other priority fields",
+  "province": "Mpumalanga",
+  "qualification_level": "Full-time undergraduate study at a public university or TVET college",
+  "stipend": "Not stated",
+  "closing_date": "2026-11-27",
+  "application_url": "https://www.emalahleni.gov.za/notices/emalahleni-local-municipality-external-bursary-scheme-advert/",
+  "source_name": "Emalahleni Local Municipality — External Bursary Scheme advert",
+  "source_url": "https://www.emalahleni.gov.za/notices/emalahleni-local-municipality-external-bursary-scheme-advert/",
+  "description": "Emalahleni Local Municipality invites applications for its external bursary scheme for full-time undergraduate study at a public university or TVET college. Applicants must live in the Emalahleni municipal area, be aged 18 to 35, and show financial need. Applications are handed in at the municipality's Youth Development Unit, Civic Centre, Mandela Street, eMalahleni, and close on Friday 27 November 2026. Confirm every detail on the municipal notice before applying.",
+  "eligibility": [
+    "South African citizen",
+    "Resident of Emalahleni Local Municipality (proof of residence required)",
+    "Aged 18 to 35 on the day of application",
+    "Demonstrated financial need (payslips or affidavit)",
+    "Planning to study full-time at a public university or TVET college in South Africa"
+  ],
+  "documents_needed": [
+    "Completed municipal bursary application form",
+    "Certified copy of ID",
+    "Academic records (Grade 11, Grade 12 or tertiary, depending on status)",
+    "Proof of residence in Emalahleni",
+    "Proof of financial need",
+    "Provisional acceptance letter from a public university or TVET college"
+  ],
+  "employment_eligibility": [
+    "student"
+  ],
+  "tags": [
+    "bursary",
+    "mpumalanga",
+    "emalahleni",
+    "municipality",
+    "2027"
+  ],
+  "verified": false,
+  "featured": false,
+  "verification_status": "needs_official_confirmation",
+  "verification_checked_at": "2026-11-16",
+  "verification_notes": "Details come from a third-party article (seta-sa.co.za), which links the municipal notice above. My fetch tool could not open emalahleni.gov.za (not on the session allowlist), so the closing date, eligibility, documents and priority fields are NOT yet confirmed on the official notice. A 2025 municipal advert (ref 005/009, for the 2026 intake) appears in search, so make sure the notice you open is the 2027 one. Leave verified false until the municipal page confirms: closing date 27 Nov 2026, age range, residency, covered costs and where to submit."
+}
