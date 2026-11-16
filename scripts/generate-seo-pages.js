@@ -10,11 +10,12 @@ const { STATIC_POLICY, metaTag } = require('./lib/csp');
 const path = require('path');
 const { opportunityRoutePath, CAT_PATH_MAP, isListedOpportunity } = require('../route-paths');
 const { jobPostingLd } = require('./lib/job-posting');
+const legal = require('./lib/legal-pages');
 
 const ROOT = path.resolve(__dirname, '..');
 const BASE = 'https://setacareersportal.abrdns.com';
 const OG_IMAGE = BASE + '/assets/og-image.png';
-const INFO_ROOTS = ['calendar', 'provinces', 'about', 'tools'];
+const INFO_ROOTS = ['calendar', 'provinces', 'about', 'tools', 'privacy', 'terms'];
 const OUTPUT_ROOTS = [...new Set([...Object.values(CAT_PATH_MAP), 'guides', ...INFO_ROOTS])];
 
 function readJSON(file) {
@@ -99,7 +100,7 @@ function baseLayout(options) {
     '<meta property="og:image" content="' + OG_IMAGE + '">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n' +
     '<meta property="og:image:alt" content="OpportunitiesZA: learnerships, bursaries and internships in South Africa">\n<meta name="twitter:image" content="' + OG_IMAGE + '">\n' +
     '<meta name="robots" content="index,follow">\n' + jsonLd(options.jsonld) +
-    '<style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#fafaf9;color:#1a1a1a;font:16px/1.7 system-ui,-apple-system,sans-serif}header,main,footer{max-width:900px;margin:auto;padding:20px}header{border-bottom:1px solid #e5e7eb;background:#fff}header a,.back{color:#0d4a26;text-decoration:none;font-weight:700}.brand{font-weight:900;font-size:1.2rem}main{padding-top:36px;padding-bottom:56px}h1,h2,h3{line-height:1.2}h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.04em}h2{margin-top:32px;font-size:1.4rem}.muted{color:#596579}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.pill{display:inline-block;background:#dcfce7;color:#166534;padding:4px 10px;border-radius:20px;font-size:.85rem;font-weight:700}.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;margin:14px 0}.btn{display:inline-block;background:#0d4a26;color:#fff;text-decoration:none;font-weight:700;padding:11px 16px;border-radius:8px;margin:8px 8px 8px 0}.btn.secondary{background:#f3f4f6;color:#0d4a26}.list{padding-left:22px}.empty{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:16px}footer{border-top:1px solid #e5e7eb;color:#596579;font-size:.9rem}a{overflow-wrap:anywhere}</style>\n</head>\n<body>\n<!-- GENERATED SEO PAGE: OpportunitiesZA -->\n<header><a class="brand" href="/">OpportunitiesZA</a> <span class="muted">· South African career opportunities</span></header>\n<main>' + options.body + '</main>\n<footer><a href="/">Home</a> · <a href="/calendar/">Calendar</a> · <a href="/provinces/">Provinces</a> · <a href="/tools/">Tools</a> · <a href="/guides/">Guides</a> · <a href="/about/">About</a> · <a href="/#/">Open interactive website</a> · Check every application deadline and eligibility requirement with the official provider.</footer>\n</body>\n</html>\n';
+    '<style>*,*::before,*::after{box-sizing:border-box}body{margin:0;background:#fafaf9;color:#1a1a1a;font:16px/1.7 system-ui,-apple-system,sans-serif}header,main,footer{max-width:900px;margin:auto;padding:20px}header{border-bottom:1px solid #e5e7eb;background:#fff}header a,.back{color:#0d4a26;text-decoration:none;font-weight:700}.brand{font-weight:900;font-size:1.2rem}main{padding-top:36px;padding-bottom:56px}h1,h2,h3{line-height:1.2}h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.04em}h2{margin-top:32px;font-size:1.4rem}.muted{color:#596579}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.pill{display:inline-block;background:#dcfce7;color:#166534;padding:4px 10px;border-radius:20px;font-size:.85rem;font-weight:700}.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;margin:14px 0}.btn{display:inline-block;background:#0d4a26;color:#fff;text-decoration:none;font-weight:700;padding:11px 16px;border-radius:8px;margin:8px 8px 8px 0}.btn.secondary{background:#f3f4f6;color:#0d4a26}.list{padding-left:22px}.empty{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:16px}footer{border-top:1px solid #e5e7eb;color:#596579;font-size:.9rem}a{overflow-wrap:anywhere}</style>\n</head>\n<body>\n<!-- GENERATED SEO PAGE: OpportunitiesZA -->\n<header><a class="brand" href="/">OpportunitiesZA</a> <span class="muted">· South African career opportunities</span></header>\n<main>' + options.body + '</main>\n<footer><a href="/">Home</a> · <a href="/calendar/">Calendar</a> · <a href="/provinces/">Provinces</a> · <a href="/tools/">Tools</a> · <a href="/guides/">Guides</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/#/">Open interactive website</a> · Check every application deadline and eligibility requirement with the official provider.</footer>\n</body>\n</html>\n';
 }
 // Listings may omit fields; each omission is explained in field_notes (see scripts/lib/field-notes.js).
 function noteText(o, field, fallback) {
@@ -379,6 +380,25 @@ writePage('/about', baseLayout({
     '<h2>Contact</h2><p>General enquiries, scam reports and opportunity submissions: <a href="mailto:contact@setacareersportal.abrdns.com">contact@setacareersportal.abrdns.com</a></p>'
 }));
 sitemapEntries.push({ route: '/about', updated: '' });
+
+// Privacy and Terms (text lives in scripts/lib/legal-pages.js)
+writePage('/privacy', baseLayout({
+  route: '/privacy',
+  title: 'Privacy Policy | OpportunitiesZA',
+  description: 'OpportunitiesZA has no accounts, forms, cookies or analytics and never asks for your documents. How the site handles information, and your rights under POPIA.',
+  jsonld: [breadcrumbLd([['Home', '/'], ['Privacy Policy', '/privacy/']])],
+  body: legal.privacyBody()
+}));
+sitemapEntries.push({ route: '/privacy', updated: legal.LEGAL_UPDATED });
+
+writePage('/terms', baseLayout({
+  route: '/terms',
+  title: 'Terms of Use and Disclaimer | OpportunitiesZA',
+  description: 'OpportunitiesZA is an independent information service. Confirm every detail with the official provider and never pay to apply.',
+  jsonld: [breadcrumbLd([['Home', '/'], ['Terms of Use', '/terms/']])],
+  body: legal.termsBody()
+}));
+sitemapEntries.push({ route: '/terms', updated: legal.LEGAL_UPDATED });
 
 function xmlEscape(value) {
   return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')

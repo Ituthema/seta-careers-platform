@@ -55,7 +55,7 @@ const live = opportunities.filter(isListedOpportunity);
 const expectedOpportunityPaths = new Set(live.map(opportunityRoutePath));
 const expectedGuidePaths = new Set(guides.map(g => '/guides/' + encodeURIComponent(g.id)));
 const provinces = loadJSON('data/provinces.json');
-const expectedInfoPaths = new Set(['/calendar', '/provinces', '/tools', '/about', ...provinces.map(p => '/provinces/' + encodeURIComponent(p.id))]);
+const expectedInfoPaths = new Set(['/calendar', '/provinces', '/tools', '/about', '/privacy', '/terms', ...provinces.map(p => '/provinces/' + encodeURIComponent(p.id))]);
 const expectedCategoryPaths = new Set(live.map(o => '/' + (CAT_PATH_MAP[o.category] || (o.category + 's'))));
 
 const sitemap = read('sitemap.xml');
@@ -77,7 +77,7 @@ const sitemapCategoryPaths = new Set([...sitemapPaths].filter(p => /^\/(?:learne
 compareSets('Opportunity sitemap sync', expectedOpportunityPaths, sitemapOpportunityPaths);
 compareSets('Guide sitemap sync', expectedGuidePaths, sitemapGuidePaths);
 compareSets('Category sitemap sync', expectedCategoryPaths, sitemapCategoryPaths);
-compareSets('Info page sitemap sync', expectedInfoPaths, new Set([...sitemapPaths].filter(p => /^\/(?:calendar|provinces|tools|about)(?:\/[^/]+)?$/.test(p))));
+compareSets('Info page sitemap sync', expectedInfoPaths, new Set([...sitemapPaths].filter(p => /^\/(?:calendar|provinces|tools|about|privacy|terms)(?:\/[^/]+)?$/.test(p))));
 
 for (const route of [...expectedOpportunityPaths, ...expectedGuidePaths, ...expectedCategoryPaths, ...expectedInfoPaths, '/guides']) {
   const file = outputFile(route);
