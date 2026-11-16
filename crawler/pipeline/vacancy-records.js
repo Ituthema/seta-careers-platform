@@ -2,6 +2,7 @@
 
 const crypto = require('crypto');
 const { extractAll } = require('./candidates');
+const { isCircular, circularLeads } = require('./psvc-parser');
 
 function slugFromUrl(rawUrl) {
   try {
@@ -20,9 +21,20 @@ function stableId(sourceId, url, title) {
 // a lead queue, not publishable content: every record retains source evidence
 // and requires official-page verification before it can enter opportunities.json.
 function buildVacancyRecords(stagedRecords, now = new Date()) {
-  const extracted = extractAll(stagedRecords, now);
+  // Public Service Vacancy Circulars are huge multi-department PDFs; the generic line scan would
+  // produce noise, so they go through the circular parser and only youth-development posts survive.
+  const circulars = (stagedRecords || []).filter((r) => isCircular(r && r.text));
+  const others = (stagedRecords || []).filter((r) => !isCircular(r && r.text));
+  const extracted = extractAll(others, now);
   const records = [];
   const seen = new Set();
+  for (const circular of circulars) {
+    for (const lead of circularLeads(circular, now, stableId)) {
+      if (seen.has(lead.candidate_id)) continue;
+      seen.add(lead.candidate_id);
+      records.push(lead);
+    }
+  }
 
   for (const page of extracted.pages) {
     for (const link of page.links) {
