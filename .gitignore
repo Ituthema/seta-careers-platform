@@ -74,3 +74,6 @@ credentials.txt
 # ✅ /data/*.json
 # ✅ /assets/* (images, css, js)
 # ═══════════════════════════════════════════════════════════
+
+# Generated source reports: published as workflow artifacts, never committed (see reports/README.md)
+reports/*.json
