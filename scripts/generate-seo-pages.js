@@ -9,6 +9,7 @@ const fs = require('fs');
 const { STATIC_POLICY, metaTag } = require('./lib/csp');
 const path = require('path');
 const { opportunityRoutePath, CAT_PATH_MAP, isListedOpportunity } = require('../route-paths');
+const { jobPostingLd } = require('./lib/job-posting');
 
 const ROOT = path.resolve(__dirname, '..');
 const BASE = 'https://setacareersportal.abrdns.com';
@@ -145,6 +146,7 @@ function lastmod(value) {
 const opportunities = readJSON('data/opportunities.json');
 const guides = readJSON('data/guides.json');
 const live = opportunities.filter(isListedOpportunity);
+const provinceLabelList = readJSON('data/provinces.json').map(function (p) { return p.label; });
 const sitemapEntries = [{ route: '/', updated: '' }];
 const categoryLabels = {
   learnerships: 'Learnerships',
@@ -210,7 +212,8 @@ live.forEach(function (o) {
     route: route,
     title: (o.title || 'Career opportunity') + ' | OpportunitiesZA',
     description: description,
-    jsonld: [breadcrumbLd([['Home', '/'], [categoryLabels[CAT_PATH_MAP[o.category] || (o.category + 's')] || o.category, '/' + (CAT_PATH_MAP[o.category] || (o.category + 's')) + '/'], [o.title || 'Career opportunity', route + '/']])],
+    jsonld: [breadcrumbLd([['Home', '/'], [categoryLabels[CAT_PATH_MAP[o.category] || (o.category + 's')] || o.category, '/' + (CAT_PATH_MAP[o.category] || (o.category + 's')) + '/'], [o.title || 'Career opportunity', route + '/']])]
+      .concat(jobPostingLd(o, { url: routeURL(route + '/'), provinceLabels: provinceLabelList }) || []),
     body: body
   }));
   sitemapEntries.push({ route: route, updated: o.updated_date || '' });

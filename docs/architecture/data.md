@@ -64,6 +64,7 @@ Enforced by `scripts/validate-content.js`:
 - `closing_date` (string, YYYY-MM-DD, or `null` when the advert publishes none)
 - `application_url` (string, URL)
 - `source_name` (string)
+- `employer` (optional string, max 120 chars; the hiring organisation. Required before a verified learnership, internship, apprenticeship or job gets `JobPosting` JSON-LD)
 - `source_url` (string, URL)
 - `verified` (boolean)
 - `featured` (boolean)
