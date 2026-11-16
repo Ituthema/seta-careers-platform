@@ -199,6 +199,11 @@ function validateOpportunities(opportunities) {
       warnings.push(`${label}: description should be at least 80 characters for search quality`);
     }
 
+    // employer is optional (hiring organisation for JobPosting markup); when present it must be real text.
+    if (opportunity.employer !== undefined && (typeof opportunity.employer !== 'string' || opportunity.employer.trim() === '' || opportunity.employer.length > 120)) {
+      errors.push(`${label}: employer must be a non-empty string of at most 120 characters`);
+    }
+
     // Missing-field rule: anything the advert did not state must be recorded as missing AND explained.
     if (opportunity.field_notes !== undefined) {
       const notes = opportunity.field_notes;

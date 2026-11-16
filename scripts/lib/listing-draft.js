@@ -191,6 +191,8 @@ function buildListing(draft, existing, sources, now = new Date()) {
     posted_date: today,
     updated_date: today,
   };
+  // Optional: the hiring organisation, used for JobPosting markup on verified employment listings.
+  if (typeof d.employer === 'string' && d.employer.trim() !== '') listing.employer = d.employer.trim().slice(0, 120);
   if (Object.keys(fieldNotes).length > 0) listing.field_notes = fieldNotes;
   return { listing, errors, warnings };
 }

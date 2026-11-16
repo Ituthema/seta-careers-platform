@@ -25,7 +25,7 @@ test('an open but unverified listing is published with an Unverified notice; a v
     fs.copyFileSync(path.join(ROOT, 'scripts/generate-seo-pages.js'), path.join(tmp, 'scripts/generate-seo-pages.js'));
     fs.copyFileSync(path.join(ROOT, 'route-paths.js'), path.join(tmp, 'route-paths.js'));
     fs.mkdirSync(path.join(tmp, 'scripts/lib'), { recursive: true });
-    fs.copyFileSync(path.join(ROOT, 'scripts/lib/csp.js'), path.join(tmp, 'scripts/lib/csp.js'));
+    fs.cpSync(path.join(ROOT, 'scripts/lib'), path.join(tmp, 'scripts/lib'), { recursive: true });
     fs.cpSync(path.join(ROOT, 'data'), path.join(tmp, 'data'), { recursive: true });
     const file = path.join(tmp, 'data/opportunities.json');
     fs.writeFileSync(file, JSON.stringify(JSON.parse(fs.readFileSync(file, 'utf8')).concat([unverified, verified]), null, 2));
@@ -46,11 +46,39 @@ test('needs_review listings stay out of public output even if unverified', () =>
     fs.copyFileSync(path.join(ROOT, 'scripts/generate-seo-pages.js'), path.join(tmp, 'scripts/generate-seo-pages.js'));
     fs.copyFileSync(path.join(ROOT, 'route-paths.js'), path.join(tmp, 'route-paths.js'));
     fs.mkdirSync(path.join(tmp, 'scripts/lib'), { recursive: true });
-    fs.copyFileSync(path.join(ROOT, 'scripts/lib/csp.js'), path.join(tmp, 'scripts/lib/csp.js'));
+    fs.cpSync(path.join(ROOT, 'scripts/lib'), path.join(tmp, 'scripts/lib'), { recursive: true });
     fs.cpSync(path.join(ROOT, 'data'), path.join(tmp, 'data'), { recursive: true });
     const file = path.join(tmp, 'data/opportunities.json');
     fs.writeFileSync(file, JSON.stringify(JSON.parse(fs.readFileSync(file, 'utf8')).concat([{ ...unverified, slug: 'review-only', title: 'Review Only', publication_status: 'needs_review' }]), null, 2));
     assert.equal(spawnSync(process.execPath, [path.join(tmp, 'scripts/generate-seo-pages.js')], { cwd: tmp }).status, 0);
     assert.ok(!fs.existsSync(path.join(tmp, 'learnerships/review-only/index.html')));
+  } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
+});
+
+test('JobPosting JSON-LD appears only on verified open employment listings that name an employer', () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'seo-jobposting-'));
+  try {
+    fs.mkdirSync(path.join(tmp, 'scripts'));
+    fs.copyFileSync(path.join(ROOT, 'scripts/generate-seo-pages.js'), path.join(tmp, 'scripts/generate-seo-pages.js'));
+    fs.copyFileSync(path.join(ROOT, 'route-paths.js'), path.join(tmp, 'route-paths.js'));
+    fs.cpSync(path.join(ROOT, 'scripts/lib'), path.join(tmp, 'scripts/lib'), { recursive: true });
+    fs.cpSync(path.join(ROOT, 'data'), path.join(tmp, 'data'), { recursive: true });
+    const withEmployer = { ...base, id: '982', slug: 'jp-with-employer', title: 'JP With Employer', application_url: 'https://www.example.org/jp1', verified: true, employer: 'Example Employer Ltd' };
+    const noEmployer = { ...base, id: '983', slug: 'jp-no-employer', title: 'JP No Employer', application_url: 'https://www.example.org/jp2', verified: true };
+    const notVerified = { ...base, id: '984', slug: 'jp-unverified', title: 'JP Unverified', application_url: 'https://www.example.org/jp3', verified: false, employer: 'Example Employer Ltd' };
+    const bursary = { ...base, id: '985', slug: 'jp-bursary', title: 'JP Bursary', category: 'bursary', application_url: 'https://www.example.org/jp4', verified: true, employer: 'Example Employer Ltd' };
+    const file = path.join(tmp, 'data/opportunities.json');
+    fs.writeFileSync(file, JSON.stringify(JSON.parse(fs.readFileSync(file, 'utf8')).concat([withEmployer, noEmployer, notVerified, bursary]), null, 2));
+    const run = spawnSync(process.execPath, [path.join(tmp, 'scripts/generate-seo-pages.js')], { cwd: tmp, encoding: 'utf8' });
+    assert.equal(run.status, 0, run.stderr);
+    const page = (dir, slug) => fs.readFileSync(path.join(tmp, dir, slug, 'index.html'), 'utf8');
+    const yes = page('learnerships', 'jp-with-employer');
+    assert.match(yes, /"@type":"JobPosting"/);
+    assert.match(yes, /"hiringOrganization":\{"@type":"Organization","name":"Example Employer Ltd"\}/);
+    assert.match(yes, /"validThrough":"2099-01-31T23:59:59\+02:00"/);
+    assert.match(yes, /"@type":"BreadcrumbList"/, 'breadcrumbs are kept');
+    assert.ok(!page('learnerships', 'jp-no-employer').includes('JobPosting'));
+    assert.ok(!page('learnerships', 'jp-unverified').includes('JobPosting'));
+    assert.ok(!page('bursaries', 'jp-bursary').includes('JobPosting'));
   } finally { fs.rmSync(tmp, { recursive: true, force: true }); }
 });
