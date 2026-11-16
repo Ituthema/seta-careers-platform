@@ -2990,5 +2990,21 @@
     "last_checked": null,
     "last_success": null,
     "notes": "Aggregator: DISCOVERY LEAD ONLY, never primary evidence (docs/source-expansion-2026-10.md Tier 4). Use it to spot opportunities, then confirm role, closing date, eligibility and application link on the official employer, SETA, institution or government page before drafting. Closed adverts often stay online, so recheck the date. Do not copy article text; record facts and the official link. Crawler honours robots.txt."
+  },
+  {
+    "source_id": "peermont-trusts",
+    "name": "Peermont Resorts — Education and Community Benefit Trusts (press room)",
+    "type": "private",
+    "url": "https://www.peermont.com/category/press-room",
+    "active": true,
+    "crawl_strategy": "html",
+    "frequency": "weekly",
+    "priority": 2,
+    "last_checked": null,
+    "last_success": null,
+    "notes": "Official Peermont announcements for the Peermont Education Trust and Peermont Community Benefit Trust bursaries (Ekurhuleni residents, full-time undergraduate). Yearly intake announced around August-November; the 2027 Community Benefit Trust post lists a 30 November 2026 closing date (press-room index, 2026-11-16). Individual posts sit behind a bot check, so read them in a browser.",
+    "access": "manual",
+    "manual_reason": "Individual announcement pages return a bot-verification screen ('One moment, please...') to automated clients (2026-11-16).",
+    "manual_since": "2026-11-16"
   }
 ]
