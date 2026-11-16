@@ -7,6 +7,14 @@ Drafts for `npm run add:listing` (see `docs/source-registry.md`, "Adding a listi
 
 Delete or move a draft once it is published or its closing date has passed.
 
+## 2026-11-16 bursary search (Nov 2026 to Jan 2027 closing window)
+
+| Draft | Status |
+|---|---|
+| `emalahleni-external-bursary-2027.json` | Closes **27 Nov 2026** per a third-party article that links the municipal notice. `verified: false`: the fetch tool could not open emalahleni.gov.za. Open the notice, confirm the date and details, then publish. |
+
+Checked and **not** drafted because they have already closed: Garden Route District Municipality external bursaries 2027 (closed 31 Oct 2026, official notice read on gardenroute.gov.za) and the Free State Provincial Government bursaries 2027 (closed 13 Nov 2026 per a third-party article). Ekurhuleni (id 020) is already listed. Other 2027 leads seen only on aggregators, with no closing date confirmed on an official page: Nkangala District Municipality, Emfuleni Mayoral Bursary, George and Witzenberg municipalities, Limpopo LDARD and Public Works, Gauteng Sport, Arts, Culture and Recreation, Office of the Premier (provincial).
+
 ## 2026-10-25 from setacareers.co.za (third-party blog, not a SETA)
 
 | Draft | Status |
