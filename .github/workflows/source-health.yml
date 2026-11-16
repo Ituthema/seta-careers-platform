@@ -8,11 +8,18 @@ on:
 # This job never pushes to main. It publishes its reports as a run artifact and
 # a job summary instead of committing them: the reports contain a generated_at
 # timestamp, so a "regenerate and diff against the committed copy" gate can
-# never pass. The one thing it does write is a review branch
-# (automation/source-freshness) carrying the registry's last_checked /
-# last_success timestamps; merging that branch is optional and a human decision.
+# never pass. (The reports/*.json files are therefore not tracked in git; see
+# reports/README.md for where to find the latest ones.) The one thing it does
+# write is a review branch (automation/source-freshness) carrying the registry's
+# last_checked / last_success timestamps, and it opens or updates ONE pull request
+# for it; merging is a human decision.
+#
+# Needs: Settings > Actions > General > "Allow GitHub Actions to create and approve
+# pull requests". Pull requests created with the default GITHUB_TOKEN do not start
+# other workflows, so run Quality Gates manually on the branch if you want them.
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: source-health
@@ -44,8 +51,10 @@ jobs:
       - name: Run source health check (write report)
         run: npm run source:health -- --write-report
 
-      - name: Record last_checked / last_success on a review branch
+      - name: Record last_checked / last_success and open or update a pull request
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           node scripts/apply-source-freshness.js
           if git diff --quiet -- data/sources.json; then
@@ -53,12 +62,23 @@ jobs:
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git checkout -b automation/source-freshness
+            TODAY="$(date -u +%F)"
+            git checkout -B automation/source-freshness
             git add data/sources.json
-            git commit -m "Record source freshness from the $(date -u +%F) health check"
+            git commit -m "Record source freshness from the $TODAY health check"
             git push -f origin automation/source-freshness
+            BODY="Automated weekly source freshness ($TODAY).
+
+          Records \`last_checked\` / \`last_success\` in \`data/sources.json\` from the Source Registry Health run. No other file changes. Without this, the registry shows no check history. Reachability results are in the \`source-reports\` artifact of the same run; 403s from government and SETA sites are expected and do not mean a source is empty.
+
+          Review the diff, then merge. Quality Gates do not start automatically on bot-created pull requests."
+            if [ -n "$(gh pr list --head automation/source-freshness --state open --json number --jq '.[0].number')" ]; then
+              gh pr edit automation/source-freshness --title "data: record source freshness ($TODAY)" --body "$BODY"
+            else
+              gh pr create --base main --head automation/source-freshness --title "data: record source freshness ($TODAY)" --body "$BODY"
+            fi
             echo "### Source freshness" >> "$GITHUB_STEP_SUMMARY"
-            echo "Branch \`automation/source-freshness\` holds updated last_checked / last_success timestamps. Merging is optional." >> "$GITHUB_STEP_SUMMARY"
+            echo "Pull request \`automation/source-freshness\` holds updated last_checked / last_success timestamps." >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Summarise reports
