@@ -1,0 +1,40 @@
+{
+  "title": "Emfuleni Local Municipality Mayoral Bursary 2027",
+  "category": "bursary",
+  "sector": "Local government bursary for first-year tertiary study",
+  "province": "Gauteng",
+  "qualification_level": "First-year study at a tertiary institution",
+  "stipend": "Not stated",
+  "closing_date": "2026-11-30",
+  "application_url": "https://emfuleni.gov.za/wp-content/uploads/2026/09/ELM-090926-Mayoral-Bursary-Application-Form-2027.pdf",
+  "source_name": "Emfuleni Local Municipality — Mayoral Bursary 2027 application form",
+  "source_url": "https://emfuleni.gov.za/",
+  "description": "Emfuleni Local Municipality's Mayoral Bursary is for Grade 12 learners who live in the municipality and are entering their first year at a tertiary institution in 2027. Applicants need a Grade 12 average of at least 60% and a household income of R350,000 a year or less, with priority for disadvantaged and indigent-register households. The bursary covers registration and tuition fees, a laptop and prescribed books, and may fund accommodation and food for selected students. Applications close on 30 November 2026. Confirm every detail on the municipal notice before applying.",
+  "eligibility": [
+    "Grade 12 learner living in the Emfuleni Local Municipality area",
+    "Grade 12 average of at least 60%",
+    "Entering first year at a tertiary institution in 2027",
+    "Household income of R350,000 a year or less",
+    "Priority for disadvantaged and indigent-register households"
+  ],
+  "documents_needed": [
+    "Completed official municipal application form",
+    "Proof of admission to a tertiary institution",
+    "Testimonial letter from the matric high school"
+  ],
+  "employment_eligibility": [
+    "student"
+  ],
+  "tags": [
+    "bursary",
+    "gauteng",
+    "emfuleni",
+    "municipality",
+    "2027"
+  ],
+  "verified": false,
+  "featured": false,
+  "verification_status": "needs_official_confirmation",
+  "verification_checked_at": "2026-11-16",
+  "verification_notes": "Details come from a StudentRoom republication of the municipal notice. The application form URL (emfuleni.gov.za, uploaded 2026/09) is the official link that article gives; I could not open emfuleni.gov.za myself, so the closing date (30 Nov 2026), the 60% average, the R350,000 income cap and the covered costs are NOT yet confirmed on the official notice. Forms are also collected from municipal offices and public libraries. Contact details on the article: 084 686 4418, MarthaM@emfuleni.gov.za. Leave verified false until the municipal notice or form confirms the date and criteria. Replace source_url with the specific notice page once you have it."
+}

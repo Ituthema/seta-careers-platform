@@ -7,6 +7,30 @@ Drafts for `npm run add:listing` (see `docs/source-registry.md`, "Adding a listi
 
 Delete or move a draft once it is published or its closing date has passed.
 
+## 2026-11-16 aggregator leads, batch 2
+
+Leads that appeared only on aggregator sites were opened one by one. Two are still open and have drafts. Both are `verified: false` because the official pages could not be opened from this session.
+
+| Draft | Status |
+|---|---|
+| `emfuleni-mayoral-bursary-2027.json` | Closes **30 Nov 2026** per a StudentRoom republication that links the municipal form. Confirm the date, the 60% average and the R350,000 income cap on emfuleni.gov.za. |
+| `silulumanzi-bursary-2027.json` | Closes **30 Nov 2026** per setacareers.co.za, which names the Silulumanzi Training and Development page as the source. Physical applications only. Confirm the date and criteria on silulumanzi.com. |
+
+Checked and **not** drafted because they have already closed:
+
+| Lead | Closed |
+|---|---|
+| George Municipality bursary 2027 | 23 Oct 2026 |
+| Nkangala District Municipality bursary 2027 | 30 Oct 2026 |
+| Limpopo LDARD bursary 2027 | 30 Oct 2026 |
+| Limpopo Public Works bursary 2027 | 31 Oct 2026 |
+| Gauteng Sport, Arts, Culture and Recreation bursary | 30 Sep 2026 |
+| Witzenberg Municipality bursary 2027 | 13 Nov 2026 |
+| Free State Office of the Premier and provincial bursaries 2027 | 13 Nov 2026 |
+| Motsepe Foundation Bursary Programme 2027 | 16 Oct 2026 |
+| Tomorrow Trust tertiary bursary 2027 | 30 Sep 2026 |
+| Schauenburg Education Trust bursary | 31 Jul 2026 |
+
 ## 2026-11-16 bursary search (Nov 2026 to Jan 2027 closing window)
 
 | Draft | Status |
