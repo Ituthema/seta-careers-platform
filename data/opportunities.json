@@ -582,7 +582,7 @@
     "source_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Application.html",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "LH Marthinusen is accepting apprenticeship applications for its Johannesburg branch. The official form lists Armature Winder, Electrician, Welder, and Fitter and Turner trades. Minimum requirement: N2 / NCV Level 4 with four completed subjects relevant to the trade. A CV in Word or PDF format and supporting documents are required. Applications close 15 November 2026. The employer explicitly asks candidates not to submit multiple applications across branches or trades.",
     "eligibility": [
       "N2 / NCV Level 4 with four complete subjects in the relevant field or trade",
@@ -609,7 +609,7 @@
     ],
     "posted_date": "2026-10-22",
     "updated_date": "2026-10-28",
-    "publication_status": "open"
+    "publication_status": "expired"
   },
   {
     "id": "017",
@@ -626,7 +626,7 @@
     "source_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Applications-DB.html",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "LH Marthinusen is accepting apprenticeship applications for its Durban branch. The official form lists Armature Winder, Electrician, Welder, and Fitter and Turner trades. Minimum requirement: N2 / NCV Level 4 with four completed subjects relevant to the trade. A CV in Word or PDF format and supporting documents are required. Applications close 15 November 2026. The employer explicitly asks candidates not to submit multiple applications across branches or trades.",
     "eligibility": [
       "N2 / NCV Level 4 with four complete subjects in the relevant field or trade",
@@ -653,7 +653,7 @@
     ],
     "posted_date": "2026-10-22",
     "updated_date": "2026-10-28",
-    "publication_status": "open"
+    "publication_status": "expired"
   },
   {
     "id": "018",
@@ -670,7 +670,7 @@
     "source_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Applications-CT.html",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "LH Marthinusen is accepting apprenticeship applications for its Cape Town branch. The official form lists Armature Winder, Electrician, Welder, and Fitter and Turner trades. Minimum requirement: N2 / NCV Level 4 with four completed subjects relevant to the trade. A CV in Word or PDF format and supporting documents are required. Applications close 15 November 2026. The employer explicitly asks candidates not to submit multiple applications across branches or trades.",
     "eligibility": [
       "N2 / NCV Level 4 with four complete subjects in the relevant field or trade",
@@ -697,7 +697,7 @@
     ],
     "posted_date": "2026-10-22",
     "updated_date": "2026-10-28",
-    "publication_status": "open"
+    "publication_status": "expired"
   },
   {
     "id": "019",
@@ -714,7 +714,7 @@
     "source_url": "https://www.lhm.co.za/vacancies/Apprenticeship-Applications-PB.html",
     "verified": true,
     "featured": false,
-    "expired": false,
+    "expired": true,
     "description": "LH Marthinusen is accepting apprenticeship applications for its Phalaborwa branch. The official form lists Armature Winder, Electrician, Welder, and Fitter and Turner trades. Minimum requirement: N2 / NCV Level 4 with four completed subjects relevant to the trade. A CV in Word or PDF format and supporting documents are required. Applications close 15 November 2026. The employer explicitly asks candidates not to submit multiple applications across branches or trades.",
     "eligibility": [
       "N2 / NCV Level 4 with four complete subjects in the relevant field or trade",
@@ -741,7 +741,7 @@
     ],
     "posted_date": "2026-10-22",
     "updated_date": "2026-10-28",
-    "publication_status": "open"
+    "publication_status": "expired"
   },
   {
     "id": "020",
